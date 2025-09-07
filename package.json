@@ -1,27 +1,71 @@
 {
-  "name": "web-passion-marine",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.2"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
-  }
+    "name": "web-passion-marine",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "lint": "next lint",
+        "lint:fix": "next lint --fix",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "type-check": "tsc --noEmit",
+        "clean": "rm -rf .next out build dist",
+        "test": "echo \"No tests specified\" && exit 0",
+        "test:watch": "echo \"No tests specified\" && exit 0",
+        "prepare": "husky install",
+        "pre-commit": "lint-staged",
+        "build:development": "NODE_ENV=development next build",
+        "build:staging": "NODE_ENV=staging next build",
+        "build:production": "NODE_ENV=production next build",
+        "deploy:development": "NODE_ENV=development npm run build && npm run start",
+        "deploy:staging": "NODE_ENV=staging npm run build && npm run start",
+        "deploy:production": "NODE_ENV=production npm run build && npm run start"
+    },
+    "dependencies": {
+        "@radix-ui/react-slot": "^1.2.3",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.16",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.1.6",
+        "next": "15.5.2",
+        "prettier": "^3.6.2",
+        "prettier-plugin-tailwindcss": "^0.6.14",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "tailwind-merge": "^3.3.1"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20.19.13",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.5.2",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,md,yml,yaml}": [
+            "prettier --write"
+        ],
+        "*.{css,scss}": [
+            "prettier --write"
+        ]
+    },
+    "engines": {
+        "node": ">=18.18.0",
+        "npm": ">=8.0.0"
+    }
 }

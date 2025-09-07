@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-css-peek",
+    "ms-vscode.vscode-html-css-support",
+    "PKief.material-icon-theme",
+    "ms-vscode.vscode-git-graph",
+    "eamodio.gitlens",
+    "ms-vscode.vscode-thunder-client",
+    "ms-vscode.vscode-restclient",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense"
+  ]
+}
