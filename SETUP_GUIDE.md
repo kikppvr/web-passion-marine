@@ -56,62 +56,62 @@ src/
 
 ### Custom Color Palette
 
-- **Primary**: Blue theme (50-950 shades)
-- **Secondary**: Gray theme (50-950 shades)
-- **Accent**: Light blue theme (50-950 shades)
-- **Success**: Green theme (50-950 shades)
-- **Warning**: Yellow theme (50-950 shades)
-- **Error**: Red theme (50-950 shades)
+-   **Primary**: Blue theme (50-950 shades)
+-   **Secondary**: Gray theme (50-950 shades)
+-   **Accent**: Light blue theme (50-950 shades)
+-   **Success**: Green theme (50-950 shades)
+-   **Warning**: Yellow theme (50-950 shades)
+-   **Error**: Red theme (50-950 shades)
 
 ### Custom Components
 
 Pre-built component classes in `globals.css`:
 
-- `.btn` - Base button styles
-- `.btn-primary` - Primary button variant
-- `.btn-secondary` - Secondary button variant
-- `.btn-outline` - Outline button variant
-- `.btn-ghost` - Ghost button variant
-- `.card` - Card component styles
-- `.input` - Input field styles
+-   `.btn` - Base button styles
+-   `.btn-primary` - Primary button variant
+-   `.btn-secondary` - Secondary button variant
+-   `.btn-outline` - Outline button variant
+-   `.btn-ghost` - Ghost button variant
+-   `.card` - Card component styles
+-   `.input` - Input field styles
 
 ### Animations
 
 Custom animations defined in `tailwind.config.ts`:
 
-- `animate-fade-in` - Fade in effect
-- `animate-slide-up` - Slide up effect
-- `animate-slide-down` - Slide down effect
-- `animate-scale-in` - Scale in effect
+-   `animate-fade-in` - Fade in effect
+-   `animate-slide-up` - Slide up effect
+-   `animate-slide-down` - Slide down effect
+-   `animate-scale-in` - Scale in effect
 
 ## 🛠️ Development Tools
 
 ### Prettier Configuration
 
-- **Indentation**: 4 spaces
-- **Quotes**: Single quotes
-- **Semicolons**: Disabled
-- **Trailing commas**: ES5 compatible
-- **Print width**: 80 characters
-- **Tailwind plugin**: Automatic class sorting
+-   **Indentation**: 4 spaces
+-   **Quotes**: Single quotes
+-   **Semicolons**: Disabled
+-   **Trailing commas**: ES5 compatible
+-   **Print width**: 80 characters
+-   **Tailwind plugin**: Automatic class sorting
 
 ### ESLint Configuration
 
-- **Next.js**: Core web vitals and TypeScript rules
-- **Prettier**: Integration with ESLint
-- **Custom rules**: Unused vars, explicit any warnings
+-   **Next.js**: Core web vitals and TypeScript rules
+-   **Prettier**: Integration with ESLint
+-   **Custom rules**: Unused vars, explicit any warnings
 
 ### VS Code Extensions
 
 Recommended extensions in `.vscode/extensions.json`:
 
-- Prettier - Code formatter
-- Tailwind CSS IntelliSense
-- ESLint
-- TypeScript support
-- Auto Rename Tag
-- Path Intellisense
-- Material Icon Theme
+-   Prettier - Code formatter
+-   Tailwind CSS IntelliSense
+-   ESLint
+-   TypeScript support
+-   Auto Rename Tag
+-   Path Intellisense
+-   Material Icon Theme
 
 ## 📝 Available Scripts
 
@@ -155,9 +155,9 @@ npm run prepare          # Install Husky git hooks
 
 ### Environment Files
 
-- `env.example` - Development environment template
-- `env.staging.example` - Staging environment template
-- `env.production.example` - Production environment template
+-   `env.example` - Development environment template
+-   `env.staging.example` - Staging environment template
+-   `env.production.example` - Production environment template
 
 ### Required Environment Variables
 
@@ -244,6 +244,7 @@ const id = generateId() // Random string
     ```
 
 2. **Configure Environment**
+
     - Copy `env.production.example` to `.env.production`
     - Update all environment variables for production
     - Set `NODE_ENV=production`
@@ -266,9 +267,9 @@ const id = generateId() // Random string
 
 ### Environment-Specific URLs
 
-- **Development**: `https://dev.kikcodes.dev`
-- **Staging**: `https://staging.kikcodes.dev`
-- **Production**: `https://kikcodes.dev`
+-   **Development**: `https://dev.kikcodes.dev`
+-   **Staging**: `https://staging.kikcodes.dev`
+-   **Production**: `https://kikcodes.dev`
 
 ### Plesk Configuration
 
@@ -284,16 +285,19 @@ const id = generateId() // Random string
 ### Common Issues
 
 1. **Tailwind classes not working**
+
     - Check if `globals.css` is imported in `layout.tsx`
     - Verify `tailwind.config.ts` is properly configured
     - Restart the development server
 
 2. **Prettier not formatting**
+
     - Check `.prettierrc` configuration
     - Ensure Prettier extension is installed in VS Code
     - Run `npm run format` manually
 
 3. **ESLint errors**
+
     - Run `npm run lint:fix` to auto-fix issues
     - Check `eslint.config.mjs` configuration
     - Ensure all dependencies are installed
@@ -312,6 +316,7 @@ const id = generateId() // Random string
     ```
 
 2. **Bundle Size**
+
     - Use dynamic imports for large components
     - Optimize images with Next.js Image component
     - Remove unused dependencies
@@ -323,11 +328,11 @@ const id = generateId() // Random string
 
 ## 📚 Additional Resources
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Prettier Documentation](https://prettier.io/docs/en/)
-- [ESLint Documentation](https://eslint.org/docs/)
-- [Plesk Node.js Guide](https://docs.plesk.com/en-US/obsidian/administrator-guide/website-management/nodejs-applications.77804/)
+-   [Next.js Documentation](https://nextjs.org/docs)
+-   [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+-   [Prettier Documentation](https://prettier.io/docs/en/)
+-   [ESLint Documentation](https://eslint.org/docs/)
+-   [Plesk Node.js Guide](https://docs.plesk.com/en-US/obsidian/administrator-guide/website-management/nodejs-applications.77804/)
 
 ## 🤝 Contributing
 

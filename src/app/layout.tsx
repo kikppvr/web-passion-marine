@@ -1,5 +1,11 @@
 import type { Metadata } from 'next'
+import { Roboto } from 'next/font/google'
 import './globals.css'
+
+const roboto = Roboto({
+    weight: ['300', '400', '500', '700', '900'],
+    subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
     title: 'Web Passion Marine - บริการทางทะเลมืออาชีพ',
@@ -14,12 +20,7 @@ export default function RootLayout({
     return (
         <html lang="th">
             <body
-                className="font-sans antialiased"
-                style={{
-                    fontFamily:
-                        "'Noto Sans Thai', 'Sarabun', 'Kanit', system-ui, sans-serif",
-                }}
-            >
+                className={`${roboto.className} antialiased`}>
                 {children}
             </body>
         </html>
