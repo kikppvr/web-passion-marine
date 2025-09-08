@@ -1,6 +1,5 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
     // Enable experimental features
     experimental: {
         // Enable server components
@@ -102,4 +101,4 @@ const nextConfig: NextConfig = {
     swcMinify: true,
 }
 
-export default nextConfig
+module.exports = nextConfig
