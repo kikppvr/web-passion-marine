@@ -19,37 +19,50 @@
         "build:production": "NODE_ENV=production next build",
         "deploy:development": "NODE_ENV=development npm run build && npm run start",
         "deploy:staging": "NODE_ENV=staging npm run build && npm run start",
-        "deploy:production": "NODE_ENV=production npm run build && npm run start"
+        "deploy:production": "NODE_ENV=production npm run build && npm run start",
+        "postinstall": "next telemetry disable"
     },
     "dependencies": {
-        "@radix-ui/react-slot": "^1.2.3",
+        "@radix-ui/react-slot": "^1.0.2",
         "@tailwindcss/aspect-ratio": "^0.4.2",
-        "@tailwindcss/forms": "^0.5.10",
-        "@tailwindcss/typography": "^0.5.16",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.4",
-        "next": "^13.5.0",
-        "prettier": "^3.6.2",
-        "prettier-plugin-tailwindcss": "^0.6.14",
-        "react": "^18.3.0",
-        "react-dom": "^18.3.0",
-        "tailwind-merge": "^3.3.1"
+        "@tailwindcss/forms": "^0.5.7",
+        "@tailwindcss/typography": "^0.5.10",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.0.0",
+        "eslint-config-prettier": "^8.10.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "next": "^13.5.6",
+        "prettier": "^2.8.8",
+        "prettier-plugin-tailwindcss": "^0.2.8",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwind-merge": "^1.14.0"
     },
     "devDependencies": {
-        "@eslint/eslintrc": "^3",
-        "@tailwindcss/postcss": "^4",
-        "@types/node": "^20.19.13",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
+        "@eslint/eslintrc": "^2.1.4",
+        "@types/node": "^16.18.68",
+        "@types/react": "^18.2.45",
+        "@types/react-dom": "^18.2.18",
         "eslint": "^8.57.0",
-        "eslint-config-next": "^13.5.0",
-        "tailwindcss": "^4",
-        "typescript": "^5"
+        "eslint-config-next": "^13.5.6",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^4.9.5"
     },
     "engines": {
-        "node": ">=16.0.0",
-        "npm": ">=7.0.0"
+        "node": ">=16.0.0 <17.0.0",
+        "npm": ">=7.0.0 <9.0.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

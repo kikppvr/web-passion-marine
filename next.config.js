@@ -30,11 +30,6 @@ const nextConfig = {
         ],
     },
 
-    // Environment-specific configuration
-    env: {
-        CUSTOM_KEY: process.env.CUSTOM_KEY,
-    },
-
     // Headers for security
     async headers() {
         return [
