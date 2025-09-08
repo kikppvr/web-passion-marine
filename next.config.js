@@ -54,24 +54,31 @@ const nextConfig = {
     },
 
     // Redirects
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/comingsoon',
-                permanent: true,
-            },
-            {
-                source: '/home',
-                destination: '/',
-                permanent: true,
-            },
-        ]
-    },
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: '/',
+    //             destination: '/comingsoon',
+    //         },
+    //         {
+    //             source: '/home',
+    //             destination: '/',
+    //             permanent: false,
+    //         },
+    //     ]
+    // },
 
     // Rewrites for API routes
     async rewrites() {
         return [
+            {
+                source: '/',
+                destination: '/comingsoon',
+            },
+            {
+                source: '/home',
+                destination: '/comingsoon',
+            },
             {
                 source: '/api/:path*',
                 destination: '/api/:path*',
