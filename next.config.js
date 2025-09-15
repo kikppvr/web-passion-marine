@@ -11,19 +11,19 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'dev.kikcodes.dev',
+                hostname: 'dev.passionmarine.co.th',
                 port: '',
                 pathname: '/**',
             },
             {
                 protocol: 'https',
-                hostname: 'stg.kikcodes.dev',
+                hostname: 'stg.passionmarine.co.th',
                 port: '',
                 pathname: '/**',
             },
             {
                 protocol: 'https',
-                hostname: 'kikcodes.dev',
+                hostname: 'passionmarine.co.th',
                 port: '',
                 pathname: '/**',
             },
