@@ -17,7 +17,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'staging.kikcodes.dev',
+                hostname: 'stg.kikcodes.dev',
                 port: '',
                 pathname: '/**',
             },

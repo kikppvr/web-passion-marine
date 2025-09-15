@@ -7,7 +7,7 @@ This guide covers deploying your Next.js application to Plesk hosting with envir
 ### Environments
 
 -   **Development**: `https://dev.kikcodes.dev`
--   **Staging**: `https://staging.kikcodes.dev`
+-   **Staging**: `https://stg.kikcodes.dev`
 -   **Production**: `https://kikcodes.dev`
 
 ## 📋 Pre-Deployment Checklist
@@ -73,11 +73,11 @@ tar -czf web-passion-marine-production.tar.gz \
 1. **Create Node.js App**
 
     ```
-    Domain: kikcodes.dev (or staging.kikcodes.dev)
+    Domain: kikcodes.dev (or stg.kikcodes.dev)
     Document Root: /httpdocs
     Application Root: /httpdocs
     Application Startup File: server.js
-    Node.js Version: 20.x (recommended)
+    Node.js Version: 22.19.0 (recommended)
     ```
 
 2. **Environment Variables**
@@ -149,7 +149,7 @@ ENABLE_DEBUG_TOOLS=true
 ```bash
 # .env.staging
 NODE_ENV=staging
-NEXTAUTH_URL=https://staging.kikcodes.dev
+NEXTAUTH_URL=https://stg.kikcodes.dev
 DEBUG=false
 LOG_LEVEL=info
 ENABLE_ANALYTICS=true
@@ -171,7 +171,7 @@ ENABLE_MAINTENANCE_MODE=false
 
 ### 1. Node.js Configuration
 
--   **Version**: Node.js 20.x (LTS)
+-   **Version**: Node.js 22.19.0 (LTS)
 -   **Startup File**: `server.js`
 -   **Application Root**: `/httpdocs`
 -   **Document Root**: `/httpdocs`
@@ -179,7 +179,7 @@ ENABLE_MAINTENANCE_MODE=false
 ### 2. Domain Configuration
 
 -   **Primary Domain**: `kikcodes.dev`
--   **Subdomains**: `dev.kikcodes.dev`, `staging.kikcodes.dev`
+-   **Subdomains**: `dev.kikcodes.dev`, `stg.kikcodes.dev`
 -   **SSL**: Enable SSL certificates for all domains
 -   **Redirects**: HTTP to HTTPS redirects
 

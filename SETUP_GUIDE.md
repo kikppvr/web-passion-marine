@@ -268,14 +268,14 @@ const id = generateId() // Random string
 ### Environment-Specific URLs
 
 -   **Development**: `https://dev.kikcodes.dev`
--   **Staging**: `https://staging.kikcodes.dev`
+-   **Staging**: `https://stg.kikcodes.dev`
 -   **Production**: `https://kikcodes.dev`
 
 ### Plesk Configuration
 
 1. **Node.js App**: Create new Node.js application
 2. **Startup File**: Set to `server.js`
-3. **Node Version**: Use Node.js 18+ (recommended: 20.x)
+3. **Node Version**: Use Node.js 22.19.0 (recommended)
 4. **Environment Variables**: Add all required env vars
 5. **Domain**: Point to your domain
 6. **SSL**: Enable SSL certificate
