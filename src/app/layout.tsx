@@ -8,7 +8,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-    title: 'Web Passion Marine - บริการทางทะเลมืออาชีพ',
+    title: 'Passion Marine - บริการทางทะเลมืออาชีพ',
     description: 'บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย',
 }
 
@@ -19,8 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="th">
-            <body
-                className={`${roboto.className} antialiased`}>
+            <body className={`${roboto.className} antialiased`}>
                 {children}
             </body>
         </html>
