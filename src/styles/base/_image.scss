@@ -1,0 +1,321 @@
+// ========================================
+// IMAGE STYLES - Passion Marine Design System
+// ========================================
+
+// Base Image Styles
+.img-base {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-responsive {
+    @extend .img-base;
+    width: 100%;
+}
+
+.img-rounded {
+    @extend .img-base;
+    border-radius: var(--radius-lg);
+}
+
+.img-circle {
+    @extend .img-base;
+    border-radius: var(--radius-full);
+}
+
+.img-thumbnail {
+    @extend .img-base;
+    padding: var(--space-1);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+}
+
+// Image Sizes
+.img-xs {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.img-sm {
+    width: 2rem;
+    height: 2rem;
+}
+
+.img-md {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.img-lg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.img-xl {
+    width: 4rem;
+    height: 4rem;
+}
+
+.img-2xl {
+    width: 6rem;
+    height: 6rem;
+}
+
+.img-3xl {
+    width: 8rem;
+    height: 8rem;
+}
+
+// Image Aspect Ratios
+.img-aspect-square {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.img-aspect-video {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.img-aspect-portrait {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.img-aspect-landscape {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+// Image Object Fit
+.img-cover {
+    object-fit: cover;
+}
+
+.img-contain {
+    object-fit: contain;
+}
+
+.img-fill {
+    object-fit: fill;
+}
+
+.img-none {
+    object-fit: none;
+}
+
+.img-scale-down {
+    object-fit: scale-down;
+}
+
+// Image Filters
+.img-grayscale {
+    filter: grayscale(100%);
+}
+
+.img-blur {
+    filter: blur(4px);
+}
+
+.img-brightness {
+    filter: brightness(1.2);
+}
+
+.img-contrast {
+    filter: contrast(1.2);
+}
+
+.img-saturate {
+    filter: saturate(1.2);
+}
+
+.img-sepia {
+    filter: sepia(100%);
+}
+
+// Image Hover Effects
+.img-hover-scale {
+    transition: transform var(--transition-base);
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.img-hover-grayscale {
+    transition: filter var(--transition-base);
+
+    &:hover {
+        filter: grayscale(100%);
+    }
+}
+
+.img-hover-brightness {
+    transition: filter var(--transition-base);
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
+// Image Loading States
+.img-loading {
+    background-color: var(--bg-secondary);
+    background-image: linear-gradient(
+        90deg,
+        var(--bg-secondary) 25%,
+        var(--bg-tertiary) 50%,
+        var(--bg-secondary) 75%
+    );
+    background-size: 200% 100%;
+    animation: img-loading 1.5s infinite;
+}
+
+@keyframes img-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.img-error {
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+
+    &::before {
+        content: '📷';
+        font-size: var(--text-lg);
+        margin-right: var(--space-2);
+    }
+}
+
+// Image Gallery Styles
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+
+    .img-gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        aspect-ratio: 1 / 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-base);
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-4);
+
+            .img-gallery-title {
+                color: white;
+                font-size: var(--text-sm);
+                font-weight: var(--font-medium);
+                margin: 0;
+            }
+        }
+
+        &:hover .img-gallery-overlay {
+            opacity: 1;
+        }
+    }
+}
+
+// Image Comparison Styles
+.img-comparison {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+
+    .img-comparison-before,
+    .img-comparison-after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-comparison-after {
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    }
+
+    .img-comparison-slider {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background-color: white;
+        cursor: ew-resize;
+        z-index: 10;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-md);
+        }
+    }
+}
+
+// Image Lazy Loading
+.img-lazy {
+    opacity: 0;
+    transition: opacity var(--transition-base);
+
+    &.img-loaded {
+        opacity: 1;
+    }
+}
+
+// Image Placeholder
+.img-placeholder {
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-lg);
+
+    &::before {
+        content: '🖼️';
+        font-size: var(--text-2xl);
+        margin-right: var(--space-2);
+    }
+}

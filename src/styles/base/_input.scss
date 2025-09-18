@@ -1,0 +1,221 @@
+// ========================================
+// INPUT STYLES - Passion Marine Design System
+// ========================================
+
+.input-base {
+    display: block;
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-all);
+
+    &:focus {
+        outline: none;
+        border-color: var(--border-focus);
+        box-shadow: 0 0 0 3px rgba(28, 69, 131, 0.1);
+    }
+
+    &:disabled {
+        background-color: var(--bg-secondary);
+        color: var(--text-disabled);
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    &::placeholder {
+        color: var(--text-tertiary);
+    }
+}
+
+.input-sm {
+    @extend .input-base;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+}
+
+.input-lg {
+    @extend .input-base;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-xl);
+}
+
+.input-error {
+    @extend .input-base;
+    border-color: var(--border-error);
+
+    &:focus {
+        border-color: var(--border-error);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+}
+
+.input-success {
+    @extend .input-base;
+    border-color: var(--border-success);
+
+    &:focus {
+        border-color: var(--border-success);
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+}
+
+// Label Styles
+.label-base {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.label-required::after {
+    content: ' *';
+    color: var(--error);
+}
+
+// Helper Text Styles
+.helper-text {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    margin-top: var(--space-1);
+}
+
+.helper-text-error {
+    @extend .helper-text;
+    color: var(--error);
+}
+
+.helper-text-success {
+    @extend .helper-text;
+    color: var(--success);
+}
+
+// Input Group Styles
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    .input-base {
+        border-radius: 0;
+
+        &:first-child {
+            border-top-left-radius: var(--radius-lg);
+            border-bottom-left-radius: var(--radius-lg);
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--radius-lg);
+            border-bottom-right-radius: var(--radius-lg);
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-left: 0;
+        }
+    }
+
+    .input-addon {
+        display: flex;
+        align-items: center;
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        color: var(--text-secondary);
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+
+        &:first-child {
+            border-top-left-radius: var(--radius-lg);
+            border-bottom-left-radius: var(--radius-lg);
+            border-right: 0;
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--radius-lg);
+            border-bottom-right-radius: var(--radius-lg);
+            border-left: 0;
+        }
+    }
+}
+
+// Textarea Styles
+.textarea-base {
+    @extend .input-base;
+    min-height: 80px;
+    resize: vertical;
+}
+
+// Select Styles
+.select-base {
+    @extend .input-base;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right var(--space-3) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: var(--space-10);
+    appearance: none;
+}
+
+// Checkbox Styles
+.checkbox-base {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-primary);
+    cursor: pointer;
+    transition: var(--transition-all);
+
+    &:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(28, 69, 131, 0.1);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+// Radio Styles
+.radio-base {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-full);
+    background-color: var(--bg-primary);
+    cursor: pointer;
+    transition: var(--transition-all);
+
+    &:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(28, 69, 131, 0.1);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
