@@ -1,309 +1,57 @@
-// ========================================
-// MODAL BASE STYLES - Passion Marine Design System
-// ========================================
+@use '../base/base' as *;
 
-.modal-overlay {
+%modal-base {
+    display: none;
     position: fixed;
-    inset: 0;
-    background-color: var(--bg-overlay);
-    backdrop-filter: blur(4px);
-    z-index: var(--z-modal-backdrop);
-    display: flex;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1050;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    padding: var(--space-4);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-
-    &.modal-overlay-open {
-        opacity: 1;
-    }
-}
-
-.modal-container {
-    background-color: var(--bg-primary);
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-2xl);
-    max-width: 90vw;
-    max-height: 90vh;
     overflow: hidden;
-    transform: scale(0.95);
-    transition: transform var(--transition-base);
 
-    .modal-overlay-open & {
-        transform: scale(1);
-    }
-}
-
-.modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-6) var(--space-6) var(--space-4);
-    border-bottom: 1px solid var(--border-primary);
-
-    .modal-title {
-        font-size: var(--text-xl);
-        font-weight: var(--font-semibold);
-        color: var(--text-primary);
-        margin: 0;
+    &::-webkit-scrollbar {
+        display: none;
     }
 
-    .modal-close {
-        background: none;
-        border: none;
-        padding: var(--space-2);
-        cursor: pointer;
-        border-radius: var(--radius-md);
-        color: var(--text-tertiary);
-        transition: var(--transition-fast);
+    &.open {
+        display: flex;
+    }
 
-        &:hover {
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-        }
+    .backdrop-area {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
 
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(28, 69, 131, 0.1);
+    .modal-content {
+        position: relative;
+        width: 100%;
+        max-width: $max-width-mobile;
+        max-height: 100vh;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }
 
-.modal-body {
-    padding: var(--space-6);
-    overflow-y: auto;
-    max-height: 60vh;
+.modal {
+    @extend %modal-base;
 }
 
-.modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--space-3);
-    padding: var(--space-4) var(--space-6) var(--space-6);
-    border-top: 1px solid var(--border-primary);
-    background-color: var(--bg-secondary);
-}
-
-// Modal Sizes
-.modal-sm {
-    width: 100%;
-    max-width: 400px;
-}
-
-.modal-md {
-    width: 100%;
-    max-width: 600px;
-}
-
-.modal-lg {
-    width: 100%;
-    max-width: 800px;
-}
-
-.modal-xl {
-    width: 100%;
-    max-width: 1200px;
-}
-
-// Modal Variants
-.modal-confirm {
-    .modal-header {
-        border-bottom-color: var(--warning);
-
-        .modal-title {
-            color: var(--warning-dark);
-        }
-    }
-}
-
-.modal-danger {
-    .modal-header {
-        border-bottom-color: var(--error);
-
-        .modal-title {
-            color: var(--error-dark);
-        }
-    }
-}
-
-.modal-success {
-    .modal-header {
-        border-bottom-color: var(--success);
-
-        .modal-title {
-            color: var(--success-dark);
-        }
-    }
-}
-
-// Drawer Styles
-.drawer-overlay {
+.modal-backdrop {
     position: fixed;
-    inset: 0;
-    background-color: var(--bg-overlay);
-    backdrop-filter: blur(4px);
-    z-index: var(--z-modal-backdrop);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-
-    &.drawer-overlay-open {
-        opacity: 1;
-    }
-}
-
-.drawer-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100%;
-    max-width: 400px;
-    background-color: var(--bg-primary);
-    box-shadow: var(--shadow-xl);
-    transform: translateX(100%);
-    transition: transform var(--transition-base);
-    z-index: var(--z-modal);
-
-    &.drawer-open {
-        transform: translateX(0);
-    }
-
-    &.drawer-left {
-        left: 0;
-        right: auto;
-        transform: translateX(-100%);
-
-        &.drawer-open {
-            transform: translateX(0);
-        }
-    }
-}
-
-.drawer-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-6);
-    border-bottom: 1px solid var(--border-primary);
-
-    .drawer-title {
-        font-size: var(--text-lg);
-        font-weight: var(--font-semibold);
-        color: var(--text-primary);
-        margin: 0;
-    }
-
-    .drawer-close {
-        background: none;
-        border: none;
-        padding: var(--space-2);
-        cursor: pointer;
-        border-radius: var(--radius-md);
-        color: var(--text-tertiary);
-        transition: var(--transition-fast);
-
-        &:hover {
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(28, 69, 131, 0.1);
-        }
-    }
-}
-
-.drawer-body {
-    padding: var(--space-6);
-    overflow-y: auto;
-    height: calc(100vh - 140px);
-}
-
-.drawer-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--space-3);
-    padding: var(--space-4) var(--space-6);
-    border-top: 1px solid var(--border-primary);
-    background-color: var(--bg-primary);
-}
-
-// Popover Styles
-.popover-container {
-    position: absolute;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    z-index: var(--z-popover);
-    padding: var(--space-4);
-    max-width: 300px;
-
-    &.popover-top {
-        transform: translateY(100%);
-        margin-bottom: var(--space-2);
-    }
-
-    &.popover-bottom {
-        margin-top: var(--space-2);
-    }
-
-    &.popover-left {
-        transform: translateX(100%);
-        margin-right: var(--space-2);
-    }
-
-    &.popover-right {
-        margin-left: var(--space-2);
-    }
-}
-
-.popover-arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-
-    &.popover-arrow-top {
-        bottom: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-top: 6px solid var(--border-primary);
-    }
-
-    &.popover-arrow-bottom {
-        top: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-bottom: 6px solid var(--border-primary);
-    }
-
-    &.popover-arrow-left {
-        right: -6px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        border-left: 6px solid var(--border-primary);
-    }
-
-    &.popover-arrow-right {
-        left: -6px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        border-right: 6px solid var(--border-primary);
-    }
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.5);
 }

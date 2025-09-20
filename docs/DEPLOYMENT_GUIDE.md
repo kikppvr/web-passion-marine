@@ -6,33 +6,33 @@ This guide covers deploying your Next.js application to Plesk hosting with envir
 
 ### Environments
 
--   **Development**: `https://dev.kikcodes.dev`
--   **Staging**: `https://stg.kikcodes.dev`
--   **Production**: `https://kikcodes.dev`
+- **Development**: `https://dev.kikcodes.dev`
+- **Staging**: `https://stg.kikcodes.dev`
+- **Production**: `https://kikcodes.dev`
 
 ## 📋 Pre-Deployment Checklist
 
 ### 1. Environment Preparation
 
--   [ ] Copy appropriate environment file (`.env.production`, `.env.staging`)
--   [ ] Update all environment variables
--   [ ] Verify database connections
--   [ ] Test API endpoints
--   [ ] Check SSL certificates
+- [ ] Copy appropriate environment file (`.env.production`, `.env.staging`)
+- [ ] Update all environment variables
+- [ ] Verify database connections
+- [ ] Test API endpoints
+- [ ] Check SSL certificates
 
 ### 2. Build Preparation
 
--   [ ] Run `npm run build:production` locally
--   [ ] Verify build completes without errors
--   [ ] Test production build locally with `npm start`
--   [ ] Check bundle size and performance
+- [ ] Run `npm run build:production` locally
+- [ ] Verify build completes without errors
+- [ ] Test production build locally with `npm start`
+- [ ] Check bundle size and performance
 
 ### 3. Code Quality
 
--   [ ] Run `npm run lint` and fix all issues
--   [ ] Run `npm run format` to ensure consistent formatting
--   [ ] Run `npm run type-check` to verify TypeScript
--   [ ] Test all functionality in development
+- [ ] Run `npm run lint` and fix all issues
+- [ ] Run `npm run format` to ensure consistent formatting
+- [ ] Run `npm run type-check` to verify TypeScript
+- [ ] Test all functionality in development
 
 ## 🚀 Deployment Steps
 
@@ -49,7 +49,7 @@ tar -czf web-passion-marine-production.tar.gz \
   src \
   package.json \
   package-lock.json \
-  next.config.ts \
+  next.config.js \
   tailwind.config.ts \
   server.js \
   .env.production
@@ -58,7 +58,6 @@ tar -czf web-passion-marine-production.tar.gz \
 ### Step 2: Upload to Plesk
 
 1. **Access Plesk File Manager**
-
     - Login to Plesk control panel
     - Navigate to your domain
     - Open File Manager
@@ -113,7 +112,6 @@ npm list --depth=0
 ### Step 5: Start Application
 
 1. **Via Plesk Interface**
-
     - Go to Node.js settings
     - Click "Start" button
     - Monitor logs for any errors
@@ -171,31 +169,31 @@ ENABLE_MAINTENANCE_MODE=false
 
 ### 1. Node.js Configuration
 
--   **Version**: Node.js 22.19.0 (LTS)
--   **Startup File**: `server.js`
--   **Application Root**: `/httpdocs`
--   **Document Root**: `/httpdocs`
+- **Version**: Node.js 22.19.0 (LTS)
+- **Startup File**: `server.js`
+- **Application Root**: `/httpdocs`
+- **Document Root**: `/httpdocs`
 
 ### 2. Domain Configuration
 
--   **Primary Domain**: `kikcodes.dev`
--   **Subdomains**: `dev.kikcodes.dev`, `stg.kikcodes.dev`
--   **SSL**: Enable SSL certificates for all domains
--   **Redirects**: HTTP to HTTPS redirects
+- **Primary Domain**: `kikcodes.dev`
+- **Subdomains**: `dev.kikcodes.dev`, `stg.kikcodes.dev`
+- **SSL**: Enable SSL certificates for all domains
+- **Redirects**: HTTP to HTTPS redirects
 
 ### 3. Database Configuration
 
--   **Type**: PostgreSQL (recommended)
--   **Host**: Local or remote database server
--   **Connection**: Use connection pooling for production
--   **Backup**: Regular automated backups
+- **Type**: PostgreSQL (recommended)
+- **Host**: Local or remote database server
+- **Connection**: Use connection pooling for production
+- **Backup**: Regular automated backups
 
 ### 4. Security Settings
 
--   **Firewall**: Configure appropriate ports
--   **SSL/TLS**: Enable HTTPS only
--   **Headers**: Security headers configured in `next.config.ts`
--   **Environment**: Secure environment variable storage
+- **Firewall**: Configure appropriate ports
+- **SSL/TLS**: Enable HTTPS only
+- **Headers**: Security headers configured in `next.config.js`
+- **Environment**: Secure environment variable storage
 
 ## 📊 Monitoring & Maintenance
 
@@ -214,16 +212,16 @@ pm2 monit
 
 ### 2. Log Management
 
--   **Application Logs**: Check Plesk Node.js logs
--   **Error Tracking**: Implement error tracking service
--   **Performance**: Monitor response times and memory usage
+- **Application Logs**: Check Plesk Node.js logs
+- **Error Tracking**: Implement error tracking service
+- **Performance**: Monitor response times and memory usage
 
 ### 3. Backup Strategy
 
--   **Code**: Git repository backups
--   **Database**: Regular PostgreSQL backups
--   **Files**: Application file backups
--   **Environment**: Secure environment variable backups
+- **Code**: Git repository backups
+- **Database**: Regular PostgreSQL backups
+- **Files**: Application file backups
+- **Environment**: Secure environment variable backups
 
 ## 🔄 Update Deployment Process
 
@@ -253,31 +251,28 @@ npm start
 
 ### 3. Rollback Plan
 
--   Keep previous version files
--   Database migration rollback scripts
--   Environment variable backups
--   Quick rollback procedure documented
+- Keep previous version files
+- Database migration rollback scripts
+- Environment variable backups
+- Quick rollback procedure documented
 
 ## 🚨 Troubleshooting
 
 ### Common Issues
 
 1. **Application Won't Start**
-
     - Check Node.js version compatibility
     - Verify all environment variables
     - Check file permissions
     - Review application logs
 
 2. **Database Connection Errors**
-
     - Verify database credentials
     - Check network connectivity
     - Confirm database server status
     - Review connection string format
 
 3. **Build Errors**
-
     - Check Node.js version
     - Verify all dependencies installed
     - Review TypeScript errors
@@ -311,66 +306,66 @@ free -m
 
 ### 1. Production Optimizations
 
--   **Image Optimization**: Use Next.js Image component
--   **Code Splitting**: Implement dynamic imports
--   **Caching**: Configure appropriate cache headers
--   **CDN**: Use CDN for static assets
+- **Image Optimization**: Use Next.js Image component
+- **Code Splitting**: Implement dynamic imports
+- **Caching**: Configure appropriate cache headers
+- **CDN**: Use CDN for static assets
 
 ### 2. Database Optimization
 
--   **Connection Pooling**: Configure PostgreSQL connection pool
--   **Query Optimization**: Optimize database queries
--   **Indexing**: Ensure proper database indexes
--   **Monitoring**: Monitor database performance
+- **Connection Pooling**: Configure PostgreSQL connection pool
+- **Query Optimization**: Optimize database queries
+- **Indexing**: Ensure proper database indexes
+- **Monitoring**: Monitor database performance
 
 ### 3. Server Optimization
 
--   **PM2**: Use PM2 for process management
--   **Nginx**: Configure Nginx as reverse proxy
--   **SSL**: Optimize SSL configuration
--   **Compression**: Enable gzip compression
+- **PM2**: Use PM2 for process management
+- **Nginx**: Configure Nginx as reverse proxy
+- **SSL**: Optimize SSL configuration
+- **Compression**: Enable gzip compression
 
 ## 🔐 Security Considerations
 
 ### 1. Environment Security
 
--   **Secrets**: Use secure secret management
--   **Environment**: Separate dev/staging/prod environments
--   **Access**: Limit access to production environment
--   **Monitoring**: Monitor for security issues
+- **Secrets**: Use secure secret management
+- **Environment**: Separate dev/staging/prod environments
+- **Access**: Limit access to production environment
+- **Monitoring**: Monitor for security issues
 
 ### 2. Application Security
 
--   **Headers**: Security headers configured
--   **HTTPS**: Force HTTPS connections
--   **Validation**: Input validation and sanitization
--   **Authentication**: Secure authentication implementation
+- **Headers**: Security headers configured
+- **HTTPS**: Force HTTPS connections
+- **Validation**: Input validation and sanitization
+- **Authentication**: Secure authentication implementation
 
 ### 3. Infrastructure Security
 
--   **Firewall**: Configure appropriate firewall rules
--   **Updates**: Keep system and dependencies updated
--   **Monitoring**: Monitor for security threats
--   **Backups**: Secure backup storage
+- **Firewall**: Configure appropriate firewall rules
+- **Updates**: Keep system and dependencies updated
+- **Monitoring**: Monitor for security threats
+- **Backups**: Secure backup storage
 
 ## 📞 Support & Resources
 
 ### Plesk Resources
 
--   [Plesk Node.js Documentation](https://docs.plesk.com/en-US/obsidian/administrator-guide/website-management/nodejs-applications.77804/)
--   [Plesk Support](https://www.plesk.com/support/)
+- [Plesk Node.js Documentation](https://docs.plesk.com/en-US/obsidian/administrator-guide/website-management/nodejs-applications.77804/)
+- [Plesk Support](https://www.plesk.com/support/)
 
 ### Next.js Resources
 
--   [Next.js Deployment](https://nextjs.org/docs/deployment)
--   [Next.js Performance](https://nextjs.org/docs/advanced-features/measuring-performance)
+- [Next.js Deployment](https://nextjs.org/docs/deployment)
+- [Next.js Performance](https://nextjs.org/docs/advanced-features/measuring-performance)
 
 ### Monitoring Tools
 
--   **PM2**: Process management
--   **New Relic**: Application monitoring
--   **Sentry**: Error tracking
--   **Google Analytics**: User analytics
+- **PM2**: Process management
+- **New Relic**: Application monitoring
+- **Sentry**: Error tracking
+- **Google Analytics**: User analytics
 
 ---
 
