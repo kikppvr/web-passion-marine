@@ -1,220 +1,52 @@
-// ========================================
-// BASE STYLES - Passion Marine Design System
-// ========================================
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
 
-:root {
-    // Spacing Scale
-    --space-1: 0.25rem; // 4px
-    --space-2: 0.5rem; // 8px
-    --space-3: 0.75rem; // 12px
-    --space-4: 1rem; // 16px
-    --space-5: 1.25rem; // 20px
-    --space-6: 1.5rem; // 24px
-    --space-8: 2rem; // 32px
-    --space-10: 2.5rem; // 40px
-    --space-12: 3rem; // 48px
-    --space-16: 4rem; // 64px
-    --space-20: 5rem; // 80px
-    --space-24: 6rem; // 96px
-    --space-32: 8rem; // 128px
+$topbar-height: 56px;
+$menu-height: 61px;
 
-    // Border Radius
-    --radius-none: 0;
-    --radius-sm: 0.125rem; // 2px
-    --radius-base: 0.25rem; // 4px
-    --radius-md: 0.375rem; // 6px
-    --radius-lg: 0.5rem; // 8px
-    --radius-xl: 0.75rem; // 12px
-    --radius-2xl: 1rem; // 16px
-    --radius-3xl: 1.5rem; // 24px
-    --radius-full: 9999px;
+$max-width-mini-mobile: 320px;
+$max-width-mobile: 575px;
+$min-width-tablet: 576px;
+$max-width-tablet: 1200px;
+$min-width-desktop: 1201px;
 
-    // Shadows
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-        0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-
-    // Z-Index Scale
-    --z-dropdown: 1000;
-    --z-sticky: 1020;
-    --z-fixed: 1030;
-    --z-modal-backdrop: 1040;
-    --z-modal: 1050;
-    --z-popover: 1060;
-    --z-tooltip: 1070;
-    --z-toast: 1080;
-
-    // Transitions
-    --transition-fast: 150ms ease-in-out;
-    --transition-base: 250ms ease-in-out;
-    --transition-slow: 350ms ease-in-out;
-    --transition-all: all var(--transition-base);
+@mixin mini-mobile {
+    @media (max-width: $max-width-mini-mobile) {
+        @content;
+    }
 }
 
-// Reset and Base Styles
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@mixin mobile {
+    @media (max-width: $max-width-mobile) {
+        @content;
+    }
 }
 
-html {
-    font-family: var(--font-primary);
-    line-height: var(--leading-normal);
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@mixin min-tablet {
+    @media (min-width: $min-width-tablet) {
+        @content;
+    }
 }
 
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-size: var(--text-base);
-    font-weight: var(--font-normal);
-    line-height: var(--leading-normal);
+@mixin max-tablet {
+    @media (min-width: $max-width-tablet) {
+        @content;
+    }
 }
 
-// Focus Styles
-:focus {
-    outline: 2px solid var(--border-focus);
-    outline-offset: 2px;
+@mixin tablet {
+    @media (min-width: $min-width-tablet) and (max-width: $max-width-tablet) {
+        @content;
+    }
 }
 
-:focus:not(:focus-visible) {
-    outline: none;
-}
-
-// Selection Styles
-::selection {
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
-}
-
-// Scrollbar Styles
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--gray-300);
-    border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-400);
-}
-
-// Utility Classes
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-// SCSS Maps for easier usage
-$spacing: (
-    1: var(--space-1),
-    2: var(--space-2),
-    3: var(--space-3),
-    4: var(--space-4),
-    5: var(--space-5),
-    6: var(--space-6),
-    8: var(--space-8),
-    10: var(--space-10),
-    12: var(--space-12),
-    16: var(--space-16),
-    20: var(--space-20),
-    24: var(--space-24),
-    32: var(--space-32),
-);
-
-$border-radius: (
-    none: var(--radius-none),
-    sm: var(--radius-sm),
-    base: var(--radius-base),
-    md: var(--radius-md),
-    lg: var(--radius-lg),
-    xl: var(--radius-xl),
-    2xl: var(--radius-2xl),
-    3xl: var(--radius-3xl),
-    full: var(--radius-full),
-);
-
-$shadows: (
-    sm: var(--shadow-sm),
-    base: var(--shadow-base),
-    md: var(--shadow-md),
-    lg: var(--shadow-lg),
-    xl: var(--shadow-xl),
-    2xl: var(--shadow-2xl),
-    inner: var(--shadow-inner),
-);
-
-$z-index: (
-    dropdown: var(--z-dropdown),
-    sticky: var(--z-sticky),
-    fixed: var(--z-fixed),
-    modal-backdrop: var(--z-modal-backdrop),
-    modal: var(--z-modal),
-    popover: var(--z-popover),
-    tooltip: var(--z-tooltip),
-    toast: var(--z-toast),
-);
-
-// Helper Functions
-@function spacing($size: 4) {
-    @return map-get($spacing, $size);
-}
-
-@function radius($size: base) {
-    @return map-get($border-radius, $size);
-}
-
-@function shadow($size: base) {
-    @return map-get($shadows, $size);
-}
-
-@function z-index($level: modal) {
-    @return map-get($z-index, $level);
+@mixin min-desktop {
+    @media (min-width: $min-width-desktop) {
+        @content;
+    }
 }

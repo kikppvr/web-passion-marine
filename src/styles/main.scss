@@ -39,7 +39,7 @@ html {
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-size: var(--text-base);
+    font-size: var(--text-body);
     font-weight: var(--font-normal);
     line-height: var(--leading-normal);
     min-height: 100vh;
@@ -55,9 +55,9 @@ body {
     align-items: center;
     justify-content: center;
     padding: var(--space-3) var(--space-6);
-    font-size: var(--text-sm);
+    font-size: var(--text-body);
     font-weight: var(--font-medium);
-    line-height: var(--leading-none);
+    line-height: var(--leading-normal);
     text-align: center;
     text-decoration: none;
     border: 1px solid transparent;
@@ -133,12 +133,12 @@ body {
 
 .btn-sm {
     padding: var(--space-2) var(--space-4);
-    font-size: var(--text-xs);
+    font-size: var(--text-small);
 }
 
 .btn-lg {
     padding: var(--space-4) var(--space-8);
-    font-size: var(--text-lg);
+    font-size: var(--text-h5);
 }
 
 .btn-icon {

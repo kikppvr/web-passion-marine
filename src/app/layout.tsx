@@ -1,10 +1,21 @@
+import { LanguageProvider } from '@/contexts/LanguageContext'
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
-import './globals.css'
+import { Noto_Sans_Thai, Roboto } from 'next/font/google'
+import '../styles/globals.css'
 
+// Font configurations
 const roboto = Roboto({
-    weight: ['300', '400', '500', '700', '900'],
+    weight: ['400', '500', '600', '700'], // ลบ 300 ตาม CSS variables
     subsets: ['latin'],
+    variable: '--font-roboto',
+    display: 'swap',
+})
+
+const notoSansThai = Noto_Sans_Thai({
+    weight: ['400', '500', '600', '700'], // ลบ 300 ตาม CSS variables
+    subsets: ['thai'],
+    variable: '--font-noto-sans-thai',
+    display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -18,9 +29,9 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="th">
-            <body className={`${roboto.className} antialiased`}>
-                {children}
+        <html lang="en">
+            <body className="font-en antialiased">
+                <LanguageProvider>{children}</LanguageProvider>
             </body>
         </html>
     )

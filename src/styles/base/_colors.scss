@@ -2,7 +2,6 @@
 // COLOR TOKENS - Passion Marine Design System
 // ========================================
 
-// Blue Palette (from Figma)
 :root {
     // Blue Colors
     --blue-50: #e8ecf3;
@@ -16,53 +15,17 @@
     --blue-800: #0f2648;
     --blue-900: #0c1d37;
 
-    // Gray Colors
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
-
-    // Success Colors
-    --success-50: #f0fdf4;
-    --success-100: #dcfce7;
-    --success-200: #bbf7d0;
-    --success-300: #86efac;
-    --success-400: #4ade80;
-    --success-500: #22c55e;
-    --success-600: #16a34a;
-    --success-700: #15803d;
-    --success-800: #166534;
-    --success-900: #14532d;
-
-    // Warning Colors
-    --warning-50: #fffbeb;
-    --warning-100: #fef3c7;
-    --warning-200: #fde68a;
-    --warning-300: #fcd34d;
-    --warning-400: #fbbf24;
-    --warning-500: #f59e0b;
-    --warning-600: #d97706;
-    --warning-700: #b45309;
-    --warning-800: #92400e;
-    --warning-900: #78350f;
-
-    // Error Colors
-    --error-50: #fef2f2;
-    --error-100: #fee2e2;
-    --error-200: #fecaca;
-    --error-300: #fca5a5;
-    --error-400: #f87171;
-    --error-500: #ef4444;
-    --error-600: #dc2626;
-    --error-700: #b91c1c;
-    --error-800: #991b1b;
-    --error-900: #7f1d1d;
+    // Grey Colors
+    --grey-50: #f1f1f1;
+    --grey-100: #d2d2d3;
+    --grey-200: #bdbdbe;
+    --grey-300: #9f9fa0;
+    --grey-400: #8c8c8d;
+    --grey-500: #6f6f71;
+    --grey-600: #656567;
+    --grey-700: #4f4f50;
+    --grey-800: #3d3d3e;
+    --grey-900: #2f2f2f;
 
     // Semantic Colors
     --primary: var(--blue-500);
@@ -70,45 +33,28 @@
     --primary-light: var(--blue-50);
     --primary-dark: var(--blue-700);
 
-    --secondary: var(--gray-500);
-    --secondary-hover: var(--gray-600);
-    --secondary-light: var(--gray-50);
-    --secondary-dark: var(--gray-700);
-
-    --success: var(--success-500);
-    --success-hover: var(--success-600);
-    --success-light: var(--success-50);
-    --success-dark: var(--success-700);
-
-    --warning: var(--warning-500);
-    --warning-hover: var(--warning-600);
-    --warning-light: var(--warning-50);
-    --warning-dark: var(--warning-700);
-
-    --error: var(--error-500);
-    --error-hover: var(--error-600);
-    --error-light: var(--error-50);
-    --error-dark: var(--error-700);
+    --secondary: var(--grey-500);
+    --secondary-hover: var(--grey-600);
+    --secondary-light: var(--grey-50);
+    --secondary-dark: var(--grey-700);
 
     // Background Colors
     --bg-primary: #ffffff;
-    --bg-secondary: var(--gray-50);
-    --bg-tertiary: var(--gray-100);
+    --bg-secondary: var(--grey-50);
+    --bg-tertiary: var(--grey-100);
     --bg-overlay: rgba(0, 0, 0, 0.5);
 
     // Text Colors
-    --text-primary: var(--gray-900);
-    --text-secondary: var(--gray-600);
-    --text-tertiary: var(--gray-500);
+    --text-primary: var(--grey-900);
+    --text-secondary: var(--grey-600);
+    --text-tertiary: var(--grey-500);
     --text-inverse: #ffffff;
-    --text-disabled: var(--gray-400);
+    --text-disabled: var(--grey-400);
 
     // Border Colors
-    --border-primary: var(--gray-200);
-    --border-secondary: var(--gray-300);
+    --border-primary: var(--grey-200);
+    --border-secondary: var(--grey-300);
     --border-focus: var(--blue-500);
-    --border-error: var(--error-500);
-    --border-success: var(--success-500);
 }
 
 // SCSS Color Maps for easier usage
@@ -125,25 +71,22 @@ $blue-colors: (
     900: var(--blue-900),
 );
 
-$gray-colors: (
-    50: var(--gray-50),
-    100: var(--gray-100),
-    200: var(--gray-200),
-    300: var(--gray-300),
-    400: var(--gray-400),
-    500: var(--gray-500),
-    600: var(--gray-600),
-    700: var(--gray-700),
-    800: var(--gray-800),
-    900: var(--gray-900),
+$grey-colors: (
+    50: var(--grey-50),
+    100: var(--grey-100),
+    200: var(--grey-200),
+    300: var(--grey-300),
+    400: var(--grey-400),
+    500: var(--grey-500),
+    600: var(--grey-600),
+    700: var(--grey-700),
+    800: var(--grey-800),
+    900: var(--grey-900),
 );
 
 $semantic-colors: (
     primary: var(--primary),
     secondary: var(--secondary),
-    success: var(--success),
-    warning: var(--warning),
-    error: var(--error),
 );
 
 // Helper Functions
@@ -151,8 +94,8 @@ $semantic-colors: (
     @return map-get($blue-colors, $shade);
 }
 
-@function gray($shade: 500) {
-    @return map-get($gray-colors, $shade);
+@function grey($shade: 500) {
+    @return map-get($grey-colors, $shade);
 }
 
 @function semantic($color: primary) {
