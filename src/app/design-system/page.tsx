@@ -188,16 +188,16 @@ export default function DesignSystemPage() {
                     ></div>
                 </div>
 
-                <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+                <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
                     <div className="text-center">
                         <div className="mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-small font-medium text-white backdrop-blur-sm">
                             <Sparkles className="mr-2 h-4 w-4" />
                             Passion Marine Design System
                         </div>
-                        <h1 className="mb-6 text-display-1 text-white sm:text-display-2 lg:text-display-1">
+                        <h1 className="mb-6 text-display-1 text-white">
                             Design System
                         </h1>
-                        <p className="mx-auto mb-8 max-w-2xl text-body text-blue-100 lg:text-lead-1">
+                        <p className="mx-auto mb-8 max-w-2xl text-lead-1 text-blue-100">
                             ระบบออกแบบที่ครบครันสำหรับ Passion Marine -
                             คู่มือการใช้งาน ตัวอย่าง และเครื่องมือสำหรับนักพัฒนา
                         </p>
@@ -210,10 +210,10 @@ export default function DesignSystemPage() {
 
             {/* Navigation Tabs */}
             <div className="sticky top-0 z-10 border-b border-white/20 bg-white/80 shadow-lg backdrop-blur-xl">
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
                     {/* Desktop Navigation Tabs */}
                     <div className="hidden lg:block">
-                        <div className="flex space-x-1 rounded-2xl border border-white/20 bg-white/30 p-1 backdrop-blur-sm">
+                        <div className="scrollbar-hide flex justify-between gap-x-1 rounded-2xl border border-white/20 bg-white/30 p-1 backdrop-blur-sm">
                             {tabs.map(tab => {
                                 const IconComponent = tab.icon
                                 return (
@@ -221,7 +221,7 @@ export default function DesignSystemPage() {
                                         key={tab.id}
                                         onClick={() => setActiveTab(tab.id)}
                                         className={cn(
-                                            'group relative flex items-center overflow-hidden whitespace-nowrap rounded-xl px-6 py-3 text-small font-semibold transition-all duration-300',
+                                            'group relative flex flex-shrink-0 flex-col overflow-hidden whitespace-nowrap rounded-xl px-6 py-3 text-small font-semibold transition-all duration-300',
                                             activeTab === tab.id
                                                 ? 'scale-105 transform bg-white text-gray-900 shadow-lg shadow-gray-500/20'
                                                 : 'text-gray-600 hover:bg-white/50 hover:text-gray-900'
@@ -235,8 +235,20 @@ export default function DesignSystemPage() {
                                                 )}
                                             ></div>
                                         )}
-                                        <IconComponent className="mr-3 h-5 w-5" />
-                                        <div className="text-left">
+                                        <div
+                                            className={cn(
+                                                'relative z-10 flex h-8 w-8 items-center justify-center rounded-lg shadow-sm transition-all duration-300 group-hover:scale-110',
+                                                activeTab === tab.id
+                                                    ? cn(
+                                                          'bg-gradient-to-br text-white shadow-lg shadow-blue-500/25 ring-2 ring-white/20',
+                                                          tab.gradient
+                                                      )
+                                                    : 'bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 group-hover:from-blue-50 group-hover:to-indigo-100 group-hover:text-blue-700 group-hover:shadow-md'
+                                            )}
+                                        >
+                                            <IconComponent className="h-4 w-4" />
+                                        </div>
+                                        <div className="relative z-10 mt-3 text-left">
                                             <div className="text-nav-1 font-semibold">
                                                 {tab.label}
                                             </div>
@@ -339,12 +351,12 @@ export default function DesignSystemPage() {
                 </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
                 {/* Components Tab */}
                 {activeTab === 'components' && (
-                    <div className="space-y-8 lg:space-y-12">
+                    <div className="space-y-12">
                         {/* Quick Stats */}
-                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
                             <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -394,14 +406,14 @@ export default function DesignSystemPage() {
                         </div>
 
                         {/* Button Component */}
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8">
                                 <div className="mb-4 flex items-center gap-4">
                                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 shadow-lg">
                                         <Layout className="h-6 w-6 text-white" />
                                     </div>
                                     <div>
-                                        <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                        <h2 className="text-h1 font-bold text-gray-900">
                                             Button Component
                                         </h2>
                                         <p className="text-body text-gray-600">
@@ -413,7 +425,7 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Live Preview */}
-                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 lg:p-10">
+                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-10">
                                 <div className="mb-6 flex items-center justify-between">
                                     <h3 className="flex items-center text-h3 font-semibold text-gray-900">
                                         <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
@@ -447,9 +459,9 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Controls */}
-                            <div className="mb-8 grid gap-6 lg:grid-cols-2 lg:gap-8">
+                            <div className="mb-8 grid gap-6 md:grid-cols-2 lg:gap-8">
                                 {/* Variant Selection */}
-                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm lg:p-8">
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
                                             <Zap className="h-4 w-4 text-white" />
@@ -500,7 +512,7 @@ export default function DesignSystemPage() {
                                 </div>
 
                                 {/* Size Selection */}
-                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm lg:p-8">
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
                                             <Ruler className="h-4 w-4 text-white" />
@@ -550,7 +562,7 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Code Example */}
-                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-900 to-gray-800 p-6 shadow-2xl lg:p-8">
+                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-900 to-gray-800 p-6 shadow-2xl md:p-8">
                                 <div className="mb-6 flex items-center justify-between">
                                     <div className="flex items-center">
                                         <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
@@ -589,7 +601,7 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Usage Examples */}
-                            <div className="rounded-3xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm lg:p-8">
+                            <div className="rounded-3xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
                                 <div className="mb-6 flex items-center">
                                     <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
                                         <Sparkles className="h-4 w-4 text-white" />
@@ -696,13 +708,13 @@ export default function DesignSystemPage() {
                         </div>
 
                         {/* Components Roadmap */}
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg">
                                     <ArrowRight className="h-6 w-6 text-white" />
                                 </div>
                                 <div>
-                                    <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                    <h2 className="text-h1 font-bold text-gray-900">
                                         Components Roadmap
                                     </h2>
                                     <p className="text-body text-gray-600">
@@ -710,7 +722,7 @@ export default function DesignSystemPage() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
                                 {[
                                     {
                                         name: 'Input',
@@ -832,9 +844,9 @@ export default function DesignSystemPage() {
 
                 {/* Colors Tab */}
                 {activeTab === 'colors' && (
-                    <div className="space-y-8 lg:space-y-12">
+                    <div className="space-y-12">
                         {/* Color Overview */}
-                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
                             <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -890,13 +902,13 @@ export default function DesignSystemPage() {
                         </div>
 
                         {/* Color Palette */}
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg">
                                     <Palette className="h-6 w-6 text-white" />
                                 </div>
                                 <div>
-                                    <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                    <h2 className="text-h1 font-bold text-gray-900">
                                         Color Palette
                                     </h2>
                                     <p className="text-body text-gray-600">
@@ -909,7 +921,7 @@ export default function DesignSystemPage() {
                                     ([colorName, shades]) => (
                                         <div
                                             key={colorName}
-                                            className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm lg:p-8"
+                                            className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8"
                                         >
                                             <div className="mb-6 flex items-center gap-4">
                                                 <div
@@ -926,7 +938,7 @@ export default function DesignSystemPage() {
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-1 gap-4 md:grid-cols-5 lg:grid-cols-10">
+                                            <div className="grid grid-cols-1 gap-4 md:grid-cols-5 xl:grid-cols-10">
                                                 {Object.entries(shades).map(
                                                     ([shade, hex]) => (
                                                         <div
@@ -960,9 +972,9 @@ export default function DesignSystemPage() {
 
                 {/* Typography Tab */}
                 {activeTab === 'typography' && (
-                    <div className="space-y-8 lg:space-y-12">
+                    <div className="space-y-12">
                         {/* Typography Overview */}
-                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                             <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -1000,13 +1012,13 @@ export default function DesignSystemPage() {
                             </div>
                         </div>
 
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 shadow-lg">
                                     <Type className="h-6 w-6 text-white" />
                                 </div>
                                 <div>
-                                    <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                    <h2 className="text-h1 font-bold text-gray-900">
                                         Typography Scale
                                     </h2>
                                     <p className="text-body text-gray-600">
@@ -1016,9 +1028,9 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Dynamic Language Typography */}
-                            <div className="mb-8 lg:mb-12">
+                            <div className="mb-8">
                                 <div className="mb-6 flex items-center justify-between">
-                                    <h3 className="text-h3 font-bold text-gray-900 lg:text-h2">
+                                    <h3 className="text-h2 font-bold text-gray-900">
                                         {language === 'th'
                                             ? 'Thai (Noto Sans Thai)'
                                             : 'English (Roboto)'}
@@ -1030,21 +1042,21 @@ export default function DesignSystemPage() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="mb-6 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 lg:p-6">
+                                <div className="mb-6 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 md:p-6">
                                     <div className="flex items-center gap-3">
                                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
                                             <span className="text-white">
                                                 🎯
                                             </span>
                                         </div>
-                                        <p className="text-small text-blue-800 lg:text-body">
+                                        <p className="text-body text-blue-800">
                                             {language === 'th'
                                                 ? 'ตัวอย่างการเปลี่ยนภาษา - Font จะเปลี่ยนตามภาษาที่เลือก'
                                                 : 'Language Switching Example - Font changes based on selected language'}
                                         </p>
                                     </div>
                                 </div>
-                                <div className="grid gap-4 lg:gap-6">
+                                <div className="grid gap-6">
                                     {/* Display Typography */}
                                     <div className="space-y-4">
                                         <h4 className="text-h4 font-semibold text-gray-700">
@@ -1052,7 +1064,7 @@ export default function DesignSystemPage() {
                                         </h4>
                                         <div className="grid grid-cols-1 gap-4">
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h1 className="mb-3 text-h1 text-gray-900 lg:text-display-1">
+                                                <h1 className="mb-3 text-display-1 text-gray-900">
                                                     {language === 'th'
                                                         ? 'หัวข้อหลัก'
                                                         : 'Main Title'}
@@ -1068,7 +1080,7 @@ export default function DesignSystemPage() {
                                                 </div>
                                             </div>
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h2 className="mb-3 text-h2 text-gray-900 lg:text-display-2">
+                                                <h2 className="mb-3 text-display-2 text-gray-900">
                                                     {language === 'th'
                                                         ? 'หัวข้อรอง'
                                                         : 'Sub Title'}
@@ -1084,7 +1096,7 @@ export default function DesignSystemPage() {
                                                 </div>
                                             </div>
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h3 className="mb-3 text-h3 text-gray-900 lg:text-display-3">
+                                                <h3 className="mb-3 text-display-3 text-gray-900">
                                                     {language === 'th'
                                                         ? 'หัวข้อย่อย'
                                                         : 'Section Title'}
@@ -1109,7 +1121,7 @@ export default function DesignSystemPage() {
                                         </h4>
                                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h4 className="mb-3 text-h4 text-gray-900 lg:text-h1">
+                                                <h4 className="mb-3 text-h1 text-gray-900">
                                                     {language === 'th'
                                                         ? 'หัวข้อ H1'
                                                         : 'Heading H1'}
@@ -1125,7 +1137,7 @@ export default function DesignSystemPage() {
                                                 </div>
                                             </div>
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h5 className="mb-3 text-h5 text-gray-900 lg:text-h2">
+                                                <h5 className="mb-3 text-h2 text-gray-900">
                                                     Heading 2
                                                 </h5>
                                                 <div className="space-y-2">
@@ -1139,7 +1151,7 @@ export default function DesignSystemPage() {
                                                 </div>
                                             </div>
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h6 className="mb-3 text-h6 text-gray-900 lg:text-h3">
+                                                <h6 className="mb-3 text-h3 text-gray-900">
                                                     Heading 3
                                                 </h6>
                                                 <div className="space-y-2">
@@ -1162,7 +1174,7 @@ export default function DesignSystemPage() {
                                         </h4>
                                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <p className="mb-3 text-body text-gray-700 lg:text-lead-1">
+                                                <p className="mb-3 text-lead-1 text-gray-700">
                                                     {language === 'th'
                                                         ? 'Lead 1 - สำหรับข้อความสำคัญ'
                                                         : 'Lead 1 - For important text'}
@@ -1178,7 +1190,7 @@ export default function DesignSystemPage() {
                                                 </div>
                                             </div>
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <p className="mb-3 text-small text-gray-700 lg:text-body">
+                                                <p className="mb-3 text-body text-gray-700">
                                                     {language === 'th'
                                                         ? 'Body - สำหรับเนื้อหาทั่วไป'
                                                         : 'Body - For general content'}
@@ -1219,9 +1231,9 @@ export default function DesignSystemPage() {
 
                 {/* Spacing Tab */}
                 {activeTab === 'spacing' && (
-                    <div className="space-y-8 lg:space-y-12">
+                    <div className="space-y-12">
                         {/* Spacing Overview */}
-                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
                             <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -1281,13 +1293,13 @@ export default function DesignSystemPage() {
                         </div>
 
                         {/* Spacing Scale */}
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 shadow-lg">
                                     <Ruler className="h-6 w-6 text-white" />
                                 </div>
                                 <div>
-                                    <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                    <h2 className="text-h1 font-bold text-gray-900">
                                         Spacing Scale
                                     </h2>
                                     <p className="text-body text-gray-600">
@@ -1340,9 +1352,9 @@ export default function DesignSystemPage() {
 
                 {/* Guidelines Tab */}
                 {activeTab === 'guidelines' && (
-                    <div className="space-y-8 lg:space-y-12">
+                    <div className="space-y-12">
                         {/* Guidelines Overview */}
-                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                             <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -1383,13 +1395,13 @@ export default function DesignSystemPage() {
                         </div>
 
                         {/* Design Guidelines */}
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:p-10">
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg">
                                     <BookOpen className="h-6 w-6 text-white" />
                                 </div>
                                 <div>
-                                    <h2 className="text-h2 font-bold text-gray-900 lg:text-h1">
+                                    <h2 className="text-h1 font-bold text-gray-900">
                                         Design Guidelines
                                     </h2>
                                     <p className="text-body text-gray-600">
@@ -1397,8 +1409,8 @@ export default function DesignSystemPage() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="grid gap-8 lg:grid-cols-2">
-                                <div className="rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 lg:p-8">
+                            <div className="grid gap-8 md:grid-cols-2">
+                                <div className="rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-500">
                                             <span className="text-white">
@@ -1449,7 +1461,7 @@ export default function DesignSystemPage() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="rounded-2xl border border-green-200/50 bg-gradient-to-br from-green-50 to-emerald-50 p-6 lg:p-8">
+                                <div className="rounded-2xl border border-green-200/50 bg-gradient-to-br from-green-50 to-emerald-50 p-6">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-500">
                                             <span className="text-white">

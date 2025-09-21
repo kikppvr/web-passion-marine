@@ -74,19 +74,19 @@ body {
 @layer utilities {
     /* === Display Typography === */
     .text-display-1 {
-        font-size: var(--text-display-1);
+        font-size: clamp(3rem, 8vw, 6rem); /* 48px - 96px */
         font-weight: var(--font-bold);
         line-height: 1.25;
     }
 
     .text-display-2 {
-        font-size: var(--text-display-2);
+        font-size: clamp(2.5rem, 6vw, 5rem); /* 40px - 80px */
         font-weight: var(--font-bold);
         line-height: 1.25;
     }
 
     .text-display-3 {
-        font-size: var(--text-display-3);
+        font-size: clamp(2rem, 5vw, 4rem); /* 32px - 64px */
         font-weight: var(--font-bold);
         line-height: 1.25;
     }
@@ -94,7 +94,7 @@ body {
     /* === Heading Typography === */
     .text-h1,
     h1 {
-        font-size: var(--text-h1);
+        font-size: clamp(1.75rem, 4vw, 3rem); /* 28px - 48px */
         font-weight: var(--font-bold);
         line-height: 1.25;
         margin-bottom: 0;
@@ -287,31 +287,164 @@ body {
     }
 
     /* === Responsive Typography === */
-    @media (max-width: 768px) {
+
+    /* Mobile First Approach - Base sizes are for mobile */
+    /* Tablet (768px and up) */
+    @media (min-width: 768px) {
         .text-display-1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem; /* 72px */
         }
         .text-display-2 {
-            font-size: 2.875rem;
+            font-size: 3.75rem; /* 60px */
         }
         .text-display-3 {
-            font-size: 2.25rem;
+            font-size: 3rem; /* 48px */
         }
         .text-h1,
         h1 {
-            font-size: 2rem;
+            font-size: 2.25rem; /* 36px */
         }
         .text-h2,
         h2 {
-            font-size: 1.75rem;
+            font-size: 1.875rem; /* 30px */
         }
         .text-h3,
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.625rem; /* 26px */
         }
         .text-h4,
         h4 {
-            font-size: 1.25rem;
+            font-size: 1.375rem; /* 22px */
+        }
+        .text-h5,
+        h5 {
+            font-size: 1.125rem; /* 18px */
+        }
+        .text-h6,
+        h6 {
+            font-size: 1rem; /* 16px */
+        }
+        .text-lead-1 {
+            font-size: 1.375rem; /* 22px */
+        }
+        .text-lead-2 {
+            font-size: 1.125rem; /* 18px */
+        }
+        .text-body,
+        p {
+            font-size: 1.125rem; /* 18px */
+        }
+        .text-small {
+            font-size: 1rem; /* 16px */
+        }
+        .text-small-2 {
+            font-size: 0.875rem; /* 14px */
+        }
+    }
+
+    /* Desktop (1024px and up) */
+    @media (min-width: 1024px) {
+        .text-display-1 {
+            font-size: 5.1875rem; /* 83px - Original size */
+        }
+        .text-display-2 {
+            font-size: 4.3125rem; /* 69px - Original size */
+        }
+        .text-display-3 {
+            font-size: 3.5625rem; /* 57px - Original size */
+        }
+        .text-h1,
+        h1 {
+            font-size: 2.5rem; /* 40px - Original size */
+        }
+        .text-h2,
+        h2 {
+            font-size: 2rem; /* 32px - Original size */
+        }
+        .text-h3,
+        h3 {
+            font-size: 1.75rem; /* 28px - Original size */
+        }
+        .text-h4,
+        h4 {
+            font-size: 1.5rem; /* 24px - Original size */
+        }
+        .text-h5,
+        h5 {
+            font-size: 1.25rem; /* 20px - Original size */
+        }
+        .text-h6,
+        h6 {
+            font-size: 1.125rem; /* 18px - Original size */
+        }
+        .text-lead-1 {
+            font-size: 1.25rem; /* 20px - Original size */
+        }
+        .text-lead-2 {
+            font-size: 1.125rem; /* 18px - Original size */
+        }
+        .text-body,
+        p {
+            font-size: 1rem; /* 16px - Original size */
+        }
+        .text-small {
+            font-size: 0.875rem; /* 14px - Original size */
+        }
+        .text-small-2 {
+            font-size: 0.75rem; /* 12px - Original size */
+        }
+    }
+
+    /* Large Desktop (1280px and up) */
+    @media (min-width: 1280px) {
+        .text-display-1 {
+            font-size: 6rem; /* 96px */
+        }
+        .text-display-2 {
+            font-size: 5rem; /* 80px */
+        }
+        .text-display-3 {
+            font-size: 4rem; /* 64px */
+        }
+        .text-h1,
+        h1 {
+            font-size: 3rem; /* 48px */
+        }
+        .text-h2,
+        h2 {
+            font-size: 2.5rem; /* 40px */
+        }
+        .text-h3,
+        h3 {
+            font-size: 2rem; /* 32px */
+        }
+        .text-h4,
+        h4 {
+            font-size: 1.75rem; /* 28px */
+        }
+        .text-h5,
+        h5 {
+            font-size: 1.5rem; /* 24px */
+        }
+        .text-h6,
+        h6 {
+            font-size: 1.25rem; /* 20px */
+        }
+        .text-lead-1 {
+            font-size: 1.5rem; /* 24px */
+        }
+        .text-lead-2 {
+            font-size: 1.25rem; /* 20px */
+        }
+        .text-body,
+        p {
+            font-size: 1.125rem; /* 18px */
+        }
+        .text-small {
+            font-size: 1rem; /* 16px */
+        }
+        .text-small-2 {
+            font-size: 0.875rem; /* 14px */
         }
     }
 }
