@@ -4,8 +4,8 @@
 
 :root {
     /* Font Families - แยก EN และ TH */
-    --font-en: 'Roboto', sans-serif;
-    --font-th: 'Noto Sans Thai', sans-serif;
+    --font-en: 'Roboto', 'Noto Sans Thai', sans-serif;
+    --font-th: 'Noto Sans Thai', 'Roboto', sans-serif;
 
     /* Font Weights */
     --font-normal: 400;
@@ -158,7 +158,6 @@ body {
         font-size: var(--text-body);
         font-weight: var(--font-normal);
         line-height: 1.4;
-        margin-bottom: 0;
     }
 
     .text-small {

@@ -926,7 +926,7 @@ export default function DesignSystemPage() {
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-5 gap-4 md:grid-cols-10">
+                                            <div className="grid grid-cols-1 gap-4 md:grid-cols-5 lg:grid-cols-10">
                                                 {Object.entries(shades).map(
                                                     ([shade, hex]) => (
                                                         <div
@@ -1050,7 +1050,7 @@ export default function DesignSystemPage() {
                                         <h4 className="text-h4 font-semibold text-gray-700">
                                             Display Typography
                                         </h4>
-                                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                                        <div className="grid grid-cols-1 gap-4">
                                             <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
                                                 <h1 className="mb-3 text-h1 text-gray-900 lg:text-display-1">
                                                     {language === 'th'
