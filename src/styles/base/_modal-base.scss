@@ -1,4 +1,4 @@
-@use '../base/base' as *;
+@use 'base' as base;
 
 %modal-base {
     display: none;
@@ -7,7 +7,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 1050;
+    z-index: base.$zindex-modal;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +32,7 @@
     .modal-content {
         position: relative;
         width: 100%;
-        max-width: $max-width-mobile;
+        max-width: base.$max-width-mobile;
         max-height: 100vh;
         overflow: auto;
 
@@ -52,6 +52,6 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 1040;
+    z-index: base.$zindex-modal-backdrop;
     background-color: rgba(0, 0, 0, 0.5);
 }

@@ -3,17 +3,17 @@
 // ========================================
 
 // Import Base Styles
-@import 'base/_colors';
-@import 'base/_text';
-@import 'base/_base';
-@import 'base/_utility';
-@import 'base/_input';
-@import 'base/_modal-base';
-@import 'base/_display';
-@import 'base/_image';
+@use 'base/_colors' as colors;
+@use 'base/_text' as text;
+@use 'base/_base' as base;
+@use 'base/_utility' as utility;
+@use 'base/_input' as input;
+@use 'base/_modal-base' as modal;
+@use 'base/_display' as display;
+@use 'base/_image' as image;
 
 // Import Animation Styles
-@import 'animation/_transitions';
+@use 'animation/_transitions' as transitions;
 
 // ========================================
 // GLOBAL STYLES
