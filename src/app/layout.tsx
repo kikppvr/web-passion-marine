@@ -2,6 +2,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 import type { Metadata } from 'next'
 import { Noto_Sans_Thai, Roboto } from 'next/font/google'
 import '../styles/globals.css'
+import '../styles/main.scss'
 
 // Font configurations
 const roboto = Roboto({
