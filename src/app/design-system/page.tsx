@@ -1,47 +1,81 @@
 'use client'
 
-import { LanguageSwitcher, LanguageToggle } from '@/components/LanguageSwitcher'
+import { LanguageToggle } from '@/components/LanguageSwitcher'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
+import {
+    ArrowRight,
+    BookOpen,
+    CheckCircle,
+    Clock,
+    Code,
+    Copy,
+    Eye,
+    Layout,
+    Menu,
+    Palette,
+    Ruler,
+    Sparkles,
+    Type,
+    X,
+    Zap,
+} from 'lucide-react'
 import { useState } from 'react'
 
 export default function DesignSystemPage() {
     const [selectedVariant, setSelectedVariant] = useState('default')
     const [selectedSize, setSelectedSize] = useState('default')
     const [activeTab, setActiveTab] = useState('components')
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [copiedCode, setCopiedCode] = useState<string | null>(null)
     const { language } = useLanguage()
+
+    const copyToClipboard = async (text: string, codeId: string) => {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopiedCode(codeId)
+            setTimeout(() => setCopiedCode(null), 2000)
+        } catch (err) {
+            console.error('Failed to copy: ', err)
+        }
+    }
 
     const tabs = [
         {
             id: 'components',
             label: 'Components',
-            icon: '🧩',
+            icon: Layout,
             gradient: 'from-purple-500 to-pink-500',
+            description: 'UI Components & Examples',
         },
         {
             id: 'colors',
             label: 'Colors',
-            icon: '🎨',
+            icon: Palette,
             gradient: 'from-blue-500 to-cyan-500',
+            description: 'Color Palette & Usage',
         },
         {
             id: 'typography',
             label: 'Typography',
-            icon: '📝',
+            icon: Type,
             gradient: 'from-green-500 to-emerald-500',
+            description: 'Fonts & Text Styles',
         },
         {
             id: 'spacing',
             label: 'Spacing',
-            icon: '📏',
+            icon: Ruler,
             gradient: 'from-orange-500 to-red-500',
+            description: 'Spacing Scale & Layout',
         },
         {
             id: 'guidelines',
             label: 'Guidelines',
-            icon: '📋',
+            icon: BookOpen,
             gradient: 'from-indigo-500 to-purple-500',
+            description: 'Design Principles & Best Practices',
         },
     ]
 
@@ -150,134 +184,308 @@ export default function DesignSystemPage() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-            {/* Modern Header with Glassmorphism */}
-            <div className="sticky top-0 z-10 border-b border-white/20 bg-white/80 shadow-lg backdrop-blur-xl">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col gap-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:py-8">
-                        <div className="space-y-2">
-                            <h1 className="flex items-center text-h2 text-gray-900 lg:text-h1">
-                                <span className="mr-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-h3 text-transparent lg:mr-4 lg:text-display-3">
-                                    ✨
-                                </span>
-                                Design System
-                            </h1>
-                            <p className="text-body text-gray-600 lg:text-lead-1">
-                                ระบบออกแบบสำหรับ Passion Marine -
-                                คู่มือการใช้งานและตัวอย่าง
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-3 lg:gap-4">
-                            <LanguageSwitcher />
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                className="border-white/20 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:bg-white/80"
-                            >
-                                <span className="hidden sm:inline">
-                                    📋 Copy Code
-                                </span>
-                                <span className="sm:hidden">📋</span>
-                            </Button>
-                            <Button
-                                size="sm"
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-700 hover:to-purple-700"
-                            >
-                                <span className="hidden sm:inline">
-                                    🚀 Get Started
-                                </span>
-                                <span className="sm:hidden">🚀</span>
-                            </Button>
-                        </div>
-                    </div>
+            {/* Hero Section */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700">
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
 
-                    {/* Modern Navigation Tabs */}
-                    <div className="mb-6 overflow-x-auto lg:mb-8">
-                        <div className="flex min-w-max space-x-2 rounded-2xl border border-white/20 bg-white/30 p-2 backdrop-blur-sm lg:min-w-0">
-                            {tabs.map(tab => (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id)}
-                                    className={cn(
-                                        'relative flex items-center overflow-hidden whitespace-nowrap rounded-xl px-3 py-2 text-xs font-semibold transition-all duration-300 lg:px-6 lg:py-3 lg:text-sm',
-                                        activeTab === tab.id
-                                            ? 'scale-105 transform bg-white text-gray-900 shadow-lg shadow-gray-500/20'
-                                            : 'text-gray-600 hover:bg-white/50 hover:text-gray-900'
-                                    )}
-                                >
-                                    {activeTab === tab.id && (
-                                        <div
-                                            className={cn(
-                                                'absolute inset-0 bg-gradient-to-r opacity-10',
-                                                tab.gradient
-                                            )}
-                                        ></div>
-                                    )}
-                                    <span className="mr-2 text-sm lg:mr-3 lg:text-lg">
-                                        {tab.icon}
-                                    </span>
-                                    <span className="hidden sm:inline">
-                                        {tab.label}
-                                    </span>
-                                </button>
-                            ))}
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                        }}
+                    ></div>
+                </div>
+
+                <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+                    <div className="text-center">
+                        <div className="mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-small font-medium text-white backdrop-blur-sm">
+                            <Sparkles className="mr-2 h-4 w-4" />
+                            Passion Marine Design System
+                        </div>
+                        <h1 className="mb-6 text-display-1 text-white">
+                            Design System
+                        </h1>
+                        <p className="mx-auto mb-8 max-w-2xl text-lead-1 text-blue-100">
+                            ระบบออกแบบที่ครบครันสำหรับ Passion Marine -
+                            คู่มือการใช้งาน ตัวอย่าง และเครื่องมือสำหรับนักพัฒนา
+                        </p>
+                        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                            <LanguageToggle />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            {/* Navigation Tabs */}
+            <div className="sticky top-0 z-10 border-b border-white/20 bg-white/80 shadow-lg backdrop-blur-xl">
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+                    {/* Desktop Navigation Tabs */}
+                    <div className="hidden lg:block">
+                        <div className="scrollbar-hide flex justify-between gap-x-1 rounded-2xl border border-white/20 bg-white/30 p-1 backdrop-blur-sm">
+                            {tabs.map(tab => {
+                                const IconComponent = tab.icon
+                                return (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={cn(
+                                            'group relative flex flex-shrink-0 flex-col overflow-hidden whitespace-nowrap rounded-xl px-6 py-3 text-small font-semibold transition-all duration-300',
+                                            activeTab === tab.id
+                                                ? 'scale-105 transform bg-white text-gray-900 shadow-lg shadow-gray-500/20'
+                                                : 'text-gray-600 hover:bg-white/50 hover:text-gray-900'
+                                        )}
+                                    >
+                                        {activeTab === tab.id && (
+                                            <div
+                                                className={cn(
+                                                    'absolute inset-0 bg-gradient-to-r opacity-10',
+                                                    tab.gradient
+                                                )}
+                                            ></div>
+                                        )}
+                                        <div
+                                            className={cn(
+                                                'relative z-10 flex h-8 w-8 items-center justify-center rounded-lg shadow-sm transition-all duration-300 group-hover:scale-110',
+                                                activeTab === tab.id
+                                                    ? cn(
+                                                          'bg-gradient-to-br text-white shadow-lg shadow-blue-500/25 ring-2 ring-white/20',
+                                                          tab.gradient
+                                                      )
+                                                    : 'bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 group-hover:from-blue-50 group-hover:to-indigo-100 group-hover:text-blue-700 group-hover:shadow-md'
+                                            )}
+                                        >
+                                            <IconComponent className="h-4 w-4" />
+                                        </div>
+                                        <div className="relative z-10 mt-3 text-left">
+                                            <div className="text-nav-1 font-semibold">
+                                                {tab.label}
+                                            </div>
+                                            <div className="text-small opacity-70">
+                                                {tab.description}
+                                            </div>
+                                        </div>
+                                    </button>
+                                )
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Mobile/Tablet Navigation */}
+                    <div className="lg:hidden">
+                        {/* Mobile Menu Button */}
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 shadow-lg">
+                                    <Layout className="h-5 w-5 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h4 font-bold text-gray-900">
+                                        Design System
+                                    </h2>
+                                    <p className="text-small text-gray-600">
+                                        Passion Marine
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={() =>
+                                    setIsMobileMenuOpen(!isMobileMenuOpen)
+                                }
+                                className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:bg-gray-50"
+                            >
+                                {isMobileMenuOpen ? (
+                                    <X className="h-5 w-5 text-gray-600" />
+                                ) : (
+                                    <Menu className="h-5 w-5 text-gray-600" />
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Mobile Dropdown Menu */}
+                        {isMobileMenuOpen && (
+                            <div className="mt-4 rounded-2xl border border-gray-200 bg-white shadow-xl">
+                                <div className="p-2">
+                                    {tabs.map(tab => {
+                                        const IconComponent = tab.icon
+                                        return (
+                                            <button
+                                                key={tab.id}
+                                                onClick={() => {
+                                                    setActiveTab(tab.id)
+                                                    setIsMobileMenuOpen(false)
+                                                }}
+                                                className={cn(
+                                                    'group relative flex w-full items-center rounded-xl px-4 py-3 text-left transition-all duration-200',
+                                                    activeTab === tab.id
+                                                        ? 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-900 shadow-sm'
+                                                        : 'text-gray-700 hover:bg-gray-50'
+                                                )}
+                                            >
+                                                {activeTab === tab.id && (
+                                                    <div
+                                                        className={cn(
+                                                            'absolute inset-0 rounded-xl bg-gradient-to-r opacity-10',
+                                                            tab.gradient
+                                                        )}
+                                                    ></div>
+                                                )}
+                                                <div className="relative flex items-center">
+                                                    <div
+                                                        className={cn(
+                                                            'mr-3 flex h-8 w-8 items-center justify-center rounded-lg transition-colors',
+                                                            activeTab === tab.id
+                                                                ? 'bg-blue-500 text-white'
+                                                                : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+                                                        )}
+                                                    >
+                                                        <IconComponent className="h-4 w-4" />
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-nav-1 font-semibold">
+                                                            {tab.label}
+                                                        </div>
+                                                        <div className="text-small opacity-70">
+                                                            {tab.description}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
                 {/* Components Tab */}
                 {activeTab === 'components' && (
                     <div className="space-y-12">
+                        {/* Quick Stats */}
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                            <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Components
+                                        </p>
+                                        <p className="text-h2 font-bold">12+</p>
+                                    </div>
+                                    <Layout className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Variants
+                                        </p>
+                                        <p className="text-h2 font-bold">6</p>
+                                    </div>
+                                    <Zap className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Sizes
+                                        </p>
+                                        <p className="text-h2 font-bold">4</p>
+                                    </div>
+                                    <Ruler className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Status
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            Live
+                                        </p>
+                                    </div>
+                                    <CheckCircle className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Button Component */}
-                        <div className="rounded-2xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:rounded-3xl lg:p-10">
-                            <div className="mb-6 lg:mb-8">
-                                <div>
-                                    <h2 className="mb-3 flex flex-col text-h3 text-gray-900 sm:flex-row sm:items-center lg:text-h2">
-                                        <span className="mb-2 mr-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 text-small font-bold text-white shadow-lg sm:mb-0 sm:mr-4 lg:px-4 lg:py-2">
-                                            Button
-                                        </span>
-                                        <span>Button Component</span>
-                                    </h2>
-                                    <p className="text-body text-gray-600 lg:text-lead-1">
-                                        ปุ่มที่ปรับแต่งได้หลากหลายรูปแบบและขนาด
-                                        พร้อมใช้งานทันที
-                                    </p>
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8">
+                                <div className="mb-4 flex items-center gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 shadow-lg">
+                                        <Layout className="h-6 w-6 text-white" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-h1 font-bold text-gray-900">
+                                            Button Component
+                                        </h2>
+                                        <p className="text-body text-gray-600">
+                                            ปุ่มที่ปรับแต่งได้หลากหลายรูปแบบและขนาด
+                                            พร้อมใช้งานทันที
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Live Preview */}
-                            <div className="mb-6 rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 lg:mb-8 lg:p-10">
-                                <h3 className="mb-4 flex items-center text-lg font-semibold text-gray-900 lg:mb-6 lg:text-xl">
-                                    <span className="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
-                                    Live Preview
-                                </h3>
-                                <div className="flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-white p-8 shadow-inner lg:rounded-2xl lg:p-12">
-                                    <Button
-                                        variant={selectedVariant as any}
-                                        size={selectedSize as any}
-                                        className="shadow-lg transition-all duration-300 hover:scale-105"
-                                    >
-                                        {selectedSize === 'icon'
-                                            ? '⚙️'
-                                            : 'Button Text'}
-                                    </Button>
+                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-10">
+                                <div className="mb-6 flex items-center justify-between">
+                                    <h3 className="flex items-center text-h3 font-semibold text-gray-900">
+                                        <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
+                                            <Eye className="h-4 w-4 text-white" />
+                                        </div>
+                                        Live Preview
+                                    </h3>
+                                    <div className="flex items-center gap-2">
+                                        <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
+                                        <span className="text-small text-gray-600">
+                                            Live
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-gray-300 bg-white p-12 shadow-inner">
+                                    <div className="flex items-center justify-center">
+                                        <Button
+                                            variant={selectedVariant as any}
+                                            size={selectedSize as any}
+                                            className="shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                                        >
+                                            {selectedSize === 'icon'
+                                                ? '⚙️'
+                                                : 'Button Text'}
+                                        </Button>
+                                    </div>
+                                    {/* Background decoration */}
+                                    <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 opacity-50"></div>
+                                    <div className="absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-gradient-to-br from-green-100 to-blue-100 opacity-50"></div>
                                 </div>
                             </div>
 
                             {/* Controls */}
-                            <div className="mb-6 grid gap-6 lg:mb-8 lg:grid-cols-2 lg:gap-8">
+                            <div className="mb-8 grid gap-6 md:grid-cols-2 lg:gap-8">
                                 {/* Variant Selection */}
-                                <div className="rounded-xl bg-gray-50/50 p-4 lg:rounded-2xl lg:p-6">
-                                    <h4 className="mb-3 flex items-center text-base font-semibold text-gray-900 lg:mb-4 lg:text-lg">
-                                        <span className="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
-                                        Variants
-                                    </h4>
-                                    <div className="space-y-2 lg:space-y-3">
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
+                                    <div className="mb-6 flex items-center">
+                                        <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
+                                            <Zap className="h-4 w-4 text-white" />
+                                        </div>
+                                        <h4 className="text-h4 font-semibold text-gray-900">
+                                            Variants
+                                        </h4>
+                                    </div>
+                                    <div className="space-y-3">
                                         {variants.map(variant => (
                                             <label
                                                 key={variant.value}
-                                                className="group flex cursor-pointer items-center rounded-lg p-3 transition-all duration-200 hover:bg-white/50 lg:rounded-xl lg:p-4"
+                                                className="group flex cursor-pointer items-center rounded-xl border border-gray-200/50 bg-white/50 p-4 transition-all duration-200 hover:bg-white hover:shadow-md"
                                             >
                                                 <input
                                                     type="radio"
@@ -292,17 +500,17 @@ export default function DesignSystemPage() {
                                                             e.target.value
                                                         )
                                                     }
-                                                    className="mr-3 h-4 w-4 text-blue-600 lg:mr-4 lg:h-5 lg:w-5"
+                                                    className="mr-4 h-5 w-5 text-blue-600"
                                                 />
                                                 <div className="flex items-center">
                                                     <div
-                                                        className={`mr-3 h-5 w-5 rounded-lg lg:mr-4 lg:h-6 lg:w-6 ${variant.color} ${variant.shadow} shadow-lg`}
+                                                        className={`mr-4 h-6 w-6 rounded-lg ${variant.color} ${variant.shadow} shadow-lg`}
                                                     ></div>
                                                     <div>
-                                                        <div className="text-xs font-semibold text-gray-900 transition-colors group-hover:text-blue-600 lg:text-sm">
+                                                        <div className="text-nav-1 font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
                                                             {variant.label}
                                                         </div>
-                                                        <div className="text-xs text-gray-500">
+                                                        <div className="text-small text-gray-500">
                                                             {
                                                                 variant.description
                                                             }
@@ -315,16 +523,20 @@ export default function DesignSystemPage() {
                                 </div>
 
                                 {/* Size Selection */}
-                                <div className="rounded-xl bg-gray-50/50 p-4 lg:rounded-2xl lg:p-6">
-                                    <h4 className="mb-3 flex items-center text-base font-semibold text-gray-900 lg:mb-4 lg:text-lg">
-                                        <span className="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
-                                        Sizes
-                                    </h4>
-                                    <div className="space-y-2 lg:space-y-3">
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
+                                    <div className="mb-6 flex items-center">
+                                        <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
+                                            <Ruler className="h-4 w-4 text-white" />
+                                        </div>
+                                        <h4 className="text-h4 font-semibold text-gray-900">
+                                            Sizes
+                                        </h4>
+                                    </div>
+                                    <div className="space-y-3">
                                         {sizes.map(size => (
                                             <label
                                                 key={size.value}
-                                                className="group flex cursor-pointer items-center rounded-lg p-3 transition-all duration-200 hover:bg-white/50 lg:rounded-xl lg:p-4"
+                                                className="group flex cursor-pointer items-center rounded-xl border border-gray-200/50 bg-white/50 p-4 transition-all duration-200 hover:bg-white hover:shadow-md"
                                             >
                                                 <input
                                                     type="radio"
@@ -339,17 +551,17 @@ export default function DesignSystemPage() {
                                                             e.target.value
                                                         )
                                                     }
-                                                    className="mr-3 h-4 w-4 text-blue-600 lg:mr-4 lg:h-5 lg:w-5"
+                                                    className="mr-4 h-5 w-5 text-blue-600"
                                                 />
                                                 <div className="flex items-center">
                                                     <div
-                                                        className={`mr-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 lg:mr-4 ${size.height} ${size.width} shadow-lg shadow-blue-500/25`}
+                                                        className={`mr-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 ${size.height} ${size.width} shadow-lg shadow-blue-500/25`}
                                                     ></div>
                                                     <div>
-                                                        <div className="text-xs font-semibold text-gray-900 transition-colors group-hover:text-blue-600 lg:text-sm">
+                                                        <div className="text-nav-1 font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
                                                             {size.label}
                                                         </div>
-                                                        <div className="text-xs text-gray-500">
+                                                        <div className="text-small text-gray-500">
                                                             {size.description}
                                                         </div>
                                                     </div>
@@ -361,115 +573,188 @@ export default function DesignSystemPage() {
                             </div>
 
                             {/* Code Example */}
-                            <div className="mb-6 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 p-4 shadow-xl lg:mb-8 lg:rounded-2xl lg:p-6">
-                                <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between lg:mb-4">
-                                    <h4 className="flex items-center text-base font-semibold text-white lg:text-lg">
-                                        <span className="mr-3 h-2 w-2 rounded-full bg-green-400"></span>
-                                        Code Example
-                                    </h4>
-                                    <button className="rounded-lg bg-gray-700 px-3 py-1 text-xs text-gray-400 transition-colors hover:bg-gray-600 hover:text-white lg:px-4 lg:py-2 lg:text-sm">
-                                        📋 Copy Code
-                                    </button>
+                            <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-900 to-gray-800 p-6 shadow-2xl md:p-8">
+                                <div className="mb-6 flex items-center justify-between">
+                                    <div className="flex items-center">
+                                        <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
+                                            <Code className="h-4 w-4 text-white" />
+                                        </div>
+                                        <h4 className="text-h4 font-semibold text-white">
+                                            Code Example
+                                        </h4>
+                                    </div>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() =>
+                                            copyToClipboard(
+                                                `<Button variant="${selectedVariant}" size="${selectedSize}">
+    ${selectedSize === 'icon' ? '⚙️' : 'Button Text'}
+</Button>`,
+                                                'button-code'
+                                            )
+                                        }
+                                        className={cn(
+                                            'border-gray-600 bg-gray-800 text-gray-300 transition-all duration-200 hover:bg-gray-700 hover:text-white',
+                                            copiedCode === 'button-code' &&
+                                                'border-green-500 bg-green-600 text-white'
+                                        )}
+                                    >
+                                        {copiedCode === 'button-code' ? (
+                                            <>
+                                                <CheckCircle className="mr-2 h-4 w-4" />
+                                                Copied!
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="mr-2 h-4 w-4" />
+                                                Copy Code
+                                            </>
+                                        )}
+                                    </Button>
                                 </div>
-                                <pre className="overflow-x-auto rounded-lg border border-gray-700 bg-gray-900/50 p-3 text-xs text-gray-300 lg:rounded-xl lg:p-4 lg:text-sm">
-                                    <code>{`<Button variant="${selectedVariant}" size="${selectedSize}">
+                                <div className="relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-900/50 p-6">
+                                    <div className="mb-4 flex items-center gap-2">
+                                        <div className="flex gap-2">
+                                            <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                                            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+                                            <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                                        </div>
+                                        <span className="text-small text-gray-400">
+                                            Button.tsx
+                                        </span>
+                                    </div>
+                                    <pre className="overflow-x-auto text-small text-gray-300">
+                                        <code>{`<Button variant="${selectedVariant}" size="${selectedSize}">
     ${selectedSize === 'icon' ? '⚙️' : 'Button Text'}
 </Button>`}</code>
-                                </pre>
+                                    </pre>
+                                </div>
                             </div>
 
                             {/* Usage Examples */}
-                            <div className="rounded-xl bg-gray-50/50 p-4 lg:rounded-2xl lg:p-6">
-                                <h4 className="mb-4 flex items-center text-base font-semibold text-gray-900 lg:mb-6 lg:text-lg">
-                                    <span className="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
-                                    Usage Examples
-                                </h4>
-                                <div className="grid gap-4 md:grid-cols-2 lg:gap-6">
-                                    <div className="space-y-3 lg:space-y-4">
-                                        <div className="flex flex-wrap items-center gap-2 lg:gap-3">
-                                            <Button
-                                                variant="default"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Primary Action
-                                            </Button>
-                                            <Button
-                                                variant="outline"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Secondary Action
-                                            </Button>
+                            <div className="rounded-3xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
+                                <div className="mb-6 flex items-center">
+                                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
+                                        <Sparkles className="h-4 w-4 text-white" />
+                                    </div>
+                                    <h4 className="text-h4 font-semibold text-gray-900">
+                                        Usage Examples
+                                    </h4>
+                                </div>
+                                <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+                                    <div className="space-y-4">
+                                        <div className="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
+                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                                Primary Actions
+                                            </h5>
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <Button
+                                                    variant="default"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Primary Action
+                                                </Button>
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Secondary Action
+                                                </Button>
+                                            </div>
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-2 lg:gap-3">
-                                            <Button
-                                                variant="destructive"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Delete
-                                            </Button>
-                                            <Button
-                                                variant="ghost"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Cancel
-                                            </Button>
+                                        <div className="rounded-xl bg-gradient-to-br from-red-50 to-pink-50 p-4">
+                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                                Destructive Actions
+                                            </h5>
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <Button
+                                                    variant="destructive"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Delete
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Cancel
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="space-y-3 lg:space-y-4">
-                                        <div className="flex flex-wrap items-center gap-2 lg:gap-3">
-                                            <Button
-                                                variant="link"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Learn More
-                                            </Button>
-                                            <Button
-                                                variant="secondary"
-                                                size="sm"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                Save Draft
-                                            </Button>
+                                    <div className="space-y-4">
+                                        <div className="rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 p-4">
+                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                                Utility Actions
+                                            </h5>
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <Button
+                                                    variant="link"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Learn More
+                                                </Button>
+                                                <Button
+                                                    variant="secondary"
+                                                    size="sm"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    Save Draft
+                                                </Button>
+                                            </div>
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-2 lg:gap-3">
-                                            <Button
-                                                size="icon"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                ⚙️
-                                            </Button>
-                                            <Button
-                                                size="icon"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                ❤️
-                                            </Button>
-                                            <Button
-                                                size="icon"
-                                                className="shadow-lg transition-all duration-300 hover:scale-105"
-                                            >
-                                                📧
-                                            </Button>
+                                        <div className="rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-4">
+                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                                Icon Buttons
+                                            </h5>
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <Button
+                                                    size="icon"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    ⚙️
+                                                </Button>
+                                                <Button
+                                                    size="icon"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    ❤️
+                                                </Button>
+                                                <Button
+                                                    size="icon"
+                                                    className="shadow-lg transition-all duration-300 hover:scale-105"
+                                                >
+                                                    📧
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Coming Soon Components */}
-                        <div className="rounded-2xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:rounded-3xl lg:p-10">
-                            <h2 className="mb-6 flex flex-col text-2xl font-bold text-gray-900 sm:flex-row sm:items-center lg:mb-8 lg:text-3xl">
-                                <span className="mb-2 mr-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 text-sm font-bold text-white shadow-lg sm:mb-0 sm:mr-4 lg:px-4 lg:py-2">
-                                    Roadmap
-                                </span>
-                                <span>Components Roadmap</span>
-                            </h2>
-                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+                        {/* Components Roadmap */}
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8 flex items-center gap-4">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg">
+                                    <ArrowRight className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h1 font-bold text-gray-900">
+                                        Components Roadmap
+                                    </h2>
+                                    <p className="text-body text-gray-600">
+                                        Components ที่กำลังพัฒนาและวางแผนไว้
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
                                 {[
                                     {
                                         name: 'Input',
@@ -477,6 +762,7 @@ export default function DesignSystemPage() {
                                         icon: '📝',
                                         status: 'In Progress',
                                         gradient: 'from-blue-500 to-cyan-500',
+                                        progress: 75,
                                     },
                                     {
                                         name: 'Card',
@@ -485,6 +771,7 @@ export default function DesignSystemPage() {
                                         status: 'Planned',
                                         gradient:
                                             'from-green-500 to-emerald-500',
+                                        progress: 0,
                                     },
                                     {
                                         name: 'Modal',
@@ -492,6 +779,7 @@ export default function DesignSystemPage() {
                                         icon: '🪟',
                                         status: 'Planned',
                                         gradient: 'from-purple-500 to-pink-500',
+                                        progress: 0,
                                     },
                                     {
                                         name: 'Dropdown',
@@ -499,6 +787,7 @@ export default function DesignSystemPage() {
                                         icon: '📋',
                                         status: 'Planned',
                                         gradient: 'from-orange-500 to-red-500',
+                                        progress: 0,
                                     },
                                     {
                                         name: 'Toast',
@@ -507,6 +796,7 @@ export default function DesignSystemPage() {
                                         status: 'Planned',
                                         gradient:
                                             'from-yellow-500 to-orange-500',
+                                        progress: 0,
                                     },
                                     {
                                         name: 'Table',
@@ -515,34 +805,68 @@ export default function DesignSystemPage() {
                                         status: 'Planned',
                                         gradient:
                                             'from-indigo-500 to-purple-500',
+                                        progress: 0,
                                     },
                                 ].map(component => (
                                     <div
                                         key={component.name}
-                                        className="group rounded-2xl border border-gray-200/50 bg-white/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:shadow-gray-500/10"
+                                        className="group relative overflow-hidden rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-gray-500/10"
                                     >
-                                        <div className="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
-                                            {component.icon}
+                                        <div className="relative z-10">
+                                            <div className="mb-4 flex items-center justify-between">
+                                                <div className="text-h3 transition-transform duration-300 group-hover:scale-110">
+                                                    {component.icon}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    {component.status ===
+                                                    'In Progress' ? (
+                                                        <Clock className="h-4 w-4 text-blue-500" />
+                                                    ) : (
+                                                        <div className="h-2 w-2 rounded-full bg-gray-300"></div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <h4 className="mb-2 text-h4 font-bold text-gray-900">
+                                                {component.name}
+                                            </h4>
+                                            <p className="mb-4 text-small text-gray-600">
+                                                {component.description}
+                                            </p>
+                                            <div className="mb-4">
+                                                <div className="mb-2 flex items-center justify-between text-small text-gray-500">
+                                                    <span>Progress</span>
+                                                    <span>
+                                                        {component.progress}%
+                                                    </span>
+                                                </div>
+                                                <div className="h-2 rounded-full bg-gray-200">
+                                                    <div
+                                                        className={`h-2 rounded-full bg-gradient-to-r ${component.gradient} transition-all duration-500`}
+                                                        style={{
+                                                            width: `${component.progress}%`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center justify-between">
+                                                <span
+                                                    className={cn(
+                                                        'inline-flex items-center rounded-full px-3 py-1 text-small-2 font-bold shadow-lg',
+                                                        component.status ===
+                                                            'In Progress'
+                                                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
+                                                            : 'bg-gradient-to-r from-gray-400 to-gray-500 text-white'
+                                                    )}
+                                                >
+                                                    {component.status}
+                                                </span>
+                                                <ArrowRight className="h-4 w-4 text-gray-400 transition-transform duration-300 group-hover:translate-x-1" />
+                                            </div>
                                         </div>
-                                        <h3 className="mb-2 text-lg font-bold text-gray-900">
-                                            {component.name}
-                                        </h3>
-                                        <p className="mb-4 text-sm text-gray-600">
-                                            {component.description}
-                                        </p>
-                                        <div className="mt-4">
-                                            <span
-                                                className={cn(
-                                                    'inline-flex items-center rounded-full px-4 py-2 text-xs font-bold shadow-lg',
-                                                    component.status ===
-                                                        'In Progress'
-                                                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                                                        : 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
-                                                )}
-                                            >
-                                                {component.status}
-                                            </span>
-                                        </div>
+                                        {/* Background decoration */}
+                                        <div
+                                            className={`absolute -right-4 -top-4 h-16 w-16 rounded-full bg-gradient-to-br ${component.gradient} opacity-10`}
+                                        ></div>
                                     </div>
                                 ))}
                             </div>
@@ -553,44 +877,141 @@ export default function DesignSystemPage() {
                 {/* Colors Tab */}
                 {activeTab === 'colors' && (
                     <div className="space-y-12">
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl shadow-gray-500/10 backdrop-blur-sm">
-                            <h2 className="mb-8 flex items-center text-3xl font-bold text-gray-900">
-                                <span className="mr-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
-                                    Colors
-                                </span>
-                                Color Palette
-                            </h2>
-                            <div className="grid gap-12">
+                        {/* Color Overview */}
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                            <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Primary Colors
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            Blue
+                                        </p>
+                                    </div>
+                                    <Palette className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-gray-500 to-gray-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Neutral Colors
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            Grey
+                                        </p>
+                                    </div>
+                                    <Palette className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Success
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            Green
+                                        </p>
+                                    </div>
+                                    <CheckCircle className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-red-500 to-red-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Error
+                                        </p>
+                                        <p className="text-h2 font-bold">Red</p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Color Palette */}
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8 flex items-center gap-4">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg">
+                                    <Palette className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h1 font-bold text-gray-900">
+                                        Color Palette
+                                    </h2>
+                                    <p className="text-body text-gray-600">
+                                        สีหลักที่ใช้ในระบบออกแบบ Passion Marine
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="space-y-12">
                                 {Object.entries(colorPalette).map(
                                     ([colorName, shades]) => (
                                         <div
                                             key={colorName}
-                                            className="rounded-2xl bg-gray-50/50 p-8"
+                                            className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8"
                                         >
-                                            <h3 className="mb-6 flex items-center text-2xl font-bold capitalize text-gray-900">
+                                            <div className="mb-6 flex items-center gap-4">
                                                 <div
-                                                    className={`mr-3 h-4 w-4 rounded-full bg-${colorName}-500`}
+                                                    className={`h-8 w-8 rounded-xl bg-${colorName}-500 shadow-lg`}
                                                 ></div>
-                                                {colorName} Colors
-                                            </h3>
-                                            <div className="grid grid-cols-5 gap-4 md:grid-cols-10">
+                                                <div>
+                                                    <h3 className="text-h3 font-bold capitalize text-gray-900">
+                                                        {colorName} Colors
+                                                    </h3>
+                                                    <p className="text-small text-gray-600">
+                                                        {colorName === 'blue'
+                                                            ? 'สีหลักของแบรนด์'
+                                                            : 'สีสำหรับข้อความและพื้นหลัง'}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="grid grid-cols-1 gap-4 md:grid-cols-5 xl:grid-cols-10">
                                                 {Object.entries(shades).map(
                                                     ([shade, hex]) => (
                                                         <div
                                                             key={shade}
-                                                            className="group text-center"
+                                                            className="group cursor-pointer text-center"
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    hex,
+                                                                    `${colorName}-${shade}`
+                                                                )
+                                                            }
                                                         >
-                                                            <div
-                                                                className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                                                style={{
-                                                                    backgroundColor:
-                                                                        hex,
-                                                                }}
-                                                            ></div>
-                                                            <div className="text-sm font-bold text-gray-900">
+                                                            <div className="relative">
+                                                                <div
+                                                                    className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+                                                                    style={{
+                                                                        backgroundColor:
+                                                                            hex,
+                                                                    }}
+                                                                ></div>
+                                                                {copiedCode ===
+                                                                    `${colorName}-${shade}` && (
+                                                                    <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/20">
+                                                                        <div className="rounded-full bg-white p-2 shadow-lg">
+                                                                            <CheckCircle className="h-4 w-4 text-green-600" />
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                            <div className="text-small font-bold text-gray-900">
                                                                 {shade}
                                                             </div>
-                                                            <div className="mt-1 rounded bg-gray-100 px-2 py-1 font-mono text-xs text-gray-500">
+                                                            <div
+                                                                className={cn(
+                                                                    'mt-1 rounded px-2 py-1 font-mono text-small-2 transition-colors',
+                                                                    copiedCode ===
+                                                                        `${colorName}-${shade}`
+                                                                        ? 'bg-green-100 text-green-700'
+                                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
+                                                                )}
+                                                            >
                                                                 {hex}
                                                             </div>
                                                         </div>
@@ -607,209 +1028,562 @@ export default function DesignSystemPage() {
 
                 {/* Typography Tab */}
                 {activeTab === 'typography' && (
-                    <div className="space-y-8 lg:space-y-12">
-                        <div className="rounded-2xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm lg:rounded-3xl lg:p-10">
-                            <div className="mb-6 flex flex-col gap-4 lg:mb-8 lg:flex-row lg:items-center lg:justify-between">
-                                <h2 className="flex flex-col text-2xl font-bold text-gray-900 sm:flex-row sm:items-center lg:text-3xl">
-                                    <span className="mb-2 mr-0 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 px-3 py-1 text-sm font-bold text-white shadow-lg sm:mb-0 sm:mr-4 lg:px-4 lg:py-2">
-                                        Typography
-                                    </span>
-                                    <span>Typography Scale</span>
-                                </h2>
-                                <LanguageToggle />
+                    <div className="space-y-12">
+                        {/* Typography Overview */}
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                            <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Font Families
+                                        </p>
+                                        <p className="text-h2 font-bold">2</p>
+                                    </div>
+                                    <Type className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Font Sizes
+                                        </p>
+                                        <p className="text-h2 font-bold">12+</p>
+                                    </div>
+                                    <Ruler className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Languages
+                                        </p>
+                                        <p className="text-h2 font-bold">2</p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">🌐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8 flex items-center gap-4">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 shadow-lg">
+                                    <Type className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h1 font-bold text-gray-900">
+                                        Typography Scale
+                                    </h2>
+                                    <p className="text-body text-gray-600">
+                                        ระบบตัวอักษรที่รองรับทั้งภาษาไทยและอังกฤษ
+                                    </p>
+                                </div>
                             </div>
 
                             {/* Dynamic Language Typography */}
-                            <div className="mb-8 lg:mb-12">
-                                <h3 className="mb-4 text-xl font-bold text-gray-900 lg:mb-6 lg:text-2xl">
-                                    {language === 'th'
-                                        ? 'Thai (Noto Sans Thai)'
-                                        : 'English (Roboto)'}
-                                </h3>
-                                <div className="mb-4 rounded-lg bg-blue-50 p-3 lg:mb-6 lg:p-4">
-                                    <p className="text-small text-blue-800 lg:text-body">
+                            <div className="mb-8">
+                                <div className="mb-6 flex items-center justify-between">
+                                    <h3 className="text-h2 font-bold text-gray-900">
                                         {language === 'th'
-                                            ? '🎯 ตัวอย่างการเปลี่ยนภาษา - Font จะเปลี่ยนตามภาษาที่เลือก'
-                                            : '🎯 Language Switching Example - Font changes based on selected language'}
-                                    </p>
+                                            ? 'Thai (Noto Sans Thai)'
+                                            : 'English (Roboto)'}
+                                    </h3>
+                                    <div className="flex items-center gap-2">
+                                        <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
+                                        <span className="text-small text-gray-600">
+                                            Active
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="space-y-4 lg:space-y-8">
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h1 className="mb-2 text-h1 text-gray-900 lg:mb-3 lg:text-display-1">
+                                <div className="mb-6 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 md:p-6">
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
+                                            <span className="text-white">
+                                                🎯
+                                            </span>
+                                        </div>
+                                        <p className="text-body text-blue-800">
                                             {language === 'th'
-                                                ? 'หัวข้อหลัก - 83px'
-                                                : 'Main Title - 83px'}
-                                        </h1>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-display-1
+                                                ? 'ตัวอย่างการเปลี่ยนภาษา - Font จะเปลี่ยนตามภาษาที่เลือก'
+                                                : 'Language Switching Example - Font changes based on selected language'}
                                         </p>
                                     </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h2 className="mb-2 text-h2 text-gray-900 lg:mb-3 lg:text-display-2">
-                                            {language === 'th'
-                                                ? 'หัวข้อรอง - 69px'
-                                                : 'Sub Title - 69px'}
-                                        </h2>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-display-2
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h3 className="mb-2 text-h3 text-gray-900 lg:mb-3 lg:text-display-3">
-                                            {language === 'th'
-                                                ? 'หัวข้อย่อย - 57px'
-                                                : 'Section Title - 57px'}
+                                </div>
+                                {/* Typography Quick Reference */}
+                                <div className="mb-8 rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                                    <div className="mb-4 flex items-center gap-3">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
+                                            <span className="text-white">
+                                                ⚡
+                                            </span>
+                                        </div>
+                                        <h3 className="text-h3 font-bold text-gray-900">
+                                            Quick Reference
                                         </h3>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-display-3
-                                        </p>
                                     </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h4 className="mb-2 text-h4 text-gray-900 lg:mb-3 lg:text-h1">
-                                            {language === 'th'
-                                                ? 'หัวข้อ H1 - 40px'
-                                                : 'Heading H1 - 40px'}
-                                        </h4>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            h1 tag
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h5 className="mb-2 text-h5 text-gray-900 lg:mb-3 lg:text-h2">
-                                            Heading 2 - 32px
-                                        </h5>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-h2
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h6 className="mb-2 text-h6 text-gray-900 lg:mb-3 lg:text-h3">
-                                            Heading 3 - 28px
-                                        </h6>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-h3
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-h5 text-gray-900 lg:mb-3 lg:text-h4">
-                                            Heading 4 - 24px
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-h4
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-h6 text-gray-900 lg:mb-3 lg:text-h5">
-                                            Heading 5 - 20px
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-h5
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-small text-gray-900 lg:mb-3 lg:text-h6">
-                                            Heading 6 - 18px
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-h6
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-body text-gray-700 lg:mb-3 lg:text-lead-1">
-                                            Lead 1 - สำหรับข้อความสำคัญ
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-lead-1
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-small text-gray-700 lg:mb-3 lg:text-body">
-                                            Body - สำหรับเนื้อหาทั่วไป
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-body
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-small text-gray-600 lg:mb-3">
-                                            Small - สำหรับข้อมูลรอง
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-small
-                                        </p>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Display
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-display-1</div>
+                                                <div>.text-display-2</div>
+                                                <div>.text-display-3</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Headings
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>h1, .text-h2</div>
+                                                <div>.text-h3, .text-h4</div>
+                                                <div>.text-h5, .text-h6</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Body
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-lead-1</div>
+                                                <div>.text-lead-2</div>
+                                                <div>.text-body</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Small
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-small</div>
+                                                <div>.text-small-2</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Thai Typography */}
-                            <div>
-                                <h3 className="mb-4 text-xl font-bold text-gray-900 lg:mb-6 lg:text-2xl">
-                                    Thai (Noto Sans Thai)
-                                </h3>
-                                <div className="space-y-4 lg:space-y-8">
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h1 className="lg:text-thai-display-1 mb-2 text-h1 text-gray-900 lg:mb-3">
-                                            Display 1 - 83px
-                                        </h1>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-display-1
-                                        </p>
+                                {/* Typography Examples */}
+                                <div className="space-y-8">
+                                    {/* Display Typography */}
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                                                <span className="text-white">
+                                                    🎨
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Display Typography
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับหัวข้อหลักและข้อความขนาดใหญ่
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-6">
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h1 className="text-display-1 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อหลัก'
+                                                            : 'Main Title'}
+                                                    </h1>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-1',
+                                                                'text-display-1'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-1'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-1' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        83px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                        Line-height 1.25
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h2 className="text-display-2 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อรอง'
+                                                            : 'Sub Title'}
+                                                    </h2>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-2',
+                                                                'text-display-2'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-2'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-2' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        69px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                        Line-height 1.25
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h3 className="text-display-3 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อย่อย'
+                                                            : 'Section Title'}
+                                                    </h3>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-3',
+                                                                'text-display-3'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-3'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-3' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        57px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                        Line-height 1.25
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h2 className="lg:text-thai-display-2 mb-2 text-h2 text-gray-900 lg:mb-3">
-                                            Display 2 - 69px
-                                        </h2>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-display-2
-                                        </p>
+
+                                    {/* Heading Typography */}
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
+                                                <span className="text-white">
+                                                    📝
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Heading Typography
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับหัวข้อและโครงสร้างเนื้อหา
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                            {[
+                                                {
+                                                    tag: 'h1',
+                                                    class: 'h1',
+                                                    size: '40px',
+                                                    weight: 'Bold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H1',
+                                                },
+                                                {
+                                                    tag: '.text-h2',
+                                                    class: 'h2',
+                                                    size: '32px',
+                                                    weight: 'Bold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H2',
+                                                },
+                                                {
+                                                    tag: '.text-h3',
+                                                    class: 'h3',
+                                                    size: '28px',
+                                                    weight: 'Semibold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H3',
+                                                },
+                                                {
+                                                    tag: '.text-h4',
+                                                    class: 'h4',
+                                                    size: '24px',
+                                                    weight: 'Semibold',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H4',
+                                                },
+                                                {
+                                                    tag: '.text-h5',
+                                                    class: 'h5',
+                                                    size: '20px',
+                                                    weight: 'Medium',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H5',
+                                                },
+                                                {
+                                                    tag: '.text-h6',
+                                                    class: 'h6',
+                                                    size: '18px',
+                                                    weight: 'Medium',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H6',
+                                                },
+                                            ].map(heading => (
+                                                <div
+                                                    key={heading.class}
+                                                    className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                                >
+                                                    <div className="mb-3 flex items-center justify-between">
+                                                        <div
+                                                            className={`text-${heading.class} text-gray-900`}
+                                                        >
+                                                            {heading.label}
+                                                        </div>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    heading.tag,
+                                                                    heading.class
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                                copiedCode ===
+                                                                    heading.class
+                                                                    ? 'bg-green-100 text-green-700'
+                                                                    : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            heading.class ? (
+                                                                <CheckCircle className="h-3 w-3" />
+                                                            ) : (
+                                                                <Copy className="h-3 w-3" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <div className="font-mono text-small-2 text-gray-500">
+                                                            {heading.tag}
+                                                        </div>
+                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                            <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                                {heading.size}
+                                                            </span>
+                                                            <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                                {heading.weight}
+                                                            </span>
+                                                            <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                                Line-height{' '}
+                                                                {
+                                                                    heading.lineHeight
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h3 className="lg:text-thai-display-3 mb-2 text-h3 text-gray-900 lg:mb-3">
-                                            Display 3 - 57px
-                                        </h3>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-display-3
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h4 className="lg:text-thai-h1 mb-2 text-h4 text-gray-900 lg:mb-3">
-                                            หัวข้อ 1 - 40px
-                                        </h4>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-h1
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h5 className="lg:text-thai-h2 mb-2 text-h5 text-gray-900 lg:mb-3">
-                                            หัวข้อ 2 - 32px
-                                        </h5>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-h2
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <h6 className="lg:text-thai-h3 mb-2 text-h6 text-gray-900 lg:mb-3">
-                                            หัวข้อ 3 - 28px
-                                        </h6>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-h3
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="lg:text-thai-body mb-2 text-small text-gray-700 lg:mb-3">
-                                            เนื้อหาทั่วไป - สำหรับข้อความปกติ
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-body
-                                        </p>
-                                    </div>
-                                    <div className="rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100 p-4 lg:rounded-2xl lg:p-8">
-                                        <p className="mb-2 text-small text-gray-600 lg:mb-3">
-                                            ข้อความเล็ก - สำหรับข้อมูลรอง
-                                        </p>
-                                        <p className="inline-block rounded-lg bg-white px-2 py-1 font-mono text-xs text-gray-500 lg:px-3 lg:text-sm">
-                                            .text-thai-small
-                                        </p>
+
+                                    {/* Body Typography */}
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
+                                                <span className="text-white">
+                                                    📄
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Body Typography
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับเนื้อหาและข้อความทั่วไป
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                            {[
+                                                {
+                                                    class: 'lead-1',
+                                                    size: '20px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.25',
+                                                    label: 'Lead 1 - สำหรับข้อความสำคัญ',
+                                                    copyId: 'text-lead-1',
+                                                },
+                                                {
+                                                    class: 'lead-2',
+                                                    size: '18px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.3',
+                                                    label: 'Lead 2 - สำหรับข้อความรอง',
+                                                    copyId: 'text-lead-2',
+                                                },
+                                                {
+                                                    class: 'body',
+                                                    size: '16px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.4',
+                                                    label: 'Body - สำหรับเนื้อหาทั่วไป',
+                                                    copyId: 'text-body',
+                                                },
+                                                {
+                                                    class: 'small',
+                                                    size: '14px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.5',
+                                                    label: 'Small - สำหรับข้อมูลรอง',
+                                                    copyId: 'text-small',
+                                                },
+                                                {
+                                                    class: 'small-2',
+                                                    size: '12px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.5',
+                                                    label: 'Small 2 - สำหรับข้อมูลเล็ก',
+                                                    copyId: 'text-small-2',
+                                                },
+                                            ].map(body => (
+                                                <div
+                                                    key={body.class}
+                                                    className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                                >
+                                                    <div className="mb-3 flex items-center justify-between">
+                                                        <p
+                                                            className={`text-${body.class} text-gray-700`}
+                                                        >
+                                                            {language === 'th'
+                                                                ? body.label
+                                                                : body.label
+                                                                      .replace(
+                                                                          'สำหรับ',
+                                                                          'For'
+                                                                      )
+                                                                      .replace(
+                                                                          'และ',
+                                                                          'and'
+                                                                      )}
+                                                        </p>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `.text-${body.class}`,
+                                                                    body.copyId
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                                copiedCode ===
+                                                                    body.copyId
+                                                                    ? 'bg-green-100 text-green-700'
+                                                                    : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            body.copyId ? (
+                                                                <CheckCircle className="h-3 w-3" />
+                                                            ) : (
+                                                                <Copy className="h-3 w-3" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <div className="font-mono text-small-2 text-gray-500">
+                                                            .text-{body.class}
+                                                        </div>
+                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                            <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                                {body.size}
+                                                            </span>
+                                                            <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                                {body.weight}
+                                                            </span>
+                                                            <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                                Line-height{' '}
+                                                                {
+                                                                    body.lineHeight
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -820,40 +1594,480 @@ export default function DesignSystemPage() {
                 {/* Spacing Tab */}
                 {activeTab === 'spacing' && (
                     <div className="space-y-12">
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl shadow-gray-500/10 backdrop-blur-sm">
-                            <h2 className="mb-8 flex items-center text-3xl font-bold text-gray-900">
-                                <span className="mr-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
-                                    Spacing
-                                </span>
-                                Spacing Scale
-                            </h2>
-                            <div className="space-y-6">
-                                {[1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32].map(
-                                    space => (
-                                        <div
-                                            key={space}
-                                            className="flex items-center rounded-xl bg-gray-50/50 p-6"
-                                        >
-                                            <div className="w-20 font-mono text-sm font-bold text-gray-600">
-                                                {space * 0.25}rem
-                                            </div>
-                                            <div className="ml-8 flex items-center">
-                                                <div
-                                                    className="h-6 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 shadow-lg"
-                                                    style={{
-                                                        width: `${
-                                                            space * 0.25
-                                                        }rem`,
-                                                    }}
-                                                ></div>
-                                                <span className="ml-4 text-sm font-medium text-gray-600">
-                                                    p-{space}, m-{space}, space-
-                                                    {space}
-                                                </span>
-                                            </div>
+                        {/* Spacing Overview */}
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                            <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Base Unit
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            0.25rem
+                                        </p>
+                                    </div>
+                                    <Ruler className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-red-500 to-red-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Scale Steps
+                                        </p>
+                                        <p className="text-h2 font-bold">11</p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">📏</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Min Value
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            0.25rem
+                                        </p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">📐</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Max Value
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            8rem
+                                        </p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">📊</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Spacing Quick Reference */}
+                        <div className="mb-8 rounded-2xl border border-orange-200/50 bg-gradient-to-br from-orange-50 to-red-50 p-6">
+                            <div className="mb-4 flex items-center gap-3">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500">
+                                    <span className="text-white">📏</span>
+                                </div>
+                                <h3 className="text-h3 font-bold text-gray-900">
+                                    Quick Reference
+                                </h3>
+                            </div>
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Base Unit
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        0.25rem (4px)
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Scale Range
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        0.25rem - 8rem
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Common Values
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Usage
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        p-*, m-*, space-*
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Spacing Scale */}
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8 flex items-center gap-4">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 shadow-lg">
+                                    <Ruler className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h1 font-bold text-gray-900">
+                                        Spacing Scale
+                                    </h2>
+                                    <p className="text-body text-gray-600">
+                                        ระบบระยะห่างที่ใช้ในระบบออกแบบ Passion
+                                        Marine
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Spacing Categories */}
+                            <div className="space-y-8">
+                                {/* Small Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
+                                            <span className="text-white">
+                                                🔸
+                                            </span>
                                         </div>
-                                    )
-                                )}
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Small Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างเล็ก เช่น padding,
+                                                margin ขนาดเล็ก
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        {[1, 2, 3, 4].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
+                                                            {space * 0.25 * 16}
+                                                            px
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Medium Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
+                                            <span className="text-white">
+                                                🔹
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Medium Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างปานกลาง เช่น
+                                                section spacing
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                        {[6, 8, 12].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
+                                                            {space * 0.25 * 16}
+                                                            px
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Large Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                                            <span className="text-white">
+                                                🔶
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Large Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างใหญ่ เช่น page
+                                                sections, major layouts
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        {[16, 20, 24, 32].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
+                                                            {space * 0.25 * 16}
+                                                            px
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Usage Examples */}
+                            <div className="mt-8 rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+                                <div className="mb-4 flex items-center gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-500">
+                                        <span className="text-white">💡</span>
+                                    </div>
+                                    <h3 className="text-h3 font-bold text-gray-900">
+                                        Usage Examples
+                                    </h3>
+                                </div>
+                                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Padding
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>p-4 (1rem padding)</div>
+                                            <div>px-6 (1.5rem horizontal)</div>
+                                            <div>py-8 (2rem vertical)</div>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Margin
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>m-4 (1rem margin)</div>
+                                            <div>mx-auto (center)</div>
+                                            <div>mt-12 (3rem top)</div>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Gap
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>gap-4 (1rem gap)</div>
+                                            <div>space-x-6 (horizontal)</div>
+                                            <div>space-y-8 (vertical)</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -862,85 +2076,165 @@ export default function DesignSystemPage() {
                 {/* Guidelines Tab */}
                 {activeTab === 'guidelines' && (
                     <div className="space-y-12">
-                        <div className="rounded-3xl border border-white/20 bg-white/70 p-10 shadow-xl shadow-gray-500/10 backdrop-blur-sm">
-                            <h2 className="mb-8 flex items-center text-3xl font-bold text-gray-900">
-                                <span className="mr-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
-                                    Guidelines
-                                </span>
-                                Design Guidelines
-                            </h2>
-                            <div className="grid gap-12 lg:grid-cols-2">
-                                <div className="rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
-                                    <h3 className="mb-6 flex items-center text-2xl font-bold text-gray-900">
-                                        <span className="mr-3 text-3xl">
-                                            🎯
-                                        </span>
-                                        Principles
-                                    </h3>
-                                    <ul className="space-y-4 text-gray-700">
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-blue-500">
-                                                •
-                                            </span>
-                                            <span className="font-medium">
-                                                ความสอดคล้อง - ใช้ component
-                                                เดียวกันในสถานการณ์เดียวกัน
-                                            </span>
-                                        </li>
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-blue-500">
-                                                •
-                                            </span>
-                                            <span className="font-medium">
-                                                ความชัดเจน -
-                                                ออกแบบให้เข้าใจง่ายและใช้งานง่าย
-                                            </span>
-                                        </li>
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-blue-500">
-                                                •
-                                            </span>
-                                            <span className="font-medium">
-                                                ความยืดหยุ่น -
-                                                ปรับแต่งได้ตามความต้องการ
-                                            </span>
-                                        </li>
-                                    </ul>
+                        {/* Guidelines Overview */}
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                            <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Design Principles
+                                        </p>
+                                        <p className="text-h2 font-bold">3</p>
+                                    </div>
+                                    <BookOpen className="h-8 w-8 opacity-80" />
                                 </div>
-                                <div className="rounded-2xl border border-green-200/50 bg-gradient-to-br from-green-50 to-emerald-50 p-8">
-                                    <h3 className="mb-6 flex items-center text-2xl font-bold text-gray-900">
-                                        <span className="mr-3 text-3xl">
-                                            📏
-                                        </span>
-                                        Best Practices
-                                    </h3>
-                                    <ul className="space-y-4 text-gray-700">
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-green-500">
-                                                ✓
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Best Practices
+                                        </p>
+                                        <p className="text-h2 font-bold">5+</p>
+                                    </div>
+                                    <CheckCircle className="h-8 w-8 opacity-80" />
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 p-6 text-white shadow-xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-small opacity-90">
+                                            Accessibility
+                                        </p>
+                                        <p className="text-h2 font-bold">
+                                            WCAG 2.1
+                                        </p>
+                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-h3">♿</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Design Guidelines */}
+                        <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
+                            <div className="mb-8 flex items-center gap-4">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg">
+                                    <BookOpen className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-h1 font-bold text-gray-900">
+                                        Design Guidelines
+                                    </h2>
+                                    <p className="text-body text-gray-600">
+                                        หลักการและแนวทางปฏิบัติที่ดีสำหรับการออกแบบ
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid gap-8 md:grid-cols-2">
+                                <div className="rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                                    <div className="mb-6 flex items-center">
+                                        <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-500">
+                                            <span className="text-white">
+                                                🎯
                                             </span>
-                                            <span className="font-medium">
-                                                ใช้ spacing scale ที่กำหนดไว้
+                                        </div>
+                                        <h3 className="text-h3 font-bold text-gray-900">
+                                            Design Principles
+                                        </h3>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <div className="mr-2 h-2 w-2 rounded-full bg-blue-500"></div>
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    ความสอดคล้อง
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
+                                                ใช้ component
+                                                เดียวกันในสถานการณ์เดียวกัน
+                                                เพื่อสร้างประสบการณ์ที่สม่ำเสมอ
+                                            </p>
+                                        </div>
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <div className="mr-2 h-2 w-2 rounded-full bg-blue-500"></div>
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    ความชัดเจน
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
+                                                ออกแบบให้เข้าใจง่ายและใช้งานง่าย
+                                                โดยใช้ภาษาและสัญลักษณ์ที่ชัดเจน
+                                            </p>
+                                        </div>
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <div className="mr-2 h-2 w-2 rounded-full bg-blue-500"></div>
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    ความยืดหยุ่น
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
+                                                ปรับแต่งได้ตามความต้องการ
+                                                โดยไม่ทำลายโครงสร้างหลักของระบบ
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="rounded-2xl border border-green-200/50 bg-gradient-to-br from-green-50 to-emerald-50 p-6">
+                                    <div className="mb-6 flex items-center">
+                                        <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-500">
+                                            <span className="text-white">
+                                                📏
                                             </span>
-                                        </li>
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-green-500">
-                                                ✓
-                                            </span>
-                                            <span className="font-medium">
+                                        </div>
+                                        <h3 className="text-h3 font-bold text-gray-900">
+                                            Best Practices
+                                        </h3>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    ใช้ Spacing Scale
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
+                                                ใช้ spacing scale
+                                                ที่กำหนดไว้เสมอ
+                                                เพื่อความสม่ำเสมอในการจัดวาง
+                                            </p>
+                                        </div>
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    เลือกสีจาก Palette
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
                                                 เลือกสีจาก color palette
                                                 เท่านั้น
-                                            </span>
-                                        </li>
-                                        <li className="flex items-start rounded-xl bg-white/50 p-4">
-                                            <span className="mr-3 text-xl text-green-500">
-                                                ✓
-                                            </span>
-                                            <span className="font-medium">
+                                                เพื่อรักษาความสอดคล้องของแบรนด์
+                                            </p>
+                                        </div>
+                                        <div className="rounded-xl bg-white/50 p-4">
+                                            <div className="mb-2 flex items-center">
+                                                <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                                                <h4 className="text-h4 font-semibold text-gray-900">
+                                                    ทดสอบ Accessibility
+                                                </h4>
+                                            </div>
+                                            <p className="text-small text-gray-700">
                                                 ทดสอบ accessibility เสมอ
-                                            </span>
-                                        </li>
-                                    </ul>
+                                                เพื่อให้ทุกคนสามารถใช้งานได้
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
