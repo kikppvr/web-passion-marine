@@ -28,7 +28,18 @@ export default function DesignSystemPage() {
     const [selectedSize, setSelectedSize] = useState('default')
     const [activeTab, setActiveTab] = useState('components')
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [copiedCode, setCopiedCode] = useState<string | null>(null)
     const { language } = useLanguage()
+
+    const copyToClipboard = async (text: string, codeId: string) => {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopiedCode(codeId)
+            setTimeout(() => setCopiedCode(null), 2000)
+        } catch (err) {
+            console.error('Failed to copy: ', err)
+        }
+    }
 
     const tabs = [
         {
@@ -575,10 +586,31 @@ export default function DesignSystemPage() {
                                     <Button
                                         variant="outline"
                                         size="sm"
-                                        className="border-gray-600 bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                                        onClick={() =>
+                                            copyToClipboard(
+                                                `<Button variant="${selectedVariant}" size="${selectedSize}">
+    ${selectedSize === 'icon' ? '⚙️' : 'Button Text'}
+</Button>`,
+                                                'button-code'
+                                            )
+                                        }
+                                        className={cn(
+                                            'border-gray-600 bg-gray-800 text-gray-300 transition-all duration-200 hover:bg-gray-700 hover:text-white',
+                                            copiedCode === 'button-code' &&
+                                                'border-green-500 bg-green-600 text-white'
+                                        )}
                                     >
-                                        <Copy className="mr-2 h-4 w-4" />
-                                        Copy Code
+                                        {copiedCode === 'button-code' ? (
+                                            <>
+                                                <CheckCircle className="mr-2 h-4 w-4" />
+                                                Copied!
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="mr-2 h-4 w-4" />
+                                                Copy Code
+                                            </>
+                                        )}
                                     </Button>
                                 </div>
                                 <div className="relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-900/50 p-6">
@@ -782,7 +814,7 @@ export default function DesignSystemPage() {
                                     >
                                         <div className="relative z-10">
                                             <div className="mb-4 flex items-center justify-between">
-                                                <div className="text-display-3 transition-transform duration-300 group-hover:scale-110">
+                                                <div className="text-h3 transition-transform duration-300 group-hover:scale-110">
                                                     {component.icon}
                                                 </div>
                                                 <div className="flex items-center gap-2">
@@ -794,9 +826,9 @@ export default function DesignSystemPage() {
                                                     )}
                                                 </div>
                                             </div>
-                                            <h3 className="mb-2 text-h3 font-bold text-gray-900">
+                                            <h4 className="mb-2 text-h4 font-bold text-gray-900">
                                                 {component.name}
-                                            </h3>
+                                            </h4>
                                             <p className="mb-4 text-small text-gray-600">
                                                 {component.description}
                                             </p>
@@ -944,18 +976,42 @@ export default function DesignSystemPage() {
                                                         <div
                                                             key={shade}
                                                             className="group cursor-pointer text-center"
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    hex,
+                                                                    `${colorName}-${shade}`
+                                                                )
+                                                            }
                                                         >
-                                                            <div
-                                                                className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                                                style={{
-                                                                    backgroundColor:
-                                                                        hex,
-                                                                }}
-                                                            ></div>
+                                                            <div className="relative">
+                                                                <div
+                                                                    className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+                                                                    style={{
+                                                                        backgroundColor:
+                                                                            hex,
+                                                                    }}
+                                                                ></div>
+                                                                {copiedCode ===
+                                                                    `${colorName}-${shade}` && (
+                                                                    <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/20">
+                                                                        <div className="rounded-full bg-white p-2 shadow-lg">
+                                                                            <CheckCircle className="h-4 w-4 text-green-600" />
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </div>
                                                             <div className="text-small font-bold text-gray-900">
                                                                 {shade}
                                                             </div>
-                                                            <div className="mt-1 rounded bg-gray-100 px-2 py-1 font-mono text-small-2 text-gray-500 transition-colors group-hover:bg-gray-200">
+                                                            <div
+                                                                className={cn(
+                                                                    'mt-1 rounded px-2 py-1 font-mono text-small-2 transition-colors',
+                                                                    copiedCode ===
+                                                                        `${colorName}-${shade}`
+                                                                        ? 'bg-green-100 text-green-700'
+                                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
+                                                                )}
+                                                            >
                                                                 {hex}
                                                             </div>
                                                         </div>
@@ -1056,171 +1112,477 @@ export default function DesignSystemPage() {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="grid gap-6">
+                                {/* Typography Quick Reference */}
+                                <div className="mb-8 rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                                    <div className="mb-4 flex items-center gap-3">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
+                                            <span className="text-white">
+                                                ⚡
+                                            </span>
+                                        </div>
+                                        <h3 className="text-h3 font-bold text-gray-900">
+                                            Quick Reference
+                                        </h3>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Display
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-display-1</div>
+                                                <div>.text-display-2</div>
+                                                <div>.text-display-3</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Headings
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>h1, .text-h2</div>
+                                                <div>.text-h3, .text-h4</div>
+                                                <div>.text-h5, .text-h6</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Body
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-lead-1</div>
+                                                <div>.text-lead-2</div>
+                                                <div>.text-body</div>
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl bg-white/70 p-4">
+                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                                Small
+                                            </div>
+                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                                <div>.text-small</div>
+                                                <div>.text-small-2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Typography Examples */}
+                                <div className="space-y-8">
                                     {/* Display Typography */}
-                                    <div className="space-y-4">
-                                        <h4 className="text-h4 font-semibold text-gray-700">
-                                            Display Typography
-                                        </h4>
-                                        <div className="grid grid-cols-1 gap-4">
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h1 className="mb-3 text-display-1 text-gray-900">
-                                                    {language === 'th'
-                                                        ? 'หัวข้อหลัก'
-                                                        : 'Main Title'}
-                                                </h1>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-display-1
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        83px • Bold •
-                                                        Line-height 1.25
-                                                    </p>
-                                                </div>
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                                                <span className="text-white">
+                                                    🎨
+                                                </span>
                                             </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h2 className="mb-3 text-display-2 text-gray-900">
-                                                    {language === 'th'
-                                                        ? 'หัวข้อรอง'
-                                                        : 'Sub Title'}
-                                                </h2>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-display-2
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        69px • Bold •
-                                                        Line-height 1.25
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h3 className="mb-3 text-display-3 text-gray-900">
-                                                    {language === 'th'
-                                                        ? 'หัวข้อย่อย'
-                                                        : 'Section Title'}
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Display Typography
                                                 </h3>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-display-3
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        57px • Bold •
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับหัวข้อหลักและข้อความขนาดใหญ่
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-6">
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h1 className="text-display-1 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อหลัก'
+                                                            : 'Main Title'}
+                                                    </h1>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-1',
+                                                                'text-display-1'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-1'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-1' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        83px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
                                                         Line-height 1.25
-                                                    </p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h2 className="text-display-2 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อรอง'
+                                                            : 'Sub Title'}
+                                                    </h2>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-2',
+                                                                'text-display-2'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-2'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-2' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        69px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                        Line-height 1.25
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 transition-all duration-200 hover:shadow-md">
+                                                <div className="mb-4 flex items-center justify-between">
+                                                    <h3 className="text-display-3 text-gray-900">
+                                                        {language === 'th'
+                                                            ? 'หัวข้อย่อย'
+                                                            : 'Section Title'}
+                                                    </h3>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                '.text-display-3',
+                                                                'text-display-3'
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
+                                                            copiedCode ===
+                                                                'text-display-3'
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        'text-display-3' ? (
+                                                            <>
+                                                                <CheckCircle className="mr-2 inline h-4 w-4" />
+                                                                Copied!
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Copy className="mr-2 inline h-4 w-4" />
+                                                                Copy
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                    <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                        57px
+                                                    </span>
+                                                    <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                        Bold
+                                                    </span>
+                                                    <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                        Line-height 1.25
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Heading Typography */}
-                                    <div className="space-y-4">
-                                        <h4 className="text-h4 font-semibold text-gray-700">
-                                            Heading Typography
-                                        </h4>
-                                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h4 className="mb-3 text-h1 text-gray-900">
-                                                    {language === 'th'
-                                                        ? 'หัวข้อ H1'
-                                                        : 'Heading H1'}
-                                                </h4>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        h1 tag
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        40px • Bold •
-                                                        Line-height 1.25
-                                                    </p>
-                                                </div>
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
+                                                <span className="text-white">
+                                                    📝
+                                                </span>
                                             </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h5 className="mb-3 text-h2 text-gray-900">
-                                                    Heading 2
-                                                </h5>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-h2
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        32px • Bold •
-                                                        Line-height 1.25
-                                                    </p>
-                                                </div>
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Heading Typography
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับหัวข้อและโครงสร้างเนื้อหา
+                                                </p>
                                             </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <h6 className="mb-3 text-h3 text-gray-900">
-                                                    Heading 3
-                                                </h6>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-h3
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        28px • Semibold •
-                                                        Line-height 1.25
-                                                    </p>
+                                        </div>
+                                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                            {[
+                                                {
+                                                    tag: 'h1',
+                                                    class: 'h1',
+                                                    size: '40px',
+                                                    weight: 'Bold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H1',
+                                                },
+                                                {
+                                                    tag: '.text-h2',
+                                                    class: 'h2',
+                                                    size: '32px',
+                                                    weight: 'Bold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H2',
+                                                },
+                                                {
+                                                    tag: '.text-h3',
+                                                    class: 'h3',
+                                                    size: '28px',
+                                                    weight: 'Semibold',
+                                                    lineHeight: '1.25',
+                                                    label: 'Heading H3',
+                                                },
+                                                {
+                                                    tag: '.text-h4',
+                                                    class: 'h4',
+                                                    size: '24px',
+                                                    weight: 'Semibold',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H4',
+                                                },
+                                                {
+                                                    tag: '.text-h5',
+                                                    class: 'h5',
+                                                    size: '20px',
+                                                    weight: 'Medium',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H5',
+                                                },
+                                                {
+                                                    tag: '.text-h6',
+                                                    class: 'h6',
+                                                    size: '18px',
+                                                    weight: 'Medium',
+                                                    lineHeight: '1.3',
+                                                    label: 'Heading H6',
+                                                },
+                                            ].map(heading => (
+                                                <div
+                                                    key={heading.class}
+                                                    className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                                >
+                                                    <div className="mb-3 flex items-center justify-between">
+                                                        <div
+                                                            className={`text-${heading.class} text-gray-900`}
+                                                        >
+                                                            {heading.label}
+                                                        </div>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    heading.tag,
+                                                                    heading.class
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                                copiedCode ===
+                                                                    heading.class
+                                                                    ? 'bg-green-100 text-green-700'
+                                                                    : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            heading.class ? (
+                                                                <CheckCircle className="h-3 w-3" />
+                                                            ) : (
+                                                                <Copy className="h-3 w-3" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <div className="font-mono text-small-2 text-gray-500">
+                                                            {heading.tag}
+                                                        </div>
+                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                            <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                                {heading.size}
+                                                            </span>
+                                                            <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                                {heading.weight}
+                                                            </span>
+                                                            <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                                Line-height{' '}
+                                                                {
+                                                                    heading.lineHeight
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
 
                                     {/* Body Typography */}
-                                    <div className="space-y-4">
-                                        <h4 className="text-h4 font-semibold text-gray-700">
-                                            Body Typography
-                                        </h4>
-                                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <p className="mb-3 text-lead-1 text-gray-700">
-                                                    {language === 'th'
-                                                        ? 'Lead 1 - สำหรับข้อความสำคัญ'
-                                                        : 'Lead 1 - For important text'}
-                                                </p>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-lead-1
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        20px • Normal •
-                                                        Line-height 1.25
-                                                    </p>
-                                                </div>
+                                    <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                        <div className="mb-6 flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
+                                                <span className="text-white">
+                                                    📄
+                                                </span>
                                             </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <p className="mb-3 text-body text-gray-700">
-                                                    {language === 'th'
-                                                        ? 'Body - สำหรับเนื้อหาทั่วไป'
-                                                        : 'Body - For general content'}
+                                            <div>
+                                                <h3 className="text-h3 font-bold text-gray-900">
+                                                    Body Typography
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    สำหรับเนื้อหาและข้อความทั่วไป
                                                 </p>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-body
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        16px • Normal •
-                                                        Line-height 1.4
-                                                    </p>
-                                                </div>
                                             </div>
-                                            <div className="rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
-                                                <p className="mb-3 text-small text-gray-600">
-                                                    {language === 'th'
-                                                        ? 'Small - สำหรับข้อมูลรอง'
-                                                        : 'Small - For secondary info'}
-                                                </p>
-                                                <div className="space-y-2">
-                                                    <p className="font-mono text-small-2 text-gray-500">
-                                                        .text-small
-                                                    </p>
-                                                    <p className="text-small-2 text-gray-600">
-                                                        14px • Normal •
-                                                        Line-height 1.5
-                                                    </p>
+                                        </div>
+                                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                            {[
+                                                {
+                                                    class: 'lead-1',
+                                                    size: '20px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.25',
+                                                    label: 'Lead 1 - สำหรับข้อความสำคัญ',
+                                                    copyId: 'text-lead-1',
+                                                },
+                                                {
+                                                    class: 'lead-2',
+                                                    size: '18px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.3',
+                                                    label: 'Lead 2 - สำหรับข้อความรอง',
+                                                    copyId: 'text-lead-2',
+                                                },
+                                                {
+                                                    class: 'body',
+                                                    size: '16px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.4',
+                                                    label: 'Body - สำหรับเนื้อหาทั่วไป',
+                                                    copyId: 'text-body',
+                                                },
+                                                {
+                                                    class: 'small',
+                                                    size: '14px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.5',
+                                                    label: 'Small - สำหรับข้อมูลรอง',
+                                                    copyId: 'text-small',
+                                                },
+                                                {
+                                                    class: 'small-2',
+                                                    size: '12px',
+                                                    weight: 'Normal',
+                                                    lineHeight: '1.5',
+                                                    label: 'Small 2 - สำหรับข้อมูลเล็ก',
+                                                    copyId: 'text-small-2',
+                                                },
+                                            ].map(body => (
+                                                <div
+                                                    key={body.class}
+                                                    className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                                >
+                                                    <div className="mb-3 flex items-center justify-between">
+                                                        <p
+                                                            className={`text-${body.class} text-gray-700`}
+                                                        >
+                                                            {language === 'th'
+                                                                ? body.label
+                                                                : body.label
+                                                                      .replace(
+                                                                          'สำหรับ',
+                                                                          'For'
+                                                                      )
+                                                                      .replace(
+                                                                          'และ',
+                                                                          'and'
+                                                                      )}
+                                                        </p>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `.text-${body.class}`,
+                                                                    body.copyId
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                                copiedCode ===
+                                                                    body.copyId
+                                                                    ? 'bg-green-100 text-green-700'
+                                                                    : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            body.copyId ? (
+                                                                <CheckCircle className="h-3 w-3" />
+                                                            ) : (
+                                                                <Copy className="h-3 w-3" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <div className="font-mono text-small-2 text-gray-500">
+                                                            .text-{body.class}
+                                                        </div>
+                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                            <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
+                                                                {body.size}
+                                                            </span>
+                                                            <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-700">
+                                                                {body.weight}
+                                                            </span>
+                                                            <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
+                                                                Line-height{' '}
+                                                                {
+                                                                    body.lineHeight
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -1292,6 +1654,52 @@ export default function DesignSystemPage() {
                             </div>
                         </div>
 
+                        {/* Spacing Quick Reference */}
+                        <div className="mb-8 rounded-2xl border border-orange-200/50 bg-gradient-to-br from-orange-50 to-red-50 p-6">
+                            <div className="mb-4 flex items-center gap-3">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500">
+                                    <span className="text-white">📏</span>
+                                </div>
+                                <h3 className="text-h3 font-bold text-gray-900">
+                                    Quick Reference
+                                </h3>
+                            </div>
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Base Unit
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        0.25rem (4px)
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Scale Range
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        0.25rem - 8rem
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Common Values
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32
+                                    </div>
+                                </div>
+                                <div className="rounded-xl bg-white/70 p-4">
+                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                        Usage
+                                    </div>
+                                    <div className="text-small-2 text-gray-600">
+                                        p-*, m-*, space-*
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Spacing Scale */}
                         <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                             <div className="mb-8 flex items-center gap-4">
@@ -1308,43 +1716,358 @@ export default function DesignSystemPage() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="space-y-4">
-                                {[1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32].map(
-                                    space => (
-                                        <div
-                                            key={space}
-                                            className="group rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-md"
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-6">
-                                                    <div className="w-20 font-mono text-h3 font-bold text-gray-900">
-                                                        {space * 0.25}rem
-                                                    </div>
-                                                    <div className="flex items-center">
-                                                        <div
-                                                            className="h-8 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 shadow-lg transition-all duration-300 group-hover:scale-105"
-                                                            style={{
-                                                                width: `${space * 0.25}rem`,
-                                                            }}
-                                                        ></div>
-                                                        <div className="ml-4 text-small text-gray-600">
+
+                            {/* Spacing Categories */}
+                            <div className="space-y-8">
+                                {/* Small Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
+                                            <span className="text-white">
+                                                🔸
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Small Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างเล็ก เช่น padding,
+                                                margin ขนาดเล็ก
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        {[1, 2, 3, 4].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
                                                             {space * 0.25 * 16}
                                                             px
                                                         </div>
                                                     </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
                                                 </div>
-                                                <div className="text-right">
-                                                    <div className="text-small font-semibold text-gray-900">
-                                                        p-{space}, m-{space}
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
                                                     </div>
-                                                    <div className="text-small-2 text-gray-500">
-                                                        space-{space}
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
                                                     </div>
                                                 </div>
                                             </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Medium Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
+                                            <span className="text-white">
+                                                🔹
+                                            </span>
                                         </div>
-                                    )
-                                )}
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Medium Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างปานกลาง เช่น
+                                                section spacing
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                        {[6, 8, 12].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
+                                                            {space * 0.25 * 16}
+                                                            px
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Large Spacing */}
+                                <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
+                                    <div className="mb-6 flex items-center gap-3">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                                            <span className="text-white">
+                                                🔶
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-h3 font-bold text-gray-900">
+                                                Large Spacing
+                                            </h3>
+                                            <p className="text-small text-gray-600">
+                                                สำหรับระยะห่างใหญ่ เช่น page
+                                                sections, major layouts
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                        {[16, 20, 24, 32].map(space => (
+                                            <div
+                                                key={space}
+                                                className="group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md"
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="font-mono text-h4 font-bold text-gray-900">
+                                                            {space * 0.25}rem
+                                                        </div>
+                                                        <div className="text-small-2 text-gray-600">
+                                                            {space * 0.25 * 16}
+                                                            px
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            copyToClipboard(
+                                                                `${space * 0.25}rem`,
+                                                                `rem-${space}`
+                                                            )
+                                                        }
+                                                        className={cn(
+                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
+                                                            copiedCode ===
+                                                                `rem-${space}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        )}
+                                                    >
+                                                        {copiedCode ===
+                                                        `rem-${space}` ? (
+                                                            <CheckCircle className="h-3 w-3" />
+                                                        ) : (
+                                                            <Copy className="h-3 w-3" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                                <div className="mb-3 flex items-center">
+                                                    <div
+                                                        className="h-6 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 shadow-md transition-all duration-300 group-hover:scale-105"
+                                                        style={{
+                                                            width: `${space * 0.25}rem`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-small-2 text-gray-500">
+                                                            Tailwind
+                                                        </span>
+                                                        <button
+                                                            onClick={() =>
+                                                                copyToClipboard(
+                                                                    `p-${space}, m-${space}`,
+                                                                    `tailwind-${space}`
+                                                                )
+                                                            }
+                                                            className={cn(
+                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
+                                                                copiedCode ===
+                                                                    `tailwind-${space}`
+                                                                    ? 'bg-green-100 text-green-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                            )}
+                                                        >
+                                                            {copiedCode ===
+                                                            `tailwind-${space}` ? (
+                                                                <CheckCircle className="h-2 w-2" />
+                                                            ) : (
+                                                                <Copy className="h-2 w-2" />
+                                                            )}
+                                                        </button>
+                                                    </div>
+                                                    <div className="font-mono text-small-2 text-gray-600">
+                                                        p-{space}, m-{space}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Usage Examples */}
+                            <div className="mt-8 rounded-2xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+                                <div className="mb-4 flex items-center gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-500">
+                                        <span className="text-white">💡</span>
+                                    </div>
+                                    <h3 className="text-h3 font-bold text-gray-900">
+                                        Usage Examples
+                                    </h3>
+                                </div>
+                                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Padding
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>p-4 (1rem padding)</div>
+                                            <div>px-6 (1.5rem horizontal)</div>
+                                            <div>py-8 (2rem vertical)</div>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Margin
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>m-4 (1rem margin)</div>
+                                            <div>mx-auto (center)</div>
+                                            <div>mt-12 (3rem top)</div>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl bg-white/70 p-4">
+                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                            Gap
+                                        </h4>
+                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div>gap-4 (1rem gap)</div>
+                                            <div>space-x-6 (horizontal)</div>
+                                            <div>space-y-8 (vertical)</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
