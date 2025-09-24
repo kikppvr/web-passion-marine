@@ -24,6 +24,7 @@
         "build-css": "tailwindcss -i ./src/app/globals.css -o ./src/app/output.css --watch"
     },
     "dependencies": {
+        "@phosphor-icons/web": "2.1.2",
         "@radix-ui/react-slot": "^1.0.2",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
