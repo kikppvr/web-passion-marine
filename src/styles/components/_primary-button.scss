@@ -5,7 +5,7 @@
 // Primary Button Base Styles
 .btn-primary {
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--primary);
@@ -14,16 +14,21 @@
     font-size: var(--text-body);
     font-weight: var(--font-normal);
     line-height: 1.4;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 4px 4px 4px 16px;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     text-decoration: none;
     outline: none;
 
     &:hover {
-        background-color: var(--primary-hover);
+        .btn-content {
+            transform: translateX(8px);
+        }
+        .btn-icon {
+            transform: rotate(-45deg);
+        }
     }
 
     &:focus {
@@ -39,44 +44,28 @@
         pointer-events: none;
     }
 
-    // Background element for visual consistency
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     inset: 0;
-    //     background-color: var(--primary);
-    //     border-radius: 18px;
-    //     z-index: 0;
-    // }
-
     // Content container
     .btn-content {
         position: relative;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
+        min-width: 130px;
+        margin-right: 16px;
+        text-align: left;
+        white-space: nowrap;
+        transition: all 0.3s ease-in-out;
     }
 
     // Icon styles
     .btn-icon {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         flex-shrink: 0;
-        font-size: 12px;
+        font-size: 20px;
         color: var(--primary);
         background-color: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        // Ensure Phosphor font is used
-        font-family: 'Phosphor' !important;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
+        transition: all 0.3s ease-in-out;
     }
 }

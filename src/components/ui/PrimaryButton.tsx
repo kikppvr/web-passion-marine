@@ -18,7 +18,9 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
                 {/* Content container */}
                 <div className="btn-content">
                     <span>{children}</span>
-                    <i className={cn(iconClass, 'btn-icon')}></i>
+                </div>
+                <div className="btn-icon">
+                    <i className={cn(iconClass)}></i>
                 </div>
             </button>
         )
