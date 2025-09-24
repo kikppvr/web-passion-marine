@@ -12,6 +12,9 @@
 @use 'base/_display' as display;
 @use 'base/_image' as image;
 
+// Import Component Styles
+@use 'components/_primary-button' as primary-button;
+
 // Import Animation Styles
 @use 'animation/_transitions' as transitions;
 
