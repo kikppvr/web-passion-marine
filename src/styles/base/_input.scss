@@ -1,9 +1,4 @@
-@mixin input-label-float(
-    $main-color,
-    $border-color,
-    $label-color,
-    $error-color
-) {
+@mixin input-label-float($main-color, $border-color, $label-color, $error-color) {
     border: 1px solid $border-color;
     border-radius: 12px;
     position: relative;

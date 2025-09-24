@@ -7,7 +7,11 @@ const hostname = process.env.HOSTNAME || 'passionmarine.co.th'
 const port = parseInt(process.env.PORT || '3000', 10)
 
 // Create Next.js app
-const app = next({ dev, hostname, port })
+const app = next({
+    dev,
+    hostname,
+    port,
+})
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
@@ -23,10 +27,7 @@ app.prepare().then(() => {
             }
 
             // Handle static files
-            if (
-                pathname.startsWith('/_next/') ||
-                pathname.startsWith('/static/')
-            ) {
+            if (pathname.startsWith('/_next/') || pathname.startsWith('/static/')) {
                 await handle(req, res, parsedUrl)
                 return
             }

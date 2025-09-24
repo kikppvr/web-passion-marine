@@ -10,9 +10,7 @@ interface LanguageContextType {
     toggleLanguage: () => void
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(
-    undefined
-)
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [language, setLanguageState] = useState<Language>('en')
@@ -24,10 +22,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
         // Set default to English
         setLanguageState('en')
-        document.body.className = document.body.className.replace(
-            'font-th',
-            'font-en'
-        )
+        document.body.className = document.body.className.replace('font-th', 'font-en')
     }, [])
 
     // Save language to localStorage when it changes
@@ -40,15 +35,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
         // Update body class for font switching
         if (lang === 'th') {
-            document.body.className = document.body.className.replace(
-                'font-en',
-                'font-th'
-            )
+            document.body.className = document.body.className.replace('font-en', 'font-th')
         } else {
-            document.body.className = document.body.className.replace(
-                'font-th',
-                'font-en'
-            )
+            document.body.className = document.body.className.replace('font-th', 'font-en')
         }
     }
 
@@ -59,7 +48,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     return (
         <LanguageContext.Provider
-            value={{ language, setLanguage, toggleLanguage }}
+            value={{
+                language,
+                setLanguage,
+                toggleLanguage,
+            }}
         >
             {children}
         </LanguageContext.Provider>
