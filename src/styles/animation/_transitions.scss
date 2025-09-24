@@ -39,7 +39,8 @@
 
 // Specific Property Transitions
 .transition-colors {
-    transition: color var(--duration-base) var(--ease-in-out),
+    transition:
+        color var(--duration-base) var(--ease-in-out),
         background-color var(--duration-base) var(--ease-in-out),
         border-color var(--duration-base) var(--ease-in-out);
 }

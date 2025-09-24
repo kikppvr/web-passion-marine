@@ -14,9 +14,7 @@ export default function ComingSoon() {
             </div>
             <div className="comingsoon__content">
                 <h1 className="comingsoon__content-title">Coming Soon</h1>
-                <p className="comingsoon__content-description">
-                    Something new is on the way.
-                </p>
+                <p className="comingsoon__content-description">Something new is on the way.</p>
             </div>
         </div>
     )

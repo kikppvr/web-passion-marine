@@ -201,16 +201,14 @@ export default function DesignSystemPage() {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
                     <div className="text-center">
-                        <div className="mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-small font-medium text-white backdrop-blur-sm">
+                        <div className="text-small mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 font-medium text-white backdrop-blur-sm">
                             <Sparkles className="mr-2 h-4 w-4" />
                             Passion Marine Design System
                         </div>
-                        <h1 className="mb-6 text-display-1 text-white">
-                            Design System
-                        </h1>
-                        <p className="mx-auto mb-8 max-w-2xl text-lead-1 text-blue-100">
-                            ระบบออกแบบที่ครบครันสำหรับ Passion Marine -
-                            คู่มือการใช้งาน ตัวอย่าง และเครื่องมือสำหรับนักพัฒนา
+                        <h1 className="text-display-1 mb-6 text-white">Design System</h1>
+                        <p className="text-lead-1 mx-auto mb-8 max-w-2xl text-blue-100">
+                            ระบบออกแบบที่ครบครันสำหรับ Passion Marine - คู่มือการใช้งาน ตัวอย่าง
+                            และเครื่องมือสำหรับนักพัฒนา
                         </p>
                         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                             <LanguageToggle />
@@ -232,7 +230,7 @@ export default function DesignSystemPage() {
                                         key={tab.id}
                                         onClick={() => setActiveTab(tab.id)}
                                         className={cn(
-                                            'group relative flex flex-shrink-0 flex-col overflow-hidden whitespace-nowrap rounded-xl px-6 py-3 text-small font-semibold transition-all duration-300',
+                                            'text-small group relative flex flex-shrink-0 flex-col overflow-hidden whitespace-nowrap rounded-xl px-6 py-3 font-semibold transition-all duration-300',
                                             activeTab === tab.id
                                                 ? 'scale-105 transform bg-white text-gray-900 shadow-lg shadow-gray-500/20'
                                                 : 'text-gray-600 hover:bg-white/50 hover:text-gray-900'
@@ -285,15 +283,11 @@ export default function DesignSystemPage() {
                                     <h2 className="text-h4 font-bold text-gray-900">
                                         Design System
                                     </h2>
-                                    <p className="text-small text-gray-600">
-                                        Passion Marine
-                                    </p>
+                                    <p className="text-small text-gray-600">Passion Marine</p>
                                 </div>
                             </div>
                             <button
-                                onClick={() =>
-                                    setIsMobileMenuOpen(!isMobileMenuOpen)
-                                }
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                 className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:bg-gray-50"
                             >
                                 {isMobileMenuOpen ? (
@@ -371,9 +365,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Components
-                                        </p>
+                                        <p className="text-small opacity-90">Components</p>
                                         <p className="text-h2 font-bold">12+</p>
                                     </div>
                                     <Layout className="h-8 w-8 opacity-80" />
@@ -382,9 +374,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Variants
-                                        </p>
+                                        <p className="text-small opacity-90">Variants</p>
                                         <p className="text-h2 font-bold">6</p>
                                     </div>
                                     <Zap className="h-8 w-8 opacity-80" />
@@ -393,9 +383,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Sizes
-                                        </p>
+                                        <p className="text-small opacity-90">Sizes</p>
                                         <p className="text-h2 font-bold">4</p>
                                     </div>
                                     <Ruler className="h-8 w-8 opacity-80" />
@@ -404,12 +392,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Status
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            Live
-                                        </p>
+                                        <p className="text-small opacity-90">Status</p>
+                                        <p className="text-h2 font-bold">Live</p>
                                     </div>
                                     <CheckCircle className="h-8 w-8 opacity-80" />
                                 </div>
@@ -428,8 +412,7 @@ export default function DesignSystemPage() {
                                             Button Component
                                         </h2>
                                         <p className="text-body text-gray-600">
-                                            ปุ่มที่ปรับแต่งได้หลากหลายรูปแบบและขนาด
-                                            พร้อมใช้งานทันที
+                                            ปุ่มที่ปรับแต่งได้หลากหลายรูปแบบและขนาด พร้อมใช้งานทันที
                                         </p>
                                     </div>
                                 </div>
@@ -438,7 +421,7 @@ export default function DesignSystemPage() {
                             {/* Live Preview */}
                             <div className="mb-8 rounded-3xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-10">
                                 <div className="mb-6 flex items-center justify-between">
-                                    <h3 className="flex items-center text-h3 font-semibold text-gray-900">
+                                    <h3 className="text-h3 flex items-center font-semibold text-gray-900">
                                         <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
                                             <Eye className="h-4 w-4 text-white" />
                                         </div>
@@ -446,9 +429,7 @@ export default function DesignSystemPage() {
                                     </h3>
                                     <div className="flex items-center gap-2">
                                         <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
-                                        <span className="text-small text-gray-600">
-                                            Live
-                                        </span>
+                                        <span className="text-small text-gray-600">Live</span>
                                     </div>
                                 </div>
                                 <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-gray-300 bg-white p-12 shadow-inner">
@@ -458,9 +439,7 @@ export default function DesignSystemPage() {
                                             size={selectedSize as any}
                                             className="shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                                         >
-                                            {selectedSize === 'icon'
-                                                ? '⚙️'
-                                                : 'Button Text'}
+                                            {selectedSize === 'icon' ? '⚙️' : 'Button Text'}
                                         </Button>
                                     </div>
                                     {/* Background decoration */}
@@ -491,14 +470,9 @@ export default function DesignSystemPage() {
                                                     type="radio"
                                                     name="variant"
                                                     value={variant.value}
-                                                    checked={
-                                                        selectedVariant ===
-                                                        variant.value
-                                                    }
+                                                    checked={selectedVariant === variant.value}
                                                     onChange={e =>
-                                                        setSelectedVariant(
-                                                            e.target.value
-                                                        )
+                                                        setSelectedVariant(e.target.value)
                                                     }
                                                     className="mr-4 h-5 w-5 text-blue-600"
                                                 />
@@ -511,9 +485,7 @@ export default function DesignSystemPage() {
                                                             {variant.label}
                                                         </div>
                                                         <div className="text-small text-gray-500">
-                                                            {
-                                                                variant.description
-                                                            }
+                                                            {variant.description}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -542,15 +514,8 @@ export default function DesignSystemPage() {
                                                     type="radio"
                                                     name="size"
                                                     value={size.value}
-                                                    checked={
-                                                        selectedSize ===
-                                                        size.value
-                                                    }
-                                                    onChange={e =>
-                                                        setSelectedSize(
-                                                            e.target.value
-                                                        )
-                                                    }
+                                                    checked={selectedSize === size.value}
+                                                    onChange={e => setSelectedSize(e.target.value)}
                                                     className="mr-4 h-5 w-5 text-blue-600"
                                                 />
                                                 <div className="flex items-center">
@@ -620,11 +585,9 @@ export default function DesignSystemPage() {
                                             <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
                                             <div className="h-3 w-3 rounded-full bg-green-500"></div>
                                         </div>
-                                        <span className="text-small text-gray-400">
-                                            Button.tsx
-                                        </span>
+                                        <span className="text-small text-gray-400">Button.tsx</span>
                                     </div>
-                                    <pre className="overflow-x-auto text-small text-gray-300">
+                                    <pre className="text-small overflow-x-auto text-gray-300">
                                         <code>{`<Button variant="${selectedVariant}" size="${selectedSize}">
     ${selectedSize === 'icon' ? '⚙️' : 'Button Text'}
 </Button>`}</code>
@@ -645,7 +608,7 @@ export default function DesignSystemPage() {
                                 <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
                                     <div className="space-y-4">
                                         <div className="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
-                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                            <h5 className="text-small mb-3 font-semibold text-gray-700">
                                                 Primary Actions
                                             </h5>
                                             <div className="flex flex-wrap items-center gap-3">
@@ -666,7 +629,7 @@ export default function DesignSystemPage() {
                                             </div>
                                         </div>
                                         <div className="rounded-xl bg-gradient-to-br from-red-50 to-pink-50 p-4">
-                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                            <h5 className="text-small mb-3 font-semibold text-gray-700">
                                                 Destructive Actions
                                             </h5>
                                             <div className="flex flex-wrap items-center gap-3">
@@ -689,7 +652,7 @@ export default function DesignSystemPage() {
                                     </div>
                                     <div className="space-y-4">
                                         <div className="rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 p-4">
-                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                            <h5 className="text-small mb-3 font-semibold text-gray-700">
                                                 Utility Actions
                                             </h5>
                                             <div className="flex flex-wrap items-center gap-3">
@@ -710,7 +673,7 @@ export default function DesignSystemPage() {
                                             </div>
                                         </div>
                                         <div className="rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-4">
-                                            <h5 className="mb-3 text-small font-semibold text-gray-700">
+                                            <h5 className="text-small mb-3 font-semibold text-gray-700">
                                                 Icon Buttons
                                             </h5>
                                             <div className="flex flex-wrap items-center gap-3">
@@ -769,8 +732,7 @@ export default function DesignSystemPage() {
                                         description: 'การ์ดแสดงข้อมูล',
                                         icon: '🃏',
                                         status: 'Planned',
-                                        gradient:
-                                            'from-green-500 to-emerald-500',
+                                        gradient: 'from-green-500 to-emerald-500',
                                         progress: 0,
                                     },
                                     {
@@ -794,8 +756,7 @@ export default function DesignSystemPage() {
                                         description: 'การแจ้งเตือน',
                                         icon: '🍞',
                                         status: 'Planned',
-                                        gradient:
-                                            'from-yellow-500 to-orange-500',
+                                        gradient: 'from-yellow-500 to-orange-500',
                                         progress: 0,
                                     },
                                     {
@@ -803,8 +764,7 @@ export default function DesignSystemPage() {
                                         description: 'ตารางข้อมูล',
                                         icon: '📊',
                                         status: 'Planned',
-                                        gradient:
-                                            'from-indigo-500 to-purple-500',
+                                        gradient: 'from-indigo-500 to-purple-500',
                                         progress: 0,
                                     },
                                 ].map(component => (
@@ -818,26 +778,23 @@ export default function DesignSystemPage() {
                                                     {component.icon}
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {component.status ===
-                                                    'In Progress' ? (
+                                                    {component.status === 'In Progress' ? (
                                                         <Clock className="h-4 w-4 text-blue-500" />
                                                     ) : (
                                                         <div className="h-2 w-2 rounded-full bg-gray-300"></div>
                                                     )}
                                                 </div>
                                             </div>
-                                            <h4 className="mb-2 text-h4 font-bold text-gray-900">
+                                            <h4 className="text-h4 mb-2 font-bold text-gray-900">
                                                 {component.name}
                                             </h4>
-                                            <p className="mb-4 text-small text-gray-600">
+                                            <p className="text-small mb-4 text-gray-600">
                                                 {component.description}
                                             </p>
                                             <div className="mb-4">
-                                                <div className="mb-2 flex items-center justify-between text-small text-gray-500">
+                                                <div className="text-small mb-2 flex items-center justify-between text-gray-500">
                                                     <span>Progress</span>
-                                                    <span>
-                                                        {component.progress}%
-                                                    </span>
+                                                    <span>{component.progress}%</span>
                                                 </div>
                                                 <div className="h-2 rounded-full bg-gray-200">
                                                     <div
@@ -851,9 +808,8 @@ export default function DesignSystemPage() {
                                             <div className="flex items-center justify-between">
                                                 <span
                                                     className={cn(
-                                                        'inline-flex items-center rounded-full px-3 py-1 text-small-2 font-bold shadow-lg',
-                                                        component.status ===
-                                                            'In Progress'
+                                                        'text-small-2 inline-flex items-center rounded-full px-3 py-1 font-bold shadow-lg',
+                                                        component.status === 'In Progress'
                                                             ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
                                                             : 'bg-gradient-to-r from-gray-400 to-gray-500 text-white'
                                                     )}
@@ -882,12 +838,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Primary Colors
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            Blue
-                                        </p>
+                                        <p className="text-small opacity-90">Primary Colors</p>
+                                        <p className="text-h2 font-bold">Blue</p>
                                     </div>
                                     <Palette className="h-8 w-8 opacity-80" />
                                 </div>
@@ -895,12 +847,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-gray-500 to-gray-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Neutral Colors
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            Grey
-                                        </p>
+                                        <p className="text-small opacity-90">Neutral Colors</p>
+                                        <p className="text-h2 font-bold">Grey</p>
                                     </div>
                                     <Palette className="h-8 w-8 opacity-80" />
                                 </div>
@@ -908,12 +856,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Success
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            Green
-                                        </p>
+                                        <p className="text-small opacity-90">Success</p>
+                                        <p className="text-h2 font-bold">Green</p>
                                     </div>
                                     <CheckCircle className="h-8 w-8 opacity-80" />
                                 </div>
@@ -921,9 +865,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-red-500 to-red-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Error
-                                        </p>
+                                        <p className="text-small opacity-90">Error</p>
                                         <p className="text-h2 font-bold">Red</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
@@ -949,78 +891,71 @@ export default function DesignSystemPage() {
                                 </div>
                             </div>
                             <div className="space-y-12">
-                                {Object.entries(colorPalette).map(
-                                    ([colorName, shades]) => (
-                                        <div
-                                            key={colorName}
-                                            className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8"
-                                        >
-                                            <div className="mb-6 flex items-center gap-4">
-                                                <div
-                                                    className={`h-8 w-8 rounded-xl bg-${colorName}-500 shadow-lg`}
-                                                ></div>
-                                                <div>
-                                                    <h3 className="text-h3 font-bold capitalize text-gray-900">
-                                                        {colorName} Colors
-                                                    </h3>
-                                                    <p className="text-small text-gray-600">
-                                                        {colorName === 'blue'
-                                                            ? 'สีหลักของแบรนด์'
-                                                            : 'สีสำหรับข้อความและพื้นหลัง'}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="grid grid-cols-1 gap-4 md:grid-cols-5 xl:grid-cols-10">
-                                                {Object.entries(shades).map(
-                                                    ([shade, hex]) => (
-                                                        <div
-                                                            key={shade}
-                                                            className="group cursor-pointer text-center"
-                                                            onClick={() =>
-                                                                copyToClipboard(
-                                                                    hex,
-                                                                    `${colorName}-${shade}`
-                                                                )
-                                                            }
-                                                        >
-                                                            <div className="relative">
-                                                                <div
-                                                                    className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                                                    style={{
-                                                                        backgroundColor:
-                                                                            hex,
-                                                                    }}
-                                                                ></div>
-                                                                {copiedCode ===
-                                                                    `${colorName}-${shade}` && (
-                                                                    <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/20">
-                                                                        <div className="rounded-full bg-white p-2 shadow-lg">
-                                                                            <CheckCircle className="h-4 w-4 text-green-600" />
-                                                                        </div>
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                            <div className="text-small font-bold text-gray-900">
-                                                                {shade}
-                                                            </div>
-                                                            <div
-                                                                className={cn(
-                                                                    'mt-1 rounded px-2 py-1 font-mono text-small-2 transition-colors',
-                                                                    copiedCode ===
-                                                                        `${colorName}-${shade}`
-                                                                        ? 'bg-green-100 text-green-700'
-                                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
-                                                                )}
-                                                            >
-                                                                {hex}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                )}
+                                {Object.entries(colorPalette).map(([colorName, shades]) => (
+                                    <div
+                                        key={colorName}
+                                        className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8"
+                                    >
+                                        <div className="mb-6 flex items-center gap-4">
+                                            <div
+                                                className={`h-8 w-8 rounded-xl bg-${colorName}-500 shadow-lg`}
+                                            ></div>
+                                            <div>
+                                                <h3 className="text-h3 font-bold capitalize text-gray-900">
+                                                    {colorName} Colors
+                                                </h3>
+                                                <p className="text-small text-gray-600">
+                                                    {colorName === 'blue'
+                                                        ? 'สีหลักของแบรนด์'
+                                                        : 'สีสำหรับข้อความและพื้นหลัง'}
+                                                </p>
                                             </div>
                                         </div>
-                                    )
-                                )}
+                                        <div className="grid grid-cols-1 gap-4 md:grid-cols-5 xl:grid-cols-10">
+                                            {Object.entries(shades).map(([shade, hex]) => (
+                                                <div
+                                                    key={shade}
+                                                    className="group cursor-pointer text-center"
+                                                    onClick={() =>
+                                                        copyToClipboard(
+                                                            hex,
+                                                            `${colorName}-${shade}`
+                                                        )
+                                                    }
+                                                >
+                                                    <div className="relative">
+                                                        <div
+                                                            className="mb-3 h-20 w-full rounded-xl border border-gray-200 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+                                                            style={{
+                                                                backgroundColor: hex,
+                                                            }}
+                                                        ></div>
+                                                        {copiedCode === `${colorName}-${shade}` && (
+                                                            <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/20">
+                                                                <div className="rounded-full bg-white p-2 shadow-lg">
+                                                                    <CheckCircle className="h-4 w-4 text-green-600" />
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <div className="text-small font-bold text-gray-900">
+                                                        {shade}
+                                                    </div>
+                                                    <div
+                                                        className={cn(
+                                                            'text-small-2 mt-1 rounded px-2 py-1 font-mono transition-colors',
+                                                            copiedCode === `${colorName}-${shade}`
+                                                                ? 'bg-green-100 text-green-700'
+                                                                : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
+                                                        )}
+                                                    >
+                                                        {hex}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -1034,9 +969,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Font Families
-                                        </p>
+                                        <p className="text-small opacity-90">Font Families</p>
                                         <p className="text-h2 font-bold">2</p>
                                     </div>
                                     <Type className="h-8 w-8 opacity-80" />
@@ -1045,9 +978,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Font Sizes
-                                        </p>
+                                        <p className="text-small opacity-90">Font Sizes</p>
                                         <p className="text-h2 font-bold">12+</p>
                                     </div>
                                     <Ruler className="h-8 w-8 opacity-80" />
@@ -1056,9 +987,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Languages
-                                        </p>
+                                        <p className="text-small opacity-90">Languages</p>
                                         <p className="text-h2 font-bold">2</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
@@ -1093,17 +1022,13 @@ export default function DesignSystemPage() {
                                     </h3>
                                     <div className="flex items-center gap-2">
                                         <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
-                                        <span className="text-small text-gray-600">
-                                            Active
-                                        </span>
+                                        <span className="text-small text-gray-600">Active</span>
                                     </div>
                                 </div>
                                 <div className="mb-6 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 md:p-6">
                                     <div className="flex items-center gap-3">
                                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
-                                            <span className="text-white">
-                                                🎯
-                                            </span>
+                                            <span className="text-white">🎯</span>
                                         </div>
                                         <p className="text-body text-blue-800">
                                             {language === 'th'
@@ -1116,9 +1041,7 @@ export default function DesignSystemPage() {
                                 <div className="mb-8 rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
                                     <div className="mb-4 flex items-center gap-3">
                                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
-                                            <span className="text-white">
-                                                ⚡
-                                            </span>
+                                            <span className="text-white">⚡</span>
                                         </div>
                                         <h3 className="text-h3 font-bold text-gray-900">
                                             Quick Reference
@@ -1126,40 +1049,40 @@ export default function DesignSystemPage() {
                                     </div>
                                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                                         <div className="rounded-xl bg-white/70 p-4">
-                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                            <div className="text-small mb-2 font-semibold text-gray-700">
                                                 Display
                                             </div>
-                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div className="text-small-2 space-y-1 text-gray-600">
                                                 <div>.text-display-1</div>
                                                 <div>.text-display-2</div>
                                                 <div>.text-display-3</div>
                                             </div>
                                         </div>
                                         <div className="rounded-xl bg-white/70 p-4">
-                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                            <div className="text-small mb-2 font-semibold text-gray-700">
                                                 Headings
                                             </div>
-                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div className="text-small-2 space-y-1 text-gray-600">
                                                 <div>h1, .text-h2</div>
                                                 <div>.text-h3, .text-h4</div>
                                                 <div>.text-h5, .text-h6</div>
                                             </div>
                                         </div>
                                         <div className="rounded-xl bg-white/70 p-4">
-                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                            <div className="text-small mb-2 font-semibold text-gray-700">
                                                 Body
                                             </div>
-                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div className="text-small-2 space-y-1 text-gray-600">
                                                 <div>.text-lead-1</div>
                                                 <div>.text-lead-2</div>
                                                 <div>.text-body</div>
                                             </div>
                                         </div>
                                         <div className="rounded-xl bg-white/70 p-4">
-                                            <div className="mb-2 text-small font-semibold text-gray-700">
+                                            <div className="text-small mb-2 font-semibold text-gray-700">
                                                 Small
                                             </div>
-                                            <div className="space-y-1 text-small-2 text-gray-600">
+                                            <div className="text-small-2 space-y-1 text-gray-600">
                                                 <div>.text-small</div>
                                                 <div>.text-small-2</div>
                                             </div>
@@ -1173,9 +1096,7 @@ export default function DesignSystemPage() {
                                     <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                         <div className="mb-6 flex items-center gap-3">
                                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
-                                                <span className="text-white">
-                                                    🎨
-                                                </span>
+                                                <span className="text-white">🎨</span>
                                             </div>
                                             <div>
                                                 <h3 className="text-h3 font-bold text-gray-900">
@@ -1202,15 +1123,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
-                                                            copiedCode ===
-                                                                'text-display-1'
+                                                            'text-small rounded-lg px-3 py-2 transition-all duration-200',
+                                                            copiedCode === 'text-display-1'
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        'text-display-1' ? (
+                                                        {copiedCode === 'text-display-1' ? (
                                                             <>
                                                                 <CheckCircle className="mr-2 inline h-4 w-4" />
                                                                 Copied!
@@ -1223,7 +1142,7 @@ export default function DesignSystemPage() {
                                                         )}
                                                     </button>
                                                 </div>
-                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                <div className="text-small-2 flex items-center gap-4 text-gray-600">
                                                     <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
                                                         83px
                                                     </span>
@@ -1250,15 +1169,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
-                                                            copiedCode ===
-                                                                'text-display-2'
+                                                            'text-small rounded-lg px-3 py-2 transition-all duration-200',
+                                                            copiedCode === 'text-display-2'
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        'text-display-2' ? (
+                                                        {copiedCode === 'text-display-2' ? (
                                                             <>
                                                                 <CheckCircle className="mr-2 inline h-4 w-4" />
                                                                 Copied!
@@ -1271,7 +1188,7 @@ export default function DesignSystemPage() {
                                                         )}
                                                     </button>
                                                 </div>
-                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                <div className="text-small-2 flex items-center gap-4 text-gray-600">
                                                     <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
                                                         69px
                                                     </span>
@@ -1298,15 +1215,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-3 py-2 text-small transition-all duration-200',
-                                                            copiedCode ===
-                                                                'text-display-3'
+                                                            'text-small rounded-lg px-3 py-2 transition-all duration-200',
+                                                            copiedCode === 'text-display-3'
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        'text-display-3' ? (
+                                                        {copiedCode === 'text-display-3' ? (
                                                             <>
                                                                 <CheckCircle className="mr-2 inline h-4 w-4" />
                                                                 Copied!
@@ -1319,7 +1234,7 @@ export default function DesignSystemPage() {
                                                         )}
                                                     </button>
                                                 </div>
-                                                <div className="flex items-center gap-4 text-small-2 text-gray-600">
+                                                <div className="text-small-2 flex items-center gap-4 text-gray-600">
                                                     <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
                                                         57px
                                                     </span>
@@ -1338,9 +1253,7 @@ export default function DesignSystemPage() {
                                     <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                         <div className="mb-6 flex items-center gap-3">
                                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
-                                                <span className="text-white">
-                                                    📝
-                                                </span>
+                                                <span className="text-white">📝</span>
                                             </div>
                                             <div>
                                                 <h3 className="text-h3 font-bold text-gray-900">
@@ -1420,15 +1333,13 @@ export default function DesignSystemPage() {
                                                                 )
                                                             }
                                                             className={cn(
-                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
-                                                                copiedCode ===
-                                                                    heading.class
+                                                                'text-small-2 rounded-lg px-2 py-1 transition-all duration-200',
+                                                                copiedCode === heading.class
                                                                     ? 'bg-green-100 text-green-700'
                                                                     : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                             )}
                                                         >
-                                                            {copiedCode ===
-                                                            heading.class ? (
+                                                            {copiedCode === heading.class ? (
                                                                 <CheckCircle className="h-3 w-3" />
                                                             ) : (
                                                                 <Copy className="h-3 w-3" />
@@ -1436,10 +1347,10 @@ export default function DesignSystemPage() {
                                                         </button>
                                                     </div>
                                                     <div className="space-y-2">
-                                                        <div className="font-mono text-small-2 text-gray-500">
+                                                        <div className="text-small-2 font-mono text-gray-500">
                                                             {heading.tag}
                                                         </div>
-                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                        <div className="text-small-2 flex items-center gap-2 text-gray-600">
                                                             <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
                                                                 {heading.size}
                                                             </span>
@@ -1447,10 +1358,7 @@ export default function DesignSystemPage() {
                                                                 {heading.weight}
                                                             </span>
                                                             <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
-                                                                Line-height{' '}
-                                                                {
-                                                                    heading.lineHeight
-                                                                }
+                                                                Line-height {heading.lineHeight}
                                                             </span>
                                                         </div>
                                                     </div>
@@ -1463,9 +1371,7 @@ export default function DesignSystemPage() {
                                     <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                         <div className="mb-6 flex items-center gap-3">
                                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
-                                                <span className="text-white">
-                                                    📄
-                                                </span>
+                                                <span className="text-white">📄</span>
                                             </div>
                                             <div>
                                                 <h3 className="text-h3 font-bold text-gray-900">
@@ -1530,14 +1436,8 @@ export default function DesignSystemPage() {
                                                             {language === 'th'
                                                                 ? body.label
                                                                 : body.label
-                                                                      .replace(
-                                                                          'สำหรับ',
-                                                                          'For'
-                                                                      )
-                                                                      .replace(
-                                                                          'และ',
-                                                                          'and'
-                                                                      )}
+                                                                      .replace('สำหรับ', 'For')
+                                                                      .replace('และ', 'and')}
                                                         </p>
                                                         <button
                                                             onClick={() =>
@@ -1547,15 +1447,13 @@ export default function DesignSystemPage() {
                                                                 )
                                                             }
                                                             className={cn(
-                                                                'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
-                                                                copiedCode ===
-                                                                    body.copyId
+                                                                'text-small-2 rounded-lg px-2 py-1 transition-all duration-200',
+                                                                copiedCode === body.copyId
                                                                     ? 'bg-green-100 text-green-700'
                                                                     : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                             )}
                                                         >
-                                                            {copiedCode ===
-                                                            body.copyId ? (
+                                                            {copiedCode === body.copyId ? (
                                                                 <CheckCircle className="h-3 w-3" />
                                                             ) : (
                                                                 <Copy className="h-3 w-3" />
@@ -1563,10 +1461,11 @@ export default function DesignSystemPage() {
                                                         </button>
                                                     </div>
                                                     <div className="space-y-2">
-                                                        <div className="font-mono text-small-2 text-gray-500">
-                                                            .text-{body.class}
+                                                        <div className="text-small-2 font-mono text-gray-500">
+                                                            .text-
+                                                            {body.class}
                                                         </div>
-                                                        <div className="flex items-center gap-2 text-small-2 text-gray-600">
+                                                        <div className="text-small-2 flex items-center gap-2 text-gray-600">
                                                             <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">
                                                                 {body.size}
                                                             </span>
@@ -1574,10 +1473,7 @@ export default function DesignSystemPage() {
                                                                 {body.weight}
                                                             </span>
                                                             <span className="rounded-full bg-green-100 px-2 py-1 text-green-700">
-                                                                Line-height{' '}
-                                                                {
-                                                                    body.lineHeight
-                                                                }
+                                                                Line-height {body.lineHeight}
                                                             </span>
                                                         </div>
                                                     </div>
@@ -1599,12 +1495,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Base Unit
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            0.25rem
-                                        </p>
+                                        <p className="text-small opacity-90">Base Unit</p>
+                                        <p className="text-h2 font-bold">0.25rem</p>
                                     </div>
                                     <Ruler className="h-8 w-8 opacity-80" />
                                 </div>
@@ -1612,9 +1504,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-red-500 to-red-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Scale Steps
-                                        </p>
+                                        <p className="text-small opacity-90">Scale Steps</p>
                                         <p className="text-h2 font-bold">11</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
@@ -1625,12 +1515,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Min Value
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            0.25rem
-                                        </p>
+                                        <p className="text-small opacity-90">Min Value</p>
+                                        <p className="text-h2 font-bold">0.25rem</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                                         <span className="text-h3">📐</span>
@@ -1640,12 +1526,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Max Value
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            8rem
-                                        </p>
+                                        <p className="text-small opacity-90">Max Value</p>
+                                        <p className="text-h2 font-bold">8rem</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                                         <span className="text-h3">📊</span>
@@ -1660,29 +1542,23 @@ export default function DesignSystemPage() {
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500">
                                     <span className="text-white">📏</span>
                                 </div>
-                                <h3 className="text-h3 font-bold text-gray-900">
-                                    Quick Reference
-                                </h3>
+                                <h3 className="text-h3 font-bold text-gray-900">Quick Reference</h3>
                             </div>
                             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                                 <div className="rounded-xl bg-white/70 p-4">
-                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                    <div className="text-small mb-2 font-semibold text-gray-700">
                                         Base Unit
                                     </div>
-                                    <div className="text-small-2 text-gray-600">
-                                        0.25rem (4px)
-                                    </div>
+                                    <div className="text-small-2 text-gray-600">0.25rem (4px)</div>
                                 </div>
                                 <div className="rounded-xl bg-white/70 p-4">
-                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                    <div className="text-small mb-2 font-semibold text-gray-700">
                                         Scale Range
                                     </div>
-                                    <div className="text-small-2 text-gray-600">
-                                        0.25rem - 8rem
-                                    </div>
+                                    <div className="text-small-2 text-gray-600">0.25rem - 8rem</div>
                                 </div>
                                 <div className="rounded-xl bg-white/70 p-4">
-                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                    <div className="text-small mb-2 font-semibold text-gray-700">
                                         Common Values
                                     </div>
                                     <div className="text-small-2 text-gray-600">
@@ -1690,7 +1566,7 @@ export default function DesignSystemPage() {
                                     </div>
                                 </div>
                                 <div className="rounded-xl bg-white/70 p-4">
-                                    <div className="mb-2 text-small font-semibold text-gray-700">
+                                    <div className="text-small mb-2 font-semibold text-gray-700">
                                         Usage
                                     </div>
                                     <div className="text-small-2 text-gray-600">
@@ -1711,8 +1587,7 @@ export default function DesignSystemPage() {
                                         Spacing Scale
                                     </h2>
                                     <p className="text-body text-gray-600">
-                                        ระบบระยะห่างที่ใช้ในระบบออกแบบ Passion
-                                        Marine
+                                        ระบบระยะห่างที่ใช้ในระบบออกแบบ Passion Marine
                                     </p>
                                 </div>
                             </div>
@@ -1723,17 +1598,14 @@ export default function DesignSystemPage() {
                                 <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                     <div className="mb-6 flex items-center gap-3">
                                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-500">
-                                            <span className="text-white">
-                                                🔸
-                                            </span>
+                                            <span className="text-white">🔸</span>
                                         </div>
                                         <div>
                                             <h3 className="text-h3 font-bold text-gray-900">
                                                 Small Spacing
                                             </h3>
                                             <p className="text-small text-gray-600">
-                                                สำหรับระยะห่างเล็ก เช่น padding,
-                                                margin ขนาดเล็ก
+                                                สำหรับระยะห่างเล็ก เช่น padding, margin ขนาดเล็ก
                                             </p>
                                         </div>
                                     </div>
@@ -1745,8 +1617,9 @@ export default function DesignSystemPage() {
                                             >
                                                 <div className="mb-3 flex items-center justify-between">
                                                     <div className="flex items-center gap-3">
-                                                        <div className="font-mono text-h4 font-bold text-gray-900">
-                                                            {space * 0.25}rem
+                                                        <div className="text-h4 font-mono font-bold text-gray-900">
+                                                            {space * 0.25}
+                                                            rem
                                                         </div>
                                                         <div className="text-small-2 text-gray-600">
                                                             {space * 0.25 * 16}
@@ -1761,15 +1634,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
-                                                            copiedCode ===
-                                                                `rem-${space}`
+                                                            'text-small-2 rounded-lg px-2 py-1 transition-all duration-200',
+                                                            copiedCode === `rem-${space}`
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        `rem-${space}` ? (
+                                                        {copiedCode === `rem-${space}` ? (
                                                             <CheckCircle className="h-3 w-3" />
                                                         ) : (
                                                             <Copy className="h-3 w-3" />
@@ -1797,23 +1668,23 @@ export default function DesignSystemPage() {
                                                                 )
                                                             }
                                                             className={cn(
-                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
-                                                                copiedCode ===
-                                                                    `tailwind-${space}`
+                                                                'text-small-2 rounded px-1 py-0.5 transition-colors',
+                                                                copiedCode === `tailwind-${space}`
                                                                     ? 'bg-green-100 text-green-600'
                                                                     : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
                                                             )}
                                                         >
-                                                            {copiedCode ===
-                                                            `tailwind-${space}` ? (
+                                                            {copiedCode === `tailwind-${space}` ? (
                                                                 <CheckCircle className="h-2 w-2" />
                                                             ) : (
                                                                 <Copy className="h-2 w-2" />
                                                             )}
                                                         </button>
                                                     </div>
-                                                    <div className="font-mono text-small-2 text-gray-600">
-                                                        p-{space}, m-{space}
+                                                    <div className="text-small-2 font-mono text-gray-600">
+                                                        p-
+                                                        {space}, m-
+                                                        {space}
                                                     </div>
                                                 </div>
                                             </div>
@@ -1825,17 +1696,14 @@ export default function DesignSystemPage() {
                                 <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                     <div className="mb-6 flex items-center gap-3">
                                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
-                                            <span className="text-white">
-                                                🔹
-                                            </span>
+                                            <span className="text-white">🔹</span>
                                         </div>
                                         <div>
                                             <h3 className="text-h3 font-bold text-gray-900">
                                                 Medium Spacing
                                             </h3>
                                             <p className="text-small text-gray-600">
-                                                สำหรับระยะห่างปานกลาง เช่น
-                                                section spacing
+                                                สำหรับระยะห่างปานกลาง เช่น section spacing
                                             </p>
                                         </div>
                                     </div>
@@ -1847,8 +1715,9 @@ export default function DesignSystemPage() {
                                             >
                                                 <div className="mb-3 flex items-center justify-between">
                                                     <div className="flex items-center gap-3">
-                                                        <div className="font-mono text-h4 font-bold text-gray-900">
-                                                            {space * 0.25}rem
+                                                        <div className="text-h4 font-mono font-bold text-gray-900">
+                                                            {space * 0.25}
+                                                            rem
                                                         </div>
                                                         <div className="text-small-2 text-gray-600">
                                                             {space * 0.25 * 16}
@@ -1863,15 +1732,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
-                                                            copiedCode ===
-                                                                `rem-${space}`
+                                                            'text-small-2 rounded-lg px-2 py-1 transition-all duration-200',
+                                                            copiedCode === `rem-${space}`
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        `rem-${space}` ? (
+                                                        {copiedCode === `rem-${space}` ? (
                                                             <CheckCircle className="h-3 w-3" />
                                                         ) : (
                                                             <Copy className="h-3 w-3" />
@@ -1899,23 +1766,23 @@ export default function DesignSystemPage() {
                                                                 )
                                                             }
                                                             className={cn(
-                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
-                                                                copiedCode ===
-                                                                    `tailwind-${space}`
+                                                                'text-small-2 rounded px-1 py-0.5 transition-colors',
+                                                                copiedCode === `tailwind-${space}`
                                                                     ? 'bg-green-100 text-green-600'
                                                                     : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
                                                             )}
                                                         >
-                                                            {copiedCode ===
-                                                            `tailwind-${space}` ? (
+                                                            {copiedCode === `tailwind-${space}` ? (
                                                                 <CheckCircle className="h-2 w-2" />
                                                             ) : (
                                                                 <Copy className="h-2 w-2" />
                                                             )}
                                                         </button>
                                                     </div>
-                                                    <div className="font-mono text-small-2 text-gray-600">
-                                                        p-{space}, m-{space}
+                                                    <div className="text-small-2 font-mono text-gray-600">
+                                                        p-
+                                                        {space}, m-
+                                                        {space}
                                                     </div>
                                                 </div>
                                             </div>
@@ -1927,17 +1794,14 @@ export default function DesignSystemPage() {
                                 <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm">
                                     <div className="mb-6 flex items-center gap-3">
                                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
-                                            <span className="text-white">
-                                                🔶
-                                            </span>
+                                            <span className="text-white">🔶</span>
                                         </div>
                                         <div>
                                             <h3 className="text-h3 font-bold text-gray-900">
                                                 Large Spacing
                                             </h3>
                                             <p className="text-small text-gray-600">
-                                                สำหรับระยะห่างใหญ่ เช่น page
-                                                sections, major layouts
+                                                สำหรับระยะห่างใหญ่ เช่น page sections, major layouts
                                             </p>
                                         </div>
                                     </div>
@@ -1949,8 +1813,9 @@ export default function DesignSystemPage() {
                                             >
                                                 <div className="mb-3 flex items-center justify-between">
                                                     <div className="flex items-center gap-3">
-                                                        <div className="font-mono text-h4 font-bold text-gray-900">
-                                                            {space * 0.25}rem
+                                                        <div className="text-h4 font-mono font-bold text-gray-900">
+                                                            {space * 0.25}
+                                                            rem
                                                         </div>
                                                         <div className="text-small-2 text-gray-600">
                                                             {space * 0.25 * 16}
@@ -1965,15 +1830,13 @@ export default function DesignSystemPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'rounded-lg px-2 py-1 text-small-2 transition-all duration-200',
-                                                            copiedCode ===
-                                                                `rem-${space}`
+                                                            'text-small-2 rounded-lg px-2 py-1 transition-all duration-200',
+                                                            copiedCode === `rem-${space}`
                                                                 ? 'bg-green-100 text-green-700'
                                                                 : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                         )}
                                                     >
-                                                        {copiedCode ===
-                                                        `rem-${space}` ? (
+                                                        {copiedCode === `rem-${space}` ? (
                                                             <CheckCircle className="h-3 w-3" />
                                                         ) : (
                                                             <Copy className="h-3 w-3" />
@@ -2001,23 +1864,23 @@ export default function DesignSystemPage() {
                                                                 )
                                                             }
                                                             className={cn(
-                                                                'rounded px-1 py-0.5 text-small-2 transition-colors',
-                                                                copiedCode ===
-                                                                    `tailwind-${space}`
+                                                                'text-small-2 rounded px-1 py-0.5 transition-colors',
+                                                                copiedCode === `tailwind-${space}`
                                                                     ? 'bg-green-100 text-green-600'
                                                                     : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
                                                             )}
                                                         >
-                                                            {copiedCode ===
-                                                            `tailwind-${space}` ? (
+                                                            {copiedCode === `tailwind-${space}` ? (
                                                                 <CheckCircle className="h-2 w-2" />
                                                             ) : (
                                                                 <Copy className="h-2 w-2" />
                                                             )}
                                                         </button>
                                                     </div>
-                                                    <div className="font-mono text-small-2 text-gray-600">
-                                                        p-{space}, m-{space}
+                                                    <div className="text-small-2 font-mono text-gray-600">
+                                                        p-
+                                                        {space}, m-
+                                                        {space}
                                                     </div>
                                                 </div>
                                             </div>
@@ -2038,30 +1901,30 @@ export default function DesignSystemPage() {
                                 </div>
                                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                                     <div className="rounded-xl bg-white/70 p-4">
-                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                        <h4 className="text-small mb-2 font-semibold text-gray-700">
                                             Padding
                                         </h4>
-                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                        <div className="text-small-2 space-y-1 text-gray-600">
                                             <div>p-4 (1rem padding)</div>
                                             <div>px-6 (1.5rem horizontal)</div>
                                             <div>py-8 (2rem vertical)</div>
                                         </div>
                                     </div>
                                     <div className="rounded-xl bg-white/70 p-4">
-                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                        <h4 className="text-small mb-2 font-semibold text-gray-700">
                                             Margin
                                         </h4>
-                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                        <div className="text-small-2 space-y-1 text-gray-600">
                                             <div>m-4 (1rem margin)</div>
                                             <div>mx-auto (center)</div>
                                             <div>mt-12 (3rem top)</div>
                                         </div>
                                     </div>
                                     <div className="rounded-xl bg-white/70 p-4">
-                                        <h4 className="mb-2 text-small font-semibold text-gray-700">
+                                        <h4 className="text-small mb-2 font-semibold text-gray-700">
                                             Gap
                                         </h4>
-                                        <div className="space-y-1 text-small-2 text-gray-600">
+                                        <div className="text-small-2 space-y-1 text-gray-600">
                                             <div>gap-4 (1rem gap)</div>
                                             <div>space-x-6 (horizontal)</div>
                                             <div>space-y-8 (vertical)</div>
@@ -2081,9 +1944,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Design Principles
-                                        </p>
+                                        <p className="text-small opacity-90">Design Principles</p>
                                         <p className="text-h2 font-bold">3</p>
                                     </div>
                                     <BookOpen className="h-8 w-8 opacity-80" />
@@ -2092,9 +1953,7 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Best Practices
-                                        </p>
+                                        <p className="text-small opacity-90">Best Practices</p>
                                         <p className="text-h2 font-bold">5+</p>
                                     </div>
                                     <CheckCircle className="h-8 w-8 opacity-80" />
@@ -2103,12 +1962,8 @@ export default function DesignSystemPage() {
                             <div className="rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 p-6 text-white shadow-xl">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-small opacity-90">
-                                            Accessibility
-                                        </p>
-                                        <p className="text-h2 font-bold">
-                                            WCAG 2.1
-                                        </p>
+                                        <p className="text-small opacity-90">Accessibility</p>
+                                        <p className="text-h2 font-bold">WCAG 2.1</p>
                                     </div>
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                                         <span className="text-h3">♿</span>
@@ -2136,9 +1991,7 @@ export default function DesignSystemPage() {
                                 <div className="rounded-2xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-500">
-                                            <span className="text-white">
-                                                🎯
-                                            </span>
+                                            <span className="text-white">🎯</span>
                                         </div>
                                         <h3 className="text-h3 font-bold text-gray-900">
                                             Design Principles
@@ -2153,8 +2006,7 @@ export default function DesignSystemPage() {
                                                 </h4>
                                             </div>
                                             <p className="text-small text-gray-700">
-                                                ใช้ component
-                                                เดียวกันในสถานการณ์เดียวกัน
+                                                ใช้ component เดียวกันในสถานการณ์เดียวกัน
                                                 เพื่อสร้างประสบการณ์ที่สม่ำเสมอ
                                             </p>
                                         </div>
@@ -2187,9 +2039,7 @@ export default function DesignSystemPage() {
                                 <div className="rounded-2xl border border-green-200/50 bg-gradient-to-br from-green-50 to-emerald-50 p-6">
                                     <div className="mb-6 flex items-center">
                                         <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-500">
-                                            <span className="text-white">
-                                                📏
-                                            </span>
+                                            <span className="text-white">📏</span>
                                         </div>
                                         <h3 className="text-h3 font-bold text-gray-900">
                                             Best Practices
@@ -2204,8 +2054,7 @@ export default function DesignSystemPage() {
                                                 </h4>
                                             </div>
                                             <p className="text-small text-gray-700">
-                                                ใช้ spacing scale
-                                                ที่กำหนดไว้เสมอ
+                                                ใช้ spacing scale ที่กำหนดไว้เสมอ
                                                 เพื่อความสม่ำเสมอในการจัดวาง
                                             </p>
                                         </div>
@@ -2217,8 +2066,7 @@ export default function DesignSystemPage() {
                                                 </h4>
                                             </div>
                                             <p className="text-small text-gray-700">
-                                                เลือกสีจาก color palette
-                                                เท่านั้น
+                                                เลือกสีจาก color palette เท่านั้น
                                                 เพื่อรักษาความสอดคล้องของแบรนด์
                                             </p>
                                         </div>

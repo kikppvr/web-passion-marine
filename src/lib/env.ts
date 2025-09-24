@@ -75,8 +75,7 @@ export function getEnvironmentConfig(): EnvironmentConfig {
         DATABASE_URL: process.env.DATABASE_URL || '',
         API_URL: process.env.API_URL || '',
         DEBUG: process.env.DEBUG === 'true',
-        LOG_LEVEL:
-            (process.env.LOG_LEVEL as EnvironmentConfig['LOG_LEVEL']) || 'info',
+        LOG_LEVEL: (process.env.LOG_LEVEL as EnvironmentConfig['LOG_LEVEL']) || 'info',
         STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY || '',
         STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || '',
         STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET || '',
@@ -85,13 +84,9 @@ export function getEnvironmentConfig(): EnvironmentConfig {
         SMTP_USER: process.env.SMTP_USER || '',
         SMTP_PASS: process.env.SMTP_PASS || '',
         FROM_EMAIL: process.env.FROM_EMAIL || '',
-        UPLOAD_MAX_SIZE: parseInt(
-            process.env.UPLOAD_MAX_SIZE || '10485760',
-            10
-        ),
+        UPLOAD_MAX_SIZE: parseInt(process.env.UPLOAD_MAX_SIZE || '10485760', 10),
         ALLOWED_FILE_TYPES:
-            process.env.ALLOWED_FILE_TYPES ||
-            'image/jpeg,image/png,image/gif,image/webp',
+            process.env.ALLOWED_FILE_TYPES || 'image/jpeg,image/png,image/gif,image/webp',
         JWT_SECRET: process.env.JWT_SECRET || '',
         ENCRYPTION_KEY: process.env.ENCRYPTION_KEY || '',
         ENABLE_ANALYTICS: process.env.ENABLE_ANALYTICS === 'true',
@@ -109,14 +104,10 @@ export function getEnvironmentConfig(): EnvironmentConfig {
         'ENCRYPTION_KEY',
     ]
 
-    const missingVars = requiredVars.filter(
-        varName => !config[varName as keyof EnvironmentConfig]
-    )
+    const missingVars = requiredVars.filter(varName => !config[varName as keyof EnvironmentConfig])
 
     if (missingVars.length > 0) {
-        throw new Error(
-            `Missing required environment variables: ${missingVars.join(', ')}`
-        )
+        throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`)
     }
 
     return config
@@ -175,7 +166,11 @@ export function getDatabaseConfig() {
         database: url.pathname.slice(1),
         username: url.username,
         password: url.password,
-        ssl: isProduction() ? { rejectUnauthorized: false } : false,
+        ssl: isProduction()
+            ? {
+                  rejectUnauthorized: false,
+              }
+            : false,
     }
 }
 
