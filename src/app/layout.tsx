@@ -31,6 +31,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css"
+                />
+            </head>
             <body className="font-en antialiased">
                 <LanguageProvider>{children}</LanguageProvider>
             </body>
