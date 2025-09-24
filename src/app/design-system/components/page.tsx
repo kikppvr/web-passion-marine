@@ -113,7 +113,10 @@ export default function ComponentsPage() {
                         <div className="mb-8">
                             <div className="mb-4 flex items-center gap-4">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 shadow-lg">
-                                    <i className="ph ph-lightning" style={{ fontSize: '24px' }}></i>
+                                    <i
+                                        className="ph ph-lightning text-white"
+                                        style={{ fontSize: '24px' }}
+                                    ></i>
                                 </div>
                                 <div>
                                     <h2 className="text-h1 font-bold text-gray-900">
@@ -155,7 +158,7 @@ export default function ComponentsPage() {
                         <div className="mb-8 rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
                             <div className="mb-6 flex items-center">
                                 <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
-                                    <i className="ph ph-lightning"></i>
+                                    <i className="ph ph-lightning text-white"></i>
                                 </div>
                                 <h4 className="text-h4 font-semibold text-gray-900">
                                     Code Examples
@@ -244,7 +247,7 @@ export default function ComponentsPage() {
                         <div className="rounded-2xl border border-gray-200/50 bg-white/50 p-6 backdrop-blur-sm md:p-8">
                             <div className="mb-6 flex items-center">
                                 <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
-                                    <i className="ph ph-lightning"></i>
+                                    <i className="ph ph-lightning text-white"></i>
                                 </div>
                                 <h4 className="text-h4 font-semibold text-gray-900">
                                     Usage Examples
@@ -277,7 +280,10 @@ export default function ComponentsPage() {
                     <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
                         <div className="mb-8 flex items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg">
-                                <i className="ph ph-lightning" style={{ fontSize: '24px' }}></i>
+                                <i
+                                    className="ph ph-lightning text-white"
+                                    style={{ fontSize: '24px' }}
+                                ></i>
                             </div>
                             <div>
                                 <h2 className="text-h1 font-bold text-gray-900">
