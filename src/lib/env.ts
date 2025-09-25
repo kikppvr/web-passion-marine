@@ -3,70 +3,70 @@
  * Provides type-safe environment variable access and validation
  */
 
-export type Environment = 'development' | 'staging' | 'production'
+export type Environment = 'development' | 'staging' | 'production';
 
 export interface EnvironmentConfig {
-    NODE_ENV: Environment
-    NEXTAUTH_URL: string
-    NEXTAUTH_SECRET: string
-    DATABASE_URL: string
-    API_URL: string
-    DEBUG: boolean
-    LOG_LEVEL: 'debug' | 'info' | 'warn' | 'error'
-    STRIPE_PUBLIC_KEY: string
-    STRIPE_SECRET_KEY: string
-    STRIPE_WEBHOOK_SECRET: string
-    SMTP_HOST: string
-    SMTP_PORT: number
-    SMTP_USER: string
-    SMTP_PASS: string
-    FROM_EMAIL: string
-    UPLOAD_MAX_SIZE: number
-    ALLOWED_FILE_TYPES: string
-    JWT_SECRET: string
-    ENCRYPTION_KEY: string
-    ENABLE_ANALYTICS: boolean
-    ENABLE_DEBUG_TOOLS: boolean
-    ENABLE_MAINTENANCE_MODE: boolean
+    NODE_ENV: Environment;
+    NEXTAUTH_URL: string;
+    NEXTAUTH_SECRET: string;
+    DATABASE_URL: string;
+    API_URL: string;
+    DEBUG: boolean;
+    LOG_LEVEL: 'debug' | 'info' | 'warn' | 'error';
+    STRIPE_PUBLIC_KEY: string;
+    STRIPE_SECRET_KEY: string;
+    STRIPE_WEBHOOK_SECRET: string;
+    SMTP_HOST: string;
+    SMTP_PORT: number;
+    SMTP_USER: string;
+    SMTP_PASS: string;
+    FROM_EMAIL: string;
+    UPLOAD_MAX_SIZE: number;
+    ALLOWED_FILE_TYPES: string;
+    JWT_SECRET: string;
+    ENCRYPTION_KEY: string;
+    ENABLE_ANALYTICS: boolean;
+    ENABLE_DEBUG_TOOLS: boolean;
+    ENABLE_MAINTENANCE_MODE: boolean;
 }
 
 /**
  * Get the current environment
  */
 export function getEnvironment(): Environment {
-    const env = process.env.NODE_ENV as Environment
+    const env = process.env.NODE_ENV as Environment;
     if (!env || !['development', 'staging', 'production'].includes(env)) {
-        throw new Error(`Invalid NODE_ENV: ${env}`)
+        throw new Error(`Invalid NODE_ENV: ${env}`);
     }
-    return env
+    return env;
 }
 
 /**
  * Check if we're in development mode
  */
 export function isDevelopment(): boolean {
-    return getEnvironment() === 'development'
+    return getEnvironment() === 'development';
 }
 
 /**
  * Check if we're in staging mode
  */
 export function isStaging(): boolean {
-    return getEnvironment() === 'staging'
+    return getEnvironment() === 'staging';
 }
 
 /**
  * Check if we're in production mode
  */
 export function isProduction(): boolean {
-    return getEnvironment() === 'production'
+    return getEnvironment() === 'production';
 }
 
 /**
  * Get environment-specific configuration
  */
 export function getEnvironmentConfig(): EnvironmentConfig {
-    const env = getEnvironment()
+    const env = getEnvironment();
 
     const config: EnvironmentConfig = {
         NODE_ENV: env,
@@ -92,7 +92,7 @@ export function getEnvironmentConfig(): EnvironmentConfig {
         ENABLE_ANALYTICS: process.env.ENABLE_ANALYTICS === 'true',
         ENABLE_DEBUG_TOOLS: process.env.ENABLE_DEBUG_TOOLS === 'true',
         ENABLE_MAINTENANCE_MODE: process.env.ENABLE_MAINTENANCE_MODE === 'true',
-    }
+    };
 
     // Validate required environment variables
     const requiredVars = [
@@ -102,63 +102,63 @@ export function getEnvironmentConfig(): EnvironmentConfig {
         'API_URL',
         'JWT_SECRET',
         'ENCRYPTION_KEY',
-    ]
+    ];
 
-    const missingVars = requiredVars.filter(varName => !config[varName as keyof EnvironmentConfig])
+    const missingVars = requiredVars.filter(varName => !config[varName as keyof EnvironmentConfig]);
 
     if (missingVars.length > 0) {
-        throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`)
+        throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
     }
 
-    return config
+    return config;
 }
 
 /**
  * Get the base URL for the current environment
  */
 export function getBaseUrl(): string {
-    const config = getEnvironmentConfig()
-    return config.API_URL.replace('/api', '')
+    const config = getEnvironmentConfig();
+    return config.API_URL.replace('/api', '');
 }
 
 /**
  * Get the API URL for the current environment
  */
 export function getApiUrl(): string {
-    const config = getEnvironmentConfig()
-    return config.API_URL
+    const config = getEnvironmentConfig();
+    return config.API_URL;
 }
 
 /**
  * Check if analytics should be enabled
  */
 export function shouldEnableAnalytics(): boolean {
-    const config = getEnvironmentConfig()
-    return config.ENABLE_ANALYTICS && isProduction()
+    const config = getEnvironmentConfig();
+    return config.ENABLE_ANALYTICS && isProduction();
 }
 
 /**
  * Check if debug tools should be enabled
  */
 export function shouldEnableDebugTools(): boolean {
-    const config = getEnvironmentConfig()
-    return config.ENABLE_DEBUG_TOOLS || isDevelopment()
+    const config = getEnvironmentConfig();
+    return config.ENABLE_DEBUG_TOOLS || isDevelopment();
 }
 
 /**
  * Check if maintenance mode is enabled
  */
 export function isMaintenanceMode(): boolean {
-    const config = getEnvironmentConfig()
-    return config.ENABLE_MAINTENANCE_MODE
+    const config = getEnvironmentConfig();
+    return config.ENABLE_MAINTENANCE_MODE;
 }
 
 /**
  * Get environment-specific database configuration
  */
 export function getDatabaseConfig() {
-    const config = getEnvironmentConfig()
-    const url = new URL(config.DATABASE_URL)
+    const config = getEnvironmentConfig();
+    const url = new URL(config.DATABASE_URL);
 
     return {
         host: url.hostname,
@@ -171,14 +171,14 @@ export function getDatabaseConfig() {
                   rejectUnauthorized: false,
               }
             : false,
-    }
+    };
 }
 
 /**
  * Get environment-specific email configuration
  */
 export function getEmailConfig() {
-    const config = getEnvironmentConfig()
+    const config = getEnvironmentConfig();
 
     return {
         host: config.SMTP_HOST,
@@ -189,5 +189,5 @@ export function getEmailConfig() {
             pass: config.SMTP_PASS,
         },
         from: config.FROM_EMAIL,
-    }
+    };
 }

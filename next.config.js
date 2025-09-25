@@ -50,7 +50,7 @@ const nextConfig = {
                     },
                 ],
             },
-        ]
+        ];
     },
 
     // Redirects
@@ -83,13 +83,13 @@ const nextConfig = {
                 source: '/api/:path*',
                 destination: '/api/:path*',
             },
-        ]
+        ];
     },
 
     // Webpack configuration
     webpack: (config, { dev, isServer }) => {
         // Add custom webpack configuration here if needed
-        return config
+        return config;
     },
 
     // Output configuration for deployment
@@ -106,6 +106,6 @@ const nextConfig = {
 
     // SWC minification
     swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

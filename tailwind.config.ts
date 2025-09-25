@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
     content: [
@@ -20,6 +20,6 @@ const config: Config = {
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
     ],
-}
+};
 
-export default config
+export default config;

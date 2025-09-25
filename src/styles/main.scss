@@ -17,6 +17,8 @@
 @use 'components/_btn-readmore' as btn-readmore;
 @use 'components/_btn-booknow' as btn-booknow;
 @use 'components/_btn-viewall' as btn-viewall;
+@use 'components/_header' as header;
+@use 'components/_video-hero-banner' as video-hero-banner;
 
 // Import Animation Styles
 @use 'animation/_transitions' as transitions;

@@ -1,12 +1,12 @@
 'use client';
 
 import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { BookNowButton } from '@/components/ui/button/BookNowButton';
+import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function BookNowButtonPage() {
+export default function VideoHeroBannerPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
     const { language } = useLanguage();
 
@@ -44,15 +44,16 @@ export default function BookNowButtonPage() {
                         <div className='mb-6 flex justify-center'>
                             <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
-                                    className='ph ph-paint-brush text-white'
+                                    className='ph-bold ph-video text-white'
                                     style={{ fontSize: '32px' }}></i>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
-                            Book Now Button
+                            Video Hero Banner
                         </h1>
                         <p className='mt-6 text-lg leading-8 text-blue-100'>
-                            ปุ่มสำหรับการจองบริการที่ออกแบบตาม Figma Design System พร้อมใช้งานทันที
+                            Video hero banner component พร้อม responsive design และ interactive
+                            controls
                         </p>
                     </div>
                 </div>
@@ -74,14 +75,32 @@ export default function BookNowButtonPage() {
                                 <span className='text-small text-gray-600'>Live</span>
                             </div>
                         </div>
-                        <div className='relative overflow-hidden rounded-2xl border-2 border-dashed border-gray-300 bg-white p-12 shadow-inner'>
-                            <div className='flex items-center justify-center gap-6'>
-                                <BookNowButton>Book Now</BookNowButton>
-                                <BookNowButton variant='dark'>Book Now</BookNowButton>
+                        <div className='space-y-8'>
+                            {/* Sample Video Hero Banner */}
+                            <div className='rounded-2xl border-2 border-dashed border-gray-300 bg-white p-8 shadow-inner'>
+                                <div className='mb-4 text-center'>
+                                    <h3 className='text-lg font-semibold text-gray-700'>
+                                        Sample Video Hero Banner
+                                    </h3>
+                                </div>
+                                <div className='relative h-96 overflow-hidden rounded-xl'>
+                                    <VideoHeroBanner
+                                        videoSrc='/videos/banner/banner-home.mp4'
+                                        posterSrc='/images/sample-poster.jpg'
+                                        title='Passion Marine'
+                                        subtitle='Marine Services'
+                                        description='Professional marine services with safety and quality guaranteed'
+                                        showPlayButton={true}
+                                        autoPlay={false}
+                                        muted={true}
+                                        loop={true}
+                                        overlay={true}
+                                        overlayOpacity={0.4}
+                                        preload='metadata'
+                                        className='video-hero-banner--halfscreen'
+                                    />
+                                </div>
                             </div>
-                            {/* Background decoration */}
-                            <div className='absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 opacity-50'></div>
-                            <div className='absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-gradient-to-br from-green-100 to-blue-100 opacity-50'></div>
                         </div>
                     </div>
 
@@ -105,11 +124,21 @@ export default function BookNowButtonPage() {
                                         className='h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white'
                                         onClick={() =>
                                             copyToClipboard(
-                                                `<BookNowButton>Book Now</BookNowButton>`,
-                                                'booknow-button-code'
+                                                `<VideoHeroBanner
+    videoSrc="/videos/hero-video.mp4"
+    posterSrc="/images/poster.jpg"
+    title="Your Title"
+    subtitle="Your Subtitle"
+    description="Your description here"
+    preload="metadata"
+    autoPlay={true}
+    muted={true}
+    loop={true}
+/>`,
+                                                'video-hero-basic-code'
                                             )
                                         }>
-                                        {copiedCode === 'booknow-button-code' ? (
+                                        {copiedCode === 'video-hero-basic-code' ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>
@@ -119,43 +148,21 @@ export default function BookNowButtonPage() {
                                 <div className='mb-2 flex items-center gap-2'>
                                     <div className='h-3 w-3 rounded-full bg-green-500'></div>
                                     <span className='text-small text-gray-400'>
-                                        BookNowButton.tsx
+                                        VideoHeroBanner.tsx
                                     </span>
                                 </div>
                                 <pre className='text-small overflow-x-auto text-gray-300'>
-                                    <code>{`<BookNowButton>Book Now</BookNowButton>`}</code>
-                                </pre>
-                            </div>
-                            <div className='rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4'>
-                                <div className='mb-3 flex items-center justify-between'>
-                                    <div className='flex items-center gap-2'>
-                                        <div className='flex h-2 w-2 rounded-full bg-red-500'></div>
-                                        <div className='flex h-2 w-2 rounded-full bg-yellow-500'></div>
-                                        <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
-                                    </div>
-                                    <button
-                                        className='h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white'
-                                        onClick={() =>
-                                            copyToClipboard(
-                                                `<BookNowButton variant="dark">Book Now</BookNowButton>`,
-                                                'booknow-button-dark-code'
-                                            )
-                                        }>
-                                        {copiedCode === 'booknow-button-dark-code' ? (
-                                            <i className='ph ph-check-circle text-green-400'></i>
-                                        ) : (
-                                            <i className='ph ph-copy'></i>
-                                        )}
-                                    </button>
-                                </div>
-                                <div className='mb-2 flex items-center gap-2'>
-                                    <div className='h-3 w-3 rounded-full bg-green-500'></div>
-                                    <span className='text-small text-gray-400'>
-                                        BookNowButton.tsx
-                                    </span>
-                                </div>
-                                <pre className='text-small overflow-x-auto text-gray-300'>
-                                    <code>{`<BookNowButton variant="dark">Book Now</BookNowButton>`}</code>
+                                    <code>{`<VideoHeroBanner
+    videoSrc="/videos/hero-video.mp4"
+    posterSrc="/images/poster.jpg"
+    title="Your Title"
+    subtitle="Your Subtitle"
+    description="Your description here"
+    preload="metadata"
+    autoPlay={true}
+    muted={true}
+    loop={true}
+/>`}</code>
                                 </pre>
                             </div>
                         </div>
@@ -190,40 +197,96 @@ export default function BookNowButtonPage() {
                                 <tbody>
                                     <tr className='border-b border-gray-100'>
                                         <td className='px-4 py-3 font-mono text-sm text-blue-600'>
-                                            children
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            React.ReactNode
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            Text content to display in the button
-                                        </td>
-                                    </tr>
-                                    <tr className='border-b border-gray-100'>
-                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
-                                            variant
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;default&apos; | &apos;dark&apos;
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;default&apos;
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            Visual style variant of the button
-                                        </td>
-                                    </tr>
-                                    <tr className='border-b border-gray-100'>
-                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
-                                            icon
+                                            videoSrc
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;ph-bold ph-calendar-check&apos;
+                                            Path to the video file
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            posterSrc
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Path to the poster image
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            title
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Main title text
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            subtitle
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Subtitle text
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            description
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Description text
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            autoPlay
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>boolean</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>true</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Auto play video on load
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            muted
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>boolean</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>true</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Mute video by default
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            loop
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>boolean</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>true</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            Loop video playback
+                                        </td>
+                                    </tr>
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
+                                            preload
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            Phosphor icon class name
+                                            'none' | 'metadata' | 'auto'
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            'metadata'
+                                        </td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
+                                            How much video to preload
                                         </td>
                                     </tr>
                                 </tbody>
