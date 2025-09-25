@@ -280,10 +280,11 @@ export default function VideoHeroBannerPage() {
                                             preload
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            'none' | 'metadata' | 'auto'
+                                            &apos;none&apos; | &apos;metadata&apos; |
+                                            &apos;auto&apos;
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            'metadata'
+                                            &apos;metadata&apos;
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
                                             How much video to preload
