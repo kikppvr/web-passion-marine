@@ -1,0 +1,123 @@
+@use '../base/colors' as colors;
+@use '../base/text' as text;
+@use '../base/utility' as utility;
+@use '../base/display' as display;
+
+// ========================================
+// BTN READMORE COMPONENT STYLES
+// ========================================
+
+// Btn ReadMore Base Styles
+.btn-readmore {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-en);
+    font-size: var(--text-body);
+    font-weight: var(--font-normal);
+    line-height: 1.4;
+    text-decoration: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+    white-space: nowrap;
+
+    // Text styles - Default state (gray)
+    .btn-readmore__text {
+        color: #6f6f71; // Figma grey-500
+        transition: color 0.2s ease-in-out;
+    }
+
+    // Icon styles - Default state (gray)
+    .btn-readmore__icon {
+        font-size: 12px;
+        color: #6f6f71; // Figma grey-500
+        transition: all 0.2s ease-in-out;
+    }
+
+    // Hover effects - Change to blue
+    &:hover {
+        .btn-readmore__text {
+            color: #1c4583; // Figma blue-500
+        }
+        .btn-readmore__icon {
+            color: #1c4583; // Figma blue-500
+            transform: translateX(4px);
+        }
+    }
+
+    // Focus styles
+    &:focus {
+        outline: none;
+    }
+
+    // Disabled state
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    // Active variant (blue text) - matches hover state
+    &--active {
+        .btn-readmore__text {
+            color: #1c4583; // Figma blue-500
+        }
+        .btn-readmore__icon {
+            color: #1c4583; // Figma blue-500
+        }
+
+        &:hover {
+            .btn-readmore__text {
+                color: #1c4583; // Keep blue on hover
+            }
+            .btn-readmore__icon {
+                color: #1c4583; // Keep blue on hover
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    // Dark theme
+    &--dark {
+        .btn-readmore__text {
+            color: white;
+        }
+        .btn-readmore__icon {
+            color: white;
+        }
+
+        &:hover {
+            .btn-readmore__text {
+                color: #1c4583; // Blue on hover in dark theme
+            }
+            .btn-readmore__icon {
+                color: #1c4583; // Blue on hover in dark theme
+                transform: translateX(4px);
+            }
+        }
+
+        &.btn-readmore--active {
+            .btn-readmore__text {
+                color: #1c4583; // Blue in dark theme active
+            }
+            .btn-readmore__icon {
+                color: #1c4583; // Blue in dark theme active
+            }
+
+            &:hover {
+                .btn-readmore__text {
+                    color: #1c4583; // Keep blue on hover
+                }
+                .btn-readmore__icon {
+                    color: #1c4583; // Keep blue on hover
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+}

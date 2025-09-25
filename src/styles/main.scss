@@ -13,7 +13,8 @@
 @use 'base/_image' as image;
 
 // Import Component Styles
-@use 'components/_primary-button' as primary-button;
+@use 'components/_btn-primary' as btn-primary;
+@use 'components/_btn-readmore' as btn-readmore;
 
 // Import Animation Styles
 @use 'animation/_transitions' as transitions;
