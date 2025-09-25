@@ -1,4 +1,7 @@
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import '@phosphor-icons/web/bold/style.css'
+import '@phosphor-icons/web/fill/style.css'
+import '@phosphor-icons/web/regular/style.css'
 import type { Metadata } from 'next'
 import { Noto_Sans_Thai, Roboto } from 'next/font/google'
 import '../styles/globals.css'
@@ -6,14 +9,14 @@ import '../styles/main.scss'
 
 // Font configurations
 const roboto = Roboto({
-    weight: ['400', '500', '600', '700'], // ลบ 300 ตาม CSS variables
+    weight: ['400', '500', '600', '700'],
     subsets: ['latin'],
     variable: '--font-roboto',
     display: 'swap',
 })
 
 const notoSansThai = Noto_Sans_Thai({
-    weight: ['400', '500', '600', '700'], // ลบ 300 ตาม CSS variables
+    weight: ['400', '500', '600', '700'],
     subsets: ['thai'],
     variable: '--font-noto-sans-thai',
     display: 'swap',
@@ -31,12 +34,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head>
-                <link
-                    rel="stylesheet"
-                    href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css"
-                />
-            </head>
             <body className="font-en antialiased">
                 <LanguageProvider>{children}</LanguageProvider>
             </body>
