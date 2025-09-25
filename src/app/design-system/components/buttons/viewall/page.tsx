@@ -1,35 +1,34 @@
-'use client'
+'use client';
 
-import { LanguageToggle } from '@/components/LanguageSwitcher'
-import { ViewAllButton } from '@/components/ui/button/ViewAllButton'
-import { useLanguage } from '@/contexts/LanguageContext'
-import Link from 'next/link'
-import { useState } from 'react'
+import { LanguageToggle } from '@/components/LanguageSwitcher';
+import { ViewAllButton } from '@/components/ui/button/ViewAllButton';
+import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function ViewAllButtonPage() {
-    const [copiedCode, setCopiedCode] = useState<string | null>(null)
-    const { language } = useLanguage()
+    const [copiedCode, setCopiedCode] = useState<string | null>(null);
+    const { language } = useLanguage();
 
     const copyToClipboard = async (text: string, codeId: string) => {
         try {
-            await navigator.clipboard.writeText(text)
-            setCopiedCode(codeId)
-            setTimeout(() => setCopiedCode(null), 2000)
+            await navigator.clipboard.writeText(text);
+            setCopiedCode(codeId);
+            setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err)
+            console.error('Failed to copy text: ', err);
         }
-    }
+    };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+        <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'>
             {/* Header */}
-            <header className="sticky top-0 z-50 border-b border-white/20 bg-white/70 backdrop-blur-md">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                    <div className="flex h-16 items-center justify-between">
+            <header className='sticky top-0 z-50 border-b border-white/20 bg-white/70 backdrop-blur-md'>
+                <div className='mx-auto max-w-7xl px-4 sm:px-6'>
+                    <div className='flex h-16 items-center justify-between'>
                         <Link
-                            href="/design-system/components"
-                            className="text-h4 font-bold text-gray-900"
-                        >
+                            href='/design-system/components'
+                            className='text-h4 font-bold text-gray-900'>
                             ← Components
                         </Link>
                         <LanguageToggle />
@@ -38,115 +37,113 @@ export default function ViewAllButtonPage() {
             </header>
 
             {/* Hero Section */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700">
-                <div className="bg-grid-white/[0.05] absolute inset-0 bg-[size:60px_60px]"></div>
-                <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32">
-                    <div className="text-center">
-                        <div className="mb-6 flex justify-center">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
+            <div className='relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700'>
+                <div className='bg-grid-white/[0.05] absolute inset-0 bg-[size:60px_60px]'></div>
+                <div className='relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32'>
+                    <div className='text-center'>
+                        <div className='mb-6 flex justify-center'>
+                            <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
-                                    className="ph-bold ph-eye text-white"
-                                    style={{ fontSize: '32px' }}
-                                ></i>
+                                    className='ph-bold ph-eye text-white'
+                                    style={{ fontSize: '32px' }}></i>
                             </div>
                         </div>
-                        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                        <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
                             View All Button
                         </h1>
-                        <p className="mt-6 text-lg leading-8 text-blue-100">
+                        <p className='mt-6 text-lg leading-8 text-blue-100'>
                             ปุ่มสำหรับดูทั้งหมดที่ออกแบบตาม Figma Design System พร้อมใช้งานทันที
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-                <div className="space-y-12">
+            <div className='mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12'>
+                <div className='space-y-12'>
                     {/* Live Preview */}
-                    <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
-                        <div className="mb-6 flex items-center justify-between">
-                            <h2 className="text-h2 flex items-center font-bold text-gray-900">
-                                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
-                                    <i className="ph ph-eye text-white"></i>
+                    <div className='rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10'>
+                        <div className='mb-6 flex items-center justify-between'>
+                            <h2 className='text-h2 flex items-center font-bold text-gray-900'>
+                                <div className='mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500'>
+                                    <i className='ph ph-eye text-white'></i>
                                 </div>
                                 Live Preview
                             </h2>
-                            <div className="flex items-center gap-2">
-                                <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
-                                <span className="text-small text-gray-600">Live</span>
+                            <div className='flex items-center gap-2'>
+                                <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
+                                <span className='text-small text-gray-600'>Live</span>
                             </div>
                         </div>
-                        <div className="space-y-8">
+                        <div className='space-y-8'>
                             {/* Light Theme */}
-                            <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-white p-8 shadow-inner">
-                                <div className="mb-4 text-center">
-                                    <h3 className="text-lg font-semibold text-gray-700">
+                            <div className='rounded-2xl border-2 border-dashed border-gray-300 bg-white p-8 shadow-inner'>
+                                <div className='mb-4 text-center'>
+                                    <h3 className='text-lg font-semibold text-gray-700'>
                                         Light Theme
                                     </h3>
                                 </div>
-                                <div className="flex items-center justify-center gap-6">
+                                <div className='flex items-center justify-center gap-6'>
                                     <ViewAllButton>View All</ViewAllButton>
                                 </div>
                             </div>
 
                             {/* Dark Theme */}
-                            <div className="rounded-2xl border-2 border-dashed border-gray-600 bg-gray-900 p-8 shadow-inner">
-                                <div className="mb-4 text-center">
-                                    <h3 className="text-lg font-semibold text-gray-300">
+                            <div className='rounded-2xl border-2 border-dashed border-gray-600 bg-gray-900 p-8 shadow-inner'>
+                                <div className='mb-4 text-center'>
+                                    <h3 className='text-lg font-semibold text-gray-300'>
                                         Dark Theme
                                     </h3>
                                 </div>
-                                <div className="flex items-center justify-center gap-6">
-                                    <ViewAllButton variant="dark">View All</ViewAllButton>
+                                <div className='flex items-center justify-center gap-6'>
+                                    <ViewAllButton variant='dark'>View All</ViewAllButton>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Code Examples */}
-                    <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
-                        <div className="mb-6 flex items-center">
-                            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
-                                <i className="ph ph-lightning text-white"></i>
+                    <div className='rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10'>
+                        <div className='mb-6 flex items-center'>
+                            <div className='mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500'>
+                                <i className='ph ph-lightning text-white'></i>
                             </div>
-                            <h2 className="text-h2 font-bold text-gray-900">Code Examples</h2>
+                            <h2 className='text-h2 font-bold text-gray-900'>Code Examples</h2>
                         </div>
-                        <div className="space-y-6">
+                        <div className='space-y-6'>
                             {/* Light Theme Code */}
                             <div>
-                                <h3 className="mb-3 text-lg font-semibold text-gray-700">
+                                <h3 className='mb-3 text-lg font-semibold text-gray-700'>
                                     Light Theme
                                 </h3>
-                                <div className="rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4">
-                                    <div className="mb-3 flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <div className="flex h-2 w-2 rounded-full bg-red-500"></div>
-                                            <div className="flex h-2 w-2 rounded-full bg-yellow-500"></div>
-                                            <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
+                                <div className='rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4'>
+                                    <div className='mb-3 flex items-center justify-between'>
+                                        <div className='flex items-center gap-2'>
+                                            <div className='flex h-2 w-2 rounded-full bg-red-500'></div>
+                                            <div className='flex h-2 w-2 rounded-full bg-yellow-500'></div>
+                                            <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
                                         </div>
                                         <button
-                                            className="h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white"
+                                            className='h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white'
                                             onClick={() =>
                                                 copyToClipboard(
                                                     `<ViewAllButton>View All</ViewAllButton>`,
                                                     'viewall-button-light-code'
                                                 )
-                                            }
-                                        >
+                                            }>
                                             {copiedCode === 'viewall-button-light-code' ? (
-                                                <i className="ph ph-check-circle text-green-400"></i>
+                                                <i className='ph ph-check-circle text-green-400'></i>
                                             ) : (
-                                                <i className="ph ph-copy"></i>
+                                                <i className='ph ph-copy'></i>
                                             )}
                                         </button>
                                     </div>
-                                    <div className="mb-2 flex items-center gap-2">
-                                        <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                                        <span className="text-small text-gray-400">
+                                    <div className='mb-2 flex items-center gap-2'>
+                                        <div className='h-3 w-3 rounded-full bg-green-500'></div>
+                                        <span className='text-small text-gray-400'>
                                             ViewAllButton.tsx
                                         </span>
                                     </div>
-                                    <pre className="text-small overflow-x-auto text-gray-300">
+                                    <pre className='text-small overflow-x-auto text-gray-300'>
                                         <code>{`<ViewAllButton>View All</ViewAllButton>`}</code>
                                     </pre>
                                 </div>
@@ -154,39 +151,38 @@ export default function ViewAllButtonPage() {
 
                             {/* Dark Theme Code */}
                             <div>
-                                <h3 className="mb-3 text-lg font-semibold text-gray-700">
+                                <h3 className='mb-3 text-lg font-semibold text-gray-700'>
                                     Dark Theme
                                 </h3>
-                                <div className="rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4">
-                                    <div className="mb-3 flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <div className="flex h-2 w-2 rounded-full bg-red-500"></div>
-                                            <div className="flex h-2 w-2 rounded-full bg-yellow-500"></div>
-                                            <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
+                                <div className='rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4'>
+                                    <div className='mb-3 flex items-center justify-between'>
+                                        <div className='flex items-center gap-2'>
+                                            <div className='flex h-2 w-2 rounded-full bg-red-500'></div>
+                                            <div className='flex h-2 w-2 rounded-full bg-yellow-500'></div>
+                                            <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
                                         </div>
                                         <button
-                                            className="h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white"
+                                            className='h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white'
                                             onClick={() =>
                                                 copyToClipboard(
                                                     `<ViewAllButton variant="dark">View All</ViewAllButton>`,
                                                     'viewall-button-dark-code'
                                                 )
-                                            }
-                                        >
+                                            }>
                                             {copiedCode === 'viewall-button-dark-code' ? (
-                                                <i className="ph ph-check-circle text-green-400"></i>
+                                                <i className='ph ph-check-circle text-green-400'></i>
                                             ) : (
-                                                <i className="ph ph-copy"></i>
+                                                <i className='ph ph-copy'></i>
                                             )}
                                         </button>
                                     </div>
-                                    <div className="mb-2 flex items-center gap-2">
-                                        <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                                        <span className="text-small text-gray-400">
+                                    <div className='mb-2 flex items-center gap-2'>
+                                        <div className='h-3 w-3 rounded-full bg-green-500'></div>
+                                        <span className='text-small text-gray-400'>
                                             ViewAllButton.tsx
                                         </span>
                                     </div>
-                                    <pre className="text-small overflow-x-auto text-gray-300">
+                                    <pre className='text-small overflow-x-auto text-gray-300'>
                                         <code>{`<ViewAllButton variant="dark">View All</ViewAllButton>`}</code>
                                     </pre>
                                 </div>
@@ -195,67 +191,67 @@ export default function ViewAllButtonPage() {
                     </div>
 
                     {/* Props Documentation */}
-                    <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10">
-                        <div className="mb-6 flex items-center">
-                            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
-                                <i className="ph ph-code text-white"></i>
+                    <div className='rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl shadow-gray-500/10 backdrop-blur-sm md:p-10'>
+                        <div className='mb-6 flex items-center'>
+                            <div className='mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500'>
+                                <i className='ph ph-code text-white'></i>
                             </div>
-                            <h2 className="text-h2 font-bold text-gray-900">Props Documentation</h2>
+                            <h2 className='text-h2 font-bold text-gray-900'>Props Documentation</h2>
                         </div>
-                        <div className="overflow-x-auto">
-                            <table className="w-full border-collapse">
+                        <div className='overflow-x-auto'>
+                            <table className='w-full border-collapse'>
                                 <thead>
-                                    <tr className="border-b border-gray-200">
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                                    <tr className='border-b border-gray-200'>
+                                        <th className='px-4 py-3 text-left font-semibold text-gray-900'>
                                             Prop
                                         </th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                                        <th className='px-4 py-3 text-left font-semibold text-gray-900'>
                                             Type
                                         </th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                                        <th className='px-4 py-3 text-left font-semibold text-gray-900'>
                                             Default
                                         </th>
-                                        <th className="px-4 py-3 text-left font-semibold text-gray-900">
+                                        <th className='px-4 py-3 text-left font-semibold text-gray-900'>
                                             Description
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="border-b border-gray-100">
-                                        <td className="px-4 py-3 font-mono text-sm text-blue-600">
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
                                             children
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             React.ReactNode
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">-</td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             Text content to display in the button
                                         </td>
                                     </tr>
-                                    <tr className="border-b border-gray-100">
-                                        <td className="px-4 py-3 font-mono text-sm text-blue-600">
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
                                             variant
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             &apos;default&apos; | &apos;dark&apos;
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             &apos;default&apos;
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             Visual style variant of the button
                                         </td>
                                     </tr>
-                                    <tr className="border-b border-gray-100">
-                                        <td className="px-4 py-3 font-mono text-sm text-blue-600">
+                                    <tr className='border-b border-gray-100'>
+                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
                                             icon
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">string</td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             &apos;ph-bold ph-arrow-right&apos;
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600">
+                                        <td className='px-4 py-3 text-sm text-gray-600'>
                                             Phosphor icon class name
                                         </td>
                                     </tr>
@@ -266,5 +262,5 @@ export default function ViewAllButtonPage() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

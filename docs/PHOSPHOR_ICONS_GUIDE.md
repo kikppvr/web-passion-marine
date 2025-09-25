@@ -13,7 +13,7 @@ npm install @phosphor-icons/react
 ### Import Icons
 
 ```tsx
-import { ArrowRight, CaretRight, CheckCircle, Copy, Eye, Lightning } from '@phosphor-icons/react'
+import { ArrowRight, CaretRight, CheckCircle, Copy, Eye, Lightning } from '@phosphor-icons/react';
 ```
 
 ### Use in Components
@@ -24,9 +24,9 @@ function MyComponent() {
         <div>
             <ArrowRight size={24} />
             <CaretRight size={16} />
-            <CheckCircle size={32} color="green" />
+            <CheckCircle size={32} color='green' />
         </div>
-    )
+    );
 }
 ```
 
@@ -61,7 +61,7 @@ function MyComponent() {
 ### Different Sizes
 
 ```tsx
-<div className="flex items-center gap-4">
+<div className='flex items-center gap-4'>
     <Lightning size={16} />
     <Lightning size={24} />
     <Lightning size={32} />
@@ -72,24 +72,24 @@ function MyComponent() {
 ### Different Weights
 
 ```tsx
-<div className="flex items-center gap-4">
-    <Palette size={24} weight="thin" />
-    <Palette size={24} weight="light" />
-    <Palette size={24} weight="regular" />
-    <Palette size={24} weight="bold" />
-    <Palette size={24} weight="fill" />
+<div className='flex items-center gap-4'>
+    <Palette size={24} weight='thin' />
+    <Palette size={24} weight='light' />
+    <Palette size={24} weight='regular' />
+    <Palette size={24} weight='bold' />
+    <Palette size={24} weight='fill' />
 </div>
 ```
 
 ### Different Colors
 
 ```tsx
-<div className="flex items-center gap-4">
-    <TextAa size={24} color="red" />
-    <TextAa size={24} color="blue" />
-    <TextAa size={24} color="green" />
-    <TextAa size={24} color="purple" />
-    <TextAa size={24} color="orange" />
+<div className='flex items-center gap-4'>
+    <TextAa size={24} color='red' />
+    <TextAa size={24} color='blue' />
+    <TextAa size={24} color='green' />
+    <TextAa size={24} color='purple' />
+    <TextAa size={24} color='orange' />
 </div>
 ```
 
