@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary);
-    color: var(--text-inverse);
+    color: var(--text-white);
     font-family: var(--font-en);
     font-size: var(--text-body);
     font-weight: var(--font-normal);
@@ -57,7 +57,7 @@
         height: 30px;
         flex-shrink: 0;
         font-size: 20px;
-        color: var(--primary);
+        color: var(--blue-500);
         background-color: white;
         border-radius: 50%;
         display: flex;
@@ -65,28 +65,15 @@
         justify-content: center;
         transition: all 0.3s ease-in-out;
     }
+}
 
-    // Inverse variant (white background, blue text)
-    &--inverse {
-        background-color: var(--bg-primary);
-        color: var(--primary);
+// Btn Primary dark theme
+.btn-primary--dark {
+    background-color: var(--bg-primary);
+    color: var(--blue-500);
 
-        &:hover {
-            .btn-content {
-                transform: translateX(8px);
-            }
-            .btn-icon {
-                transform: rotate(-45deg);
-            }
-        }
-
-        &:focus {
-            outline: none;
-        }
-
-        .btn-icon {
-            background-color: var(--primary);
-            color: white;
-        }
+    .btn-icon {
+        background-color: var(--blue-500);
+        color: var(--text-white);
     }
 }
