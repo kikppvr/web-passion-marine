@@ -1,8 +1,8 @@
 // ========================================
-// PRIMARY BUTTON COMPONENT STYLES
+// BTN PRIMARY COMPONENT STYLES
 // ========================================
 
-// Primary Button Base Styles
+// Btn Primary Base Styles
 .btn-primary {
     position: relative;
     display: flex;
@@ -33,9 +33,6 @@
 
     &:focus {
         outline: none;
-        box-shadow:
-            0 0 0 2px var(--border-focus),
-            0 0 0 4px rgba(28, 69, 131, 0.1);
     }
 
     &:disabled {
@@ -67,5 +64,29 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease-in-out;
+    }
+
+    // Inverse variant (white background, blue text)
+    &--inverse {
+        background-color: var(--bg-primary);
+        color: var(--primary);
+
+        &:hover {
+            .btn-content {
+                transform: translateX(8px);
+            }
+            .btn-icon {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        .btn-icon {
+            background-color: var(--primary);
+            color: white;
+        }
     }
 }
