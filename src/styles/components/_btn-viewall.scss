@@ -1,0 +1,94 @@
+@use '../base/colors' as colors;
+@use '../base/text' as text;
+@use '../base/utility' as utility;
+@use '../base/display' as display;
+
+// ========================================
+// BTN VIEW ALL COMPONENT STYLES
+// ========================================
+
+// Btn ViewAll Base Styles
+.btn-viewall {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: transparent;
+    color: var(--blue-500);
+    font-size: var(--text-body);
+    font-weight: var(--font-semibold);
+    line-height: 1.4;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    outline: none;
+    white-space: nowrap;
+
+    // Text styles
+    .btn-viewall__text {
+        color: var(--blue-500);
+        transition: all 0.3s ease-in-out;
+    }
+
+    // Icon styles
+    .btn-viewall__icon {
+        position: relative;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue-500);
+        transition: all 0.3s ease-in-out;
+    }
+
+    // Hover effects
+    &:hover {
+        .btn-viewall__text {
+            color: var(--blue-300);
+            transform: translateX(4px);
+        }
+
+        .btn-viewall__icon {
+            color: var(--blue-300);
+        }
+    }
+
+    // Active state
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(28, 69, 131, 0.2);
+    }
+
+    // Focus styles
+    &:focus {
+        outline: none;
+    }
+
+    // Disabled state
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+// Btn ViewAll dark theme
+.btn-viewall--dark {
+    .btn-viewall__text {
+        color: var(--text-white);
+    }
+
+    .btn-viewall__icon {
+        color: var(--text-white);
+    }
+
+    &:hover {
+        .btn-viewall__text,
+        .btn-viewall__icon {
+            color: var(--text-white);
+        }
+    }
+}

@@ -1,0 +1,96 @@
+@use '../base/colors' as colors;
+@use '../base/text' as text;
+@use '../base/utility' as utility;
+@use '../base/display' as display;
+
+// ========================================
+// BTN BOOK NOW COMPONENT STYLES
+// ========================================
+
+// Btn BookNow Base Styles
+.btn-booknow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: var(--blue-500);
+    color: var(--text-white);
+    font-size: var(--text-body);
+    font-weight: var(--font-regular);
+    line-height: 1.4;
+    border-radius: 40px;
+    padding: 8px 24px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    outline: none;
+    white-space: nowrap;
+    min-height: 44px;
+
+    // Text styles
+    .btn-booknow__text {
+        color: var(--text-white);
+        transition: color 0.3s ease-in-out;
+    }
+
+    // Icon styles
+    .btn-booknow__icon {
+        position: relative;
+        // width: 20px;
+        // height: 20px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-white);
+        transition: all 0.3s ease-in-out;
+    }
+
+    // Hover effects
+    &:hover {
+        background-color: var(--blue-700);
+    }
+
+    // Focus styles
+    &:focus {
+        outline: none;
+    }
+
+    // Disabled state
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+// Btn BookNow dark theme
+.btn-booknow--dark {
+    background-color: var(--bg-primary);
+    color: var(--blue-500);
+
+    .btn-booknow__text {
+        color: var(--blue-500);
+    }
+
+    .btn-booknow__icon {
+        color: var(--blue-500);
+    }
+
+    &:hover {
+        background-color: var(--blue-500);
+        color: var(--text-white);
+
+        .btn-booknow__text {
+            color: var(--text-white);
+        }
+
+        .btn-booknow__icon {
+            color: var(--text-white);
+        }
+    }
+}

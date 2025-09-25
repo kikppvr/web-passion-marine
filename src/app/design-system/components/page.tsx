@@ -41,6 +41,16 @@ export default function ComponentsPage() {
                     status: 'ready',
                     path: '/design-system/components/buttons/readmore',
                 },
+                {
+                    name: 'Book Now Button',
+                    status: 'ready',
+                    path: '/design-system/components/buttons/booknow',
+                },
+                {
+                    name: 'View All Button',
+                    status: 'ready',
+                    path: '/design-system/components/buttons/viewall',
+                },
                 { name: 'Secondary Button', status: 'planned', path: '#' },
                 { name: 'Icon Button', status: 'planned', path: '#' },
             ],
@@ -156,7 +166,7 @@ export default function ComponentsPage() {
                                     ></i>
                                 </div>
                                 <div className="ml-4">
-                                    <h3 className="text-lg font-semibold text-gray-900">16</h3>
+                                    <h3 className="text-lg font-semibold text-gray-900">18</h3>
                                     <p className="text-sm text-gray-600">Components</p>
                                 </div>
                             </div>
@@ -170,7 +180,7 @@ export default function ComponentsPage() {
                                     ></i>
                                 </div>
                                 <div className="ml-4">
-                                    <h3 className="text-lg font-semibold text-gray-900">2</h3>
+                                    <h3 className="text-lg font-semibold text-gray-900">4</h3>
                                     <p className="text-sm text-gray-600">Ready</p>
                                 </div>
                             </div>
@@ -184,7 +194,7 @@ export default function ComponentsPage() {
                                     ></i>
                                 </div>
                                 <div className="ml-4">
-                                    <h3 className="text-lg font-semibold text-gray-900">14</h3>
+                                    <h3 className="text-lg font-semibold text-gray-900">12</h3>
                                     <p className="text-sm text-gray-600">Planned</p>
                                 </div>
                             </div>
