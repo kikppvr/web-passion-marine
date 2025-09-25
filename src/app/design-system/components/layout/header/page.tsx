@@ -1,7 +1,7 @@
 'use client';
 
-import { Header } from '@/components/ui/Header';
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
+import { Header } from '@/components/ui/layout';
+import { VideoHeroBanner } from '@/components/ui/media';
 import { LanguageToggle } from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';

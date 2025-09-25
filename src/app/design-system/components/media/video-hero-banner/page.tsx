@@ -1,7 +1,7 @@
 'use client';
 
 import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
+import { VideoHeroBanner } from '@/components/ui/media';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import { useState } from 'react';
