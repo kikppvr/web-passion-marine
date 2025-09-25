@@ -4,19 +4,15 @@ import * as React from 'react'
 export interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
     icon?: string
-    variant?: 'default' | 'inverse'
+    theme?: 'light' | 'dark'
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
-    ({ className, children, icon, variant = 'default', ...props }, ref) => {
+    ({ className, children, icon, theme = 'light', ...props }, ref) => {
         const defaultIcon = 'ph ph-arrow-right'
         const iconClass = icon || defaultIcon
 
-        const buttonClasses = cn(
-            'btn-primary',
-            variant === 'inverse' && 'btn-primary--inverse',
-            className
-        )
+        const buttonClasses = cn('btn-primary', theme === 'dark' && 'btn-primary--dark', className)
 
         return (
             <button className={buttonClasses} ref={ref} {...props}>
