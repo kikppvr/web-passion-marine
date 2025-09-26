@@ -25,6 +25,8 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+    const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+    const [currentLanguage, setCurrentLanguage] = useState<"EN" | "TH">("EN");
 
     // Navigation items
     const navItems: NavItem[] = [
@@ -84,6 +86,55 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         setIsHamburgerOpen(!isHamburgerOpen);
     };
 
+    // Handle language dropdown toggle
+    const toggleLanguageDropdown = () => {
+        setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+    };
+
+    // Handle language change
+    const handleLanguageChange = (language: "EN" | "TH") => {
+        setCurrentLanguage(language);
+        setIsLanguageDropdownOpen(false);
+        // Here you can add logic to change the actual language
+        console.log("Language changed to:", language);
+    };
+
+    // Close language dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isLanguageDropdownOpen && !target.closest(".header__language-container")) {
+                setIsLanguageDropdownOpen(false);
+            }
+        };
+
+        if (isLanguageDropdownOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isLanguageDropdownOpen]);
+
+    // Close hamburger menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isHamburgerOpen && !target.closest(".header")) {
+                setIsHamburgerOpen(false);
+            }
+        };
+
+        if (isHamburgerOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isHamburgerOpen]);
+
     return (
         <header
             className={cn(
@@ -95,10 +146,40 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
             <div className='header__container'>
                 {/* Language Switcher & Action Buttons */}
                 <div className='header__actions'>
-                    <button className='header__language'>
-                        <span className='header__language-text'>EN</span>
-                        <i className='ph ph-caret-down header__language-arrow'></i>
-                    </button>
+                    <div className='header__language-container'>
+                        <button className='header__language' onClick={toggleLanguageDropdown}>
+                            <span className='header__language-text'>{currentLanguage}</span>
+                            <i
+                                className={cn(
+                                    "ph ph-caret-down header__language-arrow",
+                                    isLanguageDropdownOpen && "header__language-arrow--open"
+                                )}></i>
+                        </button>
+
+                        {/* Language Dropdown */}
+                        <div
+                            className={cn(
+                                "header__language-dropdown",
+                                isLanguageDropdownOpen && "header__language-dropdown--open"
+                            )}>
+                            <button
+                                className={cn(
+                                    "header__language-option",
+                                    currentLanguage === "EN" && "header__language-option--active"
+                                )}
+                                onClick={() => handleLanguageChange("EN")}>
+                                <span>EN</span>
+                            </button>
+                            <button
+                                className={cn(
+                                    "header__language-option",
+                                    currentLanguage === "TH" && "header__language-option--active"
+                                )}
+                                onClick={() => handleLanguageChange("TH")}>
+                                <span>TH</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Logo */}
