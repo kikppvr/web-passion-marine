@@ -88,7 +88,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         <header
             className={cn(
                 "header",
-                `header--${theme}`,
+                `header--${isHamburgerOpen ? "white" : theme}`,
                 isScrolled && "header--scrolled",
                 className
             )}>
@@ -104,12 +104,15 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 {/* Logo */}
                 <Link href='/' className='header__logo'>
                     <Image
-                        src='/images/logo/logo-passion-marine.svg'
+                        src={
+                            isHamburgerOpen || theme === "white"
+                                ? "/images/logo/logo-passion-marine.svg"
+                                : "/images/logo/logo-passion-marine-white.svg"
+                        }
                         alt='Logo'
                         width={158}
                         height={44}
                     />
-                     
                 </Link>
 
                 {/* Hamburger Menu Button */}

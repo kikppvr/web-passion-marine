@@ -34,7 +34,7 @@ $min-width-desktop: 1201px;
 }
 
 @mixin max-tablet {
-    @media (min-width: $max-width-tablet) {
+    @media (max-width: $max-width-tablet) {
         @content;
     }
 }

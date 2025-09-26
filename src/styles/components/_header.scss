@@ -3,6 +3,7 @@
 @use "../base/utility" as utility;
 @use "../base/display" as display;
 @use "../base/scrollbar" as scrollbar;
+@use "../base/base" as base;
 
 // ========================================
 // HEADER COMPONENT STYLES
@@ -20,14 +21,22 @@
     // Theme Variants
     &.header--white {
         background-color: var(--white);
-        border-bottom: 1px solid var(--border-light);
+        // border-bottom: 1px solid var(--border-light);
     }
 
     &.header--transparent {
         background-color: transparent;
         border-bottom: none;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+
+        &:hover {
+            background-color: var(--white);
+
+            .header__hamburger-text {
+                color: var(--blue-500);
+            }
+            .header__hamburger-line {
+            }
+        }
     }
 
     // Scrolled state - always white background when scrolled
@@ -80,16 +89,18 @@
                 }
             }
         }
-
-        .header__hamburger {
-            .header__hamburger-line {
-                background-color: var(--text-primary);
-            }
-        }
     }
 
     // Transparent theme specific styles
     &.header--transparent {
+        .header__logo {
+            color: var(--text-white);
+
+            &:hover {
+                color: var(--blue-500);
+            }
+        }
+
         .header__nav-link {
             color: var(--text-white);
 
@@ -104,8 +115,17 @@
             border-color: rgba(255, 255, 255, 0.3);
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                border-color: rgba(255, 255, 255, 0.5);
+                background-color: var(--white);
+                border-color: var(--white);
+                color: var(--blue-500);
+
+                .header__language-text {
+                    color: var(--blue-500);
+                }
+            }
+
+            .header__language-text {
+                color: var(--text-white);
             }
         }
 
@@ -131,6 +151,10 @@
         }
 
         .header__hamburger {
+            .header__hamburger-text {
+                color: var(--text-white);
+            }
+
             .header__hamburger-line {
                 background-color: var(--text-white);
             }
@@ -180,35 +204,6 @@
                 width: 40px;
                 height: 40px;
                 font-size: 20px;
-            }
-        }
-
-        .header__logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-
-            .header__logo-text-main {
-                font-size: var(--text-h4);
-                font-weight: var(--font-bold);
-                color: var(--text-primary);
-                line-height: 1.2;
-
-                @media (max-width: 768px) {
-                    font-size: var(--text-h5);
-                }
-            }
-
-            .header__logo-text-sub {
-                font-size: var(--text-small);
-                font-weight: var(--font-medium);
-                color: var(--text-secondary);
-                line-height: 1.2;
-                margin-top: -2px;
-
-                @media (max-width: 768px) {
-                    font-size: var(--text-xs);
-                }
             }
         }
     }
@@ -463,8 +458,12 @@
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
-        // transform: translateX(100%);
         transition: all 0.3s ease-in-out;
+
+        @include base.max-tablet {
+            width: 100%;
+            height: auto;
+        }
 
         &.header__menu--open {
             opacity: 1;
@@ -586,6 +585,7 @@
 
             &:hover {
                 .header__menu-nav-text {
+                    color: var(--blue-700);
                     transform: translateX(8px);
                 }
             }
