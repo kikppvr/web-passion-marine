@@ -1,90 +1,90 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, BookOpen, Layout, Palette, Ruler, Sparkles, Type } from 'lucide-react';
-import Link from 'next/link';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowRight, BookOpen, Layout, Palette, Ruler, Sparkles, Type } from "lucide-react";
+import Link from "next/link";
 
 export default function DesignSystemPage() {
     const { language } = useLanguage();
 
     const sections = [
         {
-            id: 'components',
-            title: 'Components',
-            description: 'UI Components & Examples',
+            id: "components",
+            title: "Components",
+            description: "UI Components & Examples",
             icon: Layout,
-            gradient: 'from-purple-500 to-pink-500',
-            href: '/design-system/components',
-            stats: '12+ Components',
-            status: 'Live',
+            gradient: "from-purple-500 to-pink-500",
+            href: "/design-system/components",
+            stats: "12+ Components",
+            status: "Live",
         },
         {
-            id: 'colors',
-            title: 'Colors',
-            description: 'Color Palette & Usage',
+            id: "colors",
+            title: "Colors",
+            description: "Color Palette & Usage",
             icon: Palette,
-            gradient: 'from-blue-500 to-cyan-500',
-            href: '/design-system/colors',
-            stats: '20+ Colors',
-            status: 'Live',
+            gradient: "from-blue-500 to-cyan-500",
+            href: "/design-system/colors",
+            stats: "20+ Colors",
+            status: "Live",
         },
         {
-            id: 'typography',
-            title: 'Typography',
-            description: 'Fonts & Text Styles',
+            id: "typography",
+            title: "Typography",
+            description: "Fonts & Text Styles",
             icon: Type,
-            gradient: 'from-green-500 to-emerald-500',
-            href: '/design-system/typography',
-            stats: '12+ Styles',
-            status: 'Live',
+            gradient: "from-green-500 to-emerald-500",
+            href: "/design-system/typography",
+            stats: "12+ Styles",
+            status: "Live",
         },
         {
-            id: 'spacing',
-            title: 'Spacing',
-            description: 'Spacing Scale & Layout',
+            id: "spacing",
+            title: "Spacing",
+            description: "Spacing Scale & Layout",
             icon: Ruler,
-            gradient: 'from-orange-500 to-red-500',
-            href: '/design-system/spacing',
-            stats: '11 Scale Steps',
-            status: 'Live',
+            gradient: "from-orange-500 to-red-500",
+            href: "/design-system/spacing",
+            stats: "11 Scale Steps",
+            status: "Live",
         },
         {
-            id: 'guidelines',
-            title: 'Guidelines',
-            description: 'Design Principles & Best Practices',
+            id: "guidelines",
+            title: "Guidelines",
+            description: "Design Principles & Best Practices",
             icon: BookOpen,
-            gradient: 'from-indigo-500 to-purple-500',
-            href: '/design-system/guidelines',
-            stats: '5+ Principles',
-            status: 'Live',
+            gradient: "from-indigo-500 to-purple-500",
+            href: "/design-system/guidelines",
+            stats: "5+ Principles",
+            status: "Live",
         },
     ];
 
     const quickStats = [
         {
-            label: 'Total Components',
-            value: '12+',
+            label: "Total Components",
+            value: "12+",
             icon: Layout,
-            gradient: 'from-blue-500 to-blue-600',
+            gradient: "from-blue-500 to-blue-600",
         },
         {
-            label: 'Color Tokens',
-            value: '20+',
+            label: "Color Tokens",
+            value: "20+",
             icon: Palette,
-            gradient: 'from-green-500 to-green-600',
+            gradient: "from-green-500 to-green-600",
         },
         {
-            label: 'Typography Styles',
-            value: '12+',
+            label: "Typography Styles",
+            value: "12+",
             icon: Type,
-            gradient: 'from-purple-500 to-purple-600',
+            gradient: "from-purple-500 to-purple-600",
         },
         {
-            label: 'Spacing Scale',
-            value: '11',
+            label: "Spacing Scale",
+            value: "11",
             icon: Ruler,
-            gradient: 'from-orange-500 to-orange-600',
+            gradient: "from-orange-500 to-orange-600",
         },
     ];
 

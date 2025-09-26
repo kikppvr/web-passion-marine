@@ -13,7 +13,7 @@ npm install @phosphor-icons/react
 ### Import Icons
 
 ```tsx
-import { ArrowRight, CaretRight, CheckCircle, Copy, Eye, Lightning } from '@phosphor-icons/react';
+import { ArrowRight, CaretRight, CheckCircle, Copy, Eye, Lightning } from "@phosphor-icons/react";
 ```
 
 ### Use in Components

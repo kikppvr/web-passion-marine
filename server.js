@@ -1,10 +1,10 @@
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
+const { createServer } = require("http");
+const { parse } = require("url");
+const next = require("next");
 
-const dev = process.env.NODE_ENV !== 'production';
-const hostname = process.env.HOSTNAME || 'passionmarine.co.th';
-const port = parseInt(process.env.PORT || '3000', 10);
+const dev = process.env.NODE_ENV !== "production";
+const hostname = process.env.HOSTNAME || "passionmarine.co.th";
+const port = parseInt(process.env.PORT || "3000", 10);
 
 // Create Next.js app
 const app = next({
@@ -21,19 +21,19 @@ app.prepare().then(() => {
             const { pathname, query } = parsedUrl;
 
             // Handle API routes
-            if (pathname.startsWith('/api/')) {
+            if (pathname.startsWith("/api/")) {
                 await handle(req, res, parsedUrl);
                 return;
             }
 
             // Handle static files
-            if (pathname.startsWith('/_next/') || pathname.startsWith('/static/')) {
+            if (pathname.startsWith("/_next/") || pathname.startsWith("/static/")) {
                 await handle(req, res, parsedUrl);
                 return;
             }
 
             // Handle favicon and other static assets
-            if (pathname === '/favicon.ico') {
+            if (pathname === "/favicon.ico") {
                 await handle(req, res, parsedUrl);
                 return;
             }
@@ -41,13 +41,13 @@ app.prepare().then(() => {
             // Handle all other routes
             await handle(req, res, parsedUrl);
         } catch (err) {
-            console.error('Error occurred handling', req.url, err);
+            console.error("Error occurred handling", req.url, err);
             res.statusCode = 500;
-            res.end('internal server error');
+            res.end("internal server error");
         }
     })
-        .once('error', err => {
-            console.error('Server error:', err);
+        .once("error", err => {
+            console.error("Server error:", err);
             process.exit(1);
         })
         .listen(port, () => {
@@ -58,23 +58,23 @@ app.prepare().then(() => {
 });
 
 // Graceful shutdown
-process.on('SIGTERM', () => {
-    console.log('SIGTERM received, shutting down gracefully');
+process.on("SIGTERM", () => {
+    console.log("SIGTERM received, shutting down gracefully");
     process.exit(0);
 });
 
-process.on('SIGINT', () => {
-    console.log('SIGINT received, shutting down gracefully');
+process.on("SIGINT", () => {
+    console.log("SIGINT received, shutting down gracefully");
     process.exit(0);
 });
 
 // Handle uncaught exceptions
-process.on('uncaughtException', err => {
-    console.error('Uncaught Exception:', err);
+process.on("uncaughtException", err => {
+    console.error("Uncaught Exception:", err);
     process.exit(1);
 });
 
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+process.on("unhandledRejection", (reason, promise) => {
+    console.error("Unhandled Rejection at:", promise, "reason:", reason);
     process.exit(1);
 });

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { cn } from '@/lib/utils';
-import { ArrowLeft, CheckCircle, Palette } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
+import { ArrowLeft, CheckCircle, Palette } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ColorsPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -17,34 +17,34 @@ export default function ColorsPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy: ', err);
+            console.error("Failed to copy: ", err);
         }
     };
 
     const colorPalette = {
         blue: {
-            50: '#e8ecf3',
-            100: '#b9c5d9',
-            200: '#97a9c6',
-            300: '#6782ac',
-            400: '#496a9c',
-            500: '#1c4583',
-            600: '#193f77',
-            700: '#14315d',
-            800: '#0f2648',
-            900: '#0c1d37',
+            50: "#e8ecf3",
+            100: "#b9c5d9",
+            200: "#97a9c6",
+            300: "#6782ac",
+            400: "#496a9c",
+            500: "#1c4583",
+            600: "#193f77",
+            700: "#14315d",
+            800: "#0f2648",
+            900: "#0c1d37",
         },
         grey: {
-            50: '#f1f1f1',
-            100: '#d2d2d3',
-            200: '#bdbdbe',
-            300: '#9f9fa0',
-            400: '#8c8c8d',
-            500: '#6f6f71',
-            600: '#656567',
-            700: '#4f4f50',
-            800: '#3d3d3e',
-            900: '#2f2f2f',
+            50: "#f1f1f1",
+            100: "#d2d2d3",
+            200: "#bdbdbe",
+            300: "#9f9fa0",
+            400: "#8c8c8d",
+            500: "#6f6f71",
+            600: "#656567",
+            700: "#4f4f50",
+            800: "#3d3d3e",
+            900: "#2f2f2f",
         },
     };
 
@@ -161,9 +161,9 @@ export default function ColorsPage() {
                                                 {colorName} Colors
                                             </h3>
                                             <p className='text-small text-gray-600'>
-                                                {colorName === 'blue'
-                                                    ? 'สีหลักของแบรนด์'
-                                                    : 'สีสำหรับข้อความและพื้นหลัง'}
+                                                {colorName === "blue"
+                                                    ? "สีหลักของแบรนด์"
+                                                    : "สีสำหรับข้อความและพื้นหลัง"}
                                             </p>
                                         </div>
                                     </div>
@@ -194,10 +194,10 @@ export default function ColorsPage() {
                                                 </div>
                                                 <div
                                                     className={cn(
-                                                        'text-small-2 mt-1 rounded px-2 py-1 font-mono transition-colors',
+                                                        "text-small-2 mt-1 rounded px-2 py-1 font-mono transition-colors",
                                                         copiedCode === `${colorName}-${shade}`
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-gray-100 text-gray-500 group-hover:bg-gray-200"
                                                     )}>
                                                     {hex}
                                                 </div>

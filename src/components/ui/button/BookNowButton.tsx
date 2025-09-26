@@ -1,20 +1,20 @@
-import { cn } from '@/lib/utils';
-import * as React from 'react';
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
 export interface BookNowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     icon?: string;
-    variant?: 'default' | 'dark';
+    variant?: "default" | "dark";
 }
 
 const BookNowButton = React.forwardRef<HTMLButtonElement, BookNowButtonProps>(
-    ({ className, children, icon, variant = 'default', ...props }, ref) => {
-        const defaultIcon = 'ph-bold ph-calendar-check';
+    ({ className, children, icon, variant = "default", ...props }, ref) => {
+        const defaultIcon = "ph-bold ph-calendar-check";
         const iconClass = icon || defaultIcon;
 
         const buttonClasses = cn(
-            'btn-booknow',
-            variant === 'dark' && 'btn-booknow--dark',
+            "btn-booknow",
+            variant === "dark" && "btn-booknow--dark",
             className
         );
 
@@ -29,6 +29,6 @@ const BookNowButton = React.forwardRef<HTMLButtonElement, BookNowButtonProps>(
     }
 );
 
-BookNowButton.displayName = 'BookNowButton';
+BookNowButton.displayName = "BookNowButton";
 
 export { BookNowButton };

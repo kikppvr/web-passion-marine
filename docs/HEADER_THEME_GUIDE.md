@@ -155,19 +155,19 @@ import { Header } from '@/components/ui/Header'
 ### Dynamic Theme Switching
 
 ```tsx
-const [headerTheme, setHeaderTheme] = useState<'white' | 'transparent'>('white');
+const [headerTheme, setHeaderTheme] = useState<"white" | "transparent">("white");
 
 useEffect(() => {
     const handleScroll = () => {
         if (window.scrollY > 100) {
-            setHeaderTheme('white');
+            setHeaderTheme("white");
         } else {
-            setHeaderTheme('transparent');
+            setHeaderTheme("transparent");
         }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
 }, []);
 
 return <Header theme={headerTheme} />;

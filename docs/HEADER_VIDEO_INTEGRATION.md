@@ -23,8 +23,8 @@
 ### Basic Setup
 
 ```tsx
-import { Header } from '@/components/ui/Header';
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
+import { Header } from "@/components/ui/Header";
+import { VideoHeroBanner } from "@/components/ui/VideoHeroBanner";
 
 export default function HomePage() {
     return (
@@ -59,25 +59,25 @@ export default function HomePage() {
 ### Advanced Setup with Theme Switching
 
 ```tsx
-import { Header } from '@/components/ui/Header';
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
-import { useState, useEffect } from 'react';
+import { Header } from "@/components/ui/Header";
+import { VideoHeroBanner } from "@/components/ui/VideoHeroBanner";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-    const [headerTheme, setHeaderTheme] = useState<'white' | 'transparent'>('transparent');
+    const [headerTheme, setHeaderTheme] = useState<"white" | "transparent">("transparent");
 
     useEffect(() => {
         const handleScroll = () => {
             // Switch to white theme when scrolled past video
             if (window.scrollY > window.innerHeight * 0.8) {
-                setHeaderTheme('white');
+                setHeaderTheme("white");
             } else {
-                setHeaderTheme('transparent');
+                setHeaderTheme("transparent");
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (

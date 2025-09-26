@@ -1,0 +1,78 @@
+// ========================================
+// SCROLLBAR MIXINS
+// ========================================
+
+// Scrollbar Mixin
+@mixin scrollbar($scroll-color: #9f9fa0, $bg-color: #f1f1f1) {
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg-color;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scroll-color;
+        border-radius: 4px;
+
+        &:hover {
+            background: #8c8c8d;
+        }
+    }
+}
+
+// Thin Scrollbar Mixin
+@mixin scrollbar-thin($scroll-color: #9f9fa0, $bg-color: #f1f1f1) {
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg-color;
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scroll-color;
+        border-radius: 2px;
+
+        &:hover {
+            background: #8c8c8d;
+        }
+    }
+}
+
+// Thick Scrollbar Mixin
+@mixin scrollbar-thick($scroll-color: #9f9fa0, $bg-color: #f1f1f1) {
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg-color;
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scroll-color;
+        border-radius: 6px;
+
+        &:hover {
+            background: #8c8c8d;
+        }
+    }
+}
+
+// Hide Scrollbar Mixin
+@mixin hide-scrollbar {
+    // Hide scrollbar for Chrome, Safari and Opera
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Hide scrollbar for IE, Edge and Firefox
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}

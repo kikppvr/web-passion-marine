@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { cn } from '@/lib/utils';
-import { ArrowLeft, CheckCircle, Copy, Type } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
+import { ArrowLeft, CheckCircle, Copy, Type } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function TypographyPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -18,7 +18,7 @@ export default function TypographyPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy: ', err);
+            console.error("Failed to copy: ", err);
         }
     };
 
@@ -122,9 +122,9 @@ export default function TypographyPage() {
                         <div className='mb-8'>
                             <div className='mb-6 flex items-center justify-between'>
                                 <h3 className='text-h2 font-bold text-gray-900'>
-                                    {language === 'th'
-                                        ? 'Thai (Noto Sans Thai)'
-                                        : 'English (Roboto)'}
+                                    {language === "th"
+                                        ? "Thai (Noto Sans Thai)"
+                                        : "English (Roboto)"}
                                 </h3>
                                 <div className='flex items-center gap-2'>
                                     <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
@@ -137,9 +137,9 @@ export default function TypographyPage() {
                                         <span className='text-white'>🎯</span>
                                     </div>
                                     <p className='text-body text-blue-800'>
-                                        {language === 'th'
-                                            ? 'ตัวอย่างการเปลี่ยนภาษา - Font จะเปลี่ยนตามภาษาที่เลือก'
-                                            : 'Language Switching Example - Font changes based on selected language'}
+                                        {language === "th"
+                                            ? "ตัวอย่างการเปลี่ยนภาษา - Font จะเปลี่ยนตามภาษาที่เลือก"
+                                            : "Language Switching Example - Font changes based on selected language"}
                                     </p>
                                 </div>
                             </div>
@@ -165,25 +165,25 @@ export default function TypographyPage() {
                                 <div className='space-y-6'>
                                     {[
                                         {
-                                            class: 'display-1',
-                                            size: '83px',
-                                            weight: 'Bold',
-                                            lineHeight: '1.25',
-                                            label: 'Display 1 - หัวข้อหลัก',
+                                            class: "display-1",
+                                            size: "83px",
+                                            weight: "Bold",
+                                            lineHeight: "1.25",
+                                            label: "Display 1 - หัวข้อหลัก",
                                         },
                                         {
-                                            class: 'display-2',
-                                            size: '69px',
-                                            weight: 'Bold',
-                                            lineHeight: '1.25',
-                                            label: 'Display 2 - หัวข้อรอง',
+                                            class: "display-2",
+                                            size: "69px",
+                                            weight: "Bold",
+                                            lineHeight: "1.25",
+                                            label: "Display 2 - หัวข้อรอง",
                                         },
                                         {
-                                            class: 'display-3',
-                                            size: '57px',
-                                            weight: 'Bold',
-                                            lineHeight: '1.25',
-                                            label: 'Display 3 - หัวข้อย่อย',
+                                            class: "display-3",
+                                            size: "57px",
+                                            weight: "Bold",
+                                            lineHeight: "1.25",
+                                            label: "Display 3 - หัวข้อย่อย",
                                         },
                                     ].map(display => (
                                         <div
@@ -192,11 +192,11 @@ export default function TypographyPage() {
                                             <div className='mb-4 flex items-center justify-between'>
                                                 <div
                                                     className={`text-${display.class} text-gray-900`}>
-                                                    {language === 'th'
+                                                    {language === "th"
                                                         ? display.label
                                                         : display.label
-                                                              .replace('หัวข้อ', 'Title')
-                                                              .replace('หัวข้อย่อย', 'Subtitle')}
+                                                              .replace("หัวข้อ", "Title")
+                                                              .replace("หัวข้อย่อย", "Subtitle")}
                                                 </div>
                                                 <Button
                                                     variant='outline'
@@ -208,10 +208,10 @@ export default function TypographyPage() {
                                                         )
                                                     }
                                                     className={cn(
-                                                        'text-small transition-all duration-200',
+                                                        "text-small transition-all duration-200",
                                                         copiedCode === `text-${display.class}`
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === `text-${display.class}` ? (
                                                         <>
@@ -260,52 +260,52 @@ export default function TypographyPage() {
                                 <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                                     {[
                                         {
-                                            tag: 'h1',
-                                            class: 'h1',
-                                            size: '40px',
-                                            weight: 'Bold',
-                                            lineHeight: '1.25',
-                                            label: 'Heading H1',
+                                            tag: "h1",
+                                            class: "h1",
+                                            size: "40px",
+                                            weight: "Bold",
+                                            lineHeight: "1.25",
+                                            label: "Heading H1",
                                         },
                                         {
-                                            tag: '.text-h2',
-                                            class: 'h2',
-                                            size: '32px',
-                                            weight: 'Bold',
-                                            lineHeight: '1.25',
-                                            label: 'Heading H2',
+                                            tag: ".text-h2",
+                                            class: "h2",
+                                            size: "32px",
+                                            weight: "Bold",
+                                            lineHeight: "1.25",
+                                            label: "Heading H2",
                                         },
                                         {
-                                            tag: '.text-h3',
-                                            class: 'h3',
-                                            size: '28px',
-                                            weight: 'Semibold',
-                                            lineHeight: '1.25',
-                                            label: 'Heading H3',
+                                            tag: ".text-h3",
+                                            class: "h3",
+                                            size: "28px",
+                                            weight: "Semibold",
+                                            lineHeight: "1.25",
+                                            label: "Heading H3",
                                         },
                                         {
-                                            tag: '.text-h4',
-                                            class: 'h4',
-                                            size: '24px',
-                                            weight: 'Semibold',
-                                            lineHeight: '1.3',
-                                            label: 'Heading H4',
+                                            tag: ".text-h4",
+                                            class: "h4",
+                                            size: "24px",
+                                            weight: "Semibold",
+                                            lineHeight: "1.3",
+                                            label: "Heading H4",
                                         },
                                         {
-                                            tag: '.text-h5',
-                                            class: 'h5',
-                                            size: '20px',
-                                            weight: 'Medium',
-                                            lineHeight: '1.3',
-                                            label: 'Heading H5',
+                                            tag: ".text-h5",
+                                            class: "h5",
+                                            size: "20px",
+                                            weight: "Medium",
+                                            lineHeight: "1.3",
+                                            label: "Heading H5",
                                         },
                                         {
-                                            tag: '.text-h6',
-                                            class: 'h6',
-                                            size: '18px',
-                                            weight: 'Medium',
-                                            lineHeight: '1.3',
-                                            label: 'Heading H6',
+                                            tag: ".text-h6",
+                                            class: "h6",
+                                            size: "18px",
+                                            weight: "Medium",
+                                            lineHeight: "1.3",
+                                            label: "Heading H6",
                                         },
                                     ].map(heading => (
                                         <div
@@ -323,10 +323,10 @@ export default function TypographyPage() {
                                                         copyToClipboard(heading.tag, heading.class)
                                                     }
                                                     className={cn(
-                                                        'text-small-2 transition-all duration-200',
+                                                        "text-small-2 transition-all duration-200",
                                                         copiedCode === heading.class
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === heading.class ? (
                                                         <CheckCircle className='h-3 w-3' />
@@ -374,39 +374,39 @@ export default function TypographyPage() {
                                 <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                                     {[
                                         {
-                                            class: 'lead-1',
-                                            size: '20px',
-                                            weight: 'Normal',
-                                            lineHeight: '1.25',
-                                            label: 'Lead 1 - สำหรับข้อความสำคัญ',
+                                            class: "lead-1",
+                                            size: "20px",
+                                            weight: "Normal",
+                                            lineHeight: "1.25",
+                                            label: "Lead 1 - สำหรับข้อความสำคัญ",
                                         },
                                         {
-                                            class: 'lead-2',
-                                            size: '18px',
-                                            weight: 'Normal',
-                                            lineHeight: '1.3',
-                                            label: 'Lead 2 - สำหรับข้อความรอง',
+                                            class: "lead-2",
+                                            size: "18px",
+                                            weight: "Normal",
+                                            lineHeight: "1.3",
+                                            label: "Lead 2 - สำหรับข้อความรอง",
                                         },
                                         {
-                                            class: 'body',
-                                            size: '16px',
-                                            weight: 'Normal',
-                                            lineHeight: '1.4',
-                                            label: 'Body - สำหรับเนื้อหาทั่วไป',
+                                            class: "body",
+                                            size: "16px",
+                                            weight: "Normal",
+                                            lineHeight: "1.4",
+                                            label: "Body - สำหรับเนื้อหาทั่วไป",
                                         },
                                         {
-                                            class: 'small',
-                                            size: '14px',
-                                            weight: 'Normal',
-                                            lineHeight: '1.5',
-                                            label: 'Small - สำหรับข้อมูลรอง',
+                                            class: "small",
+                                            size: "14px",
+                                            weight: "Normal",
+                                            lineHeight: "1.5",
+                                            label: "Small - สำหรับข้อมูลรอง",
                                         },
                                         {
-                                            class: 'small-2',
-                                            size: '12px',
-                                            weight: 'Normal',
-                                            lineHeight: '1.5',
-                                            label: 'Small 2 - สำหรับข้อมูลเล็ก',
+                                            class: "small-2",
+                                            size: "12px",
+                                            weight: "Normal",
+                                            lineHeight: "1.5",
+                                            label: "Small 2 - สำหรับข้อมูลเล็ก",
                                         },
                                     ].map(body => (
                                         <div
@@ -414,11 +414,11 @@ export default function TypographyPage() {
                                             className='group rounded-xl border border-gray-200/50 bg-gradient-to-br from-gray-50 to-gray-100 p-4 transition-all duration-200 hover:shadow-md'>
                                             <div className='mb-3 flex items-center justify-between'>
                                                 <p className={`text-${body.class} text-gray-700`}>
-                                                    {language === 'th'
+                                                    {language === "th"
                                                         ? body.label
                                                         : body.label
-                                                              .replace('สำหรับ', 'For')
-                                                              .replace('และ', 'and')}
+                                                              .replace("สำหรับ", "For")
+                                                              .replace("และ", "and")}
                                                 </p>
                                                 <Button
                                                     variant='outline'
@@ -430,10 +430,10 @@ export default function TypographyPage() {
                                                         )
                                                     }
                                                     className={cn(
-                                                        'text-small-2 transition-all duration-200',
+                                                        "text-small-2 transition-all duration-200",
                                                         copiedCode === body.class
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === body.class ? (
                                                         <CheckCircle className='h-3 w-3' />

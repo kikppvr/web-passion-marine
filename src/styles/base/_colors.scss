@@ -27,6 +27,10 @@
     --grey-800: #3d3d3e;
     --grey-900: #2f2f2f;
 
+    // Black & White Colors
+    --black: #000000;
+    --white: #ffffff;
+
     // Semantic Colors
     --primary: var(--blue-500);
     --primary-hover: var(--blue-600);
@@ -39,7 +43,7 @@
     --secondary-dark: var(--grey-700);
 
     // Background Colors
-    --bg-primary: #ffffff;
+    --bg-primary: var(--white);
     --bg-secondary: var(--grey-50);
     --bg-tertiary: var(--grey-100);
     --bg-overlay: rgba(0, 0, 0, 0.5);
@@ -48,12 +52,14 @@
     --text-primary: var(--grey-900);
     --text-secondary: var(--grey-600);
     --text-tertiary: var(--grey-500);
-    --text-white: #ffffff;
+    --text-white: var(--white);
+    --text-black: var(--black);
     --text-disabled: var(--grey-400);
 
     // Border Colors
     --border-primary: var(--grey-200);
     --border-secondary: var(--grey-300);
+    --border-light: var(--grey-200);
     --border-focus: var(--blue-500);
 }
 
@@ -84,6 +90,11 @@ $grey-colors: (
     900: var(--grey-900),
 );
 
+$black-white-colors: (
+    black: var(--black),
+    white: var(--white),
+);
+
 $semantic-colors: (
     primary: var(--primary),
     secondary: var(--secondary),
@@ -96,6 +107,10 @@ $semantic-colors: (
 
 @function grey($shade: 500) {
     @return map-get($grey-colors, $shade);
+}
+
+@function black-white($color: white) {
+    @return map-get($black-white-colors, $color);
 }
 
 @function semantic($color: primary) {

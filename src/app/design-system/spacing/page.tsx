@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { cn } from '@/lib/utils';
-import { ArrowLeft, CheckCircle, Copy, Ruler } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
+import { ArrowLeft, CheckCircle, Copy, Ruler } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function SpacingPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -18,7 +18,7 @@ export default function SpacingPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy: ', err);
+            console.error("Failed to copy: ", err);
         }
     };
 
@@ -168,10 +168,10 @@ export default function SpacingPage() {
                                                         )
                                                     }
                                                     className={cn(
-                                                        'text-small-2 transition-all duration-200',
+                                                        "text-small-2 transition-all duration-200",
                                                         copiedCode === `rem-${space}`
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === `rem-${space}` ? (
                                                         <CheckCircle className='h-3 w-3' />
@@ -202,10 +202,10 @@ export default function SpacingPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'text-small-2 transition-colors',
+                                                            "text-small-2 transition-colors",
                                                             copiedCode === `tailwind-${space}`
-                                                                ? 'bg-green-100 text-green-600'
-                                                                : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                                ? "bg-green-100 text-green-600"
+                                                                : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
                                                         )}>
                                                         {copiedCode === `tailwind-${space}` ? (
                                                             <CheckCircle className='h-2 w-2' />
@@ -262,10 +262,10 @@ export default function SpacingPage() {
                                                         )
                                                     }
                                                     className={cn(
-                                                        'text-small-2 transition-all duration-200',
+                                                        "text-small-2 transition-all duration-200",
                                                         copiedCode === `rem-${space}`
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === `rem-${space}` ? (
                                                         <CheckCircle className='h-3 w-3' />
@@ -296,10 +296,10 @@ export default function SpacingPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'text-small-2 transition-colors',
+                                                            "text-small-2 transition-colors",
                                                             copiedCode === `tailwind-${space}`
-                                                                ? 'bg-green-100 text-green-600'
-                                                                : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                                ? "bg-green-100 text-green-600"
+                                                                : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
                                                         )}>
                                                         {copiedCode === `tailwind-${space}` ? (
                                                             <CheckCircle className='h-2 w-2' />
@@ -356,10 +356,10 @@ export default function SpacingPage() {
                                                         )
                                                     }
                                                     className={cn(
-                                                        'text-small-2 transition-all duration-200',
+                                                        "text-small-2 transition-all duration-200",
                                                         copiedCode === `rem-${space}`
-                                                            ? 'bg-green-100 text-green-700'
-                                                            : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                                                     )}>
                                                     {copiedCode === `rem-${space}` ? (
                                                         <CheckCircle className='h-3 w-3' />
@@ -390,10 +390,10 @@ export default function SpacingPage() {
                                                             )
                                                         }
                                                         className={cn(
-                                                            'text-small-2 transition-colors',
+                                                            "text-small-2 transition-colors",
                                                             copiedCode === `tailwind-${space}`
-                                                                ? 'bg-green-100 text-green-600'
-                                                                : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                                                ? "bg-green-100 text-green-600"
+                                                                : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
                                                         )}>
                                                         {copiedCode === `tailwind-${space}` ? (
                                                             <CheckCircle className='h-2 w-2' />

@@ -46,7 +46,7 @@ Video Hero Banner เป็น component สำหรับแสดงวิด
 ### Basic Usage
 
 ```tsx
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
+import { VideoHeroBanner } from "@/components/ui/VideoHeroBanner";
 
 <VideoHeroBanner
     videoSrc='/videos/hero-video.mp4'

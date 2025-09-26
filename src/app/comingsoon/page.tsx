@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import './comingsoon.modules.scss';
+import Image from "next/image";
+import "./comingsoon.modules.scss";
 
 export default function ComingSoon() {
     return (

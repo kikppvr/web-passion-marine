@@ -3,25 +3,25 @@
 // ========================================
 
 // Import Base Styles
-@use 'base/_colors' as colors;
-@use 'base/_text' as text;
-@use 'base/_base' as base;
-@use 'base/_utility' as utility;
-@use 'base/_input' as input;
-@use 'base/_modal-base' as modal;
-@use 'base/_display' as display;
-@use 'base/_image' as image;
+@use "base/_colors" as colors;
+@use "base/_text" as text;
+@use "base/_base" as base;
+@use "base/_utility" as utility;
+@use "base/_input" as input;
+@use "base/_modal-base" as modal;
+@use "base/_display" as display;
+@use "base/_image" as image;
 
 // Import Component Styles
-@use 'components/_btn-primary' as btn-primary;
-@use 'components/_btn-readmore' as btn-readmore;
-@use 'components/_btn-booknow' as btn-booknow;
-@use 'components/_btn-viewall' as btn-viewall;
-@use 'components/_header' as header;
-@use 'components/_video-hero-banner' as video-hero-banner;
+@use "components/_btn-primary" as btn-primary;
+@use "components/_btn-readmore" as btn-readmore;
+@use "components/_btn-booknow" as btn-booknow;
+@use "components/_btn-viewall" as btn-viewall;
+@use "components/_header" as header;
+@use "components/_video-hero-banner" as video-hero-banner;
 
 // Import Animation Styles
-@use 'animation/_transitions' as transitions;
+@use "animation/_transitions" as transitions;
 
 // ========================================
 // GLOBAL STYLES
@@ -45,7 +45,7 @@ html {
 }
 
 body {
-    background-color: var(--bg-primary);
+    background-color: var(--white);
     color: var(--text-primary);
     font-size: var(--text-body);
     font-weight: var(--font-normal);

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { PrimaryButton } from '@/components/ui/button/PrimaryButton';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function PrimaryButtonPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export default function PrimaryButtonPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 
@@ -45,7 +45,7 @@ export default function PrimaryButtonPage() {
                             <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
                                     className='ph ph-cursor-click text-white'
-                                    style={{ fontSize: '32px' }}></i>
+                                    style={{ fontSize: "32px" }}></i>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
@@ -106,10 +106,10 @@ export default function PrimaryButtonPage() {
                                         onClick={() =>
                                             copyToClipboard(
                                                 `<PrimaryButton>Default</PrimaryButton>`,
-                                                'primary-button-code'
+                                                "primary-button-code"
                                             )
                                         }>
-                                        {copiedCode === 'primary-button-code' ? (
+                                        {copiedCode === "primary-button-code" ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>
@@ -138,10 +138,10 @@ export default function PrimaryButtonPage() {
                                         onClick={() =>
                                             copyToClipboard(
                                                 `<PrimaryButton theme="dark">Dark Theme</PrimaryButton>`,
-                                                'primary-button-dark-code'
+                                                "primary-button-dark-code"
                                             )
                                         }>
-                                        {copiedCode === 'primary-button-dark-code' ? (
+                                        {copiedCode === "primary-button-dark-code" ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>

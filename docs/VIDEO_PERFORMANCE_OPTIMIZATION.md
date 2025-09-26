@@ -78,8 +78,8 @@ useEffect(() => {
         setShouldLoadVideo(true);
     };
 
-    document.addEventListener('click', handleUserInteraction);
-    return () => document.removeEventListener('click', handleUserInteraction);
+    document.addEventListener("click", handleUserInteraction);
+    return () => document.removeEventListener("click", handleUserInteraction);
 }, []);
 
 return (
@@ -165,7 +165,7 @@ useEffect(() => {
 
 ```tsx
 <video
-    preload={shouldLoad ? preload : 'none'}
+    preload={shouldLoad ? preload : "none"}
     onLoadedMetadata={handleLoadedMetadata}
     onCanPlay={handleCanPlay}
     onPlay={handlePlay}
@@ -180,13 +180,13 @@ useEffect(() => {
 const handleVideoError = () => {
     setHasError(true);
     setIsLoading(false);
-    console.error('Video failed to load:', videoSrc);
+    console.error("Video failed to load:", videoSrc);
 };
 
 const handleLoadedMetadata = () => {
     if (autoPlay && videoRef.current) {
         videoRef.current.play().catch(error => {
-            console.warn('Autoplay failed:', error);
+            console.warn("Autoplay failed:", error);
             setIsLoading(false);
         });
     }

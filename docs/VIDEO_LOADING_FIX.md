@@ -80,7 +80,7 @@ const handleCanPlay = () => {
     loop={loop}
     playsInline
     autoPlay={autoPlay}
-    preload={shouldLoad ? preload : 'none'}
+    preload={shouldLoad ? preload : "none"}
     onLoadedData={handleVideoLoad}
     onLoadedMetadata={handleLoadedMetadata}
     onCanPlay={handleCanPlay}
@@ -106,7 +106,7 @@ const handleCanPlay = () => {
                 <i className='ph-bold ph-spinner'></i>
             </div>
             <p className='video-hero-banner__loading-text'>
-                {lazyLoad && !shouldLoad ? 'Loading...' : 'Loading video...'}
+                {lazyLoad && !shouldLoad ? "Loading..." : "Loading video..."}
             </p>
         </div>
     );

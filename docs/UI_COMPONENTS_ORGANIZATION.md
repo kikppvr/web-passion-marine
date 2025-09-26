@@ -55,13 +55,13 @@ import {
     PrimaryButton,
     ReadMoreButton,
     ViewAllButton,
-} from '@/components/ui/button';
+} from "@/components/ui/button";
 
 // Layout components
-import { Header } from '@/components/ui/layout';
+import { Header } from "@/components/ui/layout";
 
 // Media components
-import { VideoHeroBanner } from '@/components/ui/media';
+import { VideoHeroBanner } from "@/components/ui/media";
 ```
 
 ### 2. Import จาก UI หลัก
@@ -74,7 +74,7 @@ import {
     ViewAllButton,
     Header,
     VideoHeroBanner,
-} from '@/components/ui';
+} from "@/components/ui";
 ```
 
 ## ประโยชน์ของการจัดกลุ่ม
@@ -118,14 +118,14 @@ import {
 
 ```tsx
 // Before
-import { Header } from '@/components/ui/Header';
-import { VideoHeroBanner } from '@/components/ui/VideoHeroBanner';
-import { BookNowButton } from '@/components/ui/button/BookNowButton';
+import { Header } from "@/components/ui/Header";
+import { VideoHeroBanner } from "@/components/ui/VideoHeroBanner";
+import { BookNowButton } from "@/components/ui/button/BookNowButton";
 
 // After
-import { Header } from '@/components/ui/layout';
-import { VideoHeroBanner } from '@/components/ui/media';
-import { BookNowButton } from '@/components/ui/button';
+import { Header } from "@/components/ui/layout";
+import { VideoHeroBanner } from "@/components/ui/media";
+import { BookNowButton } from "@/components/ui/button";
 ```
 
 ## Index Files
@@ -136,10 +136,10 @@ import { BookNowButton } from '@/components/ui/button';
 
 ```tsx
 // src/components/ui/button/index.ts
-export { BookNowButton } from './BookNowButton';
-export { PrimaryButton } from './PrimaryButton';
-export { ReadMoreButton } from './ReadMoreButton';
-export { ViewAllButton } from './ViewAllButton';
+export { BookNowButton } from "./BookNowButton";
+export { PrimaryButton } from "./PrimaryButton";
+export { ReadMoreButton } from "./ReadMoreButton";
+export { ViewAllButton } from "./ViewAllButton";
 ```
 
 ### 2. **Main Index File**
@@ -148,11 +148,11 @@ export { ViewAllButton } from './ViewAllButton';
 
 ```tsx
 // src/components/ui/index.ts
-export * from './button';
-export * from './layout';
-export * from './media';
-export * from './navigation';
-export { Button } from './button'; // Legacy support
+export * from "./button";
+export * from "./layout";
+export * from "./media";
+export * from "./navigation";
+export { Button } from "./button"; // Legacy support
 ```
 
 ## Documentation

@@ -1,20 +1,20 @@
-import { cn } from '@/lib/utils';
-import * as React from 'react';
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
 export interface ViewAllButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     icon?: string;
-    variant?: 'default' | 'dark';
+    variant?: "default" | "dark";
 }
 
 const ViewAllButton = React.forwardRef<HTMLButtonElement, ViewAllButtonProps>(
-    ({ className, children, icon, variant = 'default', ...props }, ref) => {
-        const defaultIcon = 'ph ph-arrow-elbow-down-right';
+    ({ className, children, icon, variant = "default", ...props }, ref) => {
+        const defaultIcon = "ph ph-arrow-elbow-down-right";
         const iconClass = icon || defaultIcon;
 
         const buttonClasses = cn(
-            'btn-viewall',
-            variant === 'dark' && 'btn-viewall--dark',
+            "btn-viewall",
+            variant === "dark" && "btn-viewall--dark",
             className
         );
 
@@ -29,6 +29,6 @@ const ViewAllButton = React.forwardRef<HTMLButtonElement, ViewAllButtonProps>(
     }
 );
 
-ViewAllButton.displayName = 'ViewAllButton';
+ViewAllButton.displayName = "ViewAllButton";
 
 export { ViewAllButton };

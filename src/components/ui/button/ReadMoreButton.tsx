@@ -1,20 +1,20 @@
-import { cn } from '@/lib/utils';
-import * as React from 'react';
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
 export interface ReadMoreButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    theme?: 'light' | 'dark';
+    theme?: "light" | "dark";
     icon?: string;
 }
 
 const ReadMoreButton = React.forwardRef<HTMLButtonElement, ReadMoreButtonProps>(
-    ({ className, children, theme = 'light', icon, ...props }, ref) => {
-        const defaultIcon = 'ph ph-plus';
+    ({ className, children, theme = "light", icon, ...props }, ref) => {
+        const defaultIcon = "ph ph-plus";
         const iconClass = icon || defaultIcon;
 
         const buttonClasses = cn(
-            'btn-readmore',
-            theme === 'dark' && 'btn-readmore--dark',
+            "btn-readmore",
+            theme === "dark" && "btn-readmore--dark",
             className
         );
 
@@ -29,6 +29,6 @@ const ReadMoreButton = React.forwardRef<HTMLButtonElement, ReadMoreButtonProps>(
     }
 );
 
-ReadMoreButton.displayName = 'ReadMoreButton';
+ReadMoreButton.displayName = "ReadMoreButton";
 
 export { ReadMoreButton };

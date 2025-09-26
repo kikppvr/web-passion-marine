@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { Header } from '@/components/ui/layout';
-import { VideoHeroBanner } from '@/components/ui/media';
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from 'next/link';
-import { useState } from 'react';
+import { Header } from "@/components/ui/layout";
+import { VideoHeroBanner } from "@/components/ui/media";
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function HeaderPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
-    const [selectedTheme, setSelectedTheme] = useState<'white' | 'transparent'>('white');
+    const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("white");
     const { language } = useLanguage();
 
     const copyToClipboard = async (text: string, codeId: string) => {
@@ -18,7 +18,7 @@ export default function HeaderPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 

@@ -1,18 +1,18 @@
-import { cn } from '@/lib/utils';
-import * as React from 'react';
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
 export interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     icon?: string;
-    theme?: 'light' | 'dark';
+    theme?: "light" | "dark";
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
-    ({ className, children, icon, theme = 'light', ...props }, ref) => {
-        const defaultIcon = 'ph ph-arrow-right';
+    ({ className, children, icon, theme = "light", ...props }, ref) => {
+        const defaultIcon = "ph ph-arrow-right";
         const iconClass = icon || defaultIcon;
 
-        const buttonClasses = cn('btn-primary', theme === 'dark' && 'btn-primary--dark', className);
+        const buttonClasses = cn("btn-primary", theme === "dark" && "btn-primary--dark", className);
 
         return (
             <button className={buttonClasses} ref={ref} {...props}>
@@ -28,6 +28,6 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
     }
 );
 
-PrimaryButton.displayName = 'PrimaryButton';
+PrimaryButton.displayName = "PrimaryButton";
 
 export { PrimaryButton };

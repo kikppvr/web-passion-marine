@@ -1,7 +1,7 @@
-@use '../base/colors' as colors;
-@use '../base/text' as text;
-@use '../base/utility' as utility;
-@use '../base/display' as display;
+@use "../base/colors" as colors;
+@use "../base/text" as text;
+@use "../base/utility" as utility;
+@use "../base/display" as display;
 
 // ========================================
 // BTN READMORE COMPONENT STYLES
@@ -77,7 +77,7 @@
     }
 
     .btn-readmore__icon {
-        background-color: var(--bg-primary);
+        background-color: var(--white);
         color: var(--blue-500);
     }
 

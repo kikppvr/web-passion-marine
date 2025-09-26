@@ -60,7 +60,7 @@
     loop={loop}
     playsInline
     autoPlay={autoPlay}
-    preload={shouldLoad ? preload : 'none'}
+    preload={shouldLoad ? preload : "none"}
     onLoadedData={handleVideoLoad}
     onLoadedMetadata={handleLoadedMetadata}
     onCanPlay={handleCanPlay}
@@ -85,7 +85,7 @@ const handleLoadedMetadata = () => {
                     setIsLoading(false);
                 })
                 .catch(error => {
-                    console.warn('Autoplay failed:', error);
+                    console.warn("Autoplay failed:", error);
                     setIsLoading(false);
                 });
         }
@@ -111,7 +111,7 @@ useEffect(() => {
                     setIsLoading(false);
                 })
                 .catch(error => {
-                    console.warn('Autoplay failed:', error);
+                    console.warn("Autoplay failed:", error);
                     setIsLoading(false);
                 });
         }

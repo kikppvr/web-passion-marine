@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ComponentsPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
-    const [activeCategory, setActiveCategory] = useState<string>('buttons');
+    const [activeCategory, setActiveCategory] = useState<string>("buttons");
     const { language } = useLanguage();
 
     const copyToClipboard = async (text: string, codeId: string) => {
@@ -17,127 +17,127 @@ export default function ComponentsPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 
     const componentCategories = [
         {
-            id: 'buttons',
-            name: 'Buttons',
-            icon: 'ph ph-cursor-click',
-            color: 'from-blue-500 to-purple-500',
-            description: 'ปุ่มต่างๆ สำหรับการโต้ตอบ',
+            id: "buttons",
+            name: "Buttons",
+            icon: "ph ph-cursor-click",
+            color: "from-blue-500 to-purple-500",
+            description: "ปุ่มต่างๆ สำหรับการโต้ตอบ",
             components: [
                 {
-                    name: 'Primary Button',
-                    status: 'ready',
-                    path: '/design-system/components/buttons/primary',
+                    name: "Primary Button",
+                    status: "ready",
+                    path: "/design-system/components/buttons/primary",
                 },
                 {
-                    name: 'Read More Button',
-                    status: 'ready',
-                    path: '/design-system/components/buttons/readmore',
+                    name: "Read More Button",
+                    status: "ready",
+                    path: "/design-system/components/buttons/readmore",
                 },
                 {
-                    name: 'Book Now Button',
-                    status: 'ready',
-                    path: '/design-system/components/buttons/booknow',
+                    name: "Book Now Button",
+                    status: "ready",
+                    path: "/design-system/components/buttons/booknow",
                 },
                 {
-                    name: 'View All Button',
-                    status: 'ready',
-                    path: '/design-system/components/buttons/viewall',
+                    name: "View All Button",
+                    status: "ready",
+                    path: "/design-system/components/buttons/viewall",
                 },
-                { name: 'Secondary Button', status: 'planned', path: '#' },
-                { name: 'Icon Button', status: 'planned', path: '#' },
+                { name: "Secondary Button", status: "planned", path: "#" },
+                { name: "Icon Button", status: "planned", path: "#" },
             ],
         },
         {
-            id: 'layout',
-            name: 'Layout',
-            icon: 'ph ph-layout',
-            color: 'from-purple-500 to-pink-500',
-            description: 'ส่วนประกอบสำหรับการจัดวางหน้าเว็บ',
+            id: "layout",
+            name: "Layout",
+            icon: "ph ph-layout",
+            color: "from-purple-500 to-pink-500",
+            description: "ส่วนประกอบสำหรับการจัดวางหน้าเว็บ",
             components: [
                 {
-                    name: 'Header',
-                    status: 'ready',
-                    path: '/design-system/components/layout/header',
+                    name: "Header",
+                    status: "ready",
+                    path: "/design-system/components/layout/header",
                 },
-                { name: 'Footer', status: 'planned', path: '#' },
-                { name: 'Sidebar', status: 'planned', path: '#' },
-                { name: 'Navigation', status: 'planned', path: '#' },
+                { name: "Footer", status: "planned", path: "#" },
+                { name: "Sidebar", status: "planned", path: "#" },
+                { name: "Navigation", status: "planned", path: "#" },
             ],
         },
         {
-            id: 'cards',
-            name: 'Cards',
-            icon: 'ph ph-cards',
-            color: 'from-green-500 to-emerald-500',
-            description: 'การ์ดสำหรับแสดงเนื้อหา',
+            id: "cards",
+            name: "Cards",
+            icon: "ph ph-cards",
+            color: "from-green-500 to-emerald-500",
+            description: "การ์ดสำหรับแสดงเนื้อหา",
             components: [
-                { name: 'News Card', status: 'planned', path: '#' },
-                { name: 'Charter Card', status: 'planned', path: '#' },
-                { name: 'Service Card', status: 'planned', path: '#' },
-                { name: 'Testimonial Card', status: 'planned', path: '#' },
+                { name: "News Card", status: "planned", path: "#" },
+                { name: "Charter Card", status: "planned", path: "#" },
+                { name: "Service Card", status: "planned", path: "#" },
+                { name: "Testimonial Card", status: "planned", path: "#" },
             ],
         },
         {
-            id: 'media',
-            name: 'Media',
-            icon: 'ph ph-image',
-            color: 'from-pink-500 to-rose-500',
-            description: 'ส่วนประกอบสำหรับสื่อต่างๆ',
+            id: "media",
+            name: "Media",
+            icon: "ph ph-image",
+            color: "from-pink-500 to-rose-500",
+            description: "ส่วนประกอบสำหรับสื่อต่างๆ",
             components: [
                 {
-                    name: 'Video Hero Banner',
-                    status: 'ready',
-                    path: '/design-system/components/media/video-hero-banner',
+                    name: "Video Hero Banner",
+                    status: "ready",
+                    path: "/design-system/components/media/video-hero-banner",
                 },
-                { name: 'Image Gallery', status: 'planned', path: '#' },
-                { name: 'Video Player', status: 'planned', path: '#' },
-                { name: 'Carousel', status: 'planned', path: '#' },
+                { name: "Image Gallery", status: "planned", path: "#" },
+                { name: "Video Player", status: "planned", path: "#" },
+                { name: "Carousel", status: "planned", path: "#" },
             ],
         },
         {
-            id: 'navigation',
-            name: 'Navigation',
-            icon: 'ph ph-navigation',
-            color: 'from-orange-500 to-red-500',
-            description: 'เมนูและระบบนำทาง',
+            id: "navigation",
+            name: "Navigation",
+            icon: "ph ph-navigation",
+            color: "from-orange-500 to-red-500",
+            description: "เมนูและระบบนำทาง",
             components: [
-                { name: 'Header Menu', status: 'planned', path: '#' },
-                { name: 'Footer Menu', status: 'planned', path: '#' },
-                { name: 'Sidebar Menu', status: 'planned', path: '#' },
-                { name: 'Breadcrumb', status: 'planned', path: '#' },
+                { name: "Header Menu", status: "planned", path: "#" },
+                { name: "Footer Menu", status: "planned", path: "#" },
+                { name: "Sidebar Menu", status: "planned", path: "#" },
+                { name: "Breadcrumb", status: "planned", path: "#" },
             ],
         },
     ];
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'ready':
-                return 'bg-green-100 text-green-800';
-            case 'planned':
-                return 'bg-yellow-100 text-yellow-800';
-            case 'development':
-                return 'bg-blue-100 text-blue-800';
+            case "ready":
+                return "bg-green-100 text-green-800";
+            case "planned":
+                return "bg-yellow-100 text-yellow-800";
+            case "development":
+                return "bg-blue-100 text-blue-800";
             default:
-                return 'bg-gray-100 text-gray-800';
+                return "bg-gray-100 text-gray-800";
         }
     };
 
     const getStatusText = (status: string) => {
         switch (status) {
-            case 'ready':
-                return 'พร้อมใช้งาน';
-            case 'planned':
-                return 'วางแผนไว้';
-            case 'development':
-                return 'กำลังพัฒนา';
+            case "ready":
+                return "พร้อมใช้งาน";
+            case "planned":
+                return "วางแผนไว้";
+            case "development":
+                return "กำลังพัฒนา";
             default:
-                return 'ไม่ระบุ';
+                return "ไม่ระบุ";
         }
     };
 
@@ -164,9 +164,9 @@ export default function ComponentsPage() {
                             Components Library
                         </h1>
                         <p className='mt-6 text-lg leading-8 text-blue-100'>
-                            {language === 'th'
-                                ? 'ไลบรารีคอมโพเนนต์ที่ออกแบบตาม Figma Design System จัดกลุ่มตามประเภทการใช้งาน'
-                                : 'Component library designed from Figma Design System organized by usage categories'}
+                            {language === "th"
+                                ? "ไลบรารีคอมโพเนนต์ที่ออกแบบตาม Figma Design System จัดกลุ่มตามประเภทการใช้งาน"
+                                : "Component library designed from Figma Design System organized by usage categories"}
                         </p>
                     </div>
                 </div>
@@ -181,7 +181,7 @@ export default function ComponentsPage() {
                                 <div className='flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500'>
                                     <i
                                         className='ph ph-package text-white'
-                                        style={{ fontSize: '24px' }}></i>
+                                        style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
                                     <h3 className='text-lg font-semibold text-gray-900'>20</h3>
@@ -194,7 +194,7 @@ export default function ComponentsPage() {
                                 <div className='flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-teal-500'>
                                     <i
                                         className='ph ph-check-circle text-white'
-                                        style={{ fontSize: '24px' }}></i>
+                                        style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
                                     <h3 className='text-lg font-semibold text-gray-900'>6</h3>
@@ -207,7 +207,7 @@ export default function ComponentsPage() {
                                 <div className='flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-red-500'>
                                     <i
                                         className='ph ph-clock text-white'
-                                        style={{ fontSize: '24px' }}></i>
+                                        style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
                                     <h3 className='text-lg font-semibold text-gray-900'>10</h3>
@@ -220,7 +220,7 @@ export default function ComponentsPage() {
                                 <div className='flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-500'>
                                     <i
                                         className='ph ph-code text-white'
-                                        style={{ fontSize: '24px' }}></i>
+                                        style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
                                     <h3 className='text-lg font-semibold text-gray-900'>
@@ -251,20 +251,20 @@ export default function ComponentsPage() {
                                         key={category.id}
                                         onClick={() => setActiveCategory(category.id)}
                                         className={cn(
-                                            'group relative overflow-hidden rounded-2xl border-2 p-6 text-left transition-all duration-300',
+                                            "group relative overflow-hidden rounded-2xl border-2 p-6 text-left transition-all duration-300",
                                             activeCategory === category.id
-                                                ? 'border-blue-500 bg-blue-50 shadow-lg'
-                                                : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md'
+                                                ? "border-blue-500 bg-blue-50 shadow-lg"
+                                                : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-md"
                                         )}>
                                         <div className='flex items-center gap-4'>
                                             <div
                                                 className={cn(
-                                                    'flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-lg',
+                                                    "flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-lg",
                                                     category.color
                                                 )}>
                                                 <i
-                                                    className={cn(category.icon, 'text-white')}
-                                                    style={{ fontSize: '24px' }}></i>
+                                                    className={cn(category.icon, "text-white")}
+                                                    style={{ fontSize: "24px" }}></i>
                                             </div>
                                             <div className='flex-1'>
                                                 <h3 className='text-lg font-semibold text-gray-900 group-hover:text-blue-600'>
@@ -290,12 +290,12 @@ export default function ComponentsPage() {
                                             <div className='flex items-center gap-4'>
                                                 <div
                                                     className={cn(
-                                                        'flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br',
+                                                        "flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br",
                                                         category.color
                                                     )}>
                                                     <i
-                                                        className={cn(category.icon, 'text-white')}
-                                                        style={{ fontSize: '20px' }}></i>
+                                                        className={cn(category.icon, "text-white")}
+                                                        style={{ fontSize: "20px" }}></i>
                                                 </div>
                                                 <div>
                                                     <h3 className='text-h3 font-bold text-gray-900'>
@@ -320,7 +320,7 @@ export default function ComponentsPage() {
                                                                 <div className='mt-2 flex items-center gap-2'>
                                                                     <span
                                                                         className={cn(
-                                                                            'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
+                                                                            "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
                                                                             getStatusColor(
                                                                                 component.status
                                                                             )
@@ -332,14 +332,14 @@ export default function ComponentsPage() {
                                                                 </div>
                                                             </div>
                                                             <div className='ml-4'>
-                                                                {component.status === 'ready' ? (
+                                                                {component.status === "ready" ? (
                                                                     <Link
                                                                         href={component.path}
                                                                         className='inline-flex items-center gap-2 rounded-lg bg-blue-500 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-600'>
                                                                         <i
                                                                             className='ph ph-arrow-right'
                                                                             style={{
-                                                                                fontSize: '14px',
+                                                                                fontSize: "14px",
                                                                             }}></i>
                                                                         View
                                                                     </Link>
@@ -350,7 +350,7 @@ export default function ComponentsPage() {
                                                                         <i
                                                                             className='ph ph-clock'
                                                                             style={{
-                                                                                fontSize: '14px',
+                                                                                fontSize: "14px",
                                                                             }}></i>
                                                                         Soon
                                                                     </button>

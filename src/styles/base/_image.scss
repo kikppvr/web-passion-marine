@@ -7,7 +7,7 @@
 
     &:before {
         position: relative;
-        content: '';
+        content: "";
         display: block;
         padding-top: 100%;
     }
@@ -21,7 +21,7 @@
 
     &:before {
         position: relative;
-        content: '';
+        content: "";
         display: block;
         padding-top: $ratio;
     }
@@ -43,7 +43,7 @@
 
     &:before {
         position: relative;
-        content: '';
+        content: "";
         display: block;
         padding-top: $ratio; /* initial ratio of 1:1*/
     }

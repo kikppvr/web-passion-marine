@@ -1,7 +1,7 @@
-@use '../base/colors' as colors;
-@use '../base/text' as text;
-@use '../base/utility' as utility;
-@use '../base/display' as display;
+@use "../base/colors" as colors;
+@use "../base/text" as text;
+@use "../base/utility" as utility;
+@use "../base/display" as display;
 
 // ========================================
 // VIDEO HERO BANNER COMPONENT STYLES
@@ -180,7 +180,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--bg-primary);
+        background-color: var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -214,7 +214,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--bg-primary);
+        background-color: var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -256,7 +256,7 @@ ENCRYPTION_KEY=your-32-character-key
 Use the `env.ts` utility for type-safe environment access:
 
 ```typescript
-import { getEnvironment, isDevelopment, getEnvironmentConfig } from '@/lib/env';
+import { getEnvironment, isDevelopment, getEnvironmentConfig } from "@/lib/env";
 
 const env = getEnvironment(); // 'development' | 'staging' | 'production'
 const isDev = isDevelopment(); // boolean
@@ -325,16 +325,16 @@ import { LanguageSwitcher, LanguageToggle } from '@/components/LanguageSwitcher'
 ### Utility Functions
 
 ```typescript
-import { cn, formatDate, truncateText, generateId } from '@/lib/utils';
+import { cn, formatDate, truncateText, generateId } from "@/lib/utils";
 
 // Class name merging
-const className = cn('base-class', condition && 'conditional-class');
+const className = cn("base-class", condition && "conditional-class");
 
 // Date formatting
 const formatted = formatDate(new Date()); // "January 1, 2024"
 
 // Text truncation
-const short = truncateText('Long text here', 10); // "Long text..."
+const short = truncateText("Long text here", 10); // "Long text..."
 
 // ID generation
 const id = generateId(); // Random string

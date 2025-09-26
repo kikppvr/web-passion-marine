@@ -39,13 +39,13 @@ import {
     PrimaryButton,
     ReadMoreButton,
     ViewAllButton,
-} from '@/components/ui/button';
+} from "@/components/ui/button";
 
 // Layout components
-import { Header } from '@/components/ui/layout';
+import { Header } from "@/components/ui/layout";
 
 // Media components
-import { VideoHeroBanner } from '@/components/ui/media';
+import { VideoHeroBanner } from "@/components/ui/media";
 ```
 
 ### Import All Components
@@ -58,7 +58,7 @@ import {
     ViewAllButton,
     Header,
     VideoHeroBanner,
-} from '@/components/ui';
+} from "@/components/ui";
 ```
 
 ## Component Categories
@@ -121,7 +121,7 @@ export interface ComponentProps {
 }
 
 const Component = ({ className, ...props }: ComponentProps) => {
-    return <div className={cn('component', className)}>{/* Component content */}</div>;
+    return <div className={cn("component", className)}>{/* Component content */}</div>;
 };
 
 export { Component };

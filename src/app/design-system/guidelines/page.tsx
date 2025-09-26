@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowLeft, BookOpen, CheckCircle } from 'lucide-react';
-import Link from 'next/link';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowLeft, BookOpen, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function GuidelinesPage() {
     const { language } = useLanguage();

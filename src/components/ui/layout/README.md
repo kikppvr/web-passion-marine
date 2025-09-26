@@ -32,6 +32,7 @@ import { Header } from '@/components/ui/layout';
 ## Styling
 
 Header component uses SCSS modules located in:
+
 - `src/styles/components/_header.scss`
 
 ## Props
@@ -39,6 +40,6 @@ Header component uses SCSS modules located in:
 ```tsx
 interface HeaderProps {
     className?: string;
-    theme?: 'white' | 'transparent';
+    theme?: "white" | "transparent";
 }
 ```
