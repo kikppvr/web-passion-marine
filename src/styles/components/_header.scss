@@ -17,13 +17,12 @@
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
-
     // Theme Variants
     &.header--white {
         background-color: var(--white);
-        // border-bottom: 1px solid var(--border-light);
     }
 
+    // Transparent theme specific styles
     &.header--transparent {
         background-color: transparent;
         border-bottom: none;
@@ -35,62 +34,7 @@
                 color: var(--blue-500);
             }
         }
-    }
 
-    // Scrolled state - always white background when scrolled
-    &.header--scrolled {
-        background-color: var(--white);
-        border-bottom: 1px solid var(--border-light);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-
-        // Override theme colors when scrolled
-        .header__nav-link {
-            color: var(--text-primary);
-
-            &:hover {
-                color: var(--blue-500);
-                background-color: var(--blue-50);
-            }
-        }
-
-        .header__language {
-            color: var(--text-primary);
-            border-color: var(--border-light);
-
-            &:hover {
-                border-color: var(--blue-500);
-                color: var(--blue-500);
-                background-color: var(--blue-50);
-            }
-        }
-
-        .header__action-btn {
-            &.header__action-btn--primary {
-                background-color: var(--blue-500);
-                color: var(--text-white);
-                border-color: var(--blue-500);
-
-                &:hover {
-                    background-color: var(--blue-600);
-                    border-color: var(--blue-600);
-                }
-            }
-
-            &.header__action-btn--default {
-                color: var(--text-primary);
-                border-color: var(--border-light);
-
-                &:hover {
-                    border-color: var(--blue-500);
-                    color: var(--blue-500);
-                    background-color: var(--blue-50);
-                }
-            }
-        }
-    }
-
-    // Transparent theme specific styles
-    &.header--transparent {
         .header__logo {
             color: var(--text-white);
 
@@ -127,26 +71,26 @@
             }
         }
 
-        .header__action-btn {
-            &.header__action-btn--primary {
-                background-color: var(--blue-500);
-                color: var(--text-white);
+        // .header__action-btn {
+        //     &.header__action-btn--primary {
+        //         background-color: var(--blue-500);
+        //         color: var(--text-white);
 
-                &:hover {
-                    background-color: var(--blue-600);
-                }
-            }
+        //         &:hover {
+        //             background-color: var(--blue-600);
+        //         }
+        //     }
 
-            &.header__action-btn--default {
-                color: var(--text-white);
-                border-color: rgba(255, 255, 255, 0.3);
+        //     &.header__action-btn--default {
+        //         color: var(--text-white);
+        //         border-color: rgba(255, 255, 255, 0.3);
 
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                    border-color: rgba(255, 255, 255, 0.5);
-                }
-            }
-        }
+        //         &:hover {
+        //             background-color: rgba(255, 255, 255, 0.1);
+        //             border-color: rgba(255, 255, 255, 0.5);
+        //         }
+        //     }
+        // }
 
         .header__hamburger {
             .header__hamburger-text {
@@ -159,6 +103,34 @@
         }
     }
 
+    // Scrolled state - always white background when scrolled
+    &.header--scrolled {
+        background-color: var(--white);
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+
+        // Override theme colors when scrolled
+        .header__nav-link {
+            color: var(--text-primary);
+
+            &:hover {
+                color: var(--blue-500);
+                background-color: var(--blue-50);
+            }
+        }
+
+        .header__language {
+            color: var(--text-primary);
+            border-color: var(--border-light);
+
+            &:hover {
+                border-color: var(--blue-500);
+                color: var(--blue-500);
+                background-color: var(--blue-50);
+            }
+        }
+    }
+
     .header__container {
         max-width: 1200px;
         margin: 0 auto;
@@ -166,10 +138,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 80px;
+        height: 94px;
 
-        @media (max-width: 768px) {
-            height: 64px;
+        @include base.max-laptop {
+            height: 80px;
             padding: 0 var(--space-4);
         }
     }
@@ -186,24 +158,24 @@
             color: var(--blue-500);
         }
 
-        .header__logo-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-600) 100%);
-            border-radius: 12px;
-            color: var(--text-white);
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(28, 69, 131, 0.3);
+        // .header__logo-icon {
+        //     width: 48px;
+        //     height: 48px;
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-600) 100%);
+        //     border-radius: 12px;
+        //     color: var(--text-white);
+        //     font-size: 24px;
+        //     box-shadow: 0 4px 12px rgba(28, 69, 131, 0.3);
 
-            @media (max-width: 768px) {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-        }
+        //     @media (max-width: 768px) {
+        //         width: 40px;
+        //         height: 40px;
+        //         font-size: 20px;
+        //     }
+        // }
     }
 
     .header__nav {
@@ -321,8 +293,6 @@
         font-weight: var(--font-semibold);
         transition: all 0.3s ease-in-out;
         cursor: pointer;
-        border: none;
-        padding: var(--space-2) var(--space-3);
 
         .header__language-text {
             color: var(--blue-500);
@@ -339,11 +309,6 @@
 
         &:hover .header__language-arrow {
             transform: rotate(180deg);
-        }
-
-        @media (max-width: 768px) {
-            padding: var(--space-1) var(--space-2);
-            font-size: var(--text-small);
         }
     }
 
@@ -473,6 +438,10 @@
             font-weight: var(--font-semibold);
             color: var(--blue-500);
             transition: all 0.3s ease-in-out;
+
+            @include base.max-mobile {
+                display: none;
+            }
         }
 
         .header__hamburger-lines {
@@ -522,7 +491,7 @@
     // Menu
     .header__menu {
         position: fixed;
-        top: 80px;
+        top: 94px;
         right: 0;
         width: 400px;
         height: 100vh;
@@ -531,7 +500,8 @@
         visibility: hidden;
         transition: all 0.3s ease-in-out;
 
-        @include base.max-tablet {
+        @include base.max-laptop {
+            top: 80px;
             width: 100%;
             height: auto;
         }
@@ -550,6 +520,15 @@
             padding: 40px 25px;
             overflow-y: scroll;
             @include scrollbar.hide-scrollbar();
+
+            @include base.max-laptop {
+                max-height: 100vh;
+                padding: 16px;
+            }
+
+            @include base.max-mobile {
+                padding: 16px 16px 100px 16px;
+            }
         }
 
         // Menu Header

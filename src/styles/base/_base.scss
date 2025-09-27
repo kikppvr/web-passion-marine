@@ -11,24 +11,19 @@ $menu-height: 61px;
 
 $max-width-mini-mobile: 320px;
 $max-width-mobile: 575px;
-$min-width-tablet: 576px;
-$max-width-tablet: 1200px;
-$min-width-desktop: 1201px;
+$max-width-tablet: 768px;
+$max-width-laptop: 1024px;
+$max-width-desktop: 1200px;
+$max-width-large-desktop: 1440px;
 
-@mixin mini-mobile {
+@mixin max-mini-mobile {
     @media (max-width: $max-width-mini-mobile) {
         @content;
     }
 }
 
-@mixin mobile {
+@mixin max-mobile {
     @media (max-width: $max-width-mobile) {
-        @content;
-    }
-}
-
-@mixin min-tablet {
-    @media (min-width: $min-width-tablet) {
         @content;
     }
 }
@@ -39,14 +34,52 @@ $min-width-desktop: 1201px;
     }
 }
 
-@mixin tablet {
-    @media (min-width: $min-width-tablet) and (max-width: $max-width-tablet) {
+@mixin max-laptop {
+    @media (max-width: $max-width-laptop) {
         @content;
     }
 }
 
-@mixin min-desktop {
-    @media (min-width: $min-width-desktop) {
+@mixin max-desktop {
+    @media (max-width: $max-width-desktop) {
         @content;
+    }
+}
+
+@mixin max-large-desktop {
+    @media (max-width: $max-width-large-desktop) {
+        @content;
+    }
+}
+
+// Logo responsive classes
+.logo-responsive {
+    width: 160px;
+    height: 44px;
+    object-fit: contain;
+    transition: all 0.3s ease-in-out;
+
+    // Laptop screens
+    @include max-laptop {
+        width: 140px;
+        height: 39px;
+    }
+
+    // Tablet screens
+    @include max-tablet {
+        width: 120px;
+        height: 33px;
+    }
+
+    // Mobile screens
+    @include max-mobile {
+        width: 100px;
+        height: 28px;
+    }
+
+    // Mini mobile screens
+    @include max-mini-mobile {
+        width: 80px;
+        height: 22px;
     }
 }

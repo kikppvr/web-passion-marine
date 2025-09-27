@@ -193,6 +193,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                         alt='Logo'
                         width={158}
                         height={44}
+                        className='logo-responsive'
                     />
                 </Link>
 
