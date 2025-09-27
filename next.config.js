@@ -72,11 +72,35 @@ const nextConfig = {
     async rewrites() {
         return [
             {
-                source: "/",
+                source: "/about-us",
                 destination: "/comingsoon",
             },
             {
-                source: "/home",
+                source: "/services/marine",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/services/maintenance",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/services/emergency",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/charter",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/portfolio",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/news",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/contact-us",
                 destination: "/comingsoon",
             },
             {

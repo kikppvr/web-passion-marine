@@ -36,7 +36,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         },
         {
             label: "About Us",
-            href: "/about",
+            href: "/about-us",
         },
         {
             label: "Our Services",
@@ -62,7 +62,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         },
         {
             label: "Contact Us",
-            href: "/contact",
+            href: "/contact-us",
         },
     ];
 
@@ -280,7 +280,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                                                 </span>
                                                 <i
                                                     className={cn(
-                                                        "ph ph-caret-down header__menu-nav-arrow",
+                                                        "ph-light ph-caret-down header__menu-nav-arrow",
                                                         activeDropdown === item.label &&
                                                             "header__menu-nav-arrow--open"
                                                     )}></i>

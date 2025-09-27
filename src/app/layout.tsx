@@ -2,6 +2,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import "@phosphor-icons/web/bold/style.css";
 import "@phosphor-icons/web/fill/style.css";
 import "@phosphor-icons/web/regular/style.css";
+import "@phosphor-icons/web/light/style.css";
 import type { Metadata } from "next";
 import { Noto_Sans_Thai, Roboto } from "next/font/google";
 import "../styles/globals.css";
