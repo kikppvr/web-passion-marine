@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { VideoHeroBanner } from '@/components/ui/media';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { VideoHeroBanner } from "@/components/ui/media";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function VideoHeroBannerPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export default function VideoHeroBannerPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 
@@ -45,7 +45,7 @@ export default function VideoHeroBannerPage() {
                             <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
                                     className='ph-bold ph-video text-white'
-                                    style={{ fontSize: '32px' }}></i>
+                                    style={{ fontSize: "32px" }}></i>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
@@ -135,10 +135,10 @@ export default function VideoHeroBannerPage() {
     muted={true}
     loop={true}
 />`,
-                                                'video-hero-basic-code'
+                                                "video-hero-basic-code"
                                             )
                                         }>
-                                        {copiedCode === 'video-hero-basic-code' ? (
+                                        {copiedCode === "video-hero-basic-code" ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>

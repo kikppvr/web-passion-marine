@@ -1,7 +1,7 @@
-@use '../base/colors' as colors;
-@use '../base/text' as text;
-@use '../base/utility' as utility;
-@use '../base/display' as display;
+@use "../base/colors" as colors;
+@use "../base/text" as text;
+@use "../base/utility" as utility;
+@use "../base/display" as display;
 
 // ========================================
 // BTN BOOK NOW COMPONENT STYLES
@@ -70,7 +70,7 @@
 
 // Btn BookNow dark theme
 .btn-booknow--dark {
-    background-color: var(--bg-primary);
+    background-color: var(--white);
     color: var(--blue-500);
 
     .btn-booknow__text {

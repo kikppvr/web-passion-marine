@@ -16,7 +16,7 @@ Currently empty - add navigation components here when created.
 ## Usage
 
 ```tsx
-import { Breadcrumb, Pagination, Sidebar, Tabs } from '@/components/ui/navigation';
+import { Breadcrumb, Pagination, Sidebar, Tabs } from "@/components/ui/navigation";
 
 // Future usage examples will be added when components are created
 ```

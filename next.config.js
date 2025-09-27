@@ -10,22 +10,22 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'dev.passionmarine.co.th',
-                port: '',
-                pathname: '/**',
+                protocol: "https",
+                hostname: "dev.passionmarine.co.th",
+                port: "",
+                pathname: "/**",
             },
             {
-                protocol: 'https',
-                hostname: 'stg.passionmarine.co.th',
-                port: '',
-                pathname: '/**',
+                protocol: "https",
+                hostname: "stg.passionmarine.co.th",
+                port: "",
+                pathname: "/**",
             },
             {
-                protocol: 'https',
-                hostname: 'passionmarine.co.th',
-                port: '',
-                pathname: '/**',
+                protocol: "https",
+                hostname: "passionmarine.co.th",
+                port: "",
+                pathname: "/**",
             },
         ],
     },
@@ -34,19 +34,19 @@ const nextConfig = {
     async headers() {
         return [
             {
-                source: '/(.*)',
+                source: "/(.*)",
                 headers: [
                     {
-                        key: 'X-Frame-Options',
-                        value: 'DENY',
+                        key: "X-Frame-Options",
+                        value: "DENY",
                     },
                     {
-                        key: 'X-Content-Type-Options',
-                        value: 'nosniff',
+                        key: "X-Content-Type-Options",
+                        value: "nosniff",
                     },
                     {
-                        key: 'Referrer-Policy',
-                        value: 'origin-when-cross-origin',
+                        key: "Referrer-Policy",
+                        value: "origin-when-cross-origin",
                     },
                 ],
             },
@@ -72,16 +72,40 @@ const nextConfig = {
     async rewrites() {
         return [
             {
-                source: '/',
-                destination: '/comingsoon',
+                source: "/about-us",
+                destination: "/comingsoon",
             },
             {
-                source: '/home',
-                destination: '/comingsoon',
+                source: "/services/marine",
+                destination: "/comingsoon",
             },
             {
-                source: '/api/:path*',
-                destination: '/api/:path*',
+                source: "/services/maintenance",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/services/emergency",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/charter",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/portfolio",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/news",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/contact-us",
+                destination: "/comingsoon",
+            },
+            {
+                source: "/api/:path*",
+                destination: "/api/:path*",
             },
         ];
     },
@@ -93,7 +117,7 @@ const nextConfig = {
     },
 
     // Output configuration for deployment
-    output: 'standalone',
+    output: "standalone",
 
     // Compression
     compress: true,

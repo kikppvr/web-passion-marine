@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 export interface HeaderProps {
     className?: string;
-    theme?: 'white' | 'transparent';
+    theme?: "white" | "transparent";
 }
 
 interface NavItem {
@@ -21,47 +21,48 @@ interface NavItem {
     }>;
 }
 
-const Header = ({ className, theme = 'white' }: HeaderProps) => {
+const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+    const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+    const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+    const [currentLanguage, setCurrentLanguage] = useState<"EN" | "TH">("EN");
 
     // Navigation items
     const navItems: NavItem[] = [
         {
-            label: 'Home',
-            href: '/',
+            label: "Home",
+            href: "/",
         },
         {
-            label: 'About Us',
-            href: '/about',
+            label: "About Us",
+            href: "/about-us",
         },
         {
-            label: 'Our Services',
-            href: '/services',
+            label: "Our Services",
+            href: "/services",
             hasDropdown: true,
             dropdownItems: [
-                { label: 'Marine Services', href: '/services/marine' },
-                { label: 'Boat Maintenance', href: '/services/maintenance' },
-                { label: 'Emergency Services', href: '/services/emergency' },
+                { label: "Marine Services", href: "/services/marine" },
+                { label: "Boat Maintenance", href: "/services/maintenance" },
+                { label: "Emergency Services", href: "/services/emergency" },
             ],
         },
         {
-            label: 'Charter',
-            href: '/charter',
+            label: "Charter",
+            href: "/charter",
         },
         {
-            label: 'Portfolio',
-            href: '/portfolio',
+            label: "Portfolio",
+            href: "/portfolio",
         },
         {
-            label: 'News and Activities',
-            href: '/news',
+            label: "News and Activities",
+            href: "/news",
         },
         {
-            label: 'Contact Us',
-            href: '/contact',
+            label: "Contact Us",
+            href: "/contact-us",
         },
     ];
 
@@ -71,82 +72,144 @@ const Header = ({ className, theme = 'white' }: HeaderProps) => {
             setIsScrolled(window.scrollY > 20);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    // Handle mobile menu toggle
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-        setActiveMobileDropdown(null);
-    };
 
     // Handle dropdown toggle
     const toggleDropdown = (itemLabel: string) => {
         setActiveDropdown(activeDropdown === itemLabel ? null : itemLabel);
     };
 
-    // Handle mobile dropdown toggle
-    const toggleMobileDropdown = (itemLabel: string) => {
-        setActiveMobileDropdown(activeMobileDropdown === itemLabel ? null : itemLabel);
+    // Handle hamburger menu toggle
+    const toggleHamburger = () => {
+        setIsHamburgerOpen(!isHamburgerOpen);
     };
 
-    // Close mobile menu when clicking outside
+    // Handle language dropdown toggle
+    const toggleLanguageDropdown = () => {
+        setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+    };
+
+    // Handle language change
+    const handleLanguageChange = (language: "EN" | "TH") => {
+        setCurrentLanguage(language);
+        setIsLanguageDropdownOpen(false);
+        // Here you can add logic to change the actual language
+        console.log("Language changed to:", language);
+    };
+
+    // Close language dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            const target = event.target as HTMLElement;
-            if (isMobileMenuOpen && !target.closest('.header__mobile-content')) {
-                setIsMobileMenuOpen(false);
-                setActiveMobileDropdown(null);
+            const target = event.target as Element;
+            if (isLanguageDropdownOpen && !target.closest(".header__language-container")) {
+                setIsLanguageDropdownOpen(false);
             }
         };
 
-        if (isMobileMenuOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
+        if (isLanguageDropdownOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
         }
 
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [isMobileMenuOpen]);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isLanguageDropdownOpen]);
+
+    // Close hamburger menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isHamburgerOpen && !target.closest(".header")) {
+                setIsHamburgerOpen(false);
+            }
+        };
+
+        if (isHamburgerOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isHamburgerOpen]);
 
     return (
         <header
             className={cn(
-                'header',
-                `header--${theme}`,
-                isScrolled && 'header--scrolled',
+                "header",
+                `header--${isHamburgerOpen ? "white" : theme}`,
+                isScrolled && "header--scrolled",
                 className
             )}>
             <div className='header__container'>
                 {/* Language Switcher & Action Buttons */}
                 <div className='header__actions'>
-                    <button className='header__language'>
-                        <span className='header__language-text'>EN</span>
-                        <i className='ph ph-caret-down header__language-arrow'></i>
-                    </button>
+                    <div className='header__language-container'>
+                        <button className='header__language' onClick={toggleLanguageDropdown}>
+                            <span className='header__language-text'>{currentLanguage}</span>
+                            <i
+                                className={cn(
+                                    "ph ph-caret-down header__language-arrow",
+                                    isLanguageDropdownOpen && "header__language-arrow--open"
+                                )}></i>
+                        </button>
+
+                        {/* Language Dropdown */}
+                        <div
+                            className={cn(
+                                "header__language-dropdown",
+                                isLanguageDropdownOpen && "header__language-dropdown--open"
+                            )}>
+                            <button
+                                className={cn(
+                                    "header__language-option",
+                                    currentLanguage === "EN" && "header__language-option--active"
+                                )}
+                                onClick={() => handleLanguageChange("EN")}>
+                                <span>EN</span>
+                            </button>
+                            <button
+                                className={cn(
+                                    "header__language-option",
+                                    currentLanguage === "TH" && "header__language-option--active"
+                                )}
+                                onClick={() => handleLanguageChange("TH")}>
+                                <span>TH</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Logo */}
                 <Link href='/' className='header__logo'>
                     <Image
-                        src='/images/logo/logo-passion-marine.svg'
+                        src={
+                            isHamburgerOpen || theme === "white"
+                                ? "/images/logo/logo-passion-marine.svg"
+                                : "/images/logo/logo-passion-marine-white.svg"
+                        }
                         alt='Logo'
                         width={158}
                         height={44}
+                        className='logo-responsive'
                     />
-                     
                 </Link>
 
                 {/* Hamburger Menu Button */}
                 <button
                     className={cn(
-                        'header__hamburger',
-                        isMobileMenuOpen && 'header__hamburger--active'
+                        "header__hamburger",
+                        isHamburgerOpen && "header__hamburger--active"
                     )}
-                    onClick={toggleMobileMenu}
-                    aria-label='Toggle mobile menu'>
-                    <span className='header__hamburger-line'></span>
-                    <span className='header__hamburger-line'></span>
-                    <span className='header__hamburger-line'></span>
+                    onClick={toggleHamburger}
+                    aria-label='Toggle menu'>
+                    <span className='header__hamburger-text'>Menu</span>
+                    <div className='header__hamburger-lines'>
+                        <span className='header__hamburger-line'></span>
+                        <span className='header__hamburger-line'></span>
+                    </div>
                 </button>
 
                 {/* Desktop Navigation */}
@@ -165,9 +228,9 @@ const Header = ({ className, theme = 'white' }: HeaderProps) => {
                                         </button>
                                         <div
                                             className={cn(
-                                                'header__dropdown',
+                                                "header__dropdown",
                                                 activeDropdown === item.label &&
-                                                    'header__dropdown--show'
+                                                    "header__dropdown--show"
                                             )}
                                             onMouseLeave={() => setActiveDropdown(null)}>
                                             {item.dropdownItems?.map(dropdownItem => (
@@ -192,6 +255,68 @@ const Header = ({ className, theme = 'white' }: HeaderProps) => {
                         ))}
                     </ul>
                 </nav>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            {isHamburgerOpen && (
+                <div className='header__menu-overlay' onClick={() => setIsHamburgerOpen(false)} />
+            )}
+
+            {/* Mobile Menu */}
+            <div className={cn("header__menu", isHamburgerOpen && "header__menu--open")}>
+                <div className='header__menu-content'>
+                    {/* Menu Navigation */}
+                    <nav className='header__menu-nav'>
+                        <ul className='header__menu-nav-list'>
+                            {navItems.map(item => (
+                                <li key={item.label} className='header__menu-nav-item'>
+                                    {item.hasDropdown ? (
+                                        <>
+                                            <button
+                                                className='header__menu-nav-link'
+                                                onClick={() => toggleDropdown(item.label)}>
+                                                <span className='header__menu-nav-text'>
+                                                    {item.label}
+                                                </span>
+                                                <i
+                                                    className={cn(
+                                                        "ph-light ph-caret-down header__menu-nav-arrow",
+                                                        activeDropdown === item.label &&
+                                                            "header__menu-nav-arrow--open"
+                                                    )}></i>
+                                            </button>
+                                            <div
+                                                className={cn(
+                                                    "header__menu-dropdown",
+                                                    activeDropdown === item.label &&
+                                                        "header__menu-dropdown--open"
+                                                )}>
+                                                {item.dropdownItems?.map(dropdownItem => (
+                                                    <Link
+                                                        key={dropdownItem.label}
+                                                        href={dropdownItem.href}
+                                                        className='header__menu-dropdown-link'
+                                                        onClick={() => setIsHamburgerOpen(false)}>
+                                                        {dropdownItem.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <Link
+                                            href={item.href}
+                                            className='header__menu-nav-link'
+                                            onClick={() => setIsHamburgerOpen(false)}>
+                                            <span className='header__menu-nav-text'>
+                                                {item.label}
+                                            </span>
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
     );

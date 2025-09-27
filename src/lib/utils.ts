@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 /**
  * Utility function to merge Tailwind CSS classes
@@ -13,10 +13,10 @@ export function cn(...inputs: ClassValue[]) {
  * Format a date to a readable string
  */
 export function formatDate(date: Date | string | number): string {
-    return new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
+    return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
     }).format(new Date(date));
 }
 
@@ -28,7 +28,7 @@ export function formatRelativeTime(date: Date | string | number): string {
     const targetDate = new Date(date);
     const diffInSeconds = Math.floor((now.getTime() - targetDate.getTime()) / 1000);
 
-    if (diffInSeconds < 60) return 'just now';
+    if (diffInSeconds < 60) return "just now";
     if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
     if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
     if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 86400)} days ago`;
@@ -41,7 +41,7 @@ export function formatRelativeTime(date: Date | string | number): string {
  */
 export function truncateText(text: string, length: number): string {
     if (text.length <= length) return text;
-    return text.slice(0, length) + '...';
+    return text.slice(0, length) + "...";
 }
 
 /**
@@ -65,9 +65,9 @@ export function sleep(ms: number): Promise<void> {
  */
 export function isEmpty(value: unknown): boolean {
     if (value === null || value === undefined) return true;
-    if (typeof value === 'string') return value.trim() === '';
+    if (typeof value === "string") return value.trim() === "";
     if (Array.isArray(value)) return value.length === 0;
-    if (typeof value === 'object') return Object.keys(value).length === 0;
+    if (typeof value === "object") return Object.keys(value).length === 0;
     return false;
 }
 
@@ -83,8 +83,8 @@ export function capitalize(str: string): string {
  */
 export function kebabCase(str: string): string {
     return str
-        .replace(/([a-z])([A-Z])/g, '$1-$2')
-        .replace(/[\s_]+/g, '-')
+        .replace(/([a-z])([A-Z])/g, "$1-$2")
+        .replace(/[\s_]+/g, "-")
         .toLowerCase();
 }
 
@@ -96,7 +96,7 @@ export function camelCase(str: string): string {
         .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
             return index === 0 ? word.toLowerCase() : word.toUpperCase();
         })
-        .replace(/\s+/g, '');
+        .replace(/\s+/g, "");
 }
 
 /**

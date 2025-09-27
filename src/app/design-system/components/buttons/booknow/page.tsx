@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { BookNowButton } from '@/components/ui/button/BookNowButton';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function BookNowButtonPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export default function BookNowButtonPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 
@@ -45,7 +45,7 @@ export default function BookNowButtonPage() {
                             <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
                                     className='ph ph-paint-brush text-white'
-                                    style={{ fontSize: '32px' }}></i>
+                                    style={{ fontSize: "32px" }}></i>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
@@ -106,10 +106,10 @@ export default function BookNowButtonPage() {
                                         onClick={() =>
                                             copyToClipboard(
                                                 `<BookNowButton>Book Now</BookNowButton>`,
-                                                'booknow-button-code'
+                                                "booknow-button-code"
                                             )
                                         }>
-                                        {copiedCode === 'booknow-button-code' ? (
+                                        {copiedCode === "booknow-button-code" ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>
@@ -138,10 +138,10 @@ export default function BookNowButtonPage() {
                                         onClick={() =>
                                             copyToClipboard(
                                                 `<BookNowButton variant="dark">Book Now</BookNowButton>`,
-                                                'booknow-button-dark-code'
+                                                "booknow-button-dark-code"
                                             )
                                         }>
-                                        {copiedCode === 'booknow-button-dark-code' ? (
+                                        {copiedCode === "booknow-button-dark-code" ? (
                                             <i className='ph ph-check-circle text-green-400'></i>
                                         ) : (
                                             <i className='ph ph-copy'></i>

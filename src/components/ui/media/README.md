@@ -64,7 +64,7 @@ interface VideoHeroBannerProps {
     loop?: boolean;
     overlay?: boolean;
     overlayOpacity?: number;
-    preload?: 'none' | 'metadata' | 'auto';
+    preload?: "none" | "metadata" | "auto";
     lazyLoad?: boolean;
     priority?: boolean;
 }

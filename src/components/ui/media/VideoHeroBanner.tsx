@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+import { cn } from "@/lib/utils";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 export interface VideoHeroBannerProps {
     className?: string;
@@ -17,7 +17,7 @@ export interface VideoHeroBannerProps {
     loop?: boolean;
     overlay?: boolean;
     overlayOpacity?: number;
-    preload?: 'none' | 'metadata' | 'auto';
+    preload?: "none" | "metadata" | "auto";
     lazyLoad?: boolean;
     priority?: boolean;
 }
@@ -35,7 +35,7 @@ const VideoHeroBanner = ({
     loop = true,
     overlay = true,
     overlayOpacity = 0.4,
-    preload = 'metadata',
+    preload = "metadata",
     lazyLoad = false,
     priority = false,
 }: VideoHeroBannerProps) => {
@@ -92,7 +92,7 @@ const VideoHeroBanner = ({
         setHasError(true);
         setIsLoading(false);
         setIsVideoReady(false);
-        console.error('Video failed to load:', videoSrc);
+        console.error("Video failed to load:", videoSrc);
     };
 
     const handleVideoEnd = () => {
@@ -116,7 +116,7 @@ const VideoHeroBanner = ({
                         setIsVideoReady(true);
                     })
                     .catch(error => {
-                        console.warn('Autoplay failed:', error);
+                        console.warn("Autoplay failed:", error);
                         setIsLoading(false);
                         setIsVideoReady(true);
                     });
@@ -149,7 +149,7 @@ const VideoHeroBanner = ({
                         setIsLoading(false);
                     })
                     .catch(error => {
-                        console.warn('Autoplay failed:', error);
+                        console.warn("Autoplay failed:", error);
                         setIsLoading(false);
                     });
             }
@@ -165,7 +165,7 @@ const VideoHeroBanner = ({
     }, [videoSrc]);
 
     return (
-        <div className={cn('video-hero-banner', className)}>
+        <div className={cn("video-hero-banner", className)}>
             {/* Video Container */}
             <div className='video-hero-banner__video-container'>
                 <video
@@ -176,7 +176,7 @@ const VideoHeroBanner = ({
                     loop={loop}
                     playsInline
                     autoPlay={autoPlay}
-                    preload={shouldLoad ? preload : 'none'}
+                    preload={shouldLoad ? preload : "none"}
                     onLoadedData={handleVideoLoad}
                     onLoadedMetadata={handleLoadedMetadata}
                     onCanPlay={handleCanPlay}

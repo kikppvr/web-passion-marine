@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageToggle } from '@/components/LanguageSwitcher';
-import { ViewAllButton } from '@/components/ui/button/ViewAllButton';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from 'next/link';
-import { useState } from 'react';
+import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { ViewAllButton } from "@/components/ui/button/ViewAllButton";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ViewAllButtonPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export default function ViewAllButtonPage() {
             setCopiedCode(codeId);
             setTimeout(() => setCopiedCode(null), 2000);
         } catch (err) {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
         }
     };
 
@@ -45,7 +45,7 @@ export default function ViewAllButtonPage() {
                             <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm'>
                                 <i
                                     className='ph-bold ph-eye text-white'
-                                    style={{ fontSize: '32px' }}></i>
+                                    style={{ fontSize: "32px" }}></i>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
@@ -127,10 +127,10 @@ export default function ViewAllButtonPage() {
                                             onClick={() =>
                                                 copyToClipboard(
                                                     `<ViewAllButton>View All</ViewAllButton>`,
-                                                    'viewall-button-light-code'
+                                                    "viewall-button-light-code"
                                                 )
                                             }>
-                                            {copiedCode === 'viewall-button-light-code' ? (
+                                            {copiedCode === "viewall-button-light-code" ? (
                                                 <i className='ph ph-check-circle text-green-400'></i>
                                             ) : (
                                                 <i className='ph ph-copy'></i>
@@ -166,10 +166,10 @@ export default function ViewAllButtonPage() {
                                             onClick={() =>
                                                 copyToClipboard(
                                                     `<ViewAllButton variant="dark">View All</ViewAllButton>`,
-                                                    'viewall-button-dark-code'
+                                                    "viewall-button-dark-code"
                                                 )
                                             }>
-                                            {copiedCode === 'viewall-button-dark-code' ? (
+                                            {copiedCode === "viewall-button-dark-code" ? (
                                                 <i className='ph ph-check-circle text-green-400'></i>
                                             ) : (
                                                 <i className='ph ph-copy'></i>
