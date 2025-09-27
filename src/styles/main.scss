@@ -13,12 +13,18 @@
 @use "base/_image" as image;
 
 // Import Component Styles
-@use "components/_btn-primary" as btn-primary;
-@use "components/_btn-readmore" as btn-readmore;
-@use "components/_btn-booknow" as btn-booknow;
-@use "components/_btn-viewall" as btn-viewall;
-@use "components/_header" as header;
-@use "components/_video-hero-banner" as video-hero-banner;
+// Button Components
+@use "components/buttons/_btn-primary" as btn-primary;
+@use "components/buttons/_btn-readmore" as btn-readmore;
+@use "components/buttons/_btn-booknow" as btn-booknow;
+@use "components/buttons/_btn-viewall" as btn-viewall;
+
+// Layout Components
+@use "components/layout/_header" as header;
+@use "components/layout/_footer" as footer;
+
+// Media Components
+@use "components/media/_video-hero-banner" as video-hero-banner;
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;

@@ -31,10 +31,6 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     // Navigation items
     const navItems: NavItem[] = [
         {
-            label: "Home",
-            href: "/",
-        },
-        {
             label: "About Us",
             href: "/about-us",
         },
@@ -139,8 +135,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         <header
             className={cn(
                 "header",
-                `header--${isHamburgerOpen ? "white" : theme}`,
-                isScrolled && "header--scrolled",
+                `header--${isHamburgerOpen || isScrolled ? "white" : theme}`,
                 className
             )}>
             <div className='header__container'>
@@ -186,14 +181,14 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 <Link href='/' className='header__logo'>
                     <Image
                         src={
-                            isHamburgerOpen || theme === "white"
+                            isHamburgerOpen || isScrolled || theme === "white"
                                 ? "/images/logo/logo-passion-marine.svg"
                                 : "/images/logo/logo-passion-marine-white.svg"
                         }
                         alt='Logo'
                         width={158}
                         height={44}
-                        className='logo-responsive'
+                        className='header__logo-responsive'
                     />
                 </Link>
 

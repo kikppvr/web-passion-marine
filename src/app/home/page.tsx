@@ -3,6 +3,7 @@
 import { Header } from "@/components/ui/layout";
 import { VideoHeroBanner } from "@/components/ui/media";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
+import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import { useState } from "react";
@@ -53,6 +54,8 @@ export default function HeaderPage() {
                 priority={true}
                 className='video-hero-banner--fullscreen'
             />
+
+            <Footer />
         </div>
     );
 }
