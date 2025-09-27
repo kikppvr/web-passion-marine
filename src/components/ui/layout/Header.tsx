@@ -31,10 +31,6 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     // Navigation items
     const navItems: NavItem[] = [
         {
-            label: "Home",
-            href: "/",
-        },
-        {
             label: "About Us",
             href: "/about-us",
         },

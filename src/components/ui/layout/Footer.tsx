@@ -11,6 +11,13 @@ export interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <footer className={cn("footer", className)}>
             <div className='footer__container'>
@@ -41,13 +48,18 @@ const Footer = ({ className }: FooterProps) => {
                         <h3 className='footer__column-title'>Contact</h3>
                         <div className='footer__contact'>
                             <div className='footer__contact-item'>
-                                <span>087-259-9158</span>
+                                <div className='footer__contact-item-title'>Phone:</div>
+                                <div className='footer__contact-item-content'>087-259-9158</div>
                             </div>
                             <div className='footer__contact-item'>
-                                <span>087-585-1656</span>
+                                <div className='footer__contact-item-title'></div>
+                                <div className='footer__contact-item-content'>087-259-9158</div>
                             </div>
                             <div className='footer__contact-item'>
-                                <span>Email : info@passionmarine.co.th</span>
+                                <div className='footer__contact-item-title'>Email:</div>
+                                <div className='footer__contact-item-content'>
+                                    info@passionmarine.co.th
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,26 +69,41 @@ const Footer = ({ className }: FooterProps) => {
                         <h3 className='footer__column-title'>Social</h3>
                         <div className='footer__social'>
                             <Link href='#' className='footer__social-item'>
-                                <i className='ph ph-facebook-logo'></i>
+                                <div className='footer__social-item-icon'>
+                                    <Image
+                                        src='/images/icon/ic-facebook.svg'
+                                        alt='Facebook'
+                                        width={10}
+                                        height={10}
+                                    />
+                                </div>
                                 <span>Passion Marine</span>
                             </Link>
                             <Link href='#' className='footer__social-item'>
-                                <i className='ph ph-instagram-logo'></i>
+                                <div className='footer__social-item-icon'>
+                                    <Image
+                                        src='/images/icon/ic-instagram.svg'
+                                        alt='Instagram'
+                                        width={10}
+                                        height={10}
+                                    />
+                                </div>
                                 <span>@passion.marine</span>
                             </Link>
                             <Link href='#' className='footer__social-item'>
-                                <i className='ph ph-chat-circle'></i>
+                                <div className='footer__social-item-icon'>
+                                    <Image
+                                        src='/images/icon/ic-line.svg'
+                                        alt='Line'
+                                        width={10}
+                                        height={10}
+                                    />
+                                </div>
                                 <span>@passionmarine</span>
                             </Link>
                         </div>
                     </div>
-
-                    {/* Scroll to Top Button */}
-                    <button className='footer__scroll-top' aria-label='Scroll to top'>
-                        <i className='ph ph-arrow-up'></i>
-                    </button>
                 </div>
-
                 {/* Footer Bottom - Copyright */}
                 <div className='footer__bottom'>
                     <div className='footer__copyright'>
@@ -84,6 +111,16 @@ const Footer = ({ className }: FooterProps) => {
                     </div>
                 </div>
             </div>
+            {/* Scroll to Top Button */}
+            <button className='footer__scroll-top' aria-label='Scroll to top' onClick={scrollToTop}>
+                <Image
+                    src='/images/icon/ic-back-to-top.svg'
+                    alt='Back to Top'
+                    width={20}
+                    height={20}
+                    className='footer__scroll-top-icon'
+                />
+            </button>
             <div className='footer__image-footer'>
                 <Image
                     src='/images/icon/logo-footer.svg'

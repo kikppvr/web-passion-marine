@@ -52,9 +52,34 @@
         position: relative;
 
         @include base.max-laptop {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "company contact"
+                "company social";
             gap: var(--space-8);
             padding: var(--space-8) 0;
+
+            // Reorder columns for tablet: Company Info | Contact + Social
+            .footer__column:nth-child(1) {
+                grid-area: company; // Company Info takes left column
+            }
+
+            .footer__column:nth-child(2) {
+                grid-area: contact; // Contact moves to top-right
+            }
+
+            .footer__column:nth-child(3) {
+                grid-area: social; // Social moves to bottom-right
+            }
+        }
+
+        @include base.max-mobile {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "company"
+                "contact"
+                "social";
+            gap: var(--space-6);
         }
     }
 
@@ -83,8 +108,6 @@
         font-size: var(--text-body);
         line-height: 1.6;
         color: var(--text-white);
-        opacity: 0.8;
-        margin-bottom: var(--space-4);
 
         @include base.max-mobile {
             font-size: var(--text-small);
@@ -98,15 +121,25 @@
     .footer__contact {
         display: flex;
         flex-direction: column;
-        gap: var(--space-2);
+        gap: var(--space-1) var(--space-2);
     }
 
     .footer__contact-item {
         font-size: var(--text-body);
         color: var(--text-white);
+        display: flex;
+        align-items: center;
 
         @include base.max-mobile {
             font-size: var(--text-small);
+        }
+
+        .footer__contact-item-title {
+            min-width: 50px;
+        }
+
+        .footer__contact-item-content {
+            flex: 1;
         }
     }
 
@@ -128,9 +161,21 @@
             opacity: 0.8;
         }
 
-        i {
-            font-size: 18px;
-            width: 20px;
+        .footer__social-item-icon {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+
+            img {
+                width: 14px;
+                height: 14px;
+                object-fit: contain;
+            }
         }
 
         span {
@@ -144,33 +189,29 @@
 
     .footer__scroll-top {
         position: absolute;
-        top: var(--space-6);
-        right: 0;
-        width: 40px;
-        height: 40px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
+        top: 40px;
+        right: 40px;
+        height: 64px;
         color: var(--text-white);
-        cursor: pointer;
+        z-index: 2;
         transition: all 0.3s ease-in-out;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         &:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            .footer__scroll-top-icon {
+                transform: translateY(-4px) scaleY(1.1);
+            }
         }
 
-        i {
-            font-size: 18px;
+        .footer__scroll-top-icon {
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
         }
 
-        @include base.max-laptop {
-            position: static;
-            margin-top: var(--space-4);
-            align-self: flex-end;
+        @include base.max-tablet {
+            top: 35px;
         }
     }
 
@@ -184,8 +225,6 @@
         font-size: var(--text-small);
         color: var(--text-white);
         text-align: left;
-        opacity: 0.8;
-        margin: 0;
 
         @include base.max-mobile {
             font-size: var(--text-xs);
@@ -198,6 +237,17 @@
         right: 0;
         width: 420px;
         height: 100%;
+
+        @include base.max-tablet {
+            top: -30px;
+            width: 450px;
+        }
+
+        @include base.max-mobile {
+            top: auto;
+            width: 250px;
+            bottom: -195px;
+        }
     }
 
     .footer__image-responsive {
