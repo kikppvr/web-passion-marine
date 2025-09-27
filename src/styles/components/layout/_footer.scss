@@ -128,18 +128,28 @@
         font-size: var(--text-body);
         color: var(--text-white);
         display: flex;
-        align-items: center;
+        gap: var(--space-1);
 
         @include base.max-mobile {
             font-size: var(--text-small);
         }
 
         .footer__contact-item-title {
+            font-size: var(--text-small);
+            font-weight: var(--font-medium);
+            color: var(--text-white);
             min-width: 50px;
         }
 
         .footer__contact-item-content {
-            flex: 1;
+            font-size: var(--text-body);
+            color: var(--text-white);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            @include base.max-mobile {
+                font-size: var(--text-small);
+            }
         }
     }
 
@@ -156,10 +166,7 @@
         color: var(--text-white);
         text-decoration: none;
         transition: all 0.3s ease-in-out;
-
-        &:hover {
-            opacity: 0.8;
-        }
+        position: relative;
 
         .footer__social-item-icon {
             width: 24px;
@@ -170,19 +177,62 @@
             align-items: center;
             justify-content: center;
             color: var(--text-white);
+            transition: all 0.3s ease-in-out;
 
-            img {
+            svg {
                 width: 14px;
                 height: 14px;
-                object-fit: contain;
+                fill: var(--text-white);
+                transition: all 0.3s ease-in-out;
+
+                // Facebook icon specific sizing
+                &[viewBox="0 0 8 14"] {
+                    width: 8px;
+                    height: 14px;
+                }
+
+                // Instagram icon specific sizing
+                &[viewBox="0 0 10 10"] {
+                    width: 10px;
+                    height: 10px;
+                }
             }
         }
 
         span {
             font-size: var(--text-body);
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                opacity: 0;
+                background-color: var(--text-white);
+                transition: all 0.3s ease-in-out;
+            }
 
             @include base.max-mobile {
                 font-size: var(--text-small);
+            }
+        }
+
+        &:hover {
+            .footer__social-item-icon {
+                background-color: var(--white);
+                color: var(--blue-500);
+
+                svg {
+                    fill: var(--blue-500);
+                }
+            }
+            span::after {
+                width: 100%;
+                opacity: 1;
             }
         }
     }
@@ -225,10 +275,6 @@
         font-size: var(--text-small);
         color: var(--text-white);
         text-align: left;
-
-        @include base.max-mobile {
-            font-size: var(--text-xs);
-        }
     }
 
     .footer__image-footer {
