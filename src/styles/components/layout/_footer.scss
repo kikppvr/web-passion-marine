@@ -36,20 +36,6 @@
     overflow: hidden;
     color: var(--text-white);
 
-    // Watermark background
-    &::before {
-        content: "PM";
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        transform: translateY(-50%);
-        font-size: 120px;
-        font-weight: 900;
-        color: rgba(255, 255, 255, 0.05);
-        z-index: 1;
-        pointer-events: none;
-    }
-
     .footer__container {
         max-width: 1200px;
         margin: 0 auto;
@@ -72,12 +58,6 @@
         }
     }
 
-    .footer__logo-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: var(--space-8);
-    }
-
     .footer__logo {
         display: inline-block;
         transition: all 0.3s ease-in-out;
@@ -97,7 +77,6 @@
         font-size: var(--text-h6);
         font-weight: var(--font-bold);
         color: var(--text-white);
-        margin-bottom: var(--space-2);
     }
 
     .footer__column-content {
@@ -204,6 +183,7 @@
     .footer__copyright {
         font-size: var(--text-small);
         color: var(--text-white);
+        text-align: left;
         opacity: 0.8;
         margin: 0;
 
@@ -213,30 +193,16 @@
     }
 
     .footer__image-footer {
-        display: flex;
-        justify-content: center;
-        padding: var(--space-4) 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 420px;
+        height: 100%;
     }
 
     .footer__image-responsive {
-        width: 200px;
-        height: 55px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
-        transition: all 0.3s ease-in-out;
-
-        @include base.max-laptop {
-            width: 180px;
-            height: 50px;
-        }
-
-        @include base.max-tablet {
-            width: 160px;
-            height: 44px;
-        }
-
-        @include base.max-mobile {
-            width: 140px;
-            height: 39px;
-        }
     }
 }
