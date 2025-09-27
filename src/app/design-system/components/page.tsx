@@ -65,7 +65,11 @@ export default function ComponentsPage() {
                     status: "ready",
                     path: "/design-system/components/layout/header",
                 },
-                { name: "Footer", status: "planned", path: "#" },
+                {
+                    name: "Footer",
+                    status: "ready",
+                    path: "/design-system/components/layout/footer",
+                },
                 { name: "Sidebar", status: "planned", path: "#" },
                 { name: "Navigation", status: "planned", path: "#" },
             ],
@@ -184,7 +188,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>20</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>21</h3>
                                     <p className='text-sm text-gray-600'>Components</p>
                                 </div>
                             </div>
@@ -197,7 +201,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>6</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>7</h3>
                                     <p className='text-sm text-gray-600'>Ready</p>
                                 </div>
                             </div>
@@ -210,7 +214,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>10</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>9</h3>
                                     <p className='text-sm text-gray-600'>Planned</p>
                                 </div>
                             </div>

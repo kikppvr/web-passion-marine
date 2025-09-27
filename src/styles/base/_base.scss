@@ -53,33 +53,6 @@ $max-width-large-desktop: 1440px;
 }
 
 // Logo responsive classes
-.logo-responsive {
-    width: 160px;
-    height: 44px;
-    object-fit: contain;
-    transition: all 0.3s ease-in-out;
-
-    // Laptop screens
-    @include max-laptop {
-        width: 140px;
-        height: 39px;
-    }
-
-    // Tablet screens
-    @include max-tablet {
-        width: 120px;
-        height: 33px;
-    }
-
-    // Mobile screens
-    @include max-mobile {
-        width: 100px;
-        height: 28px;
-    }
-
-    // Mini mobile screens
-    @include max-mini-mobile {
-        width: 80px;
-        height: 22px;
-    }
-}
+// Moved to component-specific files:
+// - Header: .header__logo-responsive in _header.scss
+// - Footer: .footer__logo-responsive in _footer.scss
