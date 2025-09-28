@@ -96,6 +96,11 @@ export default function ComponentsPage() {
                     status: "ready",
                     path: "/design-system/components/cards/portfolio-card",
                 },
+                {
+                    name: "Business Card",
+                    status: "ready",
+                    path: "/design-system/components/cards/business-card",
+                },
                 { name: "Service Card", status: "planned", path: "#" },
                 { name: "Testimonial Card", status: "planned", path: "#" },
             ],
@@ -201,7 +206,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>24</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>25</h3>
                                     <p className='text-sm text-gray-600'>Components</p>
                                 </div>
                             </div>
@@ -214,7 +219,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>10</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>11</h3>
                                     <p className='text-sm text-gray-600'>Ready</p>
                                 </div>
                             </div>
