@@ -76,3 +76,15 @@
         color: var(--text-white);
     }
 }
+
+// Primary Button Hover Mixin
+@mixin btn-primary-hover {
+    &:hover {
+        .btn-content {
+            transform: translateX(8px);
+        }
+        .btn-icon {
+            transform: rotate(-45deg);
+        }
+    }
+}

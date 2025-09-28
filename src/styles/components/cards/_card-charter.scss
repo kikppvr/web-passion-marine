@@ -1,14 +1,16 @@
 @use "../../base/image" as image;
+@use "../buttons/btn-booknow" as btn-booknow;
 // Charter Card Component Styles
 .card-charter {
     position: relative;
     background-color: var(--white);
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         .card-charter__image {
@@ -16,7 +18,7 @@
         }
 
         .btn-booknow {
-            background-color: var(--blue-700);
+            @include btn-booknow.btn-booknow-hover("&");
         }
     }
 
@@ -28,6 +30,7 @@
         flex: 1;
     }
 
+    // Image Container
     .card-charter__image-container {
         position: relative;
         width: 100%;
@@ -66,45 +69,47 @@
 
     .card-charter__location {
         font-size: var(--text-small);
-        font-weight: var(--font-regular);
+        font-weight: var(--font-normal);
         color: var(--grey-600);
         line-height: 1.5;
     }
 
+    // Details
     .card-charter__details {
         display: flex;
         gap: var(--space-3);
         flex-wrap: wrap;
-
-        .card-charter__detail-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            background-color: var(--grey-50);
-            padding: 4px 8px;
-            border-radius: 5px;
-
-            .card-charter__detail-icon {
-                font-size: 16px;
-                color: var(--text-secondary);
-            }
-
-            .card-charter__detail-text {
-                font-size: var(--text-body);
-                color: var(--blue-500);
-                font-weight: var(--font-medium);
-                line-height: 1.5;
-            }
-
-            .card-charter__detail-unit {
-                font-size: var(--text-small);
-                color: var(--grey-500);
-                font-weight: var(--font-regular);
-                line-height: 1.5;
-            }
-        }
     }
 
+    .card-charter__detail-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        background-color: var(--grey-50);
+        padding: 4px 8px;
+        border-radius: 5px;
+    }
+
+    .card-charter__detail-icon {
+        font-size: 16px;
+        color: var(--text-secondary);
+    }
+
+    .card-charter__detail-text {
+        font-size: var(--text-body);
+        color: var(--blue-500);
+        font-weight: var(--font-medium);
+        line-height: 1.5;
+    }
+
+    .card-charter__detail-unit {
+        font-size: var(--text-small);
+        color: var(--grey-500);
+        font-weight: var(--font-normal);
+        line-height: 1.5;
+    }
+
+    // Price
     .card-charter__price-section {
         flex: 1;
         display: flex;
@@ -115,93 +120,23 @@
         display: flex;
         align-items: baseline;
         gap: var(--space-3);
-
-        .card-charter__price-amount {
-            font-size: var(--text-h3);
-            font-weight: var(--font-semibold);
-            color: var(--blue-500);
-            line-height: 1.3;
-        }
-
-        .card-charter__price-currency {
-            font-size: var(--text-small);
-            color: var(--black);
-            font-weight: var(--font-regular);
-        }
     }
 
+    .card-charter__price-amount {
+        font-size: var(--text-h3);
+        font-weight: var(--font-semibold);
+        color: var(--blue-500);
+        line-height: 1.3;
+    }
+
+    .card-charter__price-currency {
+        font-size: var(--text-small);
+        color: var(--black);
+        font-weight: var(--font-normal);
+    }
+
+    // Footer
     .card-charter__footer {
         margin-top: var(--space-4);
     }
-
-    .card-charter__cta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: var(--space-2);
-        background-color: var(--blue-500);
-        color: var(--text-white);
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: var(--text-body);
-        font-weight: var(--font-semibold);
-        transition: all 0.3s ease-in-out;
-        width: 100%;
-
-        .card-charter__cta-text {
-            color: var(--text-white);
-        }
-
-        .card-charter__cta-icon {
-            font-size: 16px;
-            color: var(--text-white);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        &:hover {
-            background-color: var(--blue-600);
-            transform: translateY(-2px);
-        }
-
-        &:hover .card-charter__cta-icon {
-            transform: scale(1.1);
-        }
-    }
-
-    // Responsive Design
-    // @media (max-width: 768px) {
-    //     .card-charter__content {
-    //         padding: 20px;
-    //     }
-
-    //     .card-charter__title {
-    //         font-size: var(--text-h6);
-    //     }
-
-    //     .card-charter__price {
-    //         .card-charter__price-amount {
-    //             font-size: var(--text-h5);
-    //         }
-    //     }
-    // }
-
-    // @media (max-width: 575px) {
-    //     .card-charter__image-container {
-    //         height: 250px;
-    //     }
-
-    //     .card-charter__content {
-    //         padding: 16px;
-    //         height: calc(100% - 250px);
-    //     }
-
-    //     .card-charter__details {
-    //         gap: var(--space-2);
-    //     }
-
-    //     .card-charter__cta {
-    //         padding: 10px 16px;
-    //         font-size: var(--text-small);
-    //     }
-    // }
 }

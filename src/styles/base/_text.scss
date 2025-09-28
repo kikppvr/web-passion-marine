@@ -32,3 +32,32 @@
     -ms-user-select: none; /* IE 10+ */
     user-select: none;
 }
+
+@mixin ellipsis-2 {
+    @extend %ellipsis-2;
+}
+
+@mixin ellipsis-3 {
+    @extend %ellipsis-3;
+}
+
+@mixin ellipsis-4 {
+    @extend %ellipsis-4;
+}
+
+// Hover States Mixins
+@mixin hover-link {
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        color: var(--blue-500);
+    }
+}
+
+@mixin hover-scale($scale: 1.05) {
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale($scale);
+    }
+}

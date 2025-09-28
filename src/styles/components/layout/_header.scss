@@ -218,7 +218,7 @@
                         color: var(--text-primary);
                         text-decoration: none;
                         font-size: var(--text-body);
-                        font-weight: var(--font-regular);
+                        font-weight: var(--font-normal);
                         transition: all 0.3s ease-in-out;
 
                         &:hover {
@@ -308,7 +308,7 @@
             color: var(--text-primary);
             text-decoration: none;
             font-size: var(--text-body);
-            font-weight: var(--font-regular);
+            font-weight: var(--font-normal);
             transition: all 0.3s ease-in-out;
             cursor: pointer;
             text-align: left;
@@ -535,7 +535,7 @@
             padding-left: 8px;
             text-decoration: none;
             font-size: var(--text-small);
-            font-weight: var(--font-regular);
+            font-weight: var(--font-normal);
             transition: all 0.3s ease-in-out;
 
             &:hover {

@@ -87,3 +87,15 @@
         }
     }
 }
+
+// ReadMore Button Hover Mixin
+@mixin btn-readmore-hover($context: "&") {
+    #{$context} {
+        .btn-readmore__text {
+            color: var(--blue-500);
+        }
+        .btn-readmore__icon {
+            transform: rotate(90deg) scale(1.2);
+        }
+    }
+}

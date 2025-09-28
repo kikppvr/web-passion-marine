@@ -17,7 +17,7 @@
     background-color: var(--blue-500);
     color: var(--text-white);
     font-size: var(--text-body);
-    font-weight: var(--font-regular);
+    font-weight: var(--font-normal);
     line-height: 1.4;
     border-radius: 40px;
     padding: 8px 24px;
@@ -90,5 +90,12 @@
         .btn-booknow__icon {
             color: var(--text-white);
         }
+    }
+}
+
+// BookNow Button Hover Mixin
+@mixin btn-booknow-hover($context: "&") {
+    #{$context} {
+        background-color: var(--blue-700);
     }
 }

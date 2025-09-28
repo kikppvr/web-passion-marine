@@ -92,3 +92,17 @@
         }
     }
 }
+
+// ViewAll Button Hover Mixin
+@mixin btn-viewall-hover {
+    &:hover {
+        .btn-viewall__text {
+            color: var(--blue-300);
+            transform: translateX(4px);
+        }
+
+        .btn-viewall__icon {
+            color: var(--blue-300);
+        }
+    }
+}

@@ -28,6 +28,7 @@
 
 // Card Components
 @use "components/cards/_card-charter" as card-charter;
+@use "components/cards/_card-news" as card-news;
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;
