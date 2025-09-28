@@ -30,19 +30,55 @@ export default function BusinessCardPage() {
         {
             title: "Boat Upgrades",
             image: "/images/business/business-02.webp",
-            video: "/videos/business/boat-upgrades.mp4",
+            video: "/videos/business/video-02.mp4",
             href: "/comingsoon",
         },
         {
             title: "Electronics & Solar",
             image: "/images/business/business-03.webp",
-            video: "/videos/business/electronics-solar.mp4",
+            video: "/videos/business/video-03.mp4",
             href: "/comingsoon",
         },
         {
-            title: "Structure",
+            title: "Structure Repair",
             image: "/images/business/business-04.webp",
-            video: "/videos/business/structure.mp4",
+            video: "/videos/business/video-04.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Custom Boat Design",
+            image: "/images/business/business-05.webp",
+            video: "/videos/business/video-05.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Teak & EVA Flooring",
+            image: "/images/business/business-06.webp",
+            video: "/videos/business/video-06.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Marine Upholstery",
+            image: "/images/business/business-07.webp",
+            video: "/videos/business/video-07.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Gelcoat Repair & Finishing",
+            image: "/images/business/business-08.webp",
+            video: "/videos/business/video-08.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Fiberglass Furniture",
+            image: "/images/business/business-09.webp",
+            video: "/videos/business/video-09.mp4",
+            href: "/comingsoon",
+        },
+        {
+            title: "Interior Styling",
+            image: "/images/business/business-10.webp",
+            video: "/videos/business/video-10.mp4",
             href: "/comingsoon",
         },
     ];
@@ -64,7 +100,7 @@ export default function BusinessCardPage() {
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
                         Business Services
                     </h2>
-                    <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4'>
+                    <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {businessData.map((business, index) => (
                             <BusinessCard
                                 key={index}

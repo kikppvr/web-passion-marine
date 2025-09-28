@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 export interface BusinessCardProps {
     className?: string;
@@ -13,8 +14,26 @@ export interface BusinessCardProps {
 }
 
 const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCardProps) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const handleMouseEnter = () => {
+        if (videoRef.current && video) {
+            videoRef.current.play().catch(console.error);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (videoRef.current && video) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+    };
+
     return (
-        <div className={cn("card-business", className)}>
+        <div
+            className={cn("card-business", className)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
             <Link href={href} className='card-business__link'>
                 <div className='card-business__icon'>
                     <Image
@@ -25,25 +44,32 @@ const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCa
                         className='card-business__icon-image'
                     />
                 </div>
-                <div className='card-business__image-container'>
-                    <Image
-                        src={image}
-                        alt={title}
-                        width={400}
-                        height={300}
-                        className='card-business__image'
-                    />
+
+                <div className='card-business__image-container-wrapper'>
+                    <div className='card-business__image-container'>
+                        <Image
+                            src={image}
+                            alt={title}
+                            width={400}
+                            height={300}
+                            className='card-business__image'
+                        />
+                        <div className='card-business__overlay'></div>
+                    </div>
                     {video && (
-                        <video
-                            className='card-business__video'
-                            muted
-                            loop
-                            playsInline
-                            preload='metadata'>
-                            <source src={video} type='video/mp4' />
-                        </video>
+                        <div className='card-business__video-container'>
+                            <video
+                                ref={videoRef}
+                                className='card-business__video'
+                                muted
+                                loop
+                                playsInline
+                                preload='metadata'>
+                                <source src={video} type='video/mp4' />
+                            </video>
+                            <div className='card-business__overlay'></div>
+                        </div>
                     )}
-                    <div className='card-business__overlay'></div>
                 </div>
 
                 <div className='card-business__content'>
