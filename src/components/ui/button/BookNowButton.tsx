@@ -9,7 +9,7 @@ export interface BookNowButtonProps extends React.ButtonHTMLAttributes<HTMLButto
 
 const BookNowButton = React.forwardRef<HTMLButtonElement, BookNowButtonProps>(
     ({ className, children, icon, variant = "default", ...props }, ref) => {
-        const defaultIcon = "ph-bold ph-calendar-check";
+        const defaultIcon = "ph ph-calendar-check";
         const iconClass = icon || defaultIcon;
 
         const buttonClasses = cn(
