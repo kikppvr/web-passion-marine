@@ -14,22 +14,17 @@
     cursor: pointer;
 
     &:hover {
-        // transform: translateY(-8px);
-        // box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        .card-business__image {
+            opacity: 0;
+        }
 
-        // .card-business__image,
-        // img {
-        //     transform: scale(1.1);
-        //     animation: videoShake 0.6s ease-in-out infinite;
-        // }
+        .card-business__video {
+            opacity: 1;
+        }
 
         .card-business__icon-image {
             transform: rotate(130deg);
         }
-
-        // .card-business__title {
-        //     transform: translateY(-2px);
-        // }
     }
 
     .card-business__link {
@@ -53,7 +48,21 @@
             width: 100%;
             height: 100%;
             border: 0;
-            transition: transform 0.6s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .card-business__video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1;
         }
 
         .card-business__overlay {

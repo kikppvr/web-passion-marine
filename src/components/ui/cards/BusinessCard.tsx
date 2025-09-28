@@ -8,10 +8,11 @@ export interface BusinessCardProps {
     className?: string;
     title: string;
     image: string;
+    video?: string;
     href?: string;
 }
 
-const BusinessCard = ({ className, title, image, href = "#" }: BusinessCardProps) => {
+const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCardProps) => {
     return (
         <div className={cn("card-business", className)}>
             <Link href={href} className='card-business__link'>
@@ -32,6 +33,16 @@ const BusinessCard = ({ className, title, image, href = "#" }: BusinessCardProps
                         height={300}
                         className='card-business__image'
                     />
+                    {video && (
+                        <video
+                            className='card-business__video'
+                            muted
+                            loop
+                            playsInline
+                            preload='metadata'>
+                            <source src={video} type='video/mp4' />
+                        </video>
+                    )}
                     <div className='card-business__overlay'></div>
                 </div>
 

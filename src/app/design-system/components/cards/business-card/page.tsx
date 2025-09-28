@@ -24,21 +24,25 @@ export default function BusinessCardPage() {
         {
             title: "Engine Repair & Maintenance",
             image: "/images/business/business-01.webp",
+            video: "/videos/business/video-01.mp4",
             href: "/comingsoon",
         },
         {
             title: "Boat Upgrades",
             image: "/images/business/business-02.webp",
+            video: "/videos/business/boat-upgrades.mp4",
             href: "/comingsoon",
         },
         {
             title: "Electronics & Solar",
             image: "/images/business/business-03.webp",
+            video: "/videos/business/electronics-solar.mp4",
             href: "/comingsoon",
         },
         {
             title: "Structure",
             image: "/images/business/business-04.webp",
+            video: "/videos/business/structure.mp4",
             href: "/comingsoon",
         },
     ];
@@ -66,6 +70,7 @@ export default function BusinessCardPage() {
                                 key={index}
                                 title={business.title}
                                 image={business.image}
+                                video={business.video}
                                 href={business.href}
                             />
                         ))}
@@ -129,6 +134,24 @@ export default function BusinessCardPage() {
                                     </td>
                                     <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
                                         Background image URL
+                                    </td>
+                                </tr>
+                                <tr className='transition-colors hover:bg-gray-50'>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        <code className='rounded bg-gray-100 px-2 py-1 font-mono text-xs text-blue-600'>
+                                            video
+                                        </code>
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        <code className='rounded bg-gray-100 px-2 py-1 font-mono text-xs text-blue-600'>
+                                            string
+                                        </code>
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        -
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        Video URL for hover effect
                                     </td>
                                 </tr>
                                 <tr className='transition-colors hover:bg-gray-50'>
