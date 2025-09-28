@@ -81,8 +81,12 @@ export default function ComponentsPage() {
             color: "from-green-500 to-emerald-500",
             description: "การ์ดสำหรับแสดงเนื้อหา",
             components: [
+                {
+                    name: "Charter Card",
+                    status: "ready",
+                    path: "/design-system/components/cards/charter-card",
+                },
                 { name: "News Card", status: "planned", path: "#" },
-                { name: "Charter Card", status: "planned", path: "#" },
                 { name: "Service Card", status: "planned", path: "#" },
                 { name: "Testimonial Card", status: "planned", path: "#" },
             ],
@@ -188,7 +192,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>21</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>22</h3>
                                     <p className='text-sm text-gray-600'>Components</p>
                                 </div>
                             </div>
@@ -201,7 +205,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>7</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>8</h3>
                                     <p className='text-sm text-gray-600'>Ready</p>
                                 </div>
                             </div>
@@ -214,7 +218,7 @@ export default function ComponentsPage() {
                                         style={{ fontSize: "24px" }}></i>
                                 </div>
                                 <div className='ml-4'>
-                                    <h3 className='text-lg font-semibold text-gray-900'>9</h3>
+                                    <h3 className='text-lg font-semibold text-gray-900'>8</h3>
                                     <p className='text-sm text-gray-600'>Planned</p>
                                 </div>
                             </div>
