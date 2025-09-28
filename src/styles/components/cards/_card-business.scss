@@ -14,11 +14,11 @@
     cursor: pointer;
 
     &:hover {
-        .card-business__image {
+        .card-business__image-container {
             opacity: 0;
         }
 
-        .card-business__video {
+        .card-business__video-container {
             opacity: 1;
         }
 
@@ -36,6 +36,13 @@
         position: relative;
     }
 
+    .card-business__image-container-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 5px 5px 0 0;
+    }
+
     // Image Container
     .card-business__image-container {
         position: relative;
@@ -43,26 +50,50 @@
         overflow: hidden;
         border-radius: 5px 5px 0 0;
         @include image.baseRatioImg(140%);
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
 
         .card-business__image {
             width: 100%;
             height: 100%;
             border: 0;
-            transition: opacity 0.3s ease-in-out;
-            opacity: 1;
         }
 
-        .card-business__video {
+        .card-business__overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                transparent 100%
+            );
+            z-index: 2;
+        }
+    }
+
+    // Video Container
+    .card-business__video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 5px 5px 0 0;
+        // @include image.baseRatioImg(140%);
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+        z-index: 1;
+
+        .card-business__video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            z-index: 1;
         }
 
         .card-business__overlay {
