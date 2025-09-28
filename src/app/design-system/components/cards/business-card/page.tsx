@@ -100,7 +100,7 @@ export default function BusinessCardPage() {
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
                         Business Services
                     </h2>
-                    <div className='grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-4'>
+                    <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {businessData.map((business, index) => (
                             <BusinessCard
                                 key={index}
