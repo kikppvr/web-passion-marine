@@ -1,0 +1,124 @@
+@use "../../base/image" as image;
+
+// Business Card Component Styles
+.card-business {
+    position: relative;
+    background-color: var(--white);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        .card-business__image {
+            opacity: 0;
+        }
+
+        .card-business__video {
+            opacity: 1;
+        }
+
+        .card-business__icon-image {
+            transform: rotate(130deg);
+        }
+    }
+
+    .card-business__link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        position: relative;
+    }
+
+    // Image Container
+    .card-business__image-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 5px 5px 0 0;
+        @include image.baseRatioImg(140%);
+
+        .card-business__image {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .card-business__video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1;
+        }
+
+        .card-business__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                transparent 100%
+            );
+            z-index: 2;
+        }
+    }
+
+    // Content Section
+    .card-business__content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 32px;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    // Icon Section
+    .card-business__icon {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4;
+    }
+
+    .card-business__icon-image {
+        width: 48px;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    // Title Section
+    .card-business__title {
+        flex: 1;
+        font-size: var(--text-h3);
+        font-weight: var(--font-semibold);
+        color: var(--text-white);
+        line-height: 1.3;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+}

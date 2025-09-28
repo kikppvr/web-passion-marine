@@ -48,3 +48,24 @@
         padding-top: $ratio; /* initial ratio of 1:1*/
     }
 }
+
+// Mixin สำหรับ Next.js Image component
+@mixin nextImageRatio($ratio: 100%) {
+    position: relative;
+    overflow: hidden;
+
+    // สำหรับ Next.js Image component
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &:before {
+        position: relative;
+        content: "";
+        display: block;
+        padding-top: $ratio;
+    }
+}
