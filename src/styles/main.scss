@@ -5,12 +5,13 @@
 // Import Base Styles
 @use "base/_colors" as colors;
 @use "base/_text" as text;
-@use "base/_base" as base;
+@use "base/_base" as *;
 @use "base/_utility" as utility;
 @use "base/_input" as input;
 @use "base/_modal-base" as modal;
 @use "base/_display" as display;
 @use "base/_image" as image;
+// Container mixin is now in _base.scss
 
 // Import Component Styles
 // Button Components
@@ -23,8 +24,12 @@
 @use "components/layout/_header" as header;
 @use "components/layout/_footer" as footer;
 
+// Home Page Sections
+@use "components/home" as home-sections;
+
 // Media Components
 @use "components/media/_video-hero-banner" as video-hero-banner;
+@use "components/media/_business-card-swiper" as business-card-swiper;
 
 // Card Components
 @use "components/cards/_card-charter" as card-charter;

@@ -3,7 +3,7 @@
 @use "../../base/utility" as utility;
 @use "../../base/display" as display;
 @use "../../base/scrollbar" as scrollbar;
-@use "../../base/base" as base;
+@use "../../base/_base" as base;
 
 // ========================================
 // HEADER COMPONENT STYLES
@@ -17,19 +17,19 @@
     transition: all 0.3s ease-in-out;
 
     // Laptop screens
-    @include base.max-laptop {
+    @include base.media-down(laptop) {
         width: 140px;
         height: 39px;
     }
 
     // Tablet screens
-    @include base.max-tablet {
+    @include base.media-down(tablet) {
         width: 120px;
         height: 33px;
     }
 
     // Mobile screens
-    @include base.max-mobile {
+    @include base.media-down(mobile) {
         width: 100px;
         height: 28px;
     }
@@ -109,20 +109,17 @@
     }
 
     .header__container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 var(--space-6);
+        @include base.container;
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 94px;
 
-        @include base.max-laptop {
+        @include base.media-down(laptop) {
             height: 80px;
-            padding: 0 var(--space-4);
         }
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             height: 60px;
         }
     }
@@ -277,7 +274,7 @@
     .header__language-dropdown {
         position: fixed;
         top: 60px;
-        left: 138px;
+        left: 500px;
         background-color: var(--white);
         border-radius: 8px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -288,9 +285,22 @@
         z-index: 1001;
         overflow: hidden;
 
-        @include base.max-laptop {
+        @include base.media-down(large) {
+            left: 78px;
+        }
+
+        @include base.media-down(laptop) {
+            left: 45px;
+        }
+
+        @include base.media-down(tablet) {
             top: 55px;
-            left: 10px;
+            left: 30px;
+        }
+
+        @include base.media-down(mobile) {
+            top: 45px;
+            left: 5px;
         }
 
         &.header__language-dropdown--open {
@@ -364,7 +374,7 @@
             color: var(--blue-500);
             transition: all 0.3s ease-in-out;
 
-            @include base.max-mobile {
+            @include base.media-down(mobile) {
                 display: none;
             }
         }
@@ -425,13 +435,16 @@
         visibility: hidden;
         transition: all 0.3s ease-in-out;
 
-        @include base.max-laptop {
+        @include base.media-down(laptop) {
             top: 80px;
+        }
+
+        @include base.media-down(tablet) {
             width: 100%;
             height: auto;
         }
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             top: 60px;
         }
 
@@ -450,12 +463,12 @@
             overflow-y: scroll;
             @include scrollbar.hide-scrollbar();
 
-            @include base.max-laptop {
+            @include base.media-down(tablet) {
                 max-height: 100vh;
-                padding: 16px;
+                padding: 16px 48px;
             }
 
-            @include base.max-mobile {
+            @include base.media-down(mobile) {
                 padding: 16px 16px 100px 16px;
             }
         }

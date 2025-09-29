@@ -1,58 +1,126 @@
-$zindex-dropdown: 1000;
-$zindex-sticky: 1020;
-$zindex-fixed: 1030;
-$zindex-modal-backdrop: 1040;
-$zindex-modal: 1050;
-$zindex-popover: 1060;
-$zindex-tooltip: 1070;
+// ========================================
+// Z-INDEX SCALE
+// ========================================
+$z-index-scale: (
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    modal-backdrop: 1040,
+    modal: 1050,
+    popover: 1060,
+    tooltip: 1070,
+);
 
-$topbar-height: 56px;
-$menu-height: 61px;
+@function z($layer) {
+    @return map-get($z-index-scale, $layer);
+}
 
-$max-width-mini-mobile: 320px;
-$max-width-mobile: 575px;
-$max-width-tablet: 768px;
-$max-width-laptop: 1024px;
-$max-width-desktop: 1200px;
-$max-width-large-desktop: 1440px;
+// ========================================
+// DIMENSIONS
+// ========================================
+:root {
+    --topbar-h: clamp(48px, 6.5vh, 56px);
+    --menu-h: clamp(52px, 7vh, 61px);
+    --safe-top: env(safe-area-inset-top);
+    --safe-bot: env(safe-area-inset-bottom);
+}
 
-@mixin max-mini-mobile {
-    @media (max-width: $max-width-mini-mobile) {
+// ========================================
+// BREAKPOINTS (desktop-first)
+// ========================================
+$breakpoints: (
+    mini-mobile: 320px,
+    mobile: 576px,
+    tablet: 768px,
+    laptop: 1024px,
+    desktop: 1200px,
+    large: 1440px,
+    ultra: 1536px,
+    wide: 1920px,
+    ultra-wide: 2560px,
+) !default;
+
+@function breakpoint($name) {
+    @return map-get($breakpoints, $name);
+}
+
+// Desktop-first media helpers
+@mixin media-down($name) {
+    @media (max-width: breakpoint($name)) {
         @content;
     }
 }
 
-@mixin max-mobile {
-    @media (max-width: $max-width-mobile) {
+@mixin media-up($name) {
+    @media (min-width: breakpoint($name)) {
         @content;
     }
 }
 
-@mixin max-tablet {
-    @media (max-width: $max-width-tablet) {
+@mixin media-between($lower, $upper) {
+    @media (min-width: breakpoint($lower)) and (max-width: breakpoint($upper)) {
         @content;
     }
 }
 
-@mixin max-laptop {
-    @media (max-width: $max-width-laptop) {
+// ========================================
+// CONTAINER
+@mixin container {
+    max-width: 1600px; // สำหรับจอ 4K (>=2560px)
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+
+    // <= 1920px (Wide desktop / WQHD)
+    @include media-down(wide) {
+        max-width: 1440px;
+    }
+
+    // <= 1440px (Large desktop)
+    @include media-down(large) {
+        max-width: 1320px; // ✅ ปรับจาก 1440 → 1320px
+    }
+
+    // <= 1200px (Desktop)
+    @include media-down(desktop) {
+        max-width: 1200px;
+    }
+
+    // <= 1024px (Laptop)
+    @include media-down(laptop) {
+        max-width: 960px;
+        padding: 0 var(--space-4);
+    }
+
+    // <= 768px (Tablet)
+    @include media-down(tablet) {
+        max-width: 720px;
+        padding: 0 var(--space-3);
+    }
+
+    // <= 576px (Mobile ใหญ่)
+    @include media-down(mobile) {
+        max-width: 540px;
+        padding: 0 var(--space-2);
+    }
+
+    // <= 320px (Mobile เล็กสุด)
+    @include media-down(mini-mobile) {
+        max-width: 300px;
+        padding: 0 var(--space-1);
+    }
+}
+
+// ========================================
+// ACCESSIBILITY UTILITIES
+// ========================================
+@mixin reduce-motion {
+    @media (prefers-reduced-motion: reduce) {
         @content;
     }
 }
 
-@mixin max-desktop {
-    @media (max-width: $max-width-desktop) {
+@mixin retina {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         @content;
     }
 }
-
-@mixin max-large-desktop {
-    @media (max-width: $max-width-large-desktop) {
-        @content;
-    }
-}
-
-// Logo responsive classes
-// Moved to component-specific files:
-// - Header: .header__logo-responsive in _header.scss
-// - Footer: .footer__logo-responsive in _footer.scss
