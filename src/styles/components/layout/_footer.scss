@@ -12,19 +12,19 @@
     transition: all 0.3s ease-in-out;
 
     // Laptop screens
-    @include base.max-laptop {
+    @include base.media-down(laptop) {
         width: 180px;
         height: 50px;
     }
 
     // Tablet screens
-    @include base.max-tablet {
+    @include base.media-down(tablet) {
         width: 160px;
         height: 44px;
     }
 
     // Mobile screens
-    @include base.max-mobile {
+    @include base.media-down(mobile) {
         width: 140px;
         height: 39px;
     }
@@ -37,8 +37,7 @@
     color: var(--text-white);
 
     .footer__container {
-        max-width: 1200px;
-        margin: 0 auto;
+        @include base.container;
         padding: 40px 24px 0 24px;
         position: relative;
         z-index: 2;
@@ -51,7 +50,7 @@
         padding: 40px 0 54px 0;
         position: relative;
 
-        @include base.max-laptop {
+        @include base.media-down(tablet) {
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
                 "company contact"
@@ -73,7 +72,7 @@
             }
         }
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             grid-template-columns: 1fr;
             grid-template-areas:
                 "company"
@@ -109,7 +108,7 @@
         line-height: 1.6;
         color: var(--text-white);
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             font-size: var(--text-small);
         }
     }
@@ -130,7 +129,7 @@
         display: flex;
         gap: var(--space-1);
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             font-size: var(--text-small);
         }
 
@@ -147,7 +146,7 @@
             text-decoration: none;
             transition: all 0.3s ease-in-out;
 
-            @include base.max-mobile {
+            @include base.media-down(mobile) {
                 font-size: var(--text-small);
             }
         }
@@ -216,7 +215,7 @@
                 transition: all 0.3s ease-in-out;
             }
 
-            @include base.max-mobile {
+            @include base.media-down(mobile) {
                 font-size: var(--text-small);
             }
         }
@@ -260,7 +259,7 @@
             z-index: 1;
         }
 
-        @include base.max-tablet {
+        @include base.media-down(tablet) {
             top: 35px;
         }
     }
@@ -284,12 +283,12 @@
         width: 420px;
         height: 100%;
 
-        @include base.max-tablet {
+        @include base.media-down(tablet) {
             top: -30px;
             width: 450px;
         }
 
-        @include base.max-mobile {
+        @include base.media-down(mobile) {
             top: auto;
             width: 250px;
             bottom: -195px;

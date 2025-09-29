@@ -1,6 +1,6 @@
 "use client";
 
-import { BusinessCard } from "@/components/ui/cards/BusinessCard";
+import { BusinessCardSwiper } from "@/components/ui/media";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
@@ -98,19 +98,14 @@ export default function BusinessCardPage() {
 
                 <div className='mb-16'>
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
-                        Business Services
+                        Business Services (Default)
                     </h2>
-                    <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                        {businessData.map((business, index) => (
-                            <BusinessCard
-                                key={index}
-                                title={business.title}
-                                image={business.image}
-                                video={business.video}
-                                href={business.href}
-                            />
-                        ))}
-                    </div>
+                    <BusinessCardSwiper
+                        data={businessData}
+                        autoplay={false}
+                        showNavigation={false}
+                        showPagination={false}
+                    />
                 </div>
 
                 <div className='mb-16'>
@@ -213,7 +208,7 @@ export default function BusinessCardPage() {
                                 <tr className='transition-colors hover:bg-gray-50'>
                                     <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
                                         <code className='rounded bg-gray-100 px-2 py-1 font-mono text-xs text-blue-600'>
-                                            className
+                                            slideClassName
                                         </code>
                                     </td>
                                     <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
@@ -222,10 +217,28 @@ export default function BusinessCardPage() {
                                         </code>
                                     </td>
                                     <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        &quot;&quot;
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        Additional CSS classes for each SwiperSlide
+                                    </td>
+                                </tr>
+                                <tr className='transition-colors hover:bg-gray-50'>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        <code className='rounded bg-gray-100 px-2 py-1 font-mono text-xs text-blue-600'>
+                                            renderSlide
+                                        </code>
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
+                                        <code className='rounded bg-gray-100 px-2 py-1 font-mono text-xs text-blue-600'>
+                                            function
+                                        </code>
+                                    </td>
+                                    <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
                                         -
                                     </td>
                                     <td className='border-b border-gray-200 px-6 py-4 text-sm text-gray-600'>
-                                        Additional CSS classes
+                                        Custom render function for each slide
                                     </td>
                                 </tr>
                             </tbody>

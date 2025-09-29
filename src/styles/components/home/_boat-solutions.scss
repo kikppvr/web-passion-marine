@@ -1,0 +1,46 @@
+@use "../../base/_base" as base;
+
+.boat-solutions {
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    @include base.media-down(laptop) {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    @include base.media-down(tablet) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+}
+
+.boat-solutions__container {
+    width: 100%;
+    margin: 0;
+}
+
+.boat-solutions__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include base.container;
+}
+
+.boat-solutions__title {
+    font-size: 48px;
+    font-weight: var(--font-semibold);
+    color: var(--blue-500);
+    margin-bottom: 0;
+}
+
+.boat-solutions__button {
+    @include base.media-down(mobile) {
+        display: none;
+    }
+}
+
+.boat-solutions__swiper {
+    @include base.container;
+    margin-top: 24px;
+}
