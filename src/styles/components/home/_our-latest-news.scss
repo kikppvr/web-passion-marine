@@ -3,7 +3,6 @@
 
 .our-latest-news {
     @include base.section-padding;
-    padding-top: 0;
     position: relative;
 }
 
@@ -31,18 +30,6 @@
     @include fonts.text-h1;
     color: var(--blue-500);
     margin-bottom: 0;
-
-    @include base.media-down(laptop) {
-        @include fonts.text-h2;
-    }
-
-    @include base.media-down(tablet) {
-        @include fonts.text-h3;
-    }
-
-    @include base.media-down(mobile) {
-        @include fonts.text-h4;
-    }
 }
 
 .our-latest-news__button {

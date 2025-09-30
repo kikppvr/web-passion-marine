@@ -1,0 +1,389 @@
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
+
+.our-portfolio {
+    @include base.section-padding;
+    // padding-top: 0;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/images/home/portfolio/bg-our-portfolio.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.our-portfolio__container {
+    @include base.container;
+    position: relative;
+    z-index: 2;
+}
+
+.our-portfolio__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include base.media-down(mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    @include base.media-down(mobile) {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+}
+
+.our-portfolio__title {
+    @include fonts.text-h1;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.our-portfolio__button {
+    flex-shrink: 0;
+
+    @include base.media-down(mobile) {
+        display: none;
+    }
+}
+
+.our-portfolio__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-end;
+
+    @include base.media-down(tablet) {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+.our-portfolio__left {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include base.media-down(laptop) {
+        flex: 0 0 40%;
+    }
+
+    @include base.media-down(tablet) {
+        flex: none;
+        width: 100%;
+        // order: 2;
+    }
+}
+
+.our-portfolio__right {
+    flex: 0 0 50%;
+    min-width: 0;
+
+    @include base.media-down(tablet) {
+        flex: none;
+        width: 100%;
+        // order: 1;
+    }
+}
+
+.our-portfolio__swiper {
+    position: relative;
+}
+
+// Stats Section
+.our-portfolio__stats {
+    display: flex;
+    gap: 12px;
+}
+
+.our-portfolio__stat-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2.5px);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: left;
+}
+
+.our-portfolio__stat-number {
+    @include fonts.text-h2;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.our-portfolio__stat-label {
+    @include fonts.text-h6;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+// Customer Reviews Section
+.our-portfolio__reviews {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2.5px);
+    border-radius: 20px;
+    padding: 16px 22px;
+}
+
+.our-portfolio__customer-avatars {
+    display: flex;
+    gap: 4px;
+    position: relative;
+    width: auto;
+    height: 44px;
+}
+
+.our-portfolio__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+
+    &:nth-child(1) {
+        z-index: 2;
+    }
+
+    &:nth-child(2) {
+        z-index: 3;
+        margin-left: -20px;
+    }
+
+    &:nth-child(3) {
+        z-index: 4;
+        margin-left: -20px;
+    }
+
+    &:nth-child(4) {
+        z-index: 5;
+        margin-left: -20px;
+    }
+
+    &:nth-child(5) {
+        z-index: 6;
+        margin-left: -20px;
+    }
+}
+
+.our-portfolio__rating {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.our-portfolio__stars {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.our-portfolio__star {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: var(--blue-500);
+}
+
+.our-portfolio__rating-text {
+    @include fonts.text-h6;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.our-portfolio__review-count {
+    @include fonts.text-h6;
+    font-weight: var(--font-normal);
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+// Our Portfolio Swiper Styles
+.swiper-slider-container.our-portfolio-swiper {
+    @include base.container;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+
+    .swiper-slide {
+        height: auto;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .swiper-slider {
+        height: auto;
+        overflow: visible;
+
+        @include base.media-down(tablet) {
+            padding-bottom: 40px;
+        }
+    }
+
+    .swiper-navigation-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+        pointer-events: none;
+
+        @include base.media-down(tablet) {
+            position: absolute;
+            bottom: 0;
+            left: auto;
+            right: 38px;
+            top: auto;
+            transform: none;
+            opacity: 1;
+            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            z-index: 5;
+            width: 80px;
+        }
+
+        @include base.media-down(mobile) {
+            right: 16px;
+        }
+    }
+
+    .swiper-button-next-custom,
+    .swiper-button-prev-custom {
+        color: var(--white);
+        background: var(--blue-500);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        pointer-events: auto;
+
+        i {
+            font-size: 18px;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        @include base.media-down(tablet) {
+            position: absolute;
+            top: 50%;
+            width: 36px;
+            height: 36px;
+            transform: translateY(-50%);
+            background: var(--white);
+            i {
+                color: var(--blue-500);
+            }
+        }
+
+        &:hover {
+            background: var(--white);
+
+            i {
+                color: var(--blue-500);
+            }
+        }
+    }
+
+    .swiper-button-prev-custom {
+        @include base.media-down(tablet) {
+            left: 0;
+        }
+    }
+
+    .swiper-button-next-custom {
+        @include base.media-down(tablet) {
+            right: 0;
+        }
+    }
+
+    .swiper-pagination-wrapper {
+        @include base.media-down(tablet) {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+    }
+
+    .swiper-pagination {
+        text-align: left;
+        display: none;
+
+        @include base.media-down(tablet) {
+            display: block !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            bottom: -30px !important;
+            transform: none !important;
+            margin: 0 !important;
+            width: auto !important;
+            z-index: auto !important;
+            height: 30px;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--white);
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        transition: all 0.3s ease;
+
+        &.swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        @include base.media-down(tablet) {
+            background: var(--white);
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
+    }
+}
