@@ -2,7 +2,7 @@
 
 import { Header } from "@/components/ui/layout";
 import { VideoHeroBanner, SwiperSlider } from "@/components/ui/media";
-import { BusinessCard, CharterCard } from "@/components/ui/cards";
+import { BusinessCard, CharterCard, NewsCard } from "@/components/ui/cards";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -118,6 +118,31 @@ export default function HeaderPage() {
             passengerUnit: "Passenger",
             restrooms: "1",
             restroomUnit: "Restroom",
+            href: "/comingsoon",
+        },
+    ];
+
+    // Our Latest News data
+    const ourLatestNewsData = [
+        {
+            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            date: "16 December 2024",
+            image: "/images/news/news-01.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            date: "16 December 2024",
+            image: "/images/news/news-02.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            date: "16 December 2024",
+            image: "/images/news/news-03.webp",
+            video: "",
             href: "/comingsoon",
         },
     ];
@@ -240,7 +265,7 @@ export default function HeaderPage() {
                 <div className='boat-solutions__container'>
                     <div className='boat-solutions__header'>
                         <h2 className='boat-solutions__title'>Boat Solutions</h2>
-                        <div className='boat-solutions__button'>
+                        <div className='boat-solutions__button boat-solutions__button--desktop'>
                             <PrimaryButton>Overview Services</PrimaryButton>
                         </div>
                     </div>
@@ -265,6 +290,9 @@ export default function HeaderPage() {
                             }}
                         />
                     </div>
+                    <div className='boat-solutions__button boat-solutions__button--mobile'>
+                        <PrimaryButton>Overview Services</PrimaryButton>
+                    </div>
                 </div>
             </section>
 
@@ -272,7 +300,7 @@ export default function HeaderPage() {
                 <div className='easy-boat-rental__container'>
                     <div className='easy-boat-rental__header'>
                         <h2 className='easy-boat-rental__title'>Easy Boat Rental for Every Trip</h2>
-                        <div className='easy-boat-rental__button'>
+                        <div className='easy-boat-rental__button easy-boat-rental__button--desktop'>
                             <PrimaryButton>View All</PrimaryButton>
                         </div>
                     </div>
@@ -296,6 +324,9 @@ export default function HeaderPage() {
                                 desktop: 32,
                             }}
                         />
+                    </div>
+                    <div className='easy-boat-rental__button easy-boat-rental__button--mobile'>
+                        <PrimaryButton>View All</PrimaryButton>
                     </div>
                 </div>
             </section>
@@ -367,6 +398,41 @@ export default function HeaderPage() {
                                 </div>
                             )}
                         />
+                    </div>
+                </div>
+            </section>
+
+            <section className='our-latest-news'>
+                <div className='our-latest-news__container'>
+                    <div className='our-latest-news__header'>
+                        <h2 className='our-latest-news__title'>Our Latest News</h2>
+                        <div className='our-latest-news__button our-latest-news__button--desktop'>
+                            <PrimaryButton>View All</PrimaryButton>
+                        </div>
+                    </div>
+                    <div className='our-latest-news__swiper'>
+                        <SwiperSlider
+                            data={ourLatestNewsData}
+                            cardComponent={NewsCard}
+                            className='our-latest-news-swiper'
+                            autoplay={false}
+                            autoplayDelay={4000}
+                            showNavigation={true}
+                            showPagination={true}
+                            slidesPerView={{
+                                mobile: 1,
+                                tablet: 2,
+                                desktop: 3,
+                            }}
+                            spaceBetween={{
+                                mobile: 16,
+                                tablet: 24,
+                                desktop: 32,
+                            }}
+                        />
+                    </div>
+                    <div className='our-latest-news__button our-latest-news__button--mobile'>
+                        <PrimaryButton>View All</PrimaryButton>
                     </div>
                 </div>
             </section>
