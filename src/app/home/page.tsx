@@ -284,15 +284,15 @@ export default function HeaderPage() {
             {/* Video Hero Banner */}
             <VideoHeroBanner
                 videoSrc='/videos/banner/banner-home.mp4'
-                title='Passion Marine'
-                subtitle='Marine Services'
-                description='Professional marine services with safety and quality guaranteed'
-                showPlayButton={true}
+                title='Expert Boat Solutions,'
+                subtitle='Powered by Passion'
+                description=''
+                showPlayButton={false}
                 autoPlay={true}
                 muted={true}
                 loop={true}
-                overlay={true}
-                overlayOpacity={0.4}
+                overlay={false}
+                overlayOpacity={0}
                 preload='auto'
                 lazyLoad={false}
                 priority={true}
