@@ -5,7 +5,6 @@
     @include base.section-padding;
     // padding-top: 0;
     position: relative;
-    background: linear-gradient(180deg, rgba(28, 69, 131, 0.8) 0%, rgba(28, 69, 131, 0.9) 100%);
     overflow: hidden;
 
     &::before {
@@ -15,7 +14,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("/images/portfolio/portfolio-01.webp") center/cover no-repeat;
+        background-image: url("/images/home/portfolio/bg-our-portfolio.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
         z-index: -1;
     }
 }
@@ -32,7 +36,7 @@
     align-items: center;
     margin-bottom: 40px;
 
-    @include base.media-down(tablet) {
+    @include base.media-down(mobile) {
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
@@ -49,18 +53,6 @@
     @include fonts.text-h1;
     color: var(--white);
     margin-bottom: 0;
-
-    @include base.media-down(laptop) {
-        @include fonts.text-h2;
-    }
-
-    @include base.media-down(tablet) {
-        @include fonts.text-h3;
-    }
-
-    @include base.media-down(mobile) {
-        @include fonts.text-h4;
-    }
 }
 
 .our-portfolio__button {
@@ -71,90 +63,126 @@
     }
 }
 
+.our-portfolio__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-end;
+
+    @include base.media-down(tablet) {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+.our-portfolio__left {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include base.media-down(laptop) {
+        flex: 0 0 40%;
+    }
+
+    @include base.media-down(tablet) {
+        flex: none;
+        width: 100%;
+        // order: 2;
+    }
+}
+
+.our-portfolio__right {
+    flex: 0 0 50%;
+    min-width: 0;
+
+    @include base.media-down(tablet) {
+        flex: none;
+        width: 100%;
+        // order: 1;
+    }
+}
+
 .our-portfolio__swiper {
     position: relative;
-    margin-top: 24px;
 }
 
 // Stats Section
 .our-portfolio__stats {
     display: flex;
-    gap: 24px;
-    margin-top: 40px;
-
-    @include base.media-down(tablet) {
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 32px;
-    }
-
-    @include base.media-down(mobile) {
-        gap: 12px;
-        margin-top: 24px;
-    }
+    gap: 12px;
 }
 
 .our-portfolio__stat-item {
     flex: 1;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2.5px);
     border-radius: 20px;
     padding: 24px;
-    text-align: center;
-
-    @include base.media-down(mobile) {
-        padding: 16px;
-    }
+    text-align: left;
 }
 
 .our-portfolio__stat-number {
     @include fonts.text-h2;
     color: var(--white);
     margin-bottom: 8px;
-
-    @include base.media-down(mobile) {
-        @include fonts.text-h3;
-    }
 }
 
 .our-portfolio__stat-label {
     @include fonts.text-h6;
     color: var(--white);
     margin-bottom: 0;
-
-    @include base.media-down(mobile) {
-        @include fonts.text-body;
-    }
 }
 
 // Customer Reviews Section
 .our-portfolio__reviews {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-top: 24px;
-
-    @include base.media-down(mobile) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
+    gap: 29px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2.5px);
+    border-radius: 20px;
+    padding: 16px 22px;
 }
 
 .our-portfolio__customer-avatars {
     display: flex;
     gap: 4px;
+    position: relative;
+    width: auto;
+    height: 44px;
 }
 
 .our-portfolio__avatar {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid var(--white);
     object-fit: cover;
+    position: relative;
+    z-index: 1;
 
-    &:not(:first-child) {
-        margin-left: -8px;
+    &:nth-child(1) {
+        z-index: 2;
+    }
+
+    &:nth-child(2) {
+        z-index: 3;
+        margin-left: -20px;
+    }
+
+    &:nth-child(3) {
+        z-index: 4;
+        margin-left: -20px;
+    }
+
+    &:nth-child(4) {
+        z-index: 5;
+        margin-left: -20px;
+    }
+
+    &:nth-child(5) {
+        z-index: 6;
+        margin-left: -20px;
     }
 }
 
@@ -166,14 +194,15 @@
 
 .our-portfolio__stars {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
 }
 
 .our-portfolio__star {
+    font-size: 20px;
     width: 20px;
     height: 20px;
-    fill: var(--white);
+    color: var(--blue-500);
 }
 
 .our-portfolio__rating-text {
@@ -184,7 +213,8 @@
 
 .our-portfolio__review-count {
     @include fonts.text-h6;
-    color: var(--grey-500);
+    font-weight: var(--font-normal);
+    color: var(--white);
     margin-bottom: 0;
 }
 

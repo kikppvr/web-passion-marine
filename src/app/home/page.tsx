@@ -458,89 +458,98 @@ export default function HeaderPage() {
                             <PrimaryButton theme='dark'>Explore More</PrimaryButton>
                         </div>
                     </div>
-                    <div className='our-portfolio__swiper'>
-                        <SwiperSlider
-                            data={ourPortfolioData}
-                            cardComponent={PortfolioCard}
-                            className='our-portfolio-swiper'
-                            autoplay={false}
-                            autoplayDelay={4000}
-                            showNavigation={true}
-                            showPagination={true}
-                            slidesPerView={{
-                                mobile: 1,
-                                tablet: 2,
-                                desktop: 3.5,
-                            }}
-                            spaceBetween={{
-                                mobile: 16,
-                                tablet: 24,
-                                desktop: 32,
-                            }}
-                        />
-                    </div>
 
-                    {/* Stats Section */}
-                    <div className='our-portfolio__stats'>
-                        <div className='our-portfolio__stat-item'>
-                            <div className='our-portfolio__stat-number'>120+</div>
-                            <div className='our-portfolio__stat-label'>Project</div>
-                        </div>
-                        <div className='our-portfolio__stat-item'>
-                            <div className='our-portfolio__stat-number'>80+</div>
-                            <div className='our-portfolio__stat-label'>Customer</div>
-                        </div>
-                    </div>
-
-                    {/* Customer Reviews */}
-                    <div className='our-portfolio__reviews'>
-                        <div className='our-portfolio__customer-avatars'>
-                            <Image
-                                src='/images/portfolio/portfolio-01.webp'
-                                alt='Customer 1'
-                                width={44}
-                                height={44}
-                                className='our-portfolio__avatar'
-                            />
-                            <Image
-                                src='/images/portfolio/portfolio-02.webp'
-                                alt='Customer 2'
-                                width={44}
-                                height={44}
-                                className='our-portfolio__avatar'
-                            />
-                            <Image
-                                src='/images/portfolio/portfolio-03.webp'
-                                alt='Customer 3'
-                                width={44}
-                                height={44}
-                                className='our-portfolio__avatar'
-                            />
-                            <Image
-                                src='/images/portfolio/portfolio-01.webp'
-                                alt='Customer 4'
-                                width={44}
-                                height={44}
-                                className='our-portfolio__avatar'
-                            />
-                            <Image
-                                src='/images/portfolio/portfolio-02.webp'
-                                alt='Customer 5'
-                                width={44}
-                                height={44}
-                                className='our-portfolio__avatar'
-                            />
-                        </div>
-                        <div className='our-portfolio__rating'>
-                            <div className='our-portfolio__stars'>
-                                <i className='ph ph-star-fill our-portfolio__star'></i>
-                                <i className='ph ph-star-fill our-portfolio__star'></i>
-                                <i className='ph ph-star-fill our-portfolio__star'></i>
-                                <i className='ph ph-star-fill our-portfolio__star'></i>
-                                <i className='ph ph-star our-portfolio__star'></i>
-                                <span className='our-portfolio__rating-text'>(5)</span>
+                    <div className='our-portfolio__content'>
+                        {/* Left Side - Stats and Reviews */}
+                        <div className='our-portfolio__left'>
+                            {/* Stats Section */}
+                            <div className='our-portfolio__stats'>
+                                <div className='our-portfolio__stat-item'>
+                                    <div className='our-portfolio__stat-number'>120+</div>
+                                    <div className='our-portfolio__stat-label'>Project</div>
+                                </div>
+                                <div className='our-portfolio__stat-item'>
+                                    <div className='our-portfolio__stat-number'>80+</div>
+                                    <div className='our-portfolio__stat-label'>Customer</div>
+                                </div>
                             </div>
-                            <div className='our-portfolio__review-count'>8K Review</div>
+
+                            {/* Customer Reviews */}
+                            <div className='our-portfolio__reviews'>
+                                <div className='our-portfolio__customer-avatars'>
+                                    <Image
+                                        src='/images/home/portfolio/review-01.webp'
+                                        alt='Customer 1'
+                                        width={44}
+                                        height={44}
+                                        className='our-portfolio__avatar'
+                                    />
+                                    <Image
+                                        src='/images/home/portfolio/review-02.webp'
+                                        alt='Customer 2'
+                                        width={44}
+                                        height={44}
+                                        className='our-portfolio__avatar'
+                                    />
+                                    <Image
+                                        src='/images/home/portfolio/review-03.webp'
+                                        alt='Customer 3'
+                                        width={44}
+                                        height={44}
+                                        className='our-portfolio__avatar'
+                                    />
+                                    <Image
+                                        src='/images/home/portfolio/review-01.webp'
+                                        alt='Customer 4'
+                                        width={44}
+                                        height={44}
+                                        className='our-portfolio__avatar'
+                                    />
+                                    <Image
+                                        src='/images/home/portfolio/review-02.webp'
+                                        alt='Customer 5'
+                                        width={44}
+                                        height={44}
+                                        className='our-portfolio__avatar'
+                                    />
+                                </div>
+                                <div className='our-portfolio__rating'>
+                                    <div className='our-portfolio__stars'>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        <i className='ph ph-star our-portfolio__star'></i>
+                                        <span className='our-portfolio__rating-text'>(5)</span>
+                                    </div>
+                                    <div className='our-portfolio__review-count'>8K Review</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Side - Swiper */}
+                        <div className='our-portfolio__right'>
+                            <div className='our-portfolio__swiper'>
+                                <SwiperSlider
+                                    data={ourPortfolioData}
+                                    cardComponent={PortfolioCard}
+                                    className='our-portfolio-swiper'
+                                    autoplay={false}
+                                    autoplayDelay={4000}
+                                    showNavigation={true}
+                                    showPagination={true}
+                                    slidesPerView={{
+                                        mobile: 1.1,
+                                        tablet: 2.2,
+                                        desktop: 1.6,
+                                    }}
+                                    spaceBetween={{
+                                        mobile: 16,
+                                        tablet: 24,
+                                        desktop: 32,
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

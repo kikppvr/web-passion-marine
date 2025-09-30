@@ -34,20 +34,27 @@ export const PortfolioCard = ({
                     />
                 </div>
 
-                {/* Brand Logos */}
-                <div className='card-portfolio__brands'>
-                    {brandLogos.map((logo, index) => (
-                        <div key={index} className='card-portfolio__brand-logo'>
-                            <Image src={logo} alt={`Brand ${index + 1}`} width={90} height={24} />
-                        </div>
-                    ))}
-                </div>
+                <div className='card-portfolio__content'>
+                    {/* Brand Logos */}
+                    <div className='card-portfolio__brands'>
+                        {brandLogos.map((logo, index) => (
+                            <div key={index} className='card-portfolio__brand-logo'>
+                                <Image
+                                    src={logo}
+                                    alt={`Brand ${index + 1}`}
+                                    width={90}
+                                    height={24}
+                                />
+                            </div>
+                        ))}
+                    </div>
 
-                {/* Model Info */}
-                <div className='card-portfolio__model'>
-                    <span className='card-portfolio__model-text'>Model: {model}</span>
-                    <div className='card-portfolio__arrow'>
-                        <i className='ph ph-caret-right'></i>
+                    {/* Model Info */}
+                    <div className='card-portfolio__model'>
+                        <span className='card-portfolio__model-text'>Model: {model}</span>
+                        <div className='card-portfolio__arrow'>
+                            <i className='ph-light ph-arrow-right'></i>
+                        </div>
                     </div>
                 </div>
             </Link>
