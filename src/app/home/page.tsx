@@ -9,6 +9,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 
@@ -17,39 +19,17 @@ export default function HeaderPage() {
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isHovered, setIsHovered] = useState(false);
     const [isActive, setIsActive] = useState(false);
-    const [isOurServicesVisible, setIsOurServicesVisible] = useState(false);
     const { language } = useLanguage();
-    const ourServicesRef = useRef<HTMLElement>(null);
 
-    // Intersection Observer for Our Services animation
+    // Initialize AOS
     useEffect(() => {
-        const currentRef = ourServicesRef.current;
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !isOurServicesVisible) {
-                        setIsOurServicesVisible(true);
-                        // Unobserve after first trigger to prevent re-triggering
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.3, // Trigger when 30% of the element is visible
-                rootMargin: "0px 0px -100px 0px", // Start animation slightly before element is fully visible
-            }
-        );
-
-        if (currentRef) {
-            observer.observe(currentRef);
-        }
-
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, [isOurServicesVisible]);
+        AOS.init({
+            duration: 1000,
+            easing: "ease-out",
+            once: true,
+            offset: 100,
+        });
+    }, []);
 
     const boatSolutionsData = [
         {
@@ -331,13 +311,19 @@ export default function HeaderPage() {
                 className='video-hero-banner--fullscreen'
             />
 
-            <section
-                ref={ourServicesRef}
-                className={`our-services ${isOurServicesVisible ? "our-services--visible" : ""}`}>
+            <section className='our-services'>
                 <div className='our-services__container'>
                     <h2 className='our-services__title'>Our Services</h2>
-                    <div className='our-services__description-1'>General Boat Services,</div>
-                    <div className='our-services__description-2'>
+                    <div
+                        className='our-services__description-1'
+                        data-aos='fade-up'
+                        data-aos-delay='300'>
+                        General Boat Services,
+                    </div>
+                    <div
+                        className='our-services__description-2'
+                        data-aos='fade-up'
+                        data-aos-delay='400'>
                         Engine Repair, Boat Restoration
                     </div>
                 </div>
