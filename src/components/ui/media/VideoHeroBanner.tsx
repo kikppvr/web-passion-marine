@@ -198,13 +198,9 @@ const VideoHeroBanner = ({
 
                 {/* Content */}
                 <div className='video-hero-banner__content'>
-                    <div className='video-hero-banner__content-inner'>
-                        {title && <h1 className='video-hero-banner__title'>{title}</h1>}
-                        {subtitle && <p className='video-hero-banner__subtitle'>{subtitle}</p>}
-                        {description && (
-                            <p className='video-hero-banner__description'>{description}</p>
-                        )}
-                    </div>
+                    {title && <h1 className='video-hero-banner__title'>{title}</h1>}
+                    {subtitle && <p className='video-hero-banner__subtitle'>{subtitle}</p>}
+                    {description && <p className='video-hero-banner__description'>{description}</p>}
                 </div>
 
                 {/* Scroll Down Button */}

@@ -3,7 +3,7 @@
 @use "../../base/utility" as utility;
 @use "../../base/display" as display;
 @use "../../base/_font-mixins" as fonts;
-
+@use "../../base/_base" as base;
 // ========================================
 // VIDEO HERO BANNER COMPONENT STYLES
 // ========================================
@@ -56,32 +56,32 @@
 
     // Content
     .video-hero-banner__content {
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 10 !important;
         width: 100%;
         height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-6);
-        text-align: center;
-    }
-
-    .video-hero-banner__content-inner {
-        max-width: 800px;
-        width: 100%;
-        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--space-4);
-        position: relative;
-        z-index: 10;
+        justify-content: center;
+        text-align: center;
+        gap: var(--space-1);
+
+        @include base.media-down(tablet) {
+            padding: 0 var(--space-6);
+        }
+
+        @include base.media-down(mobile) {
+            padding: 0 var(--space-4);
+        }
     }
 
     // Title
     .video-hero-banner__title {
-        @include fonts.text-h1;
-        @include fonts.font-semibold;
+        font-size: var(--text-display-2);
+        font-weight: var(--font-semibold);
         color: var(--white) !important;
         line-height: 1.25;
         margin: 0;
@@ -92,19 +92,19 @@
         position: relative;
         z-index: 10;
 
-        @media (max-width: 1024px) {
-            @include fonts.text-h2;
+        @include base.media-down(laptop) {
+            font-size: var(--text-display-3);
         }
 
-        @media (max-width: 768px) {
-            @include fonts.text-h3;
+        @include base.media-down(mobile) {
+            font-size: var(--text-h1);
         }
     }
 
     // Subtitle
     .video-hero-banner__subtitle {
-        @include fonts.text-h1;
-        @include fonts.font-semibold;
+        font-size: var(--text-display-2);
+        font-weight: var(--font-semibold);
         color: var(--white) !important;
         line-height: 1.25;
         margin: 0;
@@ -115,16 +115,13 @@
         position: relative;
         z-index: 10;
 
-        @media (max-width: 1024px) {
-            @include fonts.text-h2;
+        @include base.media-down(laptop) {
+            font-size: var(--text-display-3);
+            // @include fonts.text-display-3;
         }
-
-        @media (max-width: 768px) {
-            @include fonts.text-h3;
-        }
-
-        @media (max-width: 480px) {
-            @include fonts.text-h4;
+        @include base.media-down(mobile) {
+            font-size: var(--text-h1);
+            // @include fonts.text-h1;
         }
     }
 
@@ -271,39 +268,39 @@
     }
 
     // Responsive Adjustments
-    @media (max-width: 768px) {
-        height: 70vh;
-        min-height: 500px;
-    }
+    // @media (max-width: 768px) {
+    //     height: 70vh;
+    //     min-height: 500px;
+    // }
 
-    @media (max-width: 480px) {
-        height: 60vh;
-        min-height: 400px;
-    }
+    // @media (max-width: 480px) {
+    //     height: 60vh;
+    //     min-height: 400px;
+    // }
 
-    // Tablet Landscape
-    @media (max-width: 1024px) and (orientation: landscape) {
-        height: 100vh;
-        min-height: 500px;
-    }
+    // // Tablet Landscape
+    // @media (max-width: 1024px) and (orientation: landscape) {
+    //     height: 100vh;
+    //     min-height: 500px;
+    // }
 
-    // Mobile Landscape
-    @media (max-width: 768px) and (orientation: landscape) {
-        height: 100vh;
-        min-height: 400px;
+    // // Mobile Landscape
+    // @media (max-width: 768px) and (orientation: landscape) {
+    //     height: 100vh;
+    //     min-height: 400px;
 
-        .video-hero-banner__content-inner {
-            gap: var(--space-2);
-        }
+    //     .video-hero-banner__content-inner {
+    //         gap: var(--space-2);
+    //     }
 
-        .video-hero-banner__title {
-            @include fonts.text-h4;
-        }
+    //     .video-hero-banner__title {
+    //         @include fonts.text-h4;
+    //     }
 
-        .video-hero-banner__description {
-            @include fonts.text-small;
-        }
-    }
+    //     .video-hero-banner__description {
+    //         @include fonts.text-small;
+    //     }
+    // }
 }
 
 // Animations
@@ -403,15 +400,6 @@
         i {
             font-size: 20px;
             transition: all 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            width: 40px;
-            height: 40px;
-
-            i {
-                font-size: 16px;
-            }
         }
     }
 }
