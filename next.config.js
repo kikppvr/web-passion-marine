@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Enable experimental features
-    experimental: {
-        // Enable server components
-        serverComponentsExternalPackages: [],
-    },
+    // External packages for server components
+    serverExternalPackages: [],
 
     // Image optimization
     images: {
@@ -127,9 +124,6 @@ const nextConfig = {
 
     // React strict mode
     reactStrictMode: true,
-
-    // SWC minification
-    swcMinify: true,
 };
 
 module.exports = nextConfig;
