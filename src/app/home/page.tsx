@@ -23,6 +23,7 @@ export default function HeaderPage() {
 
     // Intersection Observer for Our Services animation
     useEffect(() => {
+        const currentRef = ourServicesRef.current;
         const observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
@@ -39,13 +40,13 @@ export default function HeaderPage() {
             }
         );
 
-        if (ourServicesRef.current) {
-            observer.observe(ourServicesRef.current);
+        if (currentRef) {
+            observer.observe(currentRef);
         }
 
         return () => {
-            if (ourServicesRef.current) {
-                observer.unobserve(ourServicesRef.current);
+            if (currentRef) {
+                observer.unobserve(currentRef);
             }
         };
     }, [isOurServicesVisible]);

@@ -32,7 +32,7 @@ const TabsPage: React.FC = () => {
     const sampleContent3 = (
         <div style={{ padding: "20px" }}>
             <h3>Tab Content 3</h3>
-            <p>This is the content for the third tab. It's currently disabled.</p>
+            <p>This is the content for the third tab. It&apos;s currently disabled.</p>
         </div>
     );
 
@@ -42,7 +42,7 @@ const TabsPage: React.FC = () => {
             <p>This is the content for the fourth tab.</p>
             <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
                 <PrimaryButton>Save</PrimaryButton>
-                <PrimaryButton theme='secondary'>Cancel</PrimaryButton>
+                <PrimaryButton theme='dark'>Cancel</PrimaryButton>
             </div>
         </div>
     );
@@ -127,11 +127,12 @@ const TabsPage: React.FC = () => {
                             <strong>className</strong>: string - Additional CSS classes
                         </li>
                         <li>
-                            <strong>variant</strong>: 'default' | 'underline' | 'pills' - Visual
-                            variant
+                            <strong>variant</strong>: &apos;default&apos; | &apos;underline&apos; |
+                            &apos;pills&apos; - Visual variant
                         </li>
                         <li>
-                            <strong>size</strong>: 'sm' | 'md' | 'lg' - Size variant
+                            <strong>size</strong>: &apos;sm&apos; | &apos;md&apos; | &apos;lg&apos;
+                            - Size variant
                         </li>
                         <li>
                             <strong>onTabChange</strong>: (tabId: string) =&gt; void - Callback when
