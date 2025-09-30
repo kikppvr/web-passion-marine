@@ -23,62 +23,44 @@ export default function PortfolioCardPage() {
     const portfolioData = [
         {
             title: "Chaparral 215 SSi",
-            model: "Model: 215 SSi",
+            model: "215 SSi",
             image: "/images/portfolio/portfolio-01.webp",
-            logos: {
-                left: "/images/brands/chaparral.webp",
-                right: "/images/brands/volvo-penta.webp",
-            },
+            brandLogos: ["/images/brands/chaparral.webp", "/images/brands/volvo-penta.webp"],
             href: "/comingsoon",
         },
         {
             title: "Mercury Saxdor 215",
-            model: "Model: 215 SSi",
+            model: "215 SSi",
             image: "/images/portfolio/portfolio-02.webp",
-            logos: {
-                left: "/images/brands/mercury.webp",
-                right: "/images/brands/saxdor.webp",
-            },
+            brandLogos: ["/images/brands/mercury.webp", "/images/brands/saxdor.webp"],
             href: "/comingsoon",
         },
         {
             title: "Sea Ray 215 SPX",
-            model: "Model: 215 SPX",
+            model: "215 SPX",
             image: "/images/portfolio/portfolio-01.webp",
-            logos: {
-                left: "/images/brands/chaparral.webp",
-                right: "/images/brands/volvo-penta.webp",
-            },
+            brandLogos: ["/images/brands/chaparral.webp", "/images/brands/volvo-penta.webp"],
             href: "/comingsoon",
         },
         {
             title: "Boston Whaler 215 Outrage",
-            model: "Model: 215 Outrage",
+            model: "215 Outrage",
             image: "/images/portfolio/portfolio-02.webp",
-            logos: {
-                left: "/images/brands/mercury.webp",
-                right: "/images/brands/saxdor.webp",
-            },
+            brandLogos: ["/images/brands/mercury.webp", "/images/brands/saxdor.webp"],
             href: "/comingsoon",
         },
         {
             title: "Regal 2150 LSR",
-            model: "Model: 2150 LSR",
+            model: "2150 LSR",
             image: "/images/portfolio/portfolio-01.webp",
-            logos: {
-                left: "/images/brands/chaparral.webp",
-                right: "/images/brands/volvo-penta.webp",
-            },
+            brandLogos: ["/images/brands/chaparral.webp", "/images/brands/volvo-penta.webp"],
             href: "/comingsoon",
         },
         {
             title: "Cobalt 215S",
-            model: "Model: 215S",
+            model: "215S",
             image: "/images/portfolio/portfolio-02.webp",
-            logos: {
-                left: "/images/brands/mercury.webp",
-                right: "/images/brands/saxdor.webp",
-            },
+            brandLogos: ["/images/brands/mercury.webp", "/images/brands/saxdor.webp"],
             href: "/comingsoon",
         },
     ];
@@ -107,7 +89,7 @@ export default function PortfolioCardPage() {
                                 title={portfolio.title}
                                 model={portfolio.model}
                                 image={portfolio.image}
-                                logos={portfolio.logos}
+                                brandLogos={portfolio.brandLogos}
                                 href={portfolio.href}
                             />
                         ))}

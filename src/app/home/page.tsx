@@ -2,7 +2,7 @@
 
 import { Header } from "@/components/ui/layout";
 import { VideoHeroBanner, SwiperSlider } from "@/components/ui/media";
-import { BusinessCard, CharterCard, NewsCard } from "@/components/ui/cards";
+import { BusinessCard, CharterCard, NewsCard, PortfolioCard } from "@/components/ui/cards";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,61 +22,61 @@ export default function HeaderPage() {
     const boatSolutionsData = [
         {
             title: "Engine Repair & Maintenance",
-            image: "/images/business/business-01.webp",
+            image: "/images/home/business/business-01.webp",
             video: "/videos/business/video-01.mp4",
             href: "/comingsoon",
         },
         {
             title: "Boat Upgrades",
-            image: "/images/business/business-02.webp",
+            image: "/images/home/business/business-02.webp",
             video: "/videos/business/video-02.mp4",
             href: "/comingsoon",
         },
         {
             title: "Electronics & Solar",
-            image: "/images/business/business-03.webp",
+            image: "/images/home/business/business-03.webp",
             video: "/videos/business/video-03.mp4",
             href: "/comingsoon",
         },
         {
             title: "Structure Repair",
-            image: "/images/business/business-04.webp",
+            image: "/images/home/business/business-04.webp",
             video: "/videos/business/video-04.mp4",
             href: "/comingsoon",
         },
         {
             title: "Custom Boat Design",
-            image: "/images/business/business-05.webp",
+            image: "/images/home/business/business-05.webp",
             video: "/videos/business/video-05.mp4",
             href: "/comingsoon",
         },
         {
             title: "Teak & EVA Flooring",
-            image: "/images/business/business-06.webp",
+            image: "/images/home/business/business-06.webp",
             video: "/videos/business/video-06.mp4",
             href: "/comingsoon",
         },
         {
             title: "Marine Upholstery",
-            image: "/images/business/business-07.webp",
+            image: "/images/home/business/business-07.webp",
             video: "/videos/business/video-07.mp4",
             href: "/comingsoon",
         },
         {
             title: "Gelcoat Repair & Finishing",
-            image: "/images/business/business-08.webp",
+            image: "/images/home/business/business-08.webp",
             video: "/videos/business/video-08.mp4",
             href: "/comingsoon",
         },
         {
             title: "Fiberglass Furniture",
-            image: "/images/business/business-09.webp",
+            image: "/images/home/business/business-09.webp",
             video: "/videos/business/video-09.mp4",
             href: "/comingsoon",
         },
         {
             title: "Interior Styling",
-            image: "/images/business/business-10.webp",
+            image: "/images/home/business/business-10.webp",
             video: "/videos/business/video-10.mp4",
             href: "/comingsoon",
         },
@@ -87,7 +87,7 @@ export default function HeaderPage() {
         {
             title: "Speedboats from XXXXX",
             location: "Maharaj Road, Phrankorn District, Bangkok",
-            image: "/images/charter/charter-01.webp",
+            image: "/images/home/charter/charter-01.webp",
             video: "/videos/business/video-01.mp4",
             price: "฿36,500",
             passengers: "5-6",
@@ -99,7 +99,7 @@ export default function HeaderPage() {
         {
             title: "Catamarans from XXXXX",
             location: "Marina Bay, Phuket",
-            image: "/images/charter/charter-02.webp",
+            image: "/images/home/charter/charter-02.webp",
             video: "/videos/business/video-02.mp4",
             price: "฿150,000",
             passengers: "10-12",
@@ -111,7 +111,7 @@ export default function HeaderPage() {
         {
             title: "Small yacht from XXXXX",
             location: "Pattaya Beach, Chonburi",
-            image: "/images/charter/charter-03.webp",
+            image: "/images/home/charter/charter-03.webp",
             video: "/videos/business/video-03.mp4",
             price: "฿80,000",
             passengers: "6-8",
@@ -122,26 +122,74 @@ export default function HeaderPage() {
         },
     ];
 
+    // Our Portfolio data
+    const ourPortfolioData = [
+        {
+            title: "Chaparral 215 SSi",
+            model: "215 SSi",
+            image: "/images/home/portfolio/portfolio-01.webp",
+            video: "",
+            brandLogos: [
+                "/images/home/brands/chaparral.webp",
+                "/images/home/brands/volvo-penta.webp",
+            ],
+            href: "/comingsoon",
+        },
+        {
+            title: "Chaparral 215 SSi",
+            model: "215 SSi",
+            image: "/images/home/portfolio/portfolio-02.webp",
+            video: "",
+            brandLogos: [
+                "/images/home/brands/chaparral.webp",
+                "/images/home/brands/volvo-penta.webp",
+            ],
+            href: "/comingsoon",
+        },
+        {
+            title: "Chaparral 215 SSi",
+            model: "215 SSi",
+            image: "/images/home/portfolio/portfolio-01.webp",
+            video: "",
+            brandLogos: [
+                "/images/home/brands/chaparral.webp",
+                "/images/home/brands/volvo-penta.webp",
+            ],
+            href: "/comingsoon",
+        },
+        {
+            title: "Chaparral 215 SSi",
+            model: "215 SSi",
+            image: "/images/home/portfolio/portfolio-02.webp",
+            video: "",
+            brandLogos: [
+                "/images/home/brands/chaparral.webp",
+                "/images/home/brands/volvo-penta.webp",
+            ],
+            href: "/comingsoon",
+        },
+    ];
+
     // Our Latest News data
     const ourLatestNewsData = [
         {
             title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
             date: "16 December 2024",
-            image: "/images/news/news-01.webp",
+            image: "/images/home/news/news-01.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
             date: "16 December 2024",
-            image: "/images/news/news-02.webp",
+            image: "/images/home/news/news-02.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
             date: "16 December 2024",
-            image: "/images/news/news-03.webp",
+            image: "/images/home/news/news-03.webp",
             video: "",
             href: "/comingsoon",
         },
@@ -151,61 +199,61 @@ export default function HeaderPage() {
     const brandsData = [
         {
             title: "Chaparral",
-            image: "/images/brands/chaparral.webp",
+            image: "/images/home/brands/chaparral.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Volvo Penta",
-            image: "/images/brands/volvo-penta.webp",
+            image: "/images/home/brands/volvo-penta.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Cobalt Boats",
-            image: "/images/brands/cobalt-boats.webp",
+            image: "/images/home/brands/cobalt-boats.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Mercury",
-            image: "/images/brands/mercury.webp",
+            image: "/images/home/brands/mercury.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Nautic",
-            image: "/images/brands/nautic.webp",
+            image: "/images/home/brands/nautic.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Saxdor",
-            image: "/images/brands/saxdor.webp",
+            image: "/images/home/brands/saxdor.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Sea Ray",
-            image: "/images/brands/searay.webp",
+            image: "/images/home/brands/searay.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Chaparral",
-            image: "/images/brands/chaparral.webp",
+            image: "/images/home/brands/chaparral.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Volvo Penta",
-            image: "/images/brands/volvo-penta.webp",
+            image: "/images/home/brands/volvo-penta.webp",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Cobalt Boats",
-            image: "/images/brands/cobalt-boats.webp",
+            image: "/images/home/brands/cobalt-boats.webp",
             video: "",
             href: "/comingsoon",
         },
@@ -337,7 +385,7 @@ export default function HeaderPage() {
                         <div className='volvo-penta__content-left'>
                             <div className='volvo-penta__logo'>
                                 <Image
-                                    src='/images/brands/volvo-penta-white.webp'
+                                    src='/images/home/brands/volvo-penta-white.webp'
                                     alt='Volvo Penta'
                                     width={178}
                                     height={48}
@@ -372,7 +420,7 @@ export default function HeaderPage() {
                             data={brandsData}
                             className='brands-swiper'
                             autoplay={true}
-                            autoplayDelay={3000}
+                            autoplayDelay={2000}
                             loop={true}
                             speed={800}
                             showNavigation={false}
@@ -398,6 +446,102 @@ export default function HeaderPage() {
                                 </div>
                             )}
                         />
+                    </div>
+                </div>
+            </section>
+
+            <section className='our-portfolio'>
+                <div className='our-portfolio__container'>
+                    <div className='our-portfolio__header'>
+                        <h2 className='our-portfolio__title'>Our Portfolio</h2>
+                        <div className='our-portfolio__button'>
+                            <PrimaryButton theme='dark'>Explore More</PrimaryButton>
+                        </div>
+                    </div>
+                    <div className='our-portfolio__swiper'>
+                        <SwiperSlider
+                            data={ourPortfolioData}
+                            cardComponent={PortfolioCard}
+                            className='our-portfolio-swiper'
+                            autoplay={false}
+                            autoplayDelay={4000}
+                            showNavigation={true}
+                            showPagination={true}
+                            slidesPerView={{
+                                mobile: 1,
+                                tablet: 2,
+                                desktop: 3.5,
+                            }}
+                            spaceBetween={{
+                                mobile: 16,
+                                tablet: 24,
+                                desktop: 32,
+                            }}
+                        />
+                    </div>
+
+                    {/* Stats Section */}
+                    <div className='our-portfolio__stats'>
+                        <div className='our-portfolio__stat-item'>
+                            <div className='our-portfolio__stat-number'>120+</div>
+                            <div className='our-portfolio__stat-label'>Project</div>
+                        </div>
+                        <div className='our-portfolio__stat-item'>
+                            <div className='our-portfolio__stat-number'>80+</div>
+                            <div className='our-portfolio__stat-label'>Customer</div>
+                        </div>
+                    </div>
+
+                    {/* Customer Reviews */}
+                    <div className='our-portfolio__reviews'>
+                        <div className='our-portfolio__customer-avatars'>
+                            <Image
+                                src='/images/portfolio/portfolio-01.webp'
+                                alt='Customer 1'
+                                width={44}
+                                height={44}
+                                className='our-portfolio__avatar'
+                            />
+                            <Image
+                                src='/images/portfolio/portfolio-02.webp'
+                                alt='Customer 2'
+                                width={44}
+                                height={44}
+                                className='our-portfolio__avatar'
+                            />
+                            <Image
+                                src='/images/portfolio/portfolio-03.webp'
+                                alt='Customer 3'
+                                width={44}
+                                height={44}
+                                className='our-portfolio__avatar'
+                            />
+                            <Image
+                                src='/images/portfolio/portfolio-01.webp'
+                                alt='Customer 4'
+                                width={44}
+                                height={44}
+                                className='our-portfolio__avatar'
+                            />
+                            <Image
+                                src='/images/portfolio/portfolio-02.webp'
+                                alt='Customer 5'
+                                width={44}
+                                height={44}
+                                className='our-portfolio__avatar'
+                            />
+                        </div>
+                        <div className='our-portfolio__rating'>
+                            <div className='our-portfolio__stars'>
+                                <i className='ph ph-star-fill our-portfolio__star'></i>
+                                <i className='ph ph-star-fill our-portfolio__star'></i>
+                                <i className='ph ph-star-fill our-portfolio__star'></i>
+                                <i className='ph ph-star-fill our-portfolio__star'></i>
+                                <i className='ph ph-star our-portfolio__star'></i>
+                                <span className='our-portfolio__rating-text'>(5)</span>
+                            </div>
+                            <div className='our-portfolio__review-count'>8K Review</div>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -1,22 +1,41 @@
 @use "../../base/_base" as base;
 @use "../../base/_font-mixins" as fonts;
 
-.our-latest-news {
+.our-portfolio {
     @include base.section-padding;
+    // padding-top: 0;
     position: relative;
+    background: linear-gradient(180deg, rgba(28, 69, 131, 0.8) 0%, rgba(28, 69, 131, 0.9) 100%);
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("/images/portfolio/portfolio-01.webp") center/cover no-repeat;
+        z-index: -1;
+    }
 }
 
-.our-latest-news__container {
+.our-portfolio__container {
     @include base.container;
+    position: relative;
+    z-index: 2;
 }
 
-.our-latest-news__header {
+.our-portfolio__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
 
     @include base.media-down(tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
         margin-bottom: 32px;
     }
 
@@ -26,9 +45,9 @@
     }
 }
 
-.our-latest-news__title {
+.our-portfolio__title {
     @include fonts.text-h1;
-    color: var(--blue-500);
+    color: var(--white);
     margin-bottom: 0;
 
     @include base.media-down(laptop) {
@@ -44,33 +63,138 @@
     }
 }
 
-.our-latest-news__button {
+.our-portfolio__button {
     flex-shrink: 0;
 
-    &--desktop {
-        @include base.media-down(mobile) {
-            display: none;
-        }
-    }
-
-    &--mobile {
+    @include base.media-down(mobile) {
         display: none;
-        margin-top: 12px;
-        text-align: center;
-
-        @include base.media-down(mobile) {
-            display: block;
-        }
     }
 }
 
-.our-latest-news__swiper {
+.our-portfolio__swiper {
     position: relative;
     margin-top: 24px;
 }
 
-// Our Latest News Swiper Styles
-.swiper-slider-container.our-latest-news-swiper {
+// Stats Section
+.our-portfolio__stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+
+    @include base.media-down(tablet) {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @include base.media-down(mobile) {
+        gap: 12px;
+        margin-top: 24px;
+    }
+}
+
+.our-portfolio__stat-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2.5px);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+
+    @include base.media-down(mobile) {
+        padding: 16px;
+    }
+}
+
+.our-portfolio__stat-number {
+    @include fonts.text-h2;
+    color: var(--white);
+    margin-bottom: 8px;
+
+    @include base.media-down(mobile) {
+        @include fonts.text-h3;
+    }
+}
+
+.our-portfolio__stat-label {
+    @include fonts.text-h6;
+    color: var(--white);
+    margin-bottom: 0;
+
+    @include base.media-down(mobile) {
+        @include fonts.text-body;
+    }
+}
+
+// Customer Reviews Section
+.our-portfolio__reviews {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+
+    @include base.media-down(mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+.our-portfolio__customer-avatars {
+    display: flex;
+    gap: 4px;
+}
+
+.our-portfolio__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    object-fit: cover;
+
+    &:not(:first-child) {
+        margin-left: -8px;
+    }
+}
+
+.our-portfolio__rating {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.our-portfolio__stars {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.our-portfolio__star {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+}
+
+.our-portfolio__rating-text {
+    @include fonts.text-h6;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.our-portfolio__review-count {
+    @include fonts.text-h6;
+    color: var(--grey-500);
+    margin-bottom: 0;
+}
+
+// Our Portfolio Swiper Styles
+.swiper-slider-container.our-portfolio-swiper {
+    @include base.container;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+
     .swiper-slide {
         height: auto;
         display: flex;
@@ -79,6 +203,7 @@
 
     .swiper-slider {
         height: auto;
+        overflow: visible;
 
         @include base.media-down(tablet) {
             padding-bottom: 40px;
@@ -92,7 +217,7 @@
         right: 0;
         transform: translateY(-50%);
         z-index: 10;
-        width: calc(100% + 120px);
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -100,33 +225,33 @@
         padding: 0;
         opacity: 0;
         transition: all 0.3s ease;
-        @include base.container;
-
-        &:hover {
-            opacity: 1;
-        }
+        pointer-events: none;
 
         @include base.media-down(tablet) {
             position: absolute;
             bottom: 0;
             left: auto;
-            right: 0;
+            right: 38px;
             top: auto;
             transform: none;
             opacity: 1;
-            padding: 0 40px;
+            padding: 0;
             justify-content: space-between;
             align-items: center;
             height: 50px;
             z-index: 5;
-            width: auto;
+            width: 80px;
+        }
+
+        @include base.media-down(mobile) {
+            right: 16px;
         }
     }
 
     .swiper-button-next-custom,
     .swiper-button-prev-custom {
-        color: var(--blue-500);
-        background: var(--white);
+        color: var(--white);
+        background: var(--blue-500);
         border-radius: 50%;
         width: 48px;
         height: 48px;
@@ -137,10 +262,11 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
+        pointer-events: auto;
 
         i {
             font-size: 18px;
-            color: var(--blue-500);
+            color: var(--white);
             transition: all 0.3s ease;
         }
 
@@ -150,17 +276,17 @@
             width: 36px;
             height: 36px;
             transform: translateY(-50%);
-            background: var(--blue-500);
+            background: var(--white);
             i {
-                color: var(--white);
+                color: var(--blue-500);
             }
         }
 
         &:hover {
-            background: var(--blue-500);
+            background: var(--white);
 
             i {
-                color: var(--white);
+                color: var(--blue-500);
             }
         }
     }
@@ -206,7 +332,7 @@
     }
 
     .swiper-pagination-bullet {
-        background: var(--blue-500);
+        background: var(--white);
         opacity: 0.3;
         width: 8px;
         height: 8px;
@@ -218,7 +344,7 @@
         }
 
         @include base.media-down(tablet) {
-            background: var(--blue-500);
+            background: var(--white);
             opacity: 0.3;
             width: 8px;
             height: 8px;

@@ -1,74 +1,56 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface PortfolioCardProps {
-    className?: string;
     title: string;
     model: string;
     image: string;
-    logos: {
-        left: string;
-        right: string;
-    };
-    href?: string;
+    brandLogos: string[];
+    href: string;
+    className?: string;
 }
 
-const PortfolioCard = ({
-    className,
+export const PortfolioCard = ({
     title,
     model,
     image,
-    logos,
-    href = "#",
+    brandLogos,
+    href,
+    className = "",
 }: PortfolioCardProps) => {
     return (
-        <div className={cn("card-portfolio", className)}>
+        <div className={`card-portfolio ${className}`}>
             <Link href={href} className='card-portfolio__link'>
+                {/* Image Container */}
                 <div className='card-portfolio__image-container'>
                     <Image
                         src={image}
                         alt={title}
-                        width={400}
-                        height={300}
+                        width={324}
+                        height={243}
                         className='card-portfolio__image'
                     />
                 </div>
 
-                <div className='card-portfolio__content'>
-                    <div className='card-portfolio__logos'>
-                        <div className='card-portfolio__logo-left'>
-                            <Image
-                                src={logos.left}
-                                alt='Left Logo'
-                                width={80}
-                                height={20}
-                                className='card-portfolio__logo'
-                            />
+                {/* Brand Logos */}
+                <div className='card-portfolio__brands'>
+                    {brandLogos.map((logo, index) => (
+                        <div key={index} className='card-portfolio__brand-logo'>
+                            <Image src={logo} alt={`Brand ${index + 1}`} width={90} height={24} />
                         </div>
-                        <div className='card-portfolio__logo-right'>
-                            <Image
-                                src={logos.right}
-                                alt='Right Logo'
-                                width={80}
-                                height={20}
-                                className='card-portfolio__logo'
-                            />
-                        </div>
-                    </div>
+                    ))}
+                </div>
 
-                    <div className='card-portfolio__model'>
-                        <span className='card-portfolio__model-text'>{model}</span>
-                        <div className='card-portfolio__arrow'>
-                            <i className='ph ph-arrow-right card-portfolio__arrow-icon'></i>
-                        </div>
+                {/* Model Info */}
+                <div className='card-portfolio__model'>
+                    <span className='card-portfolio__model-text'>Model: {model}</span>
+                    <div className='card-portfolio__arrow'>
+                        <i className='ph ph-caret-right'></i>
                     </div>
                 </div>
             </Link>
         </div>
     );
 };
-
-export { PortfolioCard };
