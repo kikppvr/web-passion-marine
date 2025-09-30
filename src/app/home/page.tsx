@@ -7,6 +7,7 @@ import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import "@/styles/components/home/index.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
@@ -121,6 +122,70 @@ export default function HeaderPage() {
         },
     ];
 
+    // Brands data for slider
+    const brandsData = [
+        {
+            title: "Chaparral",
+            image: "/images/brands/chaparral.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Volvo Penta",
+            image: "/images/brands/volvo-penta.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Cobalt Boats",
+            image: "/images/brands/cobalt-boats.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Mercury",
+            image: "/images/brands/mercury.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Nautic",
+            image: "/images/brands/nautic.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Saxdor",
+            image: "/images/brands/saxdor.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Sea Ray",
+            image: "/images/brands/searay.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Chaparral",
+            image: "/images/brands/chaparral.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Volvo Penta",
+            image: "/images/brands/volvo-penta.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Cobalt Boats",
+            image: "/images/brands/cobalt-boats.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+    ];
+
     const copyToClipboard = async (text: string, codeId: string) => {
         try {
             await navigator.clipboard.writeText(text);
@@ -226,10 +291,81 @@ export default function HeaderPage() {
                                 desktop: 3,
                             }}
                             spaceBetween={{
-                                mobile: 32,
-                                tablet: 32,
+                                mobile: 16,
+                                tablet: 24,
                                 desktop: 32,
                             }}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section className='volvo-penta'>
+                <div className='volvo-penta__container'>
+                    <div className='volvo-penta__content'>
+                        <div className='volvo-penta__content-left'>
+                            <div className='volvo-penta__logo'>
+                                <Image
+                                    src='/images/brands/volvo-penta-white.webp'
+                                    alt='Volvo Penta'
+                                    width={178}
+                                    height={48}
+                                />
+                            </div>
+                            <div className='volvo-penta__text'>
+                                <h2 className='volvo-penta__title'>
+                                    <span className='volvo-penta__title--bold'>Passion Marine</span>
+                                    <span className='volvo-penta__title--light'>
+                                        {" "}
+                                        has been appointed as an authorized service dealer for{" "}
+                                    </span>
+                                    <span className='volvo-penta__title--bold'>Volvo Penta</span>
+                                </h2>
+                                <p className='volvo-penta__subtitle'>
+                                    Connect with us at Petra Marina Pathum Thani
+                                </p>
+                            </div>
+                        </div>
+                        <div className='volvo-penta__content-right'>
+                            <PrimaryButton theme='dark'>View Document</PrimaryButton>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className='brands'>
+                <div className='brands__container'>
+                    <h2 className='brands__title'>Experienced in leading brands</h2>
+                    <div className='brands__slider'>
+                        <SwiperSlider
+                            data={brandsData}
+                            className='brands-swiper'
+                            autoplay={true}
+                            autoplayDelay={3000}
+                            loop={true}
+                            speed={800}
+                            showNavigation={false}
+                            showPagination={false}
+                            slidesPerView={{
+                                mobile: 2.5,
+                                tablet: 4.5,
+                                desktop: 6.5,
+                            }}
+                            spaceBetween={{
+                                mobile: 16,
+                                tablet: 24,
+                                desktop: 32,
+                            }}
+                            renderSlide={(item, index) => (
+                                <div className='brand-item'>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        width={120}
+                                        height={40}
+                                    />
+                                </div>
+                            )}
                         />
                     </div>
                 </div>

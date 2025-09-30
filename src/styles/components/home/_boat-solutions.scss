@@ -3,6 +3,8 @@
 
 .boat-solutions {
     @include base.section-padding;
+    overflow: hidden;
+    position: relative;
 }
 
 .boat-solutions__container {
@@ -48,18 +50,29 @@
 
     @include base.media-down(tablet) {
         padding-left: 40px;
-        padding-bottom: 60px;
     }
 
     @include base.media-down(mobile) {
         padding-left: 16px;
     }
 
+    .swiper-slide {
+        height: auto;
+        display: flex;
+        align-items: stretch;
+    }
+
+    &:hover {
+        .swiper-navigation-wrapper {
+            opacity: 1;
+        }
+    }
+
     .swiper-slider {
         height: auto;
 
         @include base.media-down(tablet) {
-            padding-bottom: 0;
+            padding-bottom: 40px;
         }
     }
 
@@ -80,10 +93,6 @@
         transition: all 0.3s ease;
         @include base.container;
 
-        &:hover {
-            opacity: 1;
-        }
-
         @include base.media-down(tablet) {
             position: absolute;
             bottom: 0;
@@ -96,7 +105,8 @@
             justify-content: space-between;
             align-items: center;
             height: 50px;
-            width: 80px;
+            z-index: 5;
+            width: auto;
         }
 
         @include base.media-down(mobile) {
@@ -147,8 +157,14 @@
     }
 
     .swiper-button-prev-custom {
+        margin-left: -25px;
+
+        @include base.media-down(laptop) {
+            margin-left: -20px;
+        }
         @include base.media-down(tablet) {
             left: 0;
+            margin-left: 0;
         }
     }
 
@@ -158,18 +174,31 @@
         }
     }
 
+    .swiper-pagination-wrapper {
+        @include base.media-down(tablet) {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+    }
+
     .swiper-pagination {
         text-align: left;
         display: none;
 
         @include base.media-down(tablet) {
-            display: block;
-            position: absolute !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            display: block !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            bottom: -30px !important;
+            transform: none !important;
             margin: 0 !important;
             width: auto !important;
+            z-index: auto !important;
+            height: 30px;
         }
     }
 
@@ -183,6 +212,19 @@
 
         &.swiper-pagination-bullet-active {
             opacity: 1;
+        }
+
+        @include base.media-down(tablet) {
+            background: var(--blue-500);
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
         }
     }
 }

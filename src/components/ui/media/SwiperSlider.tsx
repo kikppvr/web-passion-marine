@@ -31,6 +31,8 @@ export interface SwiperSliderProps {
     autoplayDelay?: number;
     showNavigation?: boolean;
     showPagination?: boolean;
+    loop?: boolean;
+    speed?: number;
     slidesPerView?: {
         mobile?: number;
         tablet?: number;
@@ -54,6 +56,8 @@ export const SwiperSlider = ({
     autoplayDelay = 3000,
     showNavigation = false,
     showPagination = false,
+    loop = false,
+    speed = 1000,
     slidesPerView = {
         mobile: 1,
         tablet: 3,
@@ -84,6 +88,8 @@ export const SwiperSlider = ({
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={spaceBetween.mobile}
                 slidesPerView={slidesPerView.mobile}
+                loop={loop}
+                speed={speed}
                 navigation={
                     showNavigation
                         ? {

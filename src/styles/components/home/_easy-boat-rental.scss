@@ -4,6 +4,8 @@
 .easy-boat-rental {
     @include base.section-padding;
     padding-top: 0;
+    overflow: hidden;
+    position: relative;
 }
 
 .easy-boat-rental__container {
@@ -37,30 +39,17 @@
 
 // Easy Boat Rental Swiper Styles
 .swiper-slider-container.easy-boat-rental-swiper {
-    // padding-left: 500px;
-
-    // @include base.media-down(large) {
-    //     padding-left: 84px;
-    // }
-
-    // @include base.media-down(laptop) {
-    //     padding-left: 50px;
-    // }
-
-    // @include base.media-down(tablet) {
-    //     padding-left: 40px;
-    //     padding-bottom: 60px;
-    // }
-
-    // @include base.media-down(mobile) {
-    //     padding-left: 16px;
-    // }
+    .swiper-slide {
+        height: auto;
+        display: flex;
+        align-items: stretch;
+    }
 
     .swiper-slider {
         height: auto;
 
         @include base.media-down(tablet) {
-            padding-bottom: 0;
+            padding-bottom: 40px;
         }
     }
 
@@ -97,7 +86,8 @@
             justify-content: space-between;
             align-items: center;
             height: 50px;
-            width: 80px;
+            z-index: 5;
+            width: auto;
         }
 
         @include base.media-down(mobile) {
@@ -159,18 +149,31 @@
         }
     }
 
+    .swiper-pagination-wrapper {
+        @include base.media-down(tablet) {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+    }
+
     .swiper-pagination {
         text-align: left;
         display: none;
 
         @include base.media-down(tablet) {
-            display: block;
-            position: absolute !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            display: block !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            bottom: -30px !important;
+            transform: none !important;
             margin: 0 !important;
             width: auto !important;
+            z-index: auto !important;
+            height: 30px;
         }
     }
 
