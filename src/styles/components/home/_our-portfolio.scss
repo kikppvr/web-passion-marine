@@ -234,6 +234,7 @@
     .swiper-slider {
         height: auto;
         overflow: visible;
+        padding-top: 72px;
 
         @include base.media-down(tablet) {
             padding-bottom: 40px;
@@ -242,18 +243,16 @@
 
     .swiper-navigation-wrapper {
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 0;
-        right: 0;
-        transform: translateY(-50%);
         z-index: 10;
-        width: 100%;
+        width: 110px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin: 0 auto;
+        justify-content: space-between;
+        margin: 0;
         padding: 0;
-        opacity: 0;
+        opacity: 1;
         transition: all 0.3s ease;
         pointer-events: none;
 
@@ -280,12 +279,13 @@
 
     .swiper-button-next-custom,
     .swiper-button-prev-custom {
-        color: var(--white);
-        background: var(--blue-500);
+        color: var(--grey-600);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4px);
         border-radius: 50%;
         width: 48px;
         height: 48px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         border: none;
         cursor: pointer;
         display: flex;
@@ -296,7 +296,7 @@
 
         i {
             font-size: 18px;
-            color: var(--white);
+            color: var(--grey-600);
             transition: all 0.3s ease;
         }
 
