@@ -25,6 +25,9 @@
 @use "components/layout/_header" as header;
 @use "components/layout/_footer" as footer;
 
+// Navigation Components
+@use "components/navigation" as navigation;
+
 // Home Page Sections
 @use "components/home" as home-sections;
 

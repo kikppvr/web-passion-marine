@@ -8,7 +8,7 @@ import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "@/styles/components/home/index.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 
@@ -17,7 +17,38 @@ export default function HeaderPage() {
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isHovered, setIsHovered] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const [isOurServicesVisible, setIsOurServicesVisible] = useState(false);
     const { language } = useLanguage();
+    const ourServicesRef = useRef<HTMLElement>(null);
+
+    // Intersection Observer for Our Services animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isOurServicesVisible) {
+                        setIsOurServicesVisible(true);
+                        // Unobserve after first trigger to prevent re-triggering
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.3, // Trigger when 30% of the element is visible
+                rootMargin: "0px 0px -100px 0px", // Start animation slightly before element is fully visible
+            }
+        );
+
+        if (ourServicesRef.current) {
+            observer.observe(ourServicesRef.current);
+        }
+
+        return () => {
+            if (ourServicesRef.current) {
+                observer.unobserve(ourServicesRef.current);
+            }
+        };
+    }, [isOurServicesVisible]);
 
     const boatSolutionsData = [
         {
@@ -284,22 +315,24 @@ export default function HeaderPage() {
             {/* Video Hero Banner */}
             <VideoHeroBanner
                 videoSrc='/videos/banner/banner-home.mp4'
-                title='Passion Marine'
-                subtitle='Marine Services'
-                description='Professional marine services with safety and quality guaranteed'
-                showPlayButton={true}
+                title='Expert Boat Solutions,'
+                subtitle='Powered by Passion'
+                description=''
+                showPlayButton={false}
                 autoPlay={true}
                 muted={true}
                 loop={true}
-                overlay={true}
-                overlayOpacity={0.4}
+                overlay={false}
+                overlayOpacity={0}
                 preload='auto'
                 lazyLoad={false}
                 priority={true}
                 className='video-hero-banner--fullscreen'
             />
 
-            <section className='our-services'>
+            <section
+                ref={ourServicesRef}
+                className={`our-services ${isOurServicesVisible ? "our-services--visible" : ""}`}>
                 <div className='our-services__container'>
                     <h2 className='our-services__title'>Our Services</h2>
                     <div className='our-services__description-1'>General Boat Services,</div>

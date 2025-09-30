@@ -198,13 +198,24 @@ const VideoHeroBanner = ({
 
                 {/* Content */}
                 <div className='video-hero-banner__content'>
-                    <div className='video-hero-banner__content-inner'>
-                        {subtitle && <p className='video-hero-banner__subtitle'>{subtitle}</p>}
-                        {title && <h1 className='video-hero-banner__title'>{title}</h1>}
-                        {description && (
-                            <p className='video-hero-banner__description'>{description}</p>
-                        )}
-                    </div>
+                    {title && <h1 className='video-hero-banner__title'>{title}</h1>}
+                    {subtitle && <p className='video-hero-banner__subtitle'>{subtitle}</p>}
+                    {description && <p className='video-hero-banner__description'>{description}</p>}
+                </div>
+
+                {/* Scroll Down Button */}
+                <div className='video-hero-banner__scroll-down'>
+                    <button
+                        className='video-hero-banner__scroll-button'
+                        onClick={() => {
+                            const nextSection = document.querySelector(".our-services");
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: "smooth" });
+                            }
+                        }}
+                        aria-label='Scroll to next section'>
+                        <i className='ph ph-caret-down'></i>
+                    </button>
                 </div>
             </div>
         </div>
