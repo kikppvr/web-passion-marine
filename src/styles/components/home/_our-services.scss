@@ -1,4 +1,5 @@
 @use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
 .our-services {
     padding-top: 96px;
@@ -20,8 +21,8 @@
 }
 
 .our-services__title {
-    font-size: var(--text-h5);
-    font-weight: var(--font-semibold);
+    @include fonts.text-h5;
+    @include fonts.font-semibold;
     color: var(--grey-600);
     text-align: center;
     margin-bottom: 15px;
@@ -29,19 +30,19 @@
 
 .our-services__description-1,
 .our-services__description-2 {
-    font-size: var(--text-display-3);
+    @include fonts.text-display-3;
+    @include fonts.font-semibold;
     color: var(--blue-600);
-    font-weight: var(--font-semibold);
     text-align: center;
     line-height: 1.25;
     margin: 0 auto;
     text-transform: uppercase;
 
     @include base.media-down(tablet) {
-        font-size: var(--text-h1);
+        @include fonts.text-h1;
     }
 
     @include base.media-down(mobile) {
-        font-size: var(--text-h2);
+        @include fonts.text-h2;
     }
 }

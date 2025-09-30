@@ -1,3 +1,3 @@
 // Media Components
 export { VideoHeroBanner } from "./VideoHeroBanner";
-export { BusinessCardSwiper } from "./BusinessCardSwiper";
+export { SwiperSlider } from "./SwiperSlider";

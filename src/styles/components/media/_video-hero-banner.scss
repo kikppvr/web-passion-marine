@@ -2,6 +2,7 @@
 @use "../../base/text" as text;
 @use "../../base/utility" as utility;
 @use "../../base/display" as display;
+@use "../../base/_font-mixins" as fonts;
 
 // ========================================
 // VIDEO HERO BANNER COMPONENT STYLES
@@ -77,8 +78,8 @@
 
     // Subtitle
     .video-hero-banner__subtitle {
-        font-size: var(--text-h6);
-        font-weight: var(--font-medium);
+        @include fonts.text-h6;
+        @include fonts.font-medium;
         color: var(--blue-300);
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -87,15 +88,15 @@
         animation: fadeInUp 0.8s ease-out 0.2s forwards;
 
         @media (max-width: 768px) {
-            font-size: var(--text-small);
+            @include fonts.text-small;
             letter-spacing: 1px;
         }
     }
 
     // Title
     .video-hero-banner__title {
-        font-size: var(--text-h1);
-        font-weight: var(--font-bold);
+        @include fonts.text-h1;
+        @include fonts.font-bold;
         color: var(--text-white);
         line-height: 1.2;
         margin: 0;
@@ -103,22 +104,22 @@
         animation: fadeInUp 0.8s ease-out 0.4s forwards;
 
         @media (max-width: 1024px) {
-            font-size: var(--text-h2);
+            @include fonts.text-h2;
         }
 
         @media (max-width: 768px) {
-            font-size: var(--text-h3);
+            @include fonts.text-h3;
         }
 
         @media (max-width: 480px) {
-            font-size: var(--text-h4);
+            @include fonts.text-h4;
         }
     }
 
     // Description
     .video-hero-banner__description {
-        font-size: var(--text-h5);
-        font-weight: var(--font-normal);
+        @include fonts.text-h5;
+        @include fonts.font-normal;
         color: var(--text-white);
         line-height: 1.6;
         margin: 0;
@@ -126,7 +127,7 @@
         animation: fadeInUp 0.8s ease-out 0.6s forwards;
 
         @media (max-width: 768px) {
-            font-size: var(--text-body);
+            @include fonts.text-body;
         }
     }
 
@@ -201,10 +202,10 @@
     }
 
     .video-hero-banner__loading-text {
-        font-size: var(--text-body);
+        @include fonts.text-body;
+        @include fonts.font-medium;
         color: var(--text-secondary);
         margin: 0;
-        font-weight: var(--font-medium);
     }
 
     // Error State
@@ -233,10 +234,10 @@
     }
 
     .video-hero-banner__error-text {
-        font-size: var(--text-body);
+        @include fonts.text-body;
+        @include fonts.font-medium;
         color: var(--text-secondary);
         margin: 0;
-        font-weight: var(--font-medium);
         text-align: center;
     }
 
@@ -284,11 +285,11 @@
         }
 
         .video-hero-banner__title {
-            font-size: var(--text-h4);
+            @include fonts.text-h4;
         }
 
         .video-hero-banner__description {
-            font-size: var(--text-small);
+            @include fonts.text-small;
         }
     }
 }

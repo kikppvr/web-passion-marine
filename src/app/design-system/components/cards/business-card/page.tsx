@@ -1,6 +1,6 @@
 "use client";
 
-import { BusinessCardSwiper } from "@/components/ui/media";
+import { SwiperSlider } from "@/components/ui/media";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
@@ -100,8 +100,9 @@ export default function BusinessCardPage() {
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
                         Business Services (Default)
                     </h2>
-                    <BusinessCardSwiper
+                    <SwiperSlider
                         data={businessData}
+                        className='business-card-swiper'
                         autoplay={false}
                         showNavigation={false}
                         showPagination={false}

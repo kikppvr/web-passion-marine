@@ -4,6 +4,7 @@
 @use "../../base/display" as display;
 @use "../../base/scrollbar" as scrollbar;
 @use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
 // ========================================
 // HEADER COMPONENT STYLES
@@ -161,8 +162,8 @@
                 padding: var(--space-2) var(--space-3);
                 color: var(--text-primary);
                 text-decoration: none;
-                font-size: var(--text-body);
-                font-weight: var(--font-medium);
+                @include fonts.text-body;
+                @include fonts.font-medium;
                 border-radius: 8px;
                 transition: all 0.3s ease-in-out;
                 position: relative;
@@ -214,8 +215,8 @@
                         padding: var(--space-3) var(--space-4);
                         color: var(--text-primary);
                         text-decoration: none;
-                        font-size: var(--text-body);
-                        font-weight: var(--font-normal);
+                        @include fonts.text-body;
+                        @include fonts.font-normal;
                         transition: all 0.3s ease-in-out;
 
                         &:hover {
@@ -248,8 +249,8 @@
         background-color: transparent;
         color: var(--blue-500);
         text-decoration: none;
-        font-size: var(--text-body);
-        font-weight: var(--font-semibold);
+        @include fonts.text-body;
+        @include fonts.font-semibold;
         transition: all 0.3s ease-in-out;
         cursor: pointer;
 
@@ -317,8 +318,8 @@
             border: none;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: var(--text-body);
-            font-weight: var(--font-normal);
+            @include fonts.text-body;
+            @include fonts.font-normal;
             transition: all 0.3s ease-in-out;
             cursor: pointer;
             text-align: left;
@@ -369,8 +370,8 @@
         transition: all 0.3s ease-in-out;
 
         .header__hamburger-text {
-            font-size: var(--text-body);
-            font-weight: var(--font-semibold);
+            @include fonts.text-body;
+            @include fonts.font-semibold;
             color: var(--blue-500);
             transition: all 0.3s ease-in-out;
 
@@ -498,8 +499,8 @@
             padding: 16px 0;
             color: var(--blue-500);
             text-decoration: none;
-            font-size: var(--text-lead-2);
-            font-weight: var(--font-semibold);
+            @include fonts.text-lead-2;
+            @include fonts.font-semibold;
             transition: all 0.3s ease-in-out;
             background: none;
             border: none;
@@ -547,8 +548,8 @@
             color: var(--grey-500);
             padding-left: 8px;
             text-decoration: none;
-            font-size: var(--text-small);
-            font-weight: var(--font-normal);
+            @include fonts.text-small;
+            @include fonts.font-normal;
             transition: all 0.3s ease-in-out;
 
             &:hover {

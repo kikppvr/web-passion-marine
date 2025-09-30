@@ -1,4 +1,5 @@
 @use "../../base/image" as image;
+@use "../../base/_font-mixins" as fonts;
 
 // Business Card Component Styles
 .card-business {
@@ -145,8 +146,8 @@
     // Title Section
     .card-business__title {
         flex: 1;
-        font-size: var(--text-h3);
-        font-weight: var(--font-semibold);
+        @include fonts.text-h3;
+        @include fonts.font-semibold;
         color: var(--text-white);
         line-height: 1.3;
         display: block;
