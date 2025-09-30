@@ -1,0 +1,162 @@
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
+
+.volvo-penta {
+    @include base.section-padding;
+    padding-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.volvo-penta__container {
+    @include base.container;
+    position: relative;
+    z-index: 2;
+}
+
+.volvo-penta__content {
+    background: var(--blue-500);
+    border-radius: 20px;
+    padding: 48px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    position: relative;
+
+    @include base.media-down(laptop) {
+        padding: 38px 48px;
+    }
+
+    @include base.media-down(tablet) {
+        padding: 32px 38px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 362px;
+        height: 100%;
+        background: url("/images/icon/logo-footer.svg") no-repeat;
+        background-size: contain;
+        opacity: 1;
+        z-index: 3;
+
+        @include base.media-down(tablet) {
+            top: auto;
+            bottom: 0;
+            width: 200px;
+            background-position: bottom;
+        }
+
+        @include base.media-down(mobile) {
+            width: 150px;
+        }
+    }
+}
+
+.volvo-penta__logo {
+    width: 178px;
+    height: 48px;
+    margin-bottom: 48px;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    @include base.media-down(tablet) {
+        margin-bottom: 32px;
+    }
+}
+
+.volvo-penta__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.volvo-penta__title {
+    @include fonts.text-h2;
+    color: var(--white);
+    line-height: 1.25;
+    margin: 0;
+
+    &--bold {
+        @include fonts.font-semibold;
+    }
+
+    &--light {
+        @include fonts.font-normal;
+        color: var(--blue-100);
+    }
+
+    @include base.media-down(tablet) {
+        @include fonts.text-h4;
+    }
+
+    @include base.media-down(mobile) {
+        @include fonts.text-h5;
+    }
+}
+
+.volvo-penta__subtitle {
+    @include fonts.text-h5;
+    color: var(--white);
+    line-height: 1.3;
+    margin: 0;
+
+    @include base.media-down(tablet) {
+        @include fonts.text-body;
+    }
+
+    @include base.media-down(mobile) {
+        @include fonts.text-small;
+    }
+}
+
+.volvo-penta__button {
+    flex-shrink: 0;
+
+    @include base.media-down(tablet) {
+        align-self: flex-start;
+    }
+}
+
+// Volvo Penta Swiper Styles (if needed)
+.swiper-slider-container.volvo-penta-swiper {
+    .swiper-pagination {
+        text-align: left;
+        display: none;
+
+        @include base.media-down(tablet) {
+            display: block;
+            position: absolute !important;
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            margin: 0 !important;
+            width: auto !important;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--white);
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        transition: all 0.3s ease;
+
+        &.swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    }
+}

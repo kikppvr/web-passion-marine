@@ -56,6 +56,7 @@
         display: flex;
         flex-direction: column;
         flex: 1;
+        min-height: 200px;
     }
 
     .card-charter__header {
@@ -83,6 +84,8 @@
         display: flex;
         gap: var(--space-3);
         flex-wrap: wrap;
+        min-height: 40px;
+        align-items: flex-start;
     }
 
     .card-charter__detail-item {
