@@ -35,8 +35,8 @@
     &--mobile {
         display: none;
         margin-top: 12px;
-        padding-left: 16px;
         text-align: center;
+        @include base.container;
 
         @include base.media-down(mobile) {
             display: block;
@@ -51,25 +51,11 @@
 
 // Boat Solutions Swiper Styles
 .swiper-slider-container.boat-solutions-swiper {
-    padding-left: 500px;
-
-    @include base.media-down(large) {
-        padding-left: 84px;
-    }
-
-    @include base.media-down(laptop) {
-        padding-left: 50px;
-    }
-
-    @include base.media-down(tablet) {
-        padding-left: 40px;
-    }
-
-    @include base.media-down(mobile) {
-        padding-left: 16px;
-    }
-
-    .swiper-slide {
+    @include base.container;
+    // padding-left: 0;
+    // padding-right: 0;
+    overflow: visible;
+      .swiper-slide {
         height: auto;
         display: flex;
         align-items: stretch;
@@ -83,6 +69,7 @@
 
     .swiper-slider {
         height: auto;
+        overflow: visible;
 
         @include base.media-down(tablet) {
             padding-bottom: 40px;
@@ -96,7 +83,7 @@
         right: 0;
         transform: translateY(-50%);
         z-index: 10;
-        width: calc(100% + 120px);
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -104,7 +91,7 @@
         padding: 0;
         opacity: 0;
         transition: all 0.3s ease;
-        @include base.container;
+        pointer-events: none;
 
         @include base.media-down(tablet) {
             position: absolute;
@@ -114,12 +101,12 @@
             top: auto;
             transform: none;
             opacity: 1;
-            padding: 0 40px;
+            padding: 0;
             justify-content: space-between;
             align-items: center;
             height: 50px;
             z-index: 5;
-            width: auto;
+            width: 80px;
         }
 
         @include base.media-down(mobile) {
@@ -141,6 +128,7 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
+        pointer-events: auto;
 
         i {
             font-size: 18px;
