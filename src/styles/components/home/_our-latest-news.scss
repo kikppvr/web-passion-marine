@@ -1,32 +1,53 @@
 @use "../../base/_base" as base;
 @use "../../base/_font-mixins" as fonts;
 
-.easy-boat-rental {
+.our-latest-news {
     @include base.section-padding;
     padding-top: 0;
-    overflow: hidden;
     position: relative;
 }
 
-.easy-boat-rental__container {
-    width: 100%;
-    margin: 0;
+.our-latest-news__container {
     @include base.container;
 }
 
-.easy-boat-rental__header {
+.our-latest-news__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
+
+    @include base.media-down(tablet) {
+        margin-bottom: 32px;
+    }
+
+    @include base.media-down(mobile) {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
 }
 
-.easy-boat-rental__title {
+.our-latest-news__title {
     @include fonts.text-h1;
     color: var(--blue-500);
     margin-bottom: 0;
+
+    @include base.media-down(laptop) {
+        @include fonts.text-h2;
+    }
+
+    @include base.media-down(tablet) {
+        @include fonts.text-h3;
+    }
+
+    @include base.media-down(mobile) {
+        @include fonts.text-h4;
+    }
 }
 
-.easy-boat-rental__button {
+.our-latest-news__button {
+    flex-shrink: 0;
+
     &--desktop {
         @include base.media-down(mobile) {
             display: none;
@@ -44,13 +65,13 @@
     }
 }
 
-.easy-boat-rental__swiper {
+.our-latest-news__swiper {
     position: relative;
     margin-top: 24px;
 }
 
-// Easy Boat Rental Swiper Styles
-.swiper-slider-container.easy-boat-rental-swiper {
+// Our Latest News Swiper Styles
+.swiper-slider-container.our-latest-news-swiper {
     .swiper-slide {
         height: auto;
         display: flex;
@@ -199,6 +220,19 @@
 
         &.swiper-pagination-bullet-active {
             opacity: 1;
+        }
+
+        @include base.media-down(tablet) {
+            background: var(--blue-500);
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
         }
     }
 }

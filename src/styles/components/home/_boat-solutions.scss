@@ -26,8 +26,21 @@
 }
 
 .boat-solutions__button {
-    @include base.media-down(mobile) {
+    &--desktop {
+        @include base.media-down(mobile) {
+            display: none;
+        }
+    }
+
+    &--mobile {
         display: none;
+        margin-top: 12px;
+        padding-left: 16px;
+        text-align: center;
+
+        @include base.media-down(mobile) {
+            display: block;
+        }
     }
 }
 
