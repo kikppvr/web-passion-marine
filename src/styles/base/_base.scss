@@ -94,19 +94,36 @@ $breakpoints: (
     // <= 768px (Tablet)
     @include media-down(tablet) {
         max-width: 720px;
-        padding: 0 var(--space-3);
     }
 
     // <= 576px (Mobile ใหญ่)
     @include media-down(mobile) {
         max-width: 540px;
-        padding: 0 var(--space-2);
     }
 
     // <= 320px (Mobile เล็กสุด)
     @include media-down(mini-mobile) {
         max-width: 300px;
-        padding: 0 var(--space-1);
+        // padding: 0 var(--space-1);
+    }
+}
+
+// ========================================
+// SECTION PADDING
+// ========================================
+
+@mixin section-padding {
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    @include media-down(laptop) {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    @include media-down(tablet) {
+        padding-top: 48px;
+        padding-bottom: 48px;
     }
 }
 

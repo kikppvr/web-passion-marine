@@ -1,59 +1,60 @@
 @use "../../base/_base" as base;
 @use "../../base/_font-mixins" as fonts;
 
-.boat-solutions {
+.easy-boat-rental {
     @include base.section-padding;
+    padding-top: 0;
 }
 
-.boat-solutions__container {
+.easy-boat-rental__container {
     width: 100%;
     margin: 0;
-}
-
-.boat-solutions__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     @include base.container;
 }
 
-.boat-solutions__title {
+.easy-boat-rental__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.easy-boat-rental__title {
     @include fonts.text-h1;
     color: var(--blue-500);
     margin-bottom: 0;
 }
 
-.boat-solutions__button {
+.easy-boat-rental__button {
     @include base.media-down(mobile) {
         display: none;
     }
 }
 
-.boat-solutions__swiper {
+.easy-boat-rental__swiper {
     position: relative;
     margin-top: 24px;
 }
 
-// Boat Solutions Swiper Styles
-.swiper-slider-container.boat-solutions-swiper {
-    padding-left: 500px;
+// Easy Boat Rental Swiper Styles
+.swiper-slider-container.easy-boat-rental-swiper {
+    // padding-left: 500px;
 
-    @include base.media-down(large) {
-        padding-left: 84px;
-    }
+    // @include base.media-down(large) {
+    //     padding-left: 84px;
+    // }
 
-    @include base.media-down(laptop) {
-        padding-left: 50px;
-    }
+    // @include base.media-down(laptop) {
+    //     padding-left: 50px;
+    // }
 
-    @include base.media-down(tablet) {
-        padding-left: 40px;
-        padding-bottom: 60px;
-    }
+    // @include base.media-down(tablet) {
+    //     padding-left: 40px;
+    //     padding-bottom: 60px;
+    // }
 
-    @include base.media-down(mobile) {
-        padding-left: 16px;
-    }
+    // @include base.media-down(mobile) {
+    //     padding-left: 16px;
+    // }
 
     .swiper-slider {
         height: auto;

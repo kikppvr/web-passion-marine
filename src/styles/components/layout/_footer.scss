@@ -3,6 +3,7 @@
 // ========================================
 
 @use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
 // Footer Logo Responsive
 .footer__logo-responsive {
@@ -98,18 +99,18 @@
     }
 
     .footer__column-title {
-        font-size: var(--text-h6);
-        font-weight: var(--font-bold);
+        @include fonts.text-h6;
+        @include fonts.font-bold;
         color: var(--text-white);
     }
 
     .footer__column-content {
-        font-size: var(--text-body);
+        @include fonts.text-body;
         line-height: 1.6;
         color: var(--text-white);
 
         @include base.media-down(mobile) {
-            font-size: var(--text-small);
+            @include fonts.text-small;
         }
     }
 
@@ -124,30 +125,30 @@
     }
 
     .footer__contact-item {
-        font-size: var(--text-body);
+        @include fonts.text-body;
         color: var(--text-white);
         display: flex;
         gap: var(--space-1);
 
         @include base.media-down(mobile) {
-            font-size: var(--text-small);
+            @include fonts.text-small;
         }
 
         .footer__contact-item-title {
-            font-size: var(--text-small);
-            font-weight: var(--font-medium);
+            @include fonts.text-small;
+            @include fonts.font-medium;
             color: var(--text-white);
             min-width: 50px;
         }
 
         .footer__contact-item-content {
-            font-size: var(--text-body);
+            @include fonts.text-body;
             color: var(--text-white);
             text-decoration: none;
             transition: all 0.3s ease-in-out;
 
             @include base.media-down(mobile) {
-                font-size: var(--text-small);
+                @include fonts.text-small;
             }
         }
     }
@@ -199,7 +200,7 @@
         }
 
         span {
-            font-size: var(--text-body);
+            @include fonts.text-body;
             position: relative;
 
             &::after {
@@ -216,7 +217,7 @@
             }
 
             @include base.media-down(mobile) {
-                font-size: var(--text-small);
+                @include fonts.text-small;
             }
         }
 
@@ -271,7 +272,7 @@
     }
 
     .footer__copyright {
-        font-size: var(--text-small);
+        @include fonts.text-small;
         color: var(--text-white);
         text-align: left;
     }

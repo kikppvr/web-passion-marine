@@ -1,7 +1,8 @@
 "use client";
 
 import { Header } from "@/components/ui/layout";
-import { VideoHeroBanner, BusinessCardSwiper } from "@/components/ui/media";
+import { VideoHeroBanner, SwiperSlider } from "@/components/ui/media";
+import { BusinessCard, CharterCard } from "@/components/ui/cards";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -80,6 +81,46 @@ export default function HeaderPage() {
         },
     ];
 
+    // Easy Boat Rental for Every Trip
+    const easyBoatRentalData = [
+        {
+            title: "Speedboats from XXXXX",
+            location: "Maharaj Road, Phrankorn District, Bangkok",
+            image: "/images/charter/charter-01.webp",
+            video: "/videos/business/video-01.mp4",
+            price: "฿36,500",
+            passengers: "5-6",
+            passengerUnit: "Passenger",
+            restrooms: "1",
+            restroomUnit: "Restroom",
+            href: "/comingsoon",
+        },
+        {
+            title: "Catamarans from XXXXX",
+            location: "Marina Bay, Phuket",
+            image: "/images/charter/charter-02.webp",
+            video: "/videos/business/video-02.mp4",
+            price: "฿150,000",
+            passengers: "10-12",
+            passengerUnit: "Passenger",
+            restrooms: "2",
+            restroomUnit: "Restroom",
+            href: "/comingsoon",
+        },
+        {
+            title: "Small yacht from XXXXX",
+            location: "Pattaya Beach, Chonburi",
+            image: "/images/charter/charter-03.webp",
+            video: "/videos/business/video-03.mp4",
+            price: "฿80,000",
+            passengers: "6-8",
+            passengerUnit: "Passenger",
+            restrooms: "1",
+            restroomUnit: "Restroom",
+            href: "/comingsoon",
+        },
+    ];
+
     const copyToClipboard = async (text: string, codeId: string) => {
         try {
             await navigator.clipboard.writeText(text);
@@ -139,14 +180,16 @@ export default function HeaderPage() {
                         </div>
                     </div>
                     <div className='boat-solutions__swiper'>
-                        <BusinessCardSwiper
+                        <SwiperSlider
                             data={boatSolutionsData}
+                            cardComponent={BusinessCard}
+                            className='boat-solutions-swiper'
                             autoplay={false}
                             autoplayDelay={4000}
-                            showNavigation={false}
-                            showPagination={false}
+                            showNavigation={true}
+                            showPagination={true}
                             slidesPerView={{
-                                mobile: 1,
+                                mobile: 1.2,
                                 tablet: 2.5,
                                 desktop: 3.5,
                             }}
@@ -154,6 +197,38 @@ export default function HeaderPage() {
                                 mobile: 8,
                                 tablet: 8,
                                 desktop: 8,
+                            }}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section className='easy-boat-rental'>
+                <div className='easy-boat-rental__container'>
+                    <div className='easy-boat-rental__header'>
+                        <h2 className='easy-boat-rental__title'>Easy Boat Rental for Every Trip</h2>
+                        <div className='easy-boat-rental__button'>
+                            <PrimaryButton>View All</PrimaryButton>
+                        </div>
+                    </div>
+                    <div className='easy-boat-rental__swiper'>
+                        <SwiperSlider
+                            data={easyBoatRentalData}
+                            cardComponent={CharterCard}
+                            className='easy-boat-rental-swiper'
+                            autoplay={false}
+                            autoplayDelay={4000}
+                            showNavigation={true}
+                            showPagination={true}
+                            slidesPerView={{
+                                mobile: 1,
+                                tablet: 2,
+                                desktop: 3,
+                            }}
+                            spaceBetween={{
+                                mobile: 32,
+                                tablet: 32,
+                                desktop: 32,
                             }}
                         />
                     </div>

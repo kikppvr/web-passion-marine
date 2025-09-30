@@ -2,6 +2,8 @@
 // BTN PRIMARY COMPONENT STYLES
 // ========================================
 
+@use "../../base/_font-mixins" as fonts;
+
 // Btn Primary Base Styles
 .btn-primary {
     position: relative;
@@ -10,8 +12,8 @@
     justify-content: center;
     background-color: var(--primary);
     color: var(--text-white);
-    font-size: var(--text-body);
-    font-weight: var(--font-normal);
+    @include fonts.text-body;
+    @include fonts.font-normal;
     line-height: 1.4;
     border-radius: 20px;
     padding: 4px 4px 4px 16px;

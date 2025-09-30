@@ -2,6 +2,7 @@
 @use "../../base/text" as text;
 @use "../../base/utility" as utility;
 @use "../../base/display" as display;
+@use "../../base/_font-mixins" as fonts;
 
 // ========================================
 // BTN READMORE COMPONENT STYLES
@@ -16,8 +17,8 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: var(--text-body);
-    font-weight: var(--font-normal);
+    @include fonts.text-body;
+    @include fonts.font-normal;
     line-height: 1.4;
     text-decoration: none;
     outline: none;
