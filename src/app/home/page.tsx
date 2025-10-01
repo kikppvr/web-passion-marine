@@ -455,10 +455,10 @@ export default function HeaderPage() {
                             }}
                             spaceBetween={{
                                 mobile: 16,
-                                tablet: 24,
-                                laptop: 24,
-                                desktop: 32,
-                                large: 32,
+                                tablet: 16,
+                                laptop: 16,
+                                desktop: 16,
+                                large: 16,
                             }}
                             renderSlide={(item, index) => (
                                 <div className='brand-item'>
@@ -566,7 +566,7 @@ export default function HeaderPage() {
                                     slidesPerView={{
                                         mobile: 1.1,
                                         tablet: 2.2,
-                                        laptop: 2.2,
+                                        laptop: 1.6,
                                         desktop: 2.2,
                                         large: 2.2,
                                     }}
@@ -580,6 +580,11 @@ export default function HeaderPage() {
                                 />
                             </div>
                         </div>
+                    </div>
+
+                    {/* Mobile Explore More Button */}
+                    <div className='our-portfolio__mobile-button'>
+                        <PrimaryButton theme='dark'>Explore More</PrimaryButton>
                     </div>
                 </div>
             </section>

@@ -223,7 +223,7 @@
     // Scroll Down Button
     .video-hero-banner__scroll-down {
         position: absolute;
-        bottom: 20px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
@@ -326,7 +326,7 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
     100% {
         transform: translateY(0);
