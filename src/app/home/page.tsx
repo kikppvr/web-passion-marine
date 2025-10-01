@@ -342,12 +342,16 @@ export default function HeaderPage() {
                             slidesPerView={{
                                 mobile: 1.2,
                                 tablet: 2.5,
+                                laptop: 3.5,
                                 desktop: 3.5,
+                                large: 3.5,
                             }}
                             spaceBetween={{
                                 mobile: 8,
                                 tablet: 8,
+                                laptop: 8,
                                 desktop: 8,
+                                large: 8,
                             }}
                         />
                     </div>
@@ -377,12 +381,16 @@ export default function HeaderPage() {
                             slidesPerView={{
                                 mobile: 1,
                                 tablet: 2,
+                                laptop: 3,
                                 desktop: 3,
+                                large: 3,
                             }}
                             spaceBetween={{
                                 mobile: 16,
                                 tablet: 24,
+                                laptop: 24,
                                 desktop: 32,
+                                large: 32,
                             }}
                         />
                     </div>
@@ -441,12 +449,16 @@ export default function HeaderPage() {
                             slidesPerView={{
                                 mobile: 2.5,
                                 tablet: 4.5,
+                                laptop: 6.5,
                                 desktop: 6.5,
+                                large: 6.5,
                             }}
                             spaceBetween={{
                                 mobile: 16,
                                 tablet: 24,
+                                laptop: 24,
                                 desktop: 32,
+                                large: 32,
                             }}
                             renderSlide={(item, index) => (
                                 <div className='brand-item'>
@@ -554,14 +566,16 @@ export default function HeaderPage() {
                                     slidesPerView={{
                                         mobile: 1.1,
                                         tablet: 2.2,
-                                        desktop: 1.6,
+                                        laptop: 2.2,
+                                        desktop: 2.2,
                                         large: 2.2,
                                     }}
                                     spaceBetween={{
                                         mobile: 16,
                                         tablet: 24,
+                                        laptop: 24,
                                         desktop: 32,
-                                        large: 40,
+                                        large: 32,
                                     }}
                                 />
                             </div>
@@ -590,12 +604,16 @@ export default function HeaderPage() {
                             slidesPerView={{
                                 mobile: 1,
                                 tablet: 2,
+                                laptop: 3,
                                 desktop: 3,
+                                large: 3,
                             }}
                             spaceBetween={{
                                 mobile: 16,
                                 tablet: 24,
+                                laptop: 24,
                                 desktop: 32,
+                                large: 32,
                             }}
                         />
                     </div>

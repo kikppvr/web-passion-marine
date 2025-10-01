@@ -220,20 +220,58 @@
         margin: 0;
     }
 
-    // Error State
-    .video-hero-banner__error {
+    // Scroll Down Button
+    .video-hero-banner__scroll-down {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--white);
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-hero-banner__scroll-button {
+        color: var(--white);
+        cursor: pointer;
+        display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 4;
-        gap: var(--space-3);
+        transition: all 0.2s ease;
+        position: relative;
+        z-index: 10;
+
+        .video-hero-banner__scroll-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .video-hero-banner__scroll-icon-1,
+        .video-hero-banner__scroll-icon-2 {
+            font-size: 50px;
+            font-weight: 300;
+            color: var(--white);
+
+            @include base.media-down(laptop) {
+                font-size: 40px;
+            }
+        }
+
+        .video-hero-banner__scroll-icon-1 {
+            opacity: 0.5;
+            animation-delay: 0s;
+        }
+
+        .video-hero-banner__scroll-icon-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: bounceDown 3s ease-in-out infinite;
+        }
     }
 
     .video-hero-banner__error-icon {
@@ -269,41 +307,6 @@
         object-position: center;
         opacity: 0.9;
     }
-
-    // Responsive Adjustments
-    // @media (max-width: 768px) {
-    //     height: 70vh;
-    //     min-height: 500px;
-    // }
-
-    // @media (max-width: 480px) {
-    //     height: 60vh;
-    //     min-height: 400px;
-    // }
-
-    // // Tablet Landscape
-    // @media (max-width: 1024px) and (orientation: landscape) {
-    //     height: 100vh;
-    //     min-height: 500px;
-    // }
-
-    // // Mobile Landscape
-    // @media (max-width: 768px) and (orientation: landscape) {
-    //     height: 100vh;
-    //     min-height: 400px;
-
-    //     .video-hero-banner__content-inner {
-    //         gap: var(--space-2);
-    //     }
-
-    //     .video-hero-banner__title {
-    //         @include fonts.text-h4;
-    //     }
-
-    //     .video-hero-banner__description {
-    //         @include fonts.text-small;
-    //     }
-    // }
 }
 
 // Animations
@@ -318,13 +321,14 @@
     }
 }
 
-@keyframes slideFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@keyframes bounceDown {
+    0% {
+        transform: translateY(0);
     }
-    to {
-        opacity: 1;
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
         transform: translateY(0);
     }
 }
