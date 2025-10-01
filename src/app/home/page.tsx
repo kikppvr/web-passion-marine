@@ -304,62 +304,64 @@ export default function HeaderPage() {
                 className='video-hero-banner--fullscreen'
             />
 
-            <section className='our-services'>
-                <div className='our-services__container'>
-                    <h2 className='our-services__title'>Our Services</h2>
-                    <div
-                        className='our-services__description-1'
-                        data-aos='fade-up'
-                        data-aos-delay='300'>
-                        General Boat Services,
+            <div className='our-services-bg'>
+                <section className='our-services'>
+                    <div className='our-services__container'>
+                        <h2 className='our-services__title'>Our Services</h2>
+                        <div
+                            className='our-services__description-1'
+                            data-aos='fade-up'
+                            data-aos-delay='300'>
+                            General Boat Services,
+                        </div>
+                        <div
+                            className='our-services__description-2'
+                            data-aos='fade-up'
+                            data-aos-delay='400'>
+                            Engine Repair, Boat Restoration
+                        </div>
                     </div>
-                    <div
-                        className='our-services__description-2'
-                        data-aos='fade-up'
-                        data-aos-delay='400'>
-                        Engine Repair, Boat Restoration
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section className='boat-solutions'>
-                <div className='boat-solutions__container'>
-                    <div className='boat-solutions__header'>
-                        <h2 className='boat-solutions__title'>Boat Solutions</h2>
-                        <div className='boat-solutions__button boat-solutions__button--desktop'>
+                <section className='boat-solutions'>
+                    <div className='boat-solutions__container'>
+                        <div className='boat-solutions__header'>
+                            <h2 className='boat-solutions__title'>Boat Solutions</h2>
+                            <div className='boat-solutions__button boat-solutions__button--desktop'>
+                                <PrimaryButton>Overview Services</PrimaryButton>
+                            </div>
+                        </div>
+                        <div className='boat-solutions__swiper'>
+                            <SwiperSlider
+                                data={boatSolutionsData}
+                                cardComponent={BusinessCard}
+                                className='boat-solutions-swiper'
+                                autoplay={false}
+                                autoplayDelay={4000}
+                                showNavigation={true}
+                                showPagination={true}
+                                slidesPerView={{
+                                    mobile: 1.2,
+                                    tablet: 2.5,
+                                    laptop: 3.5,
+                                    desktop: 3.5,
+                                    large: 3.5,
+                                }}
+                                spaceBetween={{
+                                    mobile: 8,
+                                    tablet: 8,
+                                    laptop: 8,
+                                    desktop: 8,
+                                    large: 8,
+                                }}
+                            />
+                        </div>
+                        <div className='boat-solutions__button boat-solutions__button--mobile'>
                             <PrimaryButton>Overview Services</PrimaryButton>
                         </div>
                     </div>
-                    <div className='boat-solutions__swiper'>
-                        <SwiperSlider
-                            data={boatSolutionsData}
-                            cardComponent={BusinessCard}
-                            className='boat-solutions-swiper'
-                            autoplay={false}
-                            autoplayDelay={4000}
-                            showNavigation={true}
-                            showPagination={true}
-                            slidesPerView={{
-                                mobile: 1.2,
-                                tablet: 2.5,
-                                laptop: 3.5,
-                                desktop: 3.5,
-                                large: 3.5,
-                            }}
-                            spaceBetween={{
-                                mobile: 8,
-                                tablet: 8,
-                                laptop: 8,
-                                desktop: 8,
-                                large: 8,
-                            }}
-                        />
-                    </div>
-                    <div className='boat-solutions__button boat-solutions__button--mobile'>
-                        <PrimaryButton>Overview Services</PrimaryButton>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
 
             <section className='easy-boat-rental'>
                 <div className='easy-boat-rental__container'>
@@ -455,10 +457,10 @@ export default function HeaderPage() {
                             }}
                             spaceBetween={{
                                 mobile: 16,
-                                tablet: 24,
-                                laptop: 24,
-                                desktop: 32,
-                                large: 32,
+                                tablet: 16,
+                                laptop: 16,
+                                desktop: 16,
+                                large: 16,
                             }}
                             renderSlide={(item, index) => (
                                 <div className='brand-item'>
@@ -566,7 +568,7 @@ export default function HeaderPage() {
                                     slidesPerView={{
                                         mobile: 1.1,
                                         tablet: 2.2,
-                                        laptop: 2.2,
+                                        laptop: 1.6,
                                         desktop: 2.2,
                                         large: 2.2,
                                     }}
@@ -580,6 +582,11 @@ export default function HeaderPage() {
                                 />
                             </div>
                         </div>
+                    </div>
+
+                    {/* Mobile Explore More Button */}
+                    <div className='our-portfolio__mobile-button'>
+                        <PrimaryButton theme='dark'>Explore More</PrimaryButton>
                     </div>
                 </div>
             </section>
