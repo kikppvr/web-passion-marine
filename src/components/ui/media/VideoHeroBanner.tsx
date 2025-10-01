@@ -230,9 +230,10 @@ const VideoHeroBanner = ({
                 {/* Scroll Down Button */}
                 <div
                     className='video-hero-banner__scroll-down'
-                    data-aos='fade-up'
-                    data-aos-delay='800'
-                    data-aos-duration='1000'>
+                    // data-aos='fade-up'
+                    // data-aos-delay='800'
+                    // data-aos-duration='1000'
+                >
                     <button
                         className='video-hero-banner__scroll-button'
                         onClick={() => {
@@ -242,7 +243,10 @@ const VideoHeroBanner = ({
                             }
                         }}
                         aria-label='Scroll to next section'>
-                        <i className='ph ph-caret-down'></i>
+                        <div className='video-hero-banner__scroll-icons'>
+                            <i className='ph-light ph-caret-down video-hero-banner__scroll-icon-1'></i>
+                            <i className='ph-light ph-caret-down video-hero-banner__scroll-icon-2'></i>
+                        </div>
                     </button>
                 </div>
             </div>

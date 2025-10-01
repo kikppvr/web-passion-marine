@@ -223,7 +223,7 @@
     // Scroll Down Button
     .video-hero-banner__scroll-down {
         position: absolute;
-        bottom: 40px;
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
@@ -233,41 +233,44 @@
     }
 
     .video-hero-banner__scroll-button {
-        width: 48px;
-        height: 48px;
-        border: 2px solid var(--white);
-        border-radius: 50%;
-        background: transparent;
         color: var(--white);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: slideFadeUp 1s ease-out 1.1s forwards;
+        transition: all 0.2s ease;
         position: relative;
         z-index: 10;
 
-        &:hover {
-            background: var(--white);
-            color: var(--blue-500);
-            transform: translateY(-2px);
+        .video-hero-banner__scroll-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
         }
 
-        i {
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
+        .video-hero-banner__scroll-icon-1,
+        .video-hero-banner__scroll-icon-2 {
+            font-size: 50px;
+            font-weight: 300;
+            color: var(--white);
 
-        @media (max-width: 768px) {
-            width: 40px;
-            height: 40px;
-
-            i {
-                font-size: 18px;
+            @include base.media-down(laptop) {
+                font-size: 40px;
             }
+        }
+
+        .video-hero-banner__scroll-icon-1 {
+            opacity: 0.5;
+            animation-delay: 0s;
+        }
+
+        .video-hero-banner__scroll-icon-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: bounceDown 3s ease-in-out infinite;
         }
     }
 
@@ -304,41 +307,6 @@
         object-position: center;
         opacity: 0.9;
     }
-
-    // Responsive Adjustments
-    // @media (max-width: 768px) {
-    //     height: 70vh;
-    //     min-height: 500px;
-    // }
-
-    // @media (max-width: 480px) {
-    //     height: 60vh;
-    //     min-height: 400px;
-    // }
-
-    // // Tablet Landscape
-    // @media (max-width: 1024px) and (orientation: landscape) {
-    //     height: 100vh;
-    //     min-height: 500px;
-    // }
-
-    // // Mobile Landscape
-    // @media (max-width: 768px) and (orientation: landscape) {
-    //     height: 100vh;
-    //     min-height: 400px;
-
-    //     .video-hero-banner__content-inner {
-    //         gap: var(--space-2);
-    //     }
-
-    //     .video-hero-banner__title {
-    //         @include fonts.text-h4;
-    //     }
-
-    //     .video-hero-banner__description {
-    //         @include fonts.text-small;
-    //     }
-    // }
 }
 
 // Animations
@@ -353,13 +321,14 @@
     }
 }
 
-@keyframes slideFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@keyframes bounceDown {
+    0% {
+        transform: translateY(0);
     }
-    to {
-        opacity: 1;
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
         transform: translateY(0);
     }
 }
