@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { BusinessCard } from "@/components/ui/cards/BusinessCard";
-import { useId } from "react";
+import { useId, useState, useEffect } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -37,11 +37,13 @@ export interface SwiperSliderProps {
         mobile?: number;
         tablet?: number;
         desktop?: number;
+        large?: number;
     };
     spaceBetween?: {
         mobile?: number;
         tablet?: number;
         desktop?: number;
+        large?: number;
     };
     renderSlide?: (item: SwiperSlideData, index: number) => React.ReactNode;
     cardComponent?: React.ComponentType<any>;
@@ -62,11 +64,13 @@ export const SwiperSlider = ({
         mobile: 1,
         tablet: 3,
         desktop: 4,
+        large: 5,
     },
     spaceBetween = {
         mobile: 16,
         tablet: 20,
         desktop: 24,
+        large: 32,
     },
     renderSlide,
     cardComponent: CardComponent = BusinessCard,
@@ -75,6 +79,10 @@ export const SwiperSlider = ({
     const uniqueId = useId();
     const nextButtonId = `swiper-button-next-${uniqueId}`;
     const prevButtonId = `swiper-button-prev-${uniqueId}`;
+
+    // State for navigation disable
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
 
     const defaultRenderSlide = (item: SwiperSlideData, index: number) => (
         <CardComponent
@@ -116,6 +124,18 @@ export const SwiperSlider = ({
                         slidesPerView: slidesPerView.desktop,
                         spaceBetween: spaceBetween.desktop,
                     },
+                    2560: {
+                        slidesPerView: slidesPerView.large,
+                        spaceBetween: spaceBetween.large,
+                    },
+                }}
+                onSlideChange={swiper => {
+                    setIsBeginning(swiper.isBeginning);
+                    setIsEnd(swiper.isEnd);
+                }}
+                onSwiper={swiper => {
+                    setIsBeginning(swiper.isBeginning);
+                    setIsEnd(swiper.isEnd);
                 }}
                 className={`swiper-slider ${swiperClassName}`}>
                 {data.map((item, index) => (
@@ -128,10 +148,16 @@ export const SwiperSlider = ({
             {/* Custom Navigation Buttons with Phosphor Icons */}
             {showNavigation && (
                 <div className='swiper-navigation-wrapper'>
-                    <button id={prevButtonId} className='swiper-button-prev-custom'>
+                    <button
+                        id={prevButtonId}
+                        className={`swiper-button-prev-custom ${isBeginning ? "swiper-button-disabled" : ""}`}
+                        disabled={isBeginning}>
                         <i className='ph ph-caret-left'></i>
                     </button>
-                    <button id={nextButtonId} className='swiper-button-next-custom'>
+                    <button
+                        id={nextButtonId}
+                        className={`swiper-button-next-custom ${isEnd ? "swiper-button-disabled" : ""}`}
+                        disabled={isEnd}>
                         <i className='ph ph-caret-right'></i>
                     </button>
                 </div>

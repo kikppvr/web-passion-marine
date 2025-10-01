@@ -25,7 +25,7 @@
 }
 
 .our-portfolio__container {
-    @include base.container;
+    // @include base.container;
     position: relative;
     z-index: 2;
 }
@@ -35,15 +35,15 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    @include base.container;
 
-    @include base.media-down(mobile) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
+    @include base.media-down(tablet) {
         margin-bottom: 32px;
     }
 
     @include base.media-down(mobile) {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 16px;
         margin-bottom: 24px;
     }
@@ -70,36 +70,48 @@
     align-items: flex-end;
 
     @include base.media-down(tablet) {
+        @include base.container;
         flex-direction: column;
         gap: 32px;
     }
 }
 
 .our-portfolio__left {
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+    padding-left: 504px;
+    // @include base.container;
+
+    @include base.media-down(large) {
+        flex: 0 0 35%;
+        padding-left: 84px;
+    }
 
     @include base.media-down(laptop) {
         flex: 0 0 40%;
+        padding-left: 48px;
     }
 
     @include base.media-down(tablet) {
         flex: none;
         width: 100%;
-        // order: 2;
+        padding-left: 0;
     }
 }
 
 .our-portfolio__right {
     flex: 0 0 50%;
     min-width: 0;
+    overflow: hidden;
+    margin-left: auto;
 
     @include base.media-down(tablet) {
+        overflow: visible;
         flex: none;
         width: 100%;
-        // order: 1;
+        margin-left: 0;
     }
 }
 
@@ -220,10 +232,11 @@
 
 // Our Portfolio Swiper Styles
 .swiper-slider-container.our-portfolio-swiper {
-    @include base.container;
+    // @include base.container;
     padding-left: 0;
     padding-right: 0;
     overflow: visible;
+    width: 100%;
 
     .swiper-slide {
         height: auto;
@@ -281,8 +294,8 @@
     .swiper-button-next-custom,
     .swiper-button-prev-custom {
         color: var(--grey-600);
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(4px);
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(2.5px);
         border-radius: 50%;
         width: 48px;
         height: 48px;
@@ -296,8 +309,8 @@
         pointer-events: auto;
 
         i {
-            font-size: 18px;
-            color: var(--grey-600);
+            font-size: 20px;
+            color: var(--blue-500);
             transition: all 0.3s ease;
         }
 
@@ -308,16 +321,29 @@
             height: 36px;
             transform: translateY(-50%);
             background: var(--white);
+
+            i {
+                font-size: 18px;
+                color: var(--blue-500);
+            }
+        }
+
+        &:hover:not(:disabled) {
+            background: var(--white);
+
             i {
                 color: var(--blue-500);
             }
         }
 
-        &:hover {
-            background: var(--white);
+        &.swiper-button-disabled,
+        &:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            pointer-events: none;
 
             i {
-                color: var(--blue-500);
+                color: var(--white);
             }
         }
     }
