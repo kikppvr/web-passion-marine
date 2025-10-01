@@ -23,6 +23,8 @@ interface NavItem {
 
 const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -65,12 +67,35 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            const currentScrollY = window.scrollY;
+
+            // Check if scrolled for background change
+            setIsScrolled(currentScrollY > 20);
+
+            // Handle header visibility based on scroll direction
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down - hide header
+                setIsHeaderVisible(false);
+            } else {
+                // Scrolling up - show header
+                setIsHeaderVisible(true);
+            }
+
+            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [lastScrollY]);
+
+    // Close menu when header is hidden
+    useEffect(() => {
+        if (!isHeaderVisible) {
+            setIsHamburgerOpen(false);
+            setActiveDropdown(null);
+            setIsLanguageDropdownOpen(false);
+        }
+    }, [isHeaderVisible]);
 
     // Handle dropdown toggle
     const toggleDropdown = (itemLabel: string) => {
@@ -135,6 +160,9 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
             className={cn(
                 "header",
                 `header--${isHamburgerOpen || isScrolled ? "white" : theme}`,
+                {
+                    "header--hidden": !isHeaderVisible,
+                },
                 className
             )}>
             <div className='header__container'>

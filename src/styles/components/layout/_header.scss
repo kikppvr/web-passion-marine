@@ -44,9 +44,22 @@
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+
+    &.header--hidden {
+        transform: translateY(-100%);
+    }
     // Theme Variants
     &.header--white {
         background-color: var(--white);
+        box-shadow:
+            0 2px 20px rgba(0, 0, 0, 0.08),
+            0 1px 4px rgba(0, 0, 0, 0.04);
+
+        @include base.media-down(tablet) {
+            box-shadow:
+                0 2px 16px rgba(0, 0, 0, 0.06),
+                0 1px 3px rgba(0, 0, 0, 0.03);
+        }
     }
 
     // Transparent theme specific styles
@@ -429,12 +442,16 @@
         position: fixed;
         top: 94px;
         right: 0;
-        width: 400px;
+        width: 700px;
         height: 100vh;
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease-in-out;
+
+        @include base.media-down(large) {
+            width: 400px;
+        }
 
         @include base.media-down(laptop) {
             top: 80px;
