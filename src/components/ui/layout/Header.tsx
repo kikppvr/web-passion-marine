@@ -107,6 +107,20 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         setIsHamburgerOpen(!isHamburgerOpen);
     };
 
+    // Add/remove header-enable class to html element
+    useEffect(() => {
+        if (isHamburgerOpen) {
+            document.documentElement.classList.add("header-enable");
+        } else {
+            document.documentElement.classList.remove("header-enable");
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.documentElement.classList.remove("header-enable");
+        };
+    }, [isHamburgerOpen]);
+
     // Handle language dropdown toggle
     const toggleLanguageDropdown = () => {
         setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
