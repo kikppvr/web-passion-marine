@@ -188,7 +188,6 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                         width={158}
                         height={44}
                         priority={true}
-                        style={{ width: "auto", height: "auto" }}
                         className='header__logo-responsive'
                     />
                 </Link>

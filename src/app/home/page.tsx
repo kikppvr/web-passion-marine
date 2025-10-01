@@ -402,7 +402,6 @@ export default function HeaderPage() {
                                     alt='Volvo Penta'
                                     width={178}
                                     height={48}
-                                    style={{ width: "auto", height: "auto" }}
                                 />
                             </div>
                             <div className='volvo-penta__text'>
@@ -456,7 +455,6 @@ export default function HeaderPage() {
                                         alt={item.title}
                                         width={120}
                                         height={40}
-                                        style={{ width: "auto", height: "auto" }}
                                     />
                                 </div>
                             )}
@@ -497,7 +495,6 @@ export default function HeaderPage() {
                                         alt='Customer 1'
                                         width={44}
                                         height={44}
-                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -505,7 +502,6 @@ export default function HeaderPage() {
                                         alt='Customer 2'
                                         width={44}
                                         height={44}
-                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -513,7 +509,6 @@ export default function HeaderPage() {
                                         alt='Customer 3'
                                         width={44}
                                         height={44}
-                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -521,7 +516,6 @@ export default function HeaderPage() {
                                         alt='Customer 4'
                                         width={44}
                                         height={44}
-                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -529,7 +523,6 @@ export default function HeaderPage() {
                                         alt='Customer 5'
                                         width={44}
                                         height={44}
-                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                 </div>
@@ -562,11 +555,13 @@ export default function HeaderPage() {
                                         mobile: 1.1,
                                         tablet: 2.2,
                                         desktop: 1.6,
+                                        large: 2.2,
                                     }}
                                     spaceBetween={{
                                         mobile: 16,
                                         tablet: 24,
                                         desktop: 32,
+                                        large: 40,
                                     }}
                                 />
                             </div>
