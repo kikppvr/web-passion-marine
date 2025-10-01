@@ -45,7 +45,7 @@
         background: url("/images/icon/logo-footer.svg") no-repeat;
         background-size: contain;
         opacity: 1;
-        z-index: 3;
+        z-index: 1;
 
         @include base.media-down(tablet) {
             top: auto;
@@ -58,6 +58,11 @@
             width: 150px;
         }
     }
+}
+
+.volvo-penta__content-right {
+    position: relative;
+    z-index: 2;
 }
 
 .volvo-penta__logo {

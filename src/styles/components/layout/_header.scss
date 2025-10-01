@@ -286,9 +286,9 @@
     }
 
     .header__language-dropdown {
-        position: fixed;
-        top: 60px;
-        left: 500px;
+        position: absolute;
+        top: 100%;
+        left: 0;
         background-color: var(--white);
         border-radius: 8px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -299,22 +299,9 @@
         z-index: 1001;
         overflow: hidden;
 
-        @include base.media-down(large) {
-            left: 78px;
-        }
-
-        @include base.media-down(laptop) {
-            left: 45px;
-        }
-
         @include base.media-down(tablet) {
-            top: 55px;
-            left: 30px;
-        }
-
-        @include base.media-down(mobile) {
-            top: 45px;
-            left: 5px;
+            top: 100%;
+            left: 0;
         }
 
         &.header__language-dropdown--open {
