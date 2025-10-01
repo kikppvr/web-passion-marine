@@ -9,10 +9,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import { useAOS } from "@/hooks/useAOS";
 
 export default function HeaderPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -22,14 +22,7 @@ export default function HeaderPage() {
     const { language } = useLanguage();
 
     // Initialize AOS
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            easing: "ease-out",
-            once: true,
-            offset: 100,
-        });
-    }, []);
+    useAOS();
 
     const boatSolutionsData = [
         {
@@ -409,6 +402,7 @@ export default function HeaderPage() {
                                     alt='Volvo Penta'
                                     width={178}
                                     height={48}
+                                    style={{ width: "auto", height: "auto" }}
                                 />
                             </div>
                             <div className='volvo-penta__text'>
@@ -462,6 +456,7 @@ export default function HeaderPage() {
                                         alt={item.title}
                                         width={120}
                                         height={40}
+                                        style={{ width: "auto", height: "auto" }}
                                     />
                                 </div>
                             )}
@@ -502,6 +497,7 @@ export default function HeaderPage() {
                                         alt='Customer 1'
                                         width={44}
                                         height={44}
+                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -509,6 +505,7 @@ export default function HeaderPage() {
                                         alt='Customer 2'
                                         width={44}
                                         height={44}
+                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -516,6 +513,7 @@ export default function HeaderPage() {
                                         alt='Customer 3'
                                         width={44}
                                         height={44}
+                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -523,6 +521,7 @@ export default function HeaderPage() {
                                         alt='Customer 4'
                                         width={44}
                                         height={44}
+                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
@@ -530,6 +529,7 @@ export default function HeaderPage() {
                                         alt='Customer 5'
                                         width={44}
                                         height={44}
+                                        style={{ width: "auto", height: "auto" }}
                                         className='our-portfolio__avatar'
                                     />
                                 </div>

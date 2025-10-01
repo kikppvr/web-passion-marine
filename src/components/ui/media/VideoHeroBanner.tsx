@@ -198,13 +198,41 @@ const VideoHeroBanner = ({
 
                 {/* Content */}
                 <div className='video-hero-banner__content'>
-                    {title && <h1 className='video-hero-banner__title'>{title}</h1>}
-                    {subtitle && <p className='video-hero-banner__subtitle'>{subtitle}</p>}
-                    {description && <p className='video-hero-banner__description'>{description}</p>}
+                    {title && (
+                        <h1
+                            className='video-hero-banner__title'
+                            data-aos='fade-up'
+                            data-aos-delay='200'
+                            data-aos-duration='1000'>
+                            {title}
+                        </h1>
+                    )}
+                    {subtitle && (
+                        <p
+                            className='video-hero-banner__subtitle'
+                            data-aos='fade-up'
+                            data-aos-delay='400'
+                            data-aos-duration='1000'>
+                            {subtitle}
+                        </p>
+                    )}
+                    {description && (
+                        <p
+                            className='video-hero-banner__description'
+                            data-aos='fade-up'
+                            data-aos-delay='600'
+                            data-aos-duration='1000'>
+                            {description}
+                        </p>
+                    )}
                 </div>
 
                 {/* Scroll Down Button */}
-                <div className='video-hero-banner__scroll-down'>
+                <div
+                    className='video-hero-banner__scroll-down'
+                    data-aos='fade-up'
+                    data-aos-delay='800'
+                    data-aos-duration='1000'>
                     <button
                         className='video-hero-banner__scroll-button'
                         onClick={() => {

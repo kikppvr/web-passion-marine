@@ -92,7 +92,6 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         setCurrentLanguage(language);
         setIsLanguageDropdownOpen(false);
         // Here you can add logic to change the actual language
-        console.log("Language changed to:", language);
     };
 
     // Close language dropdown when clicking outside
@@ -188,6 +187,8 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                         alt='Logo'
                         width={158}
                         height={44}
+                        priority={true}
+                        style={{ width: "auto", height: "auto" }}
                         className='header__logo-responsive'
                     />
                 </Link>
