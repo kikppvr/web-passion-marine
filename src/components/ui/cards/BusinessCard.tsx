@@ -37,10 +37,11 @@ const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCa
             <Link href={href} className='card-business__link'>
                 <div className='card-business__icon'>
                     <Image
-                        src='/images/business/ic-business.webp'
+                        src='/images/home/business/ic-business.webp'
                         alt='Business Icon'
                         width={32}
                         height={32}
+                        style={{ width: "auto", height: "auto" }}
                         className='card-business__icon-image'
                     />
                 </div>
@@ -52,6 +53,7 @@ const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCa
                             alt={title}
                             width={400}
                             height={300}
+                            style={{ width: "auto", height: "auto" }}
                             className='card-business__image'
                         />
                         <div className='card-business__overlay'></div>

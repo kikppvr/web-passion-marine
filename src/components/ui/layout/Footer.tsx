@@ -28,6 +28,7 @@ const Footer = ({ className }: FooterProps) => {
                             alt='Passion Marine Logo'
                             width={200}
                             height={55}
+                            style={{ width: "auto", height: "auto" }}
                             className='footer__logo-responsive'
                         />
                     </Link>
@@ -180,6 +181,7 @@ const Footer = ({ className }: FooterProps) => {
                     alt='Back to Top'
                     width={20}
                     height={20}
+                    style={{ width: "auto", height: "auto" }}
                     className='footer__scroll-top-icon'
                 />
             </button>
@@ -189,6 +191,7 @@ const Footer = ({ className }: FooterProps) => {
                     alt='Passion Marine Logo'
                     width={200}
                     height={55}
+                    style={{ width: "auto", height: "auto" }}
                     className='footer__image-responsive'
                 />
             </div>
