@@ -39,6 +39,7 @@
         @include base.container;
 
         @include base.media-down(mobile) {
+            margin-top: 12px;
             display: block;
         }
     }

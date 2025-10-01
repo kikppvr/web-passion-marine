@@ -220,20 +220,55 @@
         margin: 0;
     }
 
-    // Error State
-    .video-hero-banner__error {
+    // Scroll Down Button
+    .video-hero-banner__scroll-down {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--white);
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-hero-banner__scroll-button {
+        width: 48px;
+        height: 48px;
+        border: 2px solid var(--white);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--white);
+        cursor: pointer;
+        display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 4;
-        gap: var(--space-3);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideFadeUp 1s ease-out 1.1s forwards;
+        position: relative;
+        z-index: 10;
+
+        &:hover {
+            background: var(--white);
+            color: var(--blue-500);
+            transform: translateY(-2px);
+        }
+
+        i {
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            width: 40px;
+            height: 40px;
+
+            i {
+                font-size: 18px;
+            }
+        }
     }
 
     .video-hero-banner__error-icon {

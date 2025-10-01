@@ -34,7 +34,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
     @include base.container;
 
     @include base.media-down(tablet) {
@@ -68,6 +67,11 @@
     justify-content: space-between;
     gap: 24px;
     align-items: flex-end;
+    margin-top: 95px;
+
+    @include base.media-down(laptop) {
+        margin-top: 64px;
+    }
 
     @include base.media-down(tablet) {
         @include base.container;

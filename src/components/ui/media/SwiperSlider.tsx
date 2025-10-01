@@ -36,12 +36,14 @@ export interface SwiperSliderProps {
     slidesPerView?: {
         mobile?: number;
         tablet?: number;
+        laptop?: number;
         desktop?: number;
         large?: number;
     };
     spaceBetween?: {
         mobile?: number;
         tablet?: number;
+        laptop?: number;
         desktop?: number;
         large?: number;
     };
@@ -63,12 +65,14 @@ export const SwiperSlider = ({
     slidesPerView = {
         mobile: 1,
         tablet: 3,
+        laptop: 3,
         desktop: 4,
         large: 5,
     },
     spaceBetween = {
         mobile: 16,
         tablet: 20,
+        laptop: 22,
         desktop: 24,
         large: 32,
     },
@@ -116,15 +120,23 @@ export const SwiperSlider = ({
                         : false
                 }
                 breakpoints={{
-                    640: {
+                    576: {
+                        slidesPerView: slidesPerView.mobile,
+                        spaceBetween: spaceBetween.mobile,
+                    },
+                    768: {
                         slidesPerView: slidesPerView.tablet,
                         spaceBetween: spaceBetween.tablet,
                     },
                     1024: {
+                        slidesPerView: slidesPerView.laptop,
+                        spaceBetween: spaceBetween.laptop,
+                    },
+                    1200: {
                         slidesPerView: slidesPerView.desktop,
                         spaceBetween: spaceBetween.desktop,
                     },
-                    2560: {
+                    1440: {
                         slidesPerView: slidesPerView.large,
                         spaceBetween: spaceBetween.large,
                     },
