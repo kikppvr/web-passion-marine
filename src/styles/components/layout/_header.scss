@@ -424,6 +424,12 @@
         transition: all 0.3s ease-in-out;
     }
 
+    // Show overlay when menu is open
+    .header__menu--open + .header__menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
     // Menu
     .header__menu {
         position: fixed;
