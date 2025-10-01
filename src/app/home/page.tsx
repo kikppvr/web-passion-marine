@@ -344,7 +344,7 @@ export default function HeaderPage() {
                                 tablet: 2.5,
                                 laptop: 3.5,
                                 desktop: 3.5,
-                                large: 4.5,
+                                large: 3.5,
                             }}
                             spaceBetween={{
                                 mobile: 8,
