@@ -573,7 +573,12 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp start={0} end={120} duration={3} suffix='+' />
+                                            <CountUp
+                                                start={100}
+                                                end={120}
+                                                duration={2}
+                                                suffix='+'
+                                            />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Project</div>
@@ -581,7 +586,7 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp start={0} end={80} duration={3} suffix='+' />
+                                            <CountUp start={50} end={80} duration={2} suffix='+' />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Customer</div>
