@@ -1,3 +1,4 @@
+@use "sass:map";
 // ========================================
 // Z-INDEX SCALE
 // ========================================
@@ -12,7 +13,7 @@ $z-index-scale: (
 );
 
 @function z($layer) {
-    @return map-get($z-index-scale, $layer);
+    @return map.get($z-index-scale, $layer);
 }
 
 // ========================================
@@ -41,7 +42,7 @@ $breakpoints: (
 ) !default;
 
 @function breakpoint($name) {
-    @return map-get($breakpoints, $name);
+    @return map.get($breakpoints, $name);
 }
 
 // Desktop-first media helpers
