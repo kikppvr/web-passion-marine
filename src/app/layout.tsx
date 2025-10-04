@@ -26,6 +26,9 @@ const notoSansThai = Noto_Sans_Thai({
 export const metadata: Metadata = {
     title: "Passion Marine - บริการทางทะเลมืออาชีพ",
     description: "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย",
+    icons: {
+        icon: [{ url: "/favicon.ico" }, { url: "/favicon.svg", type: "image/svg+xml" }],
+    },
 };
 
 export default function RootLayout({
