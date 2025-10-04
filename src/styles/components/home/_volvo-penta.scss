@@ -29,7 +29,7 @@
     }
 
     @include base.media-down(tablet) {
-        padding: 32px 38px;
+        padding: 32px 24px;
         flex-direction: column;
         align-items: flex-start;
         gap: 32px;
