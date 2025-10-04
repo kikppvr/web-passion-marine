@@ -13,16 +13,43 @@ import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { useAOS } from "@/hooks/useAOS";
+import CountUp from "react-countup";
 
 export default function HeaderPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isHovered, setIsHovered] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const [isStatsVisible, setIsStatsVisible] = useState(false);
     const { language } = useLanguage();
 
     // Initialize AOS
     useAOS();
+
+    // Intersection Observer for stats animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setIsStatsVisible(true);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        const statsElement = document.querySelector(".our-portfolio__stats");
+        if (statsElement) {
+            observer.observe(statsElement);
+        }
+
+        return () => {
+            if (statsElement) {
+                observer.unobserve(statsElement);
+            }
+        };
+    }, []);
 
     const boatSolutionsData = [
         {
@@ -215,20 +242,8 @@ export default function HeaderPage() {
             href: "/comingsoon",
         },
         {
-            title: "Cobalt Boats",
-            image: "/images/home/brands/cobalt-boats.webp",
-            video: "",
-            href: "/comingsoon",
-        },
-        {
             title: "Mercury",
             image: "/images/home/brands/mercury.webp",
-            video: "",
-            href: "/comingsoon",
-        },
-        {
-            title: "Nautic",
-            image: "/images/home/brands/nautic.webp",
             video: "",
             href: "/comingsoon",
         },
@@ -239,11 +254,48 @@ export default function HeaderPage() {
             href: "/comingsoon",
         },
         {
+            title: "Cobalt Boats",
+            image: "/images/home/brands/cobalt-boats.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
             title: "Sea Ray",
             image: "/images/home/brands/searay.webp",
             video: "",
             href: "/comingsoon",
         },
+        {
+            title: "Nautica",
+            image: "/images/home/brands/nautica.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Yamaha",
+            image: "/images/home/brands/yamaha.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Mercury MerCruiser",
+            image: "/images/home/brands/mercury-mercruiser.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Axoppr",
+            image: "/images/home/brands/axoppr.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Crownline",
+            image: "/images/home/brands/crownline.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        // Duplicate for seamless loop
         {
             title: "Chaparral",
             image: "/images/home/brands/chaparral.webp",
@@ -257,22 +309,60 @@ export default function HeaderPage() {
             href: "/comingsoon",
         },
         {
+            title: "Mercury",
+            image: "/images/home/brands/mercury.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Saxdor",
+            image: "/images/home/brands/saxdor.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
             title: "Cobalt Boats",
             image: "/images/home/brands/cobalt-boats.webp",
             video: "",
             href: "/comingsoon",
         },
+        {
+            title: "Sea Ray",
+            image: "/images/home/brands/searay.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Nautica",
+            image: "/images/home/brands/nautica.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Yamaha",
+            image: "/images/home/brands/yamaha.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Mercury MerCruiser",
+            image: "/images/home/brands/mercury-mercruiser.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Axoppr",
+            image: "/images/home/brands/axoppr.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Crownline",
+            image: "/images/home/brands/crownline.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
     ];
-
-    const copyToClipboard = async (text: string, codeId: string) => {
-        try {
-            await navigator.clipboard.writeText(text);
-            setCopiedCode(codeId);
-            setTimeout(() => setCopiedCode(null), 2000);
-        } catch (err) {
-            console.error("Failed to copy text: ", err);
-        }
-    };
 
     return (
         <div className='min-h-screen'>
@@ -439,40 +529,29 @@ export default function HeaderPage() {
                 <div className='brands__container'>
                     <h2 className='brands__title'>Experienced in leading brands</h2>
                     <div className='brands__slider'>
-                        <SwiperSlider
-                            data={brandsData}
-                            className='brands-swiper'
-                            autoplay={true}
-                            autoplayDelay={2000}
-                            loop={true}
-                            speed={800}
-                            showNavigation={false}
-                            showPagination={false}
-                            slidesPerView={{
-                                mobile: 2.5,
-                                tablet: 4.5,
-                                laptop: 6.5,
-                                desktop: 6.5,
-                                large: 6.5,
-                            }}
-                            spaceBetween={{
-                                mobile: 16,
-                                tablet: 16,
-                                laptop: 16,
-                                desktop: 16,
-                                large: 16,
-                            }}
-                            renderSlide={(item, index) => (
-                                <div className='brand-item'>
+                        <div className='brands__track'>
+                            {brandsData.map((item, index) => (
+                                <div key={index} className='brand-item'>
                                     <Image
                                         src={item.image}
                                         alt={item.title}
-                                        width={120}
-                                        height={40}
+                                        fill
+                                        className='brand-item__image'
                                     />
                                 </div>
-                            )}
-                        />
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {brandsData.map((item, index) => (
+                                <div key={`duplicate-${index}`} className='brand-item'>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className='brand-item__image'
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -492,11 +571,19 @@ export default function HeaderPage() {
                             {/* Stats Section */}
                             <div className='our-portfolio__stats'>
                                 <div className='our-portfolio__stat-item'>
-                                    <div className='our-portfolio__stat-number'>120+</div>
+                                    <div className='our-portfolio__stat-number'>
+                                        {isStatsVisible && (
+                                            <CountUp start={0} end={120} duration={3} suffix='+' />
+                                        )}
+                                    </div>
                                     <div className='our-portfolio__stat-label'>Project</div>
                                 </div>
                                 <div className='our-portfolio__stat-item'>
-                                    <div className='our-portfolio__stat-number'>80+</div>
+                                    <div className='our-portfolio__stat-number'>
+                                        {isStatsVisible && (
+                                            <CountUp start={0} end={80} duration={3} suffix='+' />
+                                        )}
+                                    </div>
                                     <div className='our-portfolio__stat-label'>Customer</div>
                                 </div>
                             </div>
@@ -546,7 +633,8 @@ export default function HeaderPage() {
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        <i className='ph ph-star our-portfolio__star'></i>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        {/* <i className='ph ph-star our-portfolio__star'></i> */}
                                         <span className='our-portfolio__rating-text'>(5)</span>
                                     </div>
                                     <div className='our-portfolio__review-count'>8K Review</div>
