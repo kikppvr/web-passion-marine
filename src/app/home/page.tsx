@@ -295,6 +295,73 @@ export default function HeaderPage() {
             video: "",
             href: "/comingsoon",
         },
+        // Duplicate for seamless loop
+        {
+            title: "Chaparral",
+            image: "/images/home/brands/chaparral.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Volvo Penta",
+            image: "/images/home/brands/volvo-penta.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Mercury",
+            image: "/images/home/brands/mercury.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Saxdor",
+            image: "/images/home/brands/saxdor.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Cobalt Boats",
+            image: "/images/home/brands/cobalt-boats.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Sea Ray",
+            image: "/images/home/brands/searay.webp",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Nautica",
+            image: "/images/home/brands/nautica.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Yamaha",
+            image: "/images/home/brands/yamaha.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Mercury MerCruiser",
+            image: "/images/home/brands/mercury-mercruiser.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Axoppr",
+            image: "/images/home/brands/axoppr.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
+        {
+            title: "Crownline",
+            image: "/images/home/brands/crownline.jpg",
+            video: "",
+            href: "/comingsoon",
+        },
     ];
 
     return (
@@ -462,16 +529,29 @@ export default function HeaderPage() {
                 <div className='brands__container'>
                     <h2 className='brands__title'>Experienced in leading brands</h2>
                     <div className='brands__slider'>
-                        {brandsData.map((item, index) => (
-                            <div key={index} className='brand-item'>
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className='brand-item__image'
-                                />
-                            </div>
-                        ))}
+                        <div className='brands__track'>
+                            {brandsData.map((item, index) => (
+                                <div key={index} className='brand-item'>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className='brand-item__image'
+                                    />
+                                </div>
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {brandsData.map((item, index) => (
+                                <div key={`duplicate-${index}`} className='brand-item'>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className='brand-item__image'
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -553,7 +633,8 @@ export default function HeaderPage() {
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        <i className='ph ph-star our-portfolio__star'></i>
+                                        <i className='ph-fill ph-star our-portfolio__star'></i>
+                                        {/* <i className='ph ph-star our-portfolio__star'></i> */}
                                         <span className='our-portfolio__rating-text'>(5)</span>
                                     </div>
                                     <div className='our-portfolio__review-count'>8K Review</div>

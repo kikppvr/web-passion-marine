@@ -27,16 +27,31 @@
 .brands__slider {
     width: 100%;
     overflow: hidden;
+}
+
+.brands__track {
     display: flex;
-    animation: brands-scroll 30s linear infinite;
-    gap: 45px;
+    animation: brands-scroll 80s linear infinite;
+    gap: 60px;
     width: max-content;
+
+    @include base.media-down(laptop) {
+        gap: 50px;
+    }
+
+    @include base.media-down(tablet) {
+        gap: 40px;
+    }
 }
 
 .brand-item__image {
     width: 100%;
     height: 40px;
     object-fit: contain;
+
+    @include base.media-down(tablet) {
+        height: 30px;
+    }
 }
 
 @keyframes brands-scroll {
@@ -62,6 +77,11 @@
     @include base.media-down(large) {
         height: 40px;
         min-width: 100px;
+    }
+
+    @include base.media-down(tablet) {
+        height: 30px;
+        min-width: 80px;
     }
 
     img {
