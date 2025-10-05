@@ -25,7 +25,7 @@ export const Banner: React.FC<BannerProps> = ({
     const style = backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {};
 
     return (
-        <div className={`banner ${className}`} style={style}>
+        <div className={className} style={style}>
             {/* Background Video */}
             {backgroundVideo && (
                 <video className='banner__video' autoPlay muted loop playsInline>

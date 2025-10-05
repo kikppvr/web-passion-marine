@@ -23,13 +23,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
             {/* Banner Section */}
             {bannerProps && (
-                <div className={`main-layout__banner main-layout__banner--${bannerType}`}>
-                    <Banner {...bannerProps} />
+                <div>
+                    <Banner {...bannerProps} className={`banner banner--${bannerType}`} />
                 </div>
             )}
 
             {/* Main Content */}
-            <main className='main-layout__content'>{children}</main>
+            <main>{children}</main>
 
             <Footer />
         </div>
