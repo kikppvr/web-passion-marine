@@ -1,0 +1,14 @@
+@use "../base/_base" as *;
+
+// About Us Page Styles
+.about-us {
+    // @include section-padding;
+}
+
+.about-us__container {
+    @include container;
+}
+
+.about-us__vision-title {
+    color: var(--blue-500);
+}

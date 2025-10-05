@@ -142,3 +142,13 @@ $breakpoints: (
         @content;
     }
 }
+
+// class mixins
+section,
+.section {
+    @include section-padding;
+}
+
+.container {
+    @include container;
+}

@@ -29,6 +29,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState<"EN" | "TH">("EN");
+    const [isHovered, setIsHovered] = useState(false);
 
     // Navigation items
     const navItems: NavItem[] = [
@@ -173,12 +174,14 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         <header
             className={cn(
                 "header",
-                `header--${isHamburgerOpen || isScrolled ? "white" : theme}`,
+                `header--${isHamburgerOpen || isScrolled || isHovered ? "white" : theme}`,
                 {
                     "header--hidden": !isHeaderVisible,
                 },
                 className
-            )}>
+            )}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}>
             <div className='header__container'>
                 {/* Language Switcher & Action Buttons */}
                 <div className='header__actions'>
@@ -222,7 +225,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 <Link href='/' className='header__logo'>
                     <Image
                         src={
-                            isHamburgerOpen || isScrolled || theme === "white"
+                            isHamburgerOpen || isScrolled || isHovered || theme === "white"
                                 ? "/images/logo/logo-passion-marine.svg"
                                 : "/images/logo/logo-passion-marine-white.svg"
                         }

@@ -18,8 +18,6 @@ import CountUp from "react-countup";
 export default function HeaderPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
-    const [isHovered, setIsHovered] = useState(false);
-    const [isActive, setIsActive] = useState(false);
     const [isStatsVisible, setIsStatsVisible] = useState(false);
     const { language } = useLanguage();
 
@@ -367,14 +365,7 @@ export default function HeaderPage() {
     return (
         <div className='min-h-screen'>
             {/* Header Component */}
-            <div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onMouseDown={() => setIsActive(true)}
-                onMouseUp={() => setIsActive(false)}
-                onMouseOut={() => setIsActive(false)}>
-                <Header theme={isHovered || isActive ? "white" : "transparent"} />
-            </div>
+            <Header theme='transparent' />
 
             {/* Video Hero Banner */}
             <VideoHeroBanner

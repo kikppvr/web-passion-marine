@@ -1,0 +1,138 @@
+@use "../../base/_base" as base;
+
+// Main Layout Styles
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-layout__banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+// Full Banner Styles
+.main-layout__banner--full {
+    height: 100vh;
+    min-height: 600px;
+
+    @include base.media-down(laptop) {
+        height: 80vh;
+        min-height: 500px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 70vh;
+        min-height: 400px;
+    }
+}
+
+.banner-full {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-full__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.banner-full__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    max-width: 1200px;
+    padding: 0 24px;
+}
+
+// Half Banner Styles
+.main-layout__banner--half {
+    height: 50vh;
+    min-height: 400px;
+
+    @include base.media-down(laptop) {
+        height: 45vh;
+        min-height: 350px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 40vh;
+        min-height: 300px;
+    }
+}
+
+// Large Banner Styles (70% of viewport)
+.main-layout__banner--large {
+    height: 70vh;
+    min-height: 500px;
+
+    @include base.media-down(laptop) {
+        height: 65vh;
+        min-height: 450px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 60vh;
+        min-height: 400px;
+    }
+}
+
+.banner-half {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-half__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.banner-half__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    max-width: 1000px;
+    padding: 0 24px;
+}
+
+// Main Content Styles
+.main-layout__content {
+    flex: 1;
+    width: 100%;
+}
+
+// Responsive Adjustments
+@include base.media-down(mobile) {
+    .banner-full__content,
+    .banner-half__content {
+        padding: 0 16px;
+    }
+}
