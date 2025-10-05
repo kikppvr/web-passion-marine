@@ -15,7 +15,7 @@ export default function AboutUsPage() {
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
                         <div className='lg:col-span-3'>
-                            <h2 className='text-h2 text-[var(--blue-500)]'>Vision</h2>
+                            <h2 className='text-[var(--blue-500)]'>Vision</h2>
                         </div>
                         <div className='lg:col-span-9'>
                             <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
@@ -44,7 +44,7 @@ export default function AboutUsPage() {
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
                         <div className='lg:col-span-3'>
-                            <h2 className='text-h2 text-[var(--blue-500)]'>Mission</h2>
+                            <h2 className='text-[var(--blue-500)]'>Mission</h2>
                         </div>
                         <div className='lg:col-span-9'>
                             <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
@@ -71,7 +71,7 @@ export default function AboutUsPage() {
                 <div className='container'>
                     <div className='milestone__wrapper'>
                         <div className='milestone__left'>
-                            <h2 className='text-h3 text-[var(--blue-500)]'>Milestones</h2>
+                            <h2 className='text-[var(--blue-500)]'>Milestones</h2>
                         </div>
                         <div className='milestone__right'>
                             <div className='milestone__item'>
