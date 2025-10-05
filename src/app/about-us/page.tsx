@@ -11,7 +11,7 @@ export default function AboutUsPage() {
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
-            <section className='about-us pb-0'>
+            <section className='section section--space-top'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
                         <div className='col-span-1'>
@@ -21,14 +21,14 @@ export default function AboutUsPage() {
                             <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
                                 PASSION DRIVES PERFECTION
                             </h3>
-                            <p className='text-h6 mb-4 text-[var(--grey-600)] md:mb-6'>
+                            <p className='text-lead-2 mb-4 text-[var(--grey-600)] md:mb-6'>
                                 Our company was established by a group of experienced aerospace
                                 engineers who are fascinated by boats; passionate about the rides,
                                 adventures and atmospheres. In aspiration to grow the boat-lover
                                 community, we offer products and services that accommodate your
                                 personal water-journey lifestyle .
                             </p>
-                            <p className='text-h6 text-[var(--grey-600)]'>
+                            <p className='text-lead-2 mb-0 text-[var(--grey-600)]'>
                                 We believe in the never-ending enjoyment of owning a boat and for
                                 that very reason, quality maintenance and repairs are what we highly
                                 valued. They are essentially the core of a complete platform with
@@ -40,16 +40,13 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </section>
-            <section className='section'>
+            <section className='section section--space-y'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
                         <div className='col-span-1'>
                             <h2 className='text-h2 text-[var(--blue-500)]'>Mission</h2>
                         </div>
                         <div className='col-span-2'>
-                            {/* <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
-                                PASSION DRIVES PERFECTION
-                            </h3> */}
                             <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
                                 พันธกิจ (Mission) ของบริษัทฯ ถือเป็นแนวทางสำคัญที่บริษัทฯ
                                 ยึดถือในการดำเนิน กิจกรรมและการลงทุนทุกประเภท
@@ -61,9 +58,14 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </section>
-            <section className='section'>
+            <section className='section section--space-y'>
                 <div className='container'>
-                    <h2 className='text-h2 text-[var(--blue-500)]'>Vision</h2>
+                    <h2 className='text-h2 text-[var(--blue-500)]'>card</h2>
+                </div>
+            </section>
+            <section className='section section--space-y'>
+                <div className='container'>
+                    <h2 className='text-h2 text-[var(--blue-500)]'>Milestone</h2>
                 </div>
             </section>
         </MainLayout>
