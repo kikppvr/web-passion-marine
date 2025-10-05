@@ -17,7 +17,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = "" })
             <ol className='breadcrumb__list'>
                 {items.map((item, index) => (
                     <li key={index} className='breadcrumb__item'>
-                        {index > 0 && <span className='breadcrumb__separator'>/</span>}
+                        {index > 0 && (
+                            <span className='breadcrumb__separator'>
+                                <i className='ph ph-caret-right'></i>
+                            </span>
+                        )}
                         {item.href ? (
                             <Link href={item.href} className='breadcrumb__link'>
                                 {item.label}

@@ -1,4 +1,5 @@
 @use "../base/_base" as *;
+@use "../base/_font-mixins" as fonts;
 
 // About Us Page Styles
 .about-us {
@@ -11,4 +12,83 @@
 
 .about-us__vision-title {
     color: var(--blue-500);
+}
+
+// Milestone
+.milestone {
+    background-image: url("/images/about-us/bg-milestones.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.milestone__wrapper {
+    display: flex;
+    gap: 2rem;
+
+    @include media-down(laptop) {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.milestone__left {
+    flex: 0 0 33.33%;
+
+    @include media-down(laptop) {
+        flex: none;
+    }
+}
+
+.milestone__right {
+    flex: 0 0 66.66%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.875rem; // 46px equivalent
+
+    @include media-down(laptop) {
+        flex: none;
+        gap: 2rem;
+    }
+}
+
+.milestone__item {
+    // // Ensure Tailwind margin classes work properly
+    // .mb-4 {
+    //     margin-bottom: 1rem !important; // 16px
+    // }
+
+    // .mb-6 {
+    //     margin-bottom: 1.5rem !important; // 24px
+    // }
+
+    // .mb-0 {
+    //     margin-bottom: 0 !important;
+    // }
+}
+
+.milestone__title {
+    @include fonts.text-display-3;
+    @include fonts.font-semibold;
+    // font-size: var(--text-display-3);
+    // font-weight: var(--font-semibold);
+    color: var(--blue-500);
+    margin-bottom: 24px;
+}
+
+.milestone__subtitle {
+    @include fonts.text-h6;
+    @include fonts.font-semibold;
+    // font-size: var(--text-h6);
+    // font-weight: var(--font-semibold);
+    color: var(--grey-600);
+    margin-bottom: 16px;
+}
+
+.milestone__description {
+    @include fonts.text-body;
+    @include fonts.font-normal;
+    // font-size: var(--text-body);
+    // font-weight: var(--font-normal);
+    color: var(--grey-600);
 }

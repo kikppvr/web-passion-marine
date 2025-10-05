@@ -30,114 +30,114 @@
 
 // Display Typography Mixins
 @mixin text-display-1 {
-    font-size: clamp(3rem, 8vw, 6rem); /* 48px - 96px */
+    font-size: var(--text-display-1); /* Base size from CSS variables */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 4.5rem; /* 72px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 5.1875rem; /* 83px */
+    @media (max-width: 1023px) {
+        font-size: 3rem; /* 48px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 6rem; /* 96px */
+    @media (max-width: 767px) {
+        font-size: 2.5rem; /* 40px */
     }
 }
 
 @mixin text-display-2 {
-    font-size: clamp(2.5rem, 6vw, 5rem); /* 40px - 80px */
+    font-size: var(--text-display-2); /* Base size from CSS variables */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 3.75rem; /* 60px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 4.3125rem; /* 69px */
+    @media (max-width: 1023px) {
+        font-size: 2.5rem; /* 40px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 5rem; /* 80px */
+    @media (max-width: 767px) {
+        font-size: 2rem; /* 32px */
     }
 }
 
 @mixin text-display-3 {
-    font-size: clamp(2rem, 5vw, 4rem); /* 32px - 64px */
+    font-size: var(--text-display-3); /* Base size from CSS variables */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 3rem; /* 48px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 3.5625rem; /* 57px */
+    @media (max-width: 1023px) {
+        font-size: 2rem; /* 32px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 4rem; /* 64px */
+    @media (max-width: 767px) {
+        font-size: 1.75rem; /* 28px */
     }
 }
 
 // Heading Typography Mixins
 @mixin text-h1 {
-    font-size: clamp(1.75rem, 4vw, 3rem); /* 28px - 48px */
+    font-size: var(--text-h1); /* Base size from CSS variables */
     font-weight: var(--font-bold);
     line-height: 1.25;
     margin-bottom: 0;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 2.25rem; /* 36px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 2.5rem; /* 40px */
+    @media (max-width: 1023px) {
+        font-size: 1.75rem; /* 28px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 3rem; /* 48px */
+    @media (max-width: 767px) {
+        font-size: 1.5rem; /* 24px */
     }
 }
 
 @mixin text-h2 {
-    font-size: var(--text-h2);
+    font-size: var(--text-h2); /* Base size from CSS variables */
     font-weight: var(--font-bold);
     line-height: 1.25;
     margin-bottom: 0;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 1.875rem; /* 30px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 2rem; /* 32px */
+    @media (max-width: 1023px) {
+        font-size: 1.5rem; /* 24px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 2.5rem; /* 40px */
+    @media (max-width: 767px) {
+        font-size: 1.25rem; /* 20px */
     }
 }
 
 @mixin text-h3 {
-    font-size: var(--text-h3);
+    font-size: var(--text-h3); /* Base size from CSS variables */
     font-weight: var(--font-semibold);
     line-height: 1.25;
     margin-bottom: 0;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 1.625rem; /* 26px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 1.75rem; /* 28px */
+    @media (max-width: 1023px) {
+        font-size: 1.25rem; /* 20px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 2rem; /* 32px */
+    @media (max-width: 767px) {
+        font-size: 1.125rem; /* 18px */
     }
 }
 
@@ -155,9 +155,9 @@
         font-size: 1.5rem; /* 24px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.75rem; /* 28px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 1.75rem; /* 28px */
+    // }
 }
 
 @mixin text-h5 {
@@ -174,27 +174,27 @@
         font-size: 1.25rem; /* 20px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.5rem; /* 24px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 1.5rem; /* 24px */
+    // }
 }
 
 @mixin text-h6 {
-    font-size: var(--text-h6);
+    font-size: var(--text-h6); /* Base size from CSS variables */
     font-weight: var(--font-medium);
     line-height: 1.3;
     margin-bottom: 0;
 
-    @media (min-width: 768px) {
+    @media (max-width: 1279px) {
         font-size: 1rem; /* 16px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 1.125rem; /* 18px */
+    @media (max-width: 1023px) {
+        font-size: 0.9375rem; /* 15px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.25rem; /* 20px */
+    @media (max-width: 767px) {
+        font-size: 0.875rem; /* 14px */
     }
 }
 
@@ -212,9 +212,9 @@
         font-size: 1.25rem; /* 20px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.5rem; /* 24px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 1.5rem; /* 24px */
+    // }
 }
 
 @mixin text-lead-2 {
@@ -230,26 +230,26 @@
         font-size: 1.125rem; /* 18px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.25rem; /* 20px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 1.25rem; /* 20px */
+    // }
 }
 
 @mixin text-body {
-    font-size: var(--text-body);
+    font-size: var(--text-body); /* Base size from CSS variables */
     font-weight: var(--font-normal);
     line-height: 1.4;
 
-    @media (min-width: 768px) {
-        font-size: 1.125rem; /* 18px */
+    @media (max-width: 1279px) {
+        font-size: 0.9375rem; /* 15px */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 1rem; /* 16px */
+    @media (max-width: 1023px) {
+        font-size: 0.875rem; /* 14px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1.125rem; /* 18px */
+    @media (max-width: 767px) {
+        font-size: 0.8125rem; /* 13px */
     }
 }
 
@@ -266,9 +266,9 @@
         font-size: 0.875rem; /* 14px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 1rem; /* 16px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 1rem; /* 16px */
+    // }
 }
 
 @mixin text-small-2 {
@@ -284,9 +284,9 @@
         font-size: 0.75rem; /* 12px */
     }
 
-    @media (min-width: 1280px) {
-        font-size: 0.875rem; /* 14px */
-    }
+    // @media (min-width: 1280px) {
+    //     font-size: 0.875rem; /* 14px */
+    // }
 }
 
 // Navigation Typography Mixins

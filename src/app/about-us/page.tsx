@@ -13,11 +13,11 @@ export default function AboutUsPage() {
         <MainLayout bannerType='large' bannerProps={bannerProps}>
             <section className='section section--space-top'>
                 <div className='container'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
-                        <div className='col-span-1'>
+                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
+                        <div className='lg:col-span-3'>
                             <h2 className='text-h2 text-[var(--blue-500)]'>Vision</h2>
                         </div>
-                        <div className='col-span-2'>
+                        <div className='lg:col-span-9'>
                             <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
                                 PASSION DRIVES PERFECTION
                             </h3>
@@ -42,11 +42,11 @@ export default function AboutUsPage() {
             </section>
             <section className='section section--space-y'>
                 <div className='container'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
-                        <div className='col-span-1'>
+                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
+                        <div className='lg:col-span-3'>
                             <h2 className='text-h2 text-[var(--blue-500)]'>Mission</h2>
                         </div>
-                        <div className='col-span-2'>
+                        <div className='lg:col-span-9'>
                             <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
                                 พันธกิจ (Mission) ของบริษัทฯ ถือเป็นแนวทางสำคัญที่บริษัทฯ
                                 ยึดถือในการดำเนิน กิจกรรมและการลงทุนทุกประเภท
@@ -60,12 +60,91 @@ export default function AboutUsPage() {
             </section>
             <section className='section section--space-y'>
                 <div className='container'>
-                    <h2 className='text-h2 text-[var(--blue-500)]'>card</h2>
+                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
+                        <div className='col-span-12'>
+                            <h2 className='text-h2 text-[var(--blue-500)]'>card</h2>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section className='section section--space-y'>
+            <section className='milestone section section--space-y'>
                 <div className='container'>
-                    <h2 className='text-h2 text-[var(--blue-500)]'>Milestone</h2>
+                    <div className='milestone__wrapper'>
+                        <div className='milestone__left'>
+                            <h2 className='text-h3 text-[var(--blue-500)]'>Milestones</h2>
+                        </div>
+                        <div className='milestone__right'>
+                            <div className='milestone__item'>
+                                <h3 className='milestone__title'>2022</h3>
+                                <p className='milestone__subtitle'>
+                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
+                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
+                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                </p>
+                                <p className='milestone__description'>
+                                    Ultrices egestas est ornare elementum lacus aliquam in.
+                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
+                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
+                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
+                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
+                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
+                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
+                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
+                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
+                                    volutpat neque lacus. Id leo cursus risus eget consectetur
+                                    volutpat congue id cras. Sed vulputate pellentesque cursus
+                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
+                                    faucibus pulvinar fermentum blandit.
+                                </p>
+                            </div>
+                            <div className='milestone__item'>
+                                <h3 className='milestone__title'>2023</h3>
+                                <p className='milestone__subtitle'>
+                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
+                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
+                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                </p>
+                                <p className='milestone__description'>
+                                    Ultrices egestas est ornare elementum lacus aliquam in.
+                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
+                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
+                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
+                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
+                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
+                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
+                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
+                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
+                                    volutpat neque lacus. Id leo cursus risus eget consectetur
+                                    volutpat congue id cras. Sed vulputate pellentesque cursus
+                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
+                                    faucibus pulvinar fermentum blandit.
+                                </p>
+                            </div>
+                            <div className='milestone__item'>
+                                <h3 className='milestone__title'>2024</h3>
+                                <p className='milestone__subtitle'>
+                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
+                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
+                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                </p>
+                                <p className='milestone__description'>
+                                    Ultrices egestas est ornare elementum lacus aliquam in.
+                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
+                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
+                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
+                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
+                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
+                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
+                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
+                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
+                                    volutpat neque lacus. Id leo cursus risus eget consectetur
+                                    volutpat congue id cras. Sed vulputate pellentesque cursus
+                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
+                                    faucibus pulvinar fermentum blandit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </MainLayout>
