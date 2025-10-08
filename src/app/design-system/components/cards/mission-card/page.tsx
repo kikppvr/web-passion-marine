@@ -27,24 +27,32 @@ export default function MissionCardPage() {
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
             image: "/images/home/business/business-01.webp",
+            video: "",
+            href: "#",
         },
         {
             title: "Reliability",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
             image: "/images/home/business/business-02.webp",
+            video: "",
+            href: "#",
         },
         {
             title: "Innovation",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
             image: "/images/home/business/business-03.webp",
+            video: "",
+            href: "#",
         },
         {
             title: "Excellence",
             description:
-                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper. Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
             image: "/images/home/business/business-04.webp",
+            video: "",
+            href: "#",
         },
     ];
 
@@ -99,14 +107,14 @@ export default function MissionCardPage() {
                     </div>
                 </div>
 
-                {/* Hover Demo */}
+                {/* Swiper Demo */}
                 <div className='mb-16'>
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
-                        Hover Slider Effect Demo
+                        Default Cards
                     </h2>
-                    <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-4'>
+                    <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
                         {missionData.map((item, index) => (
-                            <div key={index} className='h-64 w-full'>
+                            <div key={index} className='h-full w-full'>
                                 <MissionCard
                                     title={item.title}
                                     description={item.description}
@@ -115,38 +123,6 @@ export default function MissionCardPage() {
                             </div>
                         ))}
                     </div>
-                    <p className='mt-4 text-center text-sm text-gray-600'>
-                        Hover over the cards to see the slider effect
-                    </p>
-                </div>
-
-                {/* Swiper Demo */}
-                <div className='mb-16'>
-                    <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
-                        Swiper Integration
-                    </h2>
-                    <SwiperSlider
-                        data={missionData}
-                        className='mission-card-swiper'
-                        cardComponent={MissionCard}
-                        autoplay={false}
-                        showNavigation={true}
-                        showPagination={true}
-                        slidesPerView={{
-                            mobile: 1,
-                            tablet: 1.5,
-                            laptop: 2,
-                            desktop: 2.5,
-                            large: 3,
-                        }}
-                        spaceBetween={{
-                            mobile: 16,
-                            tablet: 20,
-                            laptop: 24,
-                            desktop: 24,
-                            large: 24,
-                        }}
-                    />
                 </div>
 
                 {/* Props Documentation */}
