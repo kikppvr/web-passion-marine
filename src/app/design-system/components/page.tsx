@@ -101,6 +101,11 @@ export default function ComponentsPage() {
                     status: "ready",
                     path: "/design-system/components/cards/business-card",
                 },
+                {
+                    name: "Mission Card",
+                    status: "ready",
+                    path: "/design-system/components/cards/mission-card",
+                },
                 { name: "Service Card", status: "planned", path: "#" },
                 { name: "Testimonial Card", status: "planned", path: "#" },
             ],

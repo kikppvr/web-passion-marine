@@ -42,6 +42,7 @@
 @use "components/cards/_card-news" as card-news;
 @use "components/cards/_card-portfolio" as card-portfolio;
 @use "components/cards/_card-business" as card-business;
+@use "components/cards/_card-mission" as card-mission;
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;

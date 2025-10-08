@@ -106,6 +106,20 @@ export default function BusinessCardPage() {
                         autoplay={false}
                         showNavigation={false}
                         showPagination={false}
+                        slidesPerView={{
+                            mobile: 1.2,
+                            tablet: 2.5,
+                            laptop: 3.5,
+                            desktop: 3.5,
+                            large: 3.5,
+                        }}
+                        spaceBetween={{
+                            mobile: 8,
+                            tablet: 8,
+                            laptop: 8,
+                            desktop: 8,
+                            large: 8,
+                        }}
                     />
                 </div>
 
