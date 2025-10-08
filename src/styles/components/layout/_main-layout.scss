@@ -1,0 +1,62 @@
+@use "../../base/_base" as base;
+
+// Main Layout Styles
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+// Full Banner Styles
+.banner--full {
+    height: 100vh;
+    min-height: 600px;
+
+    @include base.media-down(laptop) {
+        height: 80vh;
+        min-height: 500px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 70vh;
+        min-height: 400px;
+    }
+}
+
+// Half Banner Styles
+.banner--half {
+    height: 50vh;
+    min-height: 400px;
+
+    @include base.media-down(laptop) {
+        height: 45vh;
+        min-height: 350px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 40vh;
+        min-height: 300px;
+    }
+}
+
+// Large Banner Styles (70% of viewport)
+.banner--large {
+    height: 70vh;
+    min-height: 500px;
+
+    @include base.media-down(laptop) {
+        height: 65vh;
+        min-height: 450px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 60vh;
+        min-height: 400px;
+    }
+}

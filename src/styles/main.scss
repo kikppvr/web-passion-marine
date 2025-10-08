@@ -24,6 +24,9 @@
 // Layout Components
 @use "components/layout/_header" as header;
 @use "components/layout/_footer" as footer;
+@use "components/layout/_main-layout" as main-layout;
+@use "components/layout/_banner-content" as banner-content;
+@use "components/layout/_banner" as banner;
 
 // Navigation Components
 @use "components/navigation" as navigation;
@@ -39,9 +42,13 @@
 @use "components/cards/_card-news" as card-news;
 @use "components/cards/_card-portfolio" as card-portfolio;
 @use "components/cards/_card-business" as card-business;
+@use "components/cards/_card-mission" as card-mission;
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;
+
+// Import Page Styles
+@use "page/about-us" as about-us;
 
 // ========================================
 // GLOBAL STYLES
@@ -52,6 +59,21 @@
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+// Only reset margin and padding for specific elements, not all
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
     margin: 0;
     padding: 0;
 }

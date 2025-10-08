@@ -142,3 +142,33 @@ $breakpoints: (
         @content;
     }
 }
+
+// class mixins
+section,
+.section {
+    // @include section-padding;
+
+    &.section--space-bottom {
+        @include section-padding;
+        padding-top: 0;
+    }
+
+    &.section--space-top {
+        @include section-padding;
+        padding-bottom: 0;
+    }
+
+    &.section--space-none {
+        @include section-padding;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.section--space-y {
+        @include section-padding;
+    }
+}
+
+.container {
+    @include container;
+}
