@@ -229,13 +229,13 @@ export default function HeaderPage() {
     const brandsData = [
         {
             title: "Chaparral",
-            image: "/images/home/brands/chaparral.webp",
+            image: "/images/home/brands/chaparral.png",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Volvo Penta",
-            image: "/images/home/brands/volvo-penta.webp",
+            image: "/images/home/brands/volvo-penta.png",
             video: "",
             href: "/comingsoon",
         },
@@ -296,13 +296,13 @@ export default function HeaderPage() {
         // Duplicate for seamless loop
         {
             title: "Chaparral",
-            image: "/images/home/brands/chaparral.webp",
+            image: "/images/home/brands/chaparral.png",
             video: "",
             href: "/comingsoon",
         },
         {
             title: "Volvo Penta",
-            image: "/images/home/brands/volvo-penta.webp",
+            image: "/images/home/brands/volvo-penta.png",
             video: "",
             href: "/comingsoon",
         },
