@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export interface BusinessCardProps {
     className?: string;
@@ -15,14 +15,17 @@ export interface BusinessCardProps {
 
 const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCardProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [rotationCount, setRotationCount] = useState(0);
 
     const handleMouseEnter = () => {
+        setRotationCount(prev => prev + 1);
         if (videoRef.current && video) {
             videoRef.current.play().catch(console.error);
         }
     };
 
     const handleMouseLeave = () => {
+        setRotationCount(prev => prev + 1);
         if (videoRef.current && video) {
             videoRef.current.pause();
             videoRef.current.currentTime = 0;
@@ -42,6 +45,7 @@ const BusinessCard = ({ className, title, image, video, href = "#" }: BusinessCa
                         width={32}
                         height={32}
                         className='card-business__icon-image'
+                        style={{ transform: `rotate(${rotationCount * 90}deg)` }}
                     />
                 </div>
 
