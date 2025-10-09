@@ -23,10 +23,6 @@
         .card-business__video-container {
             opacity: 1;
         }
-
-        .card-business__icon-image {
-            animation-play-state: running;
-        }
     }
 
     .card-business__link {
@@ -149,8 +145,7 @@
     .card-business__icon-image {
         width: 48px;
         height: auto;
-        animation: rotate-continuous 3s linear infinite;
-        animation-play-state: paused;
+        transition: transform 0.3s ease-in-out;
 
         @include base.media-down(laptop) {
             width: 38px;
@@ -174,15 +169,5 @@
         @include base.media-down(laptop) {
             font-size: var(--text-h4);
         }
-    }
-}
-
-// Keyframes for continuous rotation
-@keyframes rotate-continuous {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
     }
 }
