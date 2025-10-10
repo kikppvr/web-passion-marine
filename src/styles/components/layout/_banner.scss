@@ -59,7 +59,7 @@
     text-transform: uppercase;
 
     @include base.media-down(laptop) {
-        font-size: var(--text-display-3);
+        // font-size: var(--text-display-3);
     }
 }
 
@@ -71,13 +71,13 @@
     max-width: 800px;
     margin: 0 auto;
 
-    @include base.media-down(laptop) {
-        font-size: var(--text-h5);
-    }
+    // @include base.media-down(laptop) {
+    //     font-size: var(--text-h5);
+    // }
 
-    @include base.media-down(mobile) {
-        font-size: var(--text-body);
-    }
+    // @include base.media-down(mobile) {
+    //     font-size: var(--text-body);
+    // }
 }
 
 // .banner__additional-content {
