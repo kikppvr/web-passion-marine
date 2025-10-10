@@ -174,12 +174,9 @@
         display: block;
         transition: transform 0.3s ease-in-out;
 
-        // @include base.media-down(large) {
-        //     font-size: var(--text-h3);
-        // }
-
-        // @include base.media-down(laptop) {
-        //     @include fonts.text-h5;
-        // }
+        //custom font size for tablet
+        @include base.media-down(tablet) {
+            font-size: var(--text-h5);
+        }
     }
 }

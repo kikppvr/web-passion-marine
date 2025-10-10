@@ -1,6 +1,7 @@
 @use "../../base/image" as image;
 @use "../buttons/btn-booknow" as btn-booknow;
 @use "../../base/_font-mixins" as fonts;
+@use "../../base/_base" as base;
 // Charter Card Component Styles
 .card-charter {
     position: relative;
@@ -70,6 +71,11 @@
         @include fonts.font-semibold;
         color: var(--blue-500);
         line-height: 1.3;
+
+        //custom font size for tablet
+        @include base.media-down(tablet) {
+            font-size: var(--text-h5);
+        }
     }
 
     .card-charter__location {
