@@ -81,8 +81,8 @@
 
     // Title
     .video-hero-banner__title {
-        font-size: var(--text-display-2);
-        font-weight: var(--font-semibold);
+        @include fonts.text-display-2;
+        @include fonts.font-semibold;
         color: var(--white) !important;
         line-height: 1.25;
         margin: 0;
@@ -93,20 +93,12 @@
         animation: slideFadeUp 1s ease-out 0.5s forwards;
         position: relative;
         z-index: 10;
-
-        @include base.media-down(laptop) {
-            font-size: var(--text-display-3);
-        }
-
-        @include base.media-down(mobile) {
-            font-size: var(--text-h1);
-        }
     }
 
     // Subtitle
     .video-hero-banner__subtitle {
-        font-size: var(--text-display-2);
-        font-weight: var(--font-semibold);
+        @include fonts.text-display-2;
+        @include fonts.font-semibold;
         color: var(--white) !important;
         line-height: 1.25;
         margin: 0;
@@ -117,15 +109,6 @@
         animation: slideFadeUp 2s ease-out 0.8s forwards;
         position: relative;
         z-index: 10;
-
-        @include base.media-down(laptop) {
-            font-size: var(--text-display-3);
-            // @include fonts.text-display-3;
-        }
-        @include base.media-down(mobile) {
-            font-size: var(--text-h1);
-            // @include fonts.text-h1;
-        }
     }
 
     // Description
@@ -137,10 +120,6 @@
         margin: 0;
         opacity: 0;
         animation: fadeInUp 0.8s ease-out 0.6s forwards;
-
-        @media (max-width: 768px) {
-            @include fonts.text-body;
-        }
     }
 
     // Play Button

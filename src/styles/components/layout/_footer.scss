@@ -110,7 +110,7 @@
         color: var(--text-white);
 
         @include base.media-down(mobile) {
-            @include fonts.text-small;
+            // @include fonts.text-small;
         }
     }
 
@@ -131,7 +131,7 @@
         gap: var(--space-1);
 
         @include base.media-down(mobile) {
-            @include fonts.text-small;
+            // @include fonts.text-small;
         }
 
         .footer__contact-item-title {
@@ -148,7 +148,7 @@
             transition: all 0.3s ease-in-out;
 
             @include base.media-down(mobile) {
-                @include fonts.text-small;
+                // @include fonts.text-small;
             }
         }
     }
@@ -217,7 +217,7 @@
             }
 
             @include base.media-down(mobile) {
-                @include fonts.text-small;
+                // @include fonts.text-small;
             }
         }
 
