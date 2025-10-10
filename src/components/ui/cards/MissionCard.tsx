@@ -21,10 +21,10 @@ const MissionCard = ({ className, title, description, image }: MissionCardProps)
                     height={300}
                     className='card-mission__image'
                 />
-                <div className='card-mission__overlay'></div>
             </div>
 
             <div className='card-mission__content'>
+                <div className='card-mission__content-overlay'></div>
                 <div className='card-mission__content-inner'>
                     <h3 className='card-mission__title'>{title}</h3>
                     <p className='card-mission__description'>{description}</p>
