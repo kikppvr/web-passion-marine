@@ -1,4 +1,4 @@
-@use "../base/_base" as *;
+@use "../base/_base" as base;
 @use "../base/_font-mixins" as fonts;
 
 // About Us Page Styles
@@ -7,11 +7,31 @@
 }
 
 .about-us__container {
-    @include container;
+    @include base.container;
 }
 
 .about-us__vision-title {
     color: var(--blue-500);
+}
+
+.section-card-mission {
+    .card-mission {
+        height: 100%;
+    }
+
+    .card-mission__title {
+        //custom media down for tablet
+        @include base.media-down(tablet) {
+            font-size: var(--text-h4);
+        }
+    }
+
+    .card-mission__description {
+        //custom media down for tablet
+        @include base.media-down(tablet) {
+            font-size: var(--text-h6);
+        }
+    }
 }
 
 // Milestone
@@ -26,7 +46,7 @@
     display: flex;
     gap: 2rem;
 
-    @include media-down(laptop) {
+    @include base.media-down(laptop) {
         flex-direction: column;
         gap: 1.5rem;
     }
@@ -34,9 +54,15 @@
 
 .milestone__left {
     flex: 0 0 33.33%;
+    position: sticky;
+    top: 120px;
+    height: 100%;
 
-    @include media-down(laptop) {
+    @include base.media-down(laptop) {
         flex: none;
+        position: relative;
+        top: 0;
+        height: auto;
     }
 }
 
@@ -46,7 +72,7 @@
     flex-direction: column;
     gap: 2.875rem; // 46px equivalent
 
-    @include media-down(laptop) {
+    @include base.media-down(laptop) {
         flex: none;
         gap: 2rem;
     }

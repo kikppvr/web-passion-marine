@@ -55,14 +55,6 @@
             display: flex;
             flex-direction: column;
             transition: all 0.5s ease-in-out;
-
-            @include base.media-down(laptop) {
-                padding: 20px;
-            }
-
-            @include base.media-down(mobile) {
-                padding: 16px;
-            }
         }
 
         .card-mission__content-overlay {

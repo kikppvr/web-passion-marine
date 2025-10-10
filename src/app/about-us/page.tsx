@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/ui/layout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import { MissionCard } from "@/components/ui/cards/MissionCard";
 
 export default function AboutUsPage() {
     const bannerProps = {
@@ -9,13 +10,48 @@ export default function AboutUsPage() {
         breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "About Us" }],
     };
 
+    const missionData = [
+        {
+            title: "Maintainability",
+            description:
+                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+            image: "/images/home/business/business-01.webp",
+            video: "",
+            href: "#",
+        },
+        {
+            title: "Reliability",
+            description:
+                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+            image: "/images/home/business/business-02.webp",
+            video: "",
+            href: "#",
+        },
+        {
+            title: "Innovation",
+            description:
+                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+            image: "/images/home/business/business-03.webp",
+            video: "",
+            href: "#",
+        },
+        {
+            title: "Excellence",
+            description:
+                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper. Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+            image: "/images/home/business/business-04.webp",
+            video: "",
+            href: "#",
+        },
+    ];
+
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
             <section className='section section--space-top'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
                         <div className='lg:col-span-3'>
-                            <h2 className='text-[var(--blue-500)]'>Vision</h2>
+                            <h2 className='text-h3 text-[var(--blue-500)]'>Vision</h2>
                         </div>
                         <div className='lg:col-span-9'>
                             <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
@@ -40,11 +76,11 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </section>
-            <section className='section section--space-y'>
+            <section className='section section--space-top'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
                         <div className='lg:col-span-3'>
-                            <h2 className='text-[var(--blue-500)]'>Mission</h2>
+                            <h2 className='text-h3 text-[var(--blue-500)]'>Mission</h2>
                         </div>
                         <div className='lg:col-span-9'>
                             <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
@@ -58,12 +94,18 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </section>
-            <section className='section section--space-y'>
+            <section className='section section-card-mission pb-[96px] pt-[40px]'>
                 <div className='container'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-                        <div className='col-span-12'>
-                            <h2 className='text-h2 text-[var(--blue-500)]'>card</h2>
-                        </div>
+                    <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4'>
+                        {missionData.map((item, index) => (
+                            <div key={index} className='h-full w-full'>
+                                <MissionCard
+                                    title={item.title}
+                                    description={item.description}
+                                    image={item.image}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -71,7 +113,7 @@ export default function AboutUsPage() {
                 <div className='container'>
                     <div className='milestone__wrapper'>
                         <div className='milestone__left'>
-                            <h2 className='text-[var(--blue-500)]'>Milestones</h2>
+                            <h2 className='text-h3 text-[var(--blue-500)]'>Milestones</h2>
                         </div>
                         <div className='milestone__right'>
                             <div className='milestone__item'>
