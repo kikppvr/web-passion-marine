@@ -25,6 +25,7 @@ const nextConfig = {
                 pathname: "/**",
             },
         ],
+        unoptimized: true, // ปิด image optimization เพื่อแก้ปัญหา cache
     },
 
     // Headers for security
