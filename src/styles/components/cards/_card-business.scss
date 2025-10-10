@@ -23,6 +23,17 @@
         .card-business__video-container {
             opacity: 1;
         }
+
+        // Disable hover effects on tablet and mobile
+        @include base.media-down(laptop) {
+            .card-business__image-container {
+                opacity: 1;
+            }
+
+            .card-business__video-container {
+                opacity: 0;
+            }
+        }
     }
 
     .card-business__link {
@@ -145,7 +156,7 @@
     .card-business__icon-image {
         width: 48px;
         height: auto;
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.5s ease-in-out;
 
         @include base.media-down(laptop) {
             width: 38px;
