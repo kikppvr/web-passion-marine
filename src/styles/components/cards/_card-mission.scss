@@ -44,7 +44,6 @@
         left: 0;
         right: 0;
         height: 100%;
-        z-index: 3;
         overflow: hidden;
 
         .card-mission__content-inner {
@@ -55,7 +54,6 @@
             padding: 24px;
             display: flex;
             flex-direction: column;
-            transform: translateY(0);
             transition: all 0.5s ease-in-out;
 
             @include base.media-down(laptop) {
@@ -75,7 +73,6 @@
             height: 0;
             opacity: 0;
             background-color: var(--blue-500);
-            // z-index: 2;
             transition: all 0.5s ease-in-out;
         }
     }
@@ -83,10 +80,10 @@
     // Title Section
     .card-mission__title {
         @include fonts.text-h5;
-        color: var(--text-white);
         @include text.ellipsis-2;
+        color: var(--text-white);
         margin: 0;
-        // display: block;
+        transform: translateY(0);
         transition: all 0.5s ease-in-out;
     }
 
@@ -95,10 +92,9 @@
         @include fonts.text-body;
         color: var(--text-white);
         margin: 0;
-        // display: block;
         opacity: 0;
         height: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
         transition: all 0.5s ease-in-out;
     }
 
@@ -107,10 +103,6 @@
         .card-mission__content-overlay {
             height: 100%;
             opacity: 1;
-        }
-
-        .card-mission__content-inner {
-            transform: translateY(0px);
         }
 
         .card-mission__title {
