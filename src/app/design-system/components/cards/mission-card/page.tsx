@@ -112,7 +112,7 @@ export default function MissionCardPage() {
                     <h2 className='mb-8 text-center text-3xl font-bold text-gray-900'>
                         Default Cards
                     </h2>
-                    <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
+                    <div className='grid grid-cols-1 gap-2 md:grid-cols-4'>
                         {missionData.map((item, index) => (
                             <div key={index} className='h-full w-full'>
                                 <MissionCard

@@ -160,8 +160,8 @@ export default function HeaderPage() {
             image: "/images/home/portfolio/portfolio-01.webp",
             video: "",
             brandLogos: [
-                "/images/home/brands/chaparral.webp",
-                "/images/home/brands/volvo-penta.webp",
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png",
             ],
             href: "/comingsoon",
         },
@@ -171,8 +171,8 @@ export default function HeaderPage() {
             image: "/images/home/portfolio/portfolio-02.webp",
             video: "",
             brandLogos: [
-                "/images/home/brands/chaparral.webp",
-                "/images/home/brands/volvo-penta.webp",
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png",
             ],
             href: "/comingsoon",
         },
@@ -182,8 +182,8 @@ export default function HeaderPage() {
             image: "/images/home/portfolio/portfolio-01.webp",
             video: "",
             brandLogos: [
-                "/images/home/brands/chaparral.webp",
-                "/images/home/brands/volvo-penta.webp",
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png",
             ],
             href: "/comingsoon",
         },
@@ -193,8 +193,8 @@ export default function HeaderPage() {
             image: "/images/home/portfolio/portfolio-02.webp",
             video: "",
             brandLogos: [
-                "/images/home/brands/chaparral.webp",
-                "/images/home/brands/volvo-penta.webp",
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png",
             ],
             href: "/comingsoon",
         },

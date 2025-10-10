@@ -32,80 +32,60 @@
 
 // Display Typography Mixins
 @mixin text-display-1 {
-    font-size: 6rem; /* Desktop base size */
+    font-size: 6rem; /* 96px - Desktop base size */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @include base.media-down(large) {
-        font-size: 5.1875rem; /* Large desktop */
-    }
-
-    @include base.media-down(desktop) {
-        font-size: 4.5rem; /* Desktop */
+    @include base.media-up(large) {
+        font-size: 7rem; /* 112px - Large desktop */
     }
 
     @include base.media-down(laptop) {
-        font-size: 3rem; /* Laptop */
+        font-size: 5rem; /* 80px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 2.5rem; /* Tablet */
-    }
-
-    @include base.media-down(mobile) {
-        font-size: 2rem; /* Mobile */
+        font-size: 4rem; /* 64px - Tablet */
     }
 }
 
 @mixin text-display-2 {
-    font-size: 5rem; /* Desktop base size */
+    font-size: 5rem; /* 80px - Desktop base size */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @include base.media-down(large) {
-        font-size: 4.3125rem; /* Large desktop */
-    }
-
-    @include base.media-down(desktop) {
-        font-size: 3.75rem; /* Desktop */
+    @include base.media-up(large) {
+        font-size: 6rem; /* 96px - Large desktop */
     }
 
     @include base.media-down(laptop) {
-        font-size: 2.5rem; /* Laptop */
+        font-size: 4rem; /* 64px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 2rem; /* Tablet */
+        font-size: 3rem; /* 48px - Tablet */
     }
 
     @include base.media-down(mobile) {
-        font-size: 1.75rem; /* Mobile */
+        font-size: 2rem; /* 32px - Mobile */
     }
 }
 
 @mixin text-display-3 {
-    font-size: 4rem; /* Desktop base size */
+    font-size: 4rem; /* 64px - Desktop base size */
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @include base.media-down(large) {
-        font-size: 3.5625rem; /* Large desktop */
-    }
-
-    @include base.media-down(desktop) {
-        font-size: 3rem; /* Desktop */
+    @include base.media-up(large) {
+        font-size: 5rem; /* 80px - Large desktop */
     }
 
     @include base.media-down(laptop) {
-        font-size: 2rem; /* Laptop */
+        font-size: 3rem; /* 48px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1.75rem; /* Tablet */
-    }
-
-    @include base.media-down(mobile) {
-        font-size: 1.5rem; /* Mobile */
+        font-size: 2rem; /* 32px - Tablet */
     }
 }
 
@@ -117,15 +97,15 @@
     margin-bottom: 0;
 
     @include base.media-up(large) {
-        font-size: 3rem; /* 48px - เพิ่มขึ้นสำหรับหน้าจอใหญ่ */
+        font-size: 3rem; /* 48px - Large desktop */
     }
 
     @include base.media-down(laptop) {
-        font-size: 1.75rem; /* 28px - Tablet */
+        font-size: 2rem; /* 32px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1.5rem; /* 24px - Mobile */
+        font-size: 1.75rem; /* 28px - Tablet */
     }
 }
 
@@ -140,11 +120,11 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 1.5rem; /* 24px - Tablet */
+        font-size: 2rem; /* 32px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1.25rem; /* 20px - Mobile */
+        font-size: 1.75rem; /* 28px - Mobile */
     }
 }
 
@@ -159,11 +139,11 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 1.25rem; /* 20px - Tablet */
+        font-size: 1.75rem; /* 28px - Laptop */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1.125rem; /* 18px - Mobile */
+        font-size: 1.5rem; /* 24px - Mobile */
     }
 }
 
@@ -178,11 +158,11 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 1.25rem; /* 20px - Tablet */
+        font-size: 1.5rem; /* 24px - Tablet */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1rem; /* 16px - Mobile */
+        font-size: 1.25rem; /* 20px - Mobile */
     }
 }
 
@@ -197,11 +177,11 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 1rem; /* 16px - Tablet */
+        font-size: 1.25rem; /* 20px - Tablet */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1rem; /* 16px - Mobile */
+        font-size: 1.125rem; /* 18px - Mobile */
     }
 }
 
@@ -216,49 +196,47 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 1rem; /* 16px - Tablet */
+        font-size: 1.125rem; /* 18px - Tablet */
     }
 
     @include base.media-down(tablet) {
-        font-size: 1rem; /* 16px - Mobile */
+        font-size: 1.125rem; /* 18px - Mobile */
     }
 }
 
 // Body Typography Mixins
 @mixin text-lead-1 {
-    font-size: var(--text-lead-1);
+    font-size: var(--text-lead-1); /* 1.25rem (20px) - Base size */
     font-weight: var(--font-normal);
     line-height: 1.25;
 
-    @media (min-width: 768px) {
-        font-size: 1.375rem; /* 22px */
+    @include base.media-up(large) {
+        font-size: 1.375rem; /* 22px - Large desktop */
     }
 
-    @media (min-width: 1024px) {
-        font-size: 1.25rem; /* 20px */
+    @include base.media-down(laptop) {
+        font-size: 1.25rem; /* 20px - Laptop */
     }
 
-    // @media (min-width: 1280px) {
-    //     font-size: 1.5rem; /* 24px */
-    // }
+    @include base.media-down(tablet) {
+        font-size: 1.125rem; /* 18px - Tablet */
+    }
 }
 
 @mixin text-lead-2 {
-    font-size: var(--text-lead-2);
+    font-size: var(--text-lead-2); /* 1.125rem (18px) - Base size */
     font-weight: var(--font-normal);
     line-height: 1.3;
 
-    @media (min-width: 768px) {
-        font-size: 1.125rem; /* 18px */
+    @include base.media-up(large) {
+        font-size: 1.375rem; /* 22px - Large desktop */
     }
-
-    @media (min-width: 1024px) {
-        font-size: 1.125rem; /* 18px */
+    @include base.media-down(laptop) {
+        font-size: 1.25rem; /* 20px - Laptop */
     }
-
-    // @media (min-width: 1280px) {
-    //     font-size: 1.25rem; /* 20px */
-    // }
+    @include base.media-down(tablet) {
+        font-size: 1.125rem; /* 18px - Tablet */
+    }
 }
 
 @mixin text-body {
@@ -271,7 +249,7 @@
     }
 
     @include base.media-down(laptop) {
-        font-size: 0.875rem; /* 14px - Tablet */
+        font-size: 1rem; /* 16px - Tablet */
     }
 
     @include base.media-down(tablet) {
@@ -280,63 +258,59 @@
 }
 
 @mixin text-small {
-    font-size: var(--text-small);
+    font-size: var(--text-small); /* 0.875rem (14px) - Base size */
     font-weight: var(--font-normal);
     line-height: 1.5;
 
-    @media (min-width: 768px) {
-        font-size: 1rem; /* 16px */
+    @include base.media-up(large) {
+        font-size: 1.125rem; /* 18px - Large desktop */
     }
-
-    @media (min-width: 1024px) {
-        font-size: 0.875rem; /* 14px */
+    @include base.media-down(laptop) {
+        font-size: 1rem; /* 16px - Laptop */
     }
-
-    // @media (min-width: 1280px) {
-    //     font-size: 1rem; /* 16px */
-    // }
+    @include base.media-down(tablet) {
+        font-size: 0.875rem; /* 14px - Tablet */
+    }
 }
 
 @mixin text-small-2 {
-    font-size: var(--text-small-2);
+    font-size: var(--text-small-2); /* 0.75rem (12px) - Base size */
     font-weight: var(--font-normal);
     line-height: 1.5;
 
-    @media (min-width: 768px) {
-        font-size: 0.875rem; /* 14px */
+    @include base.media-up(large) {
+        font-size: 1.125rem; /* 18px - Large desktop */
     }
-
-    @media (min-width: 1024px) {
-        font-size: 0.75rem; /* 12px */
+    @include base.media-down(laptop) {
+        font-size: 1rem; /* 16px - Laptop */
     }
-
-    // @media (min-width: 1280px) {
-    //     font-size: 0.875rem; /* 14px */
-    // }
+    @include base.media-down(tablet) {
+        font-size: 0.875rem; /* 14px - Tablet */
+    }
 }
 
 // Navigation Typography Mixins
 @mixin text-nav-1 {
-    font-size: var(--text-nav-1);
+    font-size: var(--text-nav-1); /* 1rem (16px) - Base size */
     font-weight: var(--font-medium);
     line-height: 1.4;
 }
 
 @mixin text-nav-2 {
-    font-size: var(--text-nav-2);
+    font-size: var(--text-nav-2); /* 0.875rem (14px) - Base size */
     font-weight: var(--font-medium);
     line-height: 1.5;
 }
 
 // Label Typography Mixins (ที่คุณต้องการ)
 @mixin text-label-1 {
-    font-size: var(--text-label-1);
+    font-size: var(--text-label-1); /* 0.875rem (14px) - Base size */
     font-weight: var(--font-medium);
     line-height: 1.4;
 }
 
 @mixin text-label-2 {
-    font-size: var(--text-label-2);
+    font-size: var(--text-label-2); /* 0.75rem (12px) - Base size */
     font-weight: var(--font-medium);
     line-height: 1.5;
 }
