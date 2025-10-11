@@ -56,15 +56,6 @@ export default function MissionCardPage() {
         },
     ];
 
-    const codeExample = `import { MissionCard } from "@/components/ui/cards";
-
-// Mission Card with hover slider effect
-<MissionCard 
-  title="Maintainability"
-  description="Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper."
-  image="/images/home/business/business-01.webp"
-/>`;
-
     return (
         <div className='min-h-screen bg-gray-50 py-16'>
             <div className='mx-auto max-w-7xl px-6'>
@@ -87,24 +78,6 @@ export default function MissionCardPage() {
                         effect. Shows only the title by default, reveals description on hover with
                         smooth animation.
                     </p>
-                </div>
-
-                {/* Code Example */}
-                <div className='mb-16'>
-                    <div className='mb-6 flex items-center justify-between'>
-                        <h2 className='text-2xl font-bold text-gray-900'>Code Example</h2>
-                        <button
-                            onClick={() => copyToClipboard(codeExample, "code-example")}
-                            className='flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-600'>
-                            <i className='ph ph-copy' style={{ fontSize: "16px" }}></i>
-                            {copiedCode === "code-example" ? "Copied!" : "Copy Code"}
-                        </button>
-                    </div>
-                    <div className='overflow-x-auto rounded-xl bg-gray-900 p-6'>
-                        <pre className='text-sm text-gray-100'>
-                            <code>{codeExample}</code>
-                        </pre>
-                    </div>
                 </div>
 
                 {/* Swiper Demo */}

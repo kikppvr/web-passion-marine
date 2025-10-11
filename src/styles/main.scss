@@ -25,7 +25,7 @@
 @use "components/layout/_header" as header;
 @use "components/layout/_footer" as footer;
 @use "components/layout/_main-layout" as main-layout;
-@use "components/layout/_banner-content" as banner-content;
+// @use "components/layout/_banner-content" as banner-content;
 @use "components/layout/_banner" as banner;
 
 // Navigation Components
@@ -43,6 +43,7 @@
 @use "components/cards/_card-portfolio" as card-portfolio;
 @use "components/cards/_card-business" as card-business;
 @use "components/cards/_card-mission" as card-mission;
+@use "components/cards/_service-card" as service-card;
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;

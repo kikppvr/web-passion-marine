@@ -1,0 +1,94 @@
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
+@use "../../base/image" as image;
+
+// Card Services Styles
+.card-services {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        .card-services__icon {
+            transform: translate3d(15px, -15px, 0px);
+
+            @include base.media-down(tablet) {
+                transform: translate3d(10px, -10px, 0px);
+            }
+        }
+
+        .card-services__image {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.card-services__icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 50px;
+    color: var(--white);
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+
+    @include base.media-down(tablet) {
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+.card-services__container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 0;
+    @include image.baseRatioImg(82%);
+    transition: transform 0.3s ease-in-out;
+
+    img {
+        border: 0;
+    }
+}
+
+.card-services__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-services__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent, transparent);
+}
+
+.card-services__content {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    color: var(--white);
+
+    @include base.media-down(tablet) {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+}
+
+.card-services__title {
+    @include fonts.text-h2;
+    @include fonts.font-semibold;
+    margin-bottom: 12px;
+}
+
+.card-services__description {
+    @include fonts.text-h6;
+    @include fonts.font-normal;
+}
