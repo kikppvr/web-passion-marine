@@ -1,6 +1,7 @@
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/overview-services.scss";
 import Image from "next/image";
+import { ServiceCard } from "@/components/ui/cards";
 
 export default function OverviewServicesPage() {
     const bannerProps = {
@@ -188,11 +189,24 @@ export default function OverviewServicesPage() {
                 </section>
             </div>
 
-            <section className='section section--space-top'>
+            <section className='section section--space-y'>
                 <div className='container'>
-                    <h2 className='text-h2 mb-8 text-center font-semibold text-[var(--blue-500)]'>
-                        Comprehensive Services,
-                    </h2>
+                    <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6'>
+                        <ServiceCard
+                            title='Engineering Solutions'
+                            description='Your Trusted Partner in After-Sales & Maintenance'
+                            imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
+                            imageAlt='Engineering Solutions'
+                            icon={<i className='ph ph-arrow-up-right'></i>}
+                        />
+                        <ServiceCard
+                            title='Aesthetic Solutions'
+                            description="Elevate Your Boat's Style and Comfort"
+                            imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
+                            imageAlt='Aesthetic Solutions'
+                            icon={<i className='ph ph-arrow-up-right'></i>}
+                        />
+                    </div>
                 </div>
             </section>
         </MainLayout>
