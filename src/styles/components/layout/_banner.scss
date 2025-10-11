@@ -1,5 +1,5 @@
 @use "../../base/_base" as base;
-
+@use "../../base/_font-mixins" as fonts;
 // Banner Component Styles
 .banner {
     position: relative;
@@ -53,46 +53,25 @@
 }
 
 .banner__title {
-    font-size: var(--text-display-2);
-    font-weight: var(--font-semibold);
+    @include fonts.text-display-2;
+    @include fonts.font-semibold;
     color: var(--white);
     text-transform: uppercase;
-
-    @include base.media-down(laptop) {
-        // font-size: var(--text-display-3);
-    }
 }
 
 .banner__subtitle {
-    font-size: var(--text-h6);
-    font-weight: var(--font-normal);
+    @include fonts.text-h6;
+    @include fonts.font-normal;
     color: var(--white);
     opacity: 0.9;
     max-width: 800px;
     margin: 0 auto;
-
-    // @include base.media-down(laptop) {
-    //     font-size: var(--text-h5);
-    // }
-
-    // @include base.media-down(mobile) {
-    //     font-size: var(--text-body);
-    // }
 }
-
-// .banner__additional-content {
-//     margin-top: 32px;
-
-//     @include base.media-down(mobile) {
-//         margin-top: 24px;
-//     }
-// }
 
 // Breadcrumb Styles
 .breadcrumb {
     display: flex;
     align-items: center;
-    // justify-content: center;
 }
 
 .breadcrumb__list {
@@ -123,14 +102,14 @@
 }
 
 .breadcrumb__link {
+    @include fonts.text-body;
+    @include fonts.font-normal;
     color: var(--white);
     text-decoration: none;
-    font-size: var(--text-body);
-    font-weight: var(--font-normal);
 }
 
 .breadcrumb__current {
+    @include fonts.text-body;
+    @include fonts.font-normal;
     color: var(--white);
-    font-size: var(--text-body);
-    font-weight: var(--font-normal);
 }
