@@ -15,31 +15,31 @@ export default function AboutUsPage() {
             title: "Maintainability",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
-            image: "/images/home/business/business-01.webp",
+            image: "/images/about-us/mission-01.webp",
             video: "",
             href: "#",
         },
         {
-            title: "Reliability",
+            title: "Customizability",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
-            image: "/images/home/business/business-02.webp",
+            image: "/images/about-us/mission-02.webp",
             video: "",
             href: "#",
         },
         {
-            title: "Innovation",
+            title: "Upgradability",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
-            image: "/images/home/business/business-03.webp",
+            image: "/images/about-us/mission-03.webp",
             video: "",
             href: "#",
         },
         {
-            title: "Excellence",
+            title: "Practicality",
             description:
                 "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper. Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
-            image: "/images/home/business/business-04.webp",
+            image: "/images/about-us/mission-04.webp",
             video: "",
             href: "#",
         },
