@@ -26,7 +26,6 @@
 @use "components/layout/_header" as header;
 @use "components/layout/_footer" as footer;
 @use "components/layout/_main-layout" as main-layout;
-// @use "components/layout/_banner-content" as banner-content;
 @use "components/layout/_banner" as banner;
 
 // Navigation Components
@@ -54,6 +53,8 @@
 // Import Page Styles
 @use "page/about-us" as about-us;
 @use "page/charter" as charter;
+@use "page/charter-detail" as charter-detail;
+@use "page/contact-us" as contact-us;
 
 // ========================================
 // GLOBAL STYLES
