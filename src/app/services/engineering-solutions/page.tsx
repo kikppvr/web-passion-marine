@@ -17,12 +17,12 @@ export default function OverviewServicesPage() {
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
             <div className='engineering-solutions bg-blue-abstract'>
-                <section className='section section--space-y'>
+                <section className='section section--space-top'>
                     <div className='container'>
-                        <h1 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
+                        <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
                             <div>Your Trusted Partner in </div>
                             <div>After-Sales & Maintenance</div>
-                        </h1>
+                        </h2>
                         <div className='mt-4 flex justify-end'>
                             <div className='w-full lg:w-9/12'>
                                 <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
@@ -30,6 +30,32 @@ export default function OverviewServicesPage() {
                                     With Boat Solution, we ensure your boat stays in top
                                     condition—safe, powerful, and ready for every journey.
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className='section section--space-y'>
+                    <div className='container'>
+                        <div className='grid grid-cols-1 items-center gap-4 md:grid-cols-2 lg:gap-6'>
+                            <div>
+                                <Image
+                                    src='/images/our-services/engineering-solutions/boat-upgrades/01.webp'
+                                    alt='Engineering Solutions'
+                                    width={500}
+                                    height={500}
+                                />
+                            </div>
+                            <div>
+                                <h3 className='text-h4 mb-6 font-semibold text-[var(--blue-500)]'>
+                                    Engine Repair & Maintenance
+                                </h3>
+                                <div className='text-lead-2 font-normal text-[var(--grey-600)]'>
+                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
+                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
+                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
+                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
+                                    odio faucibus dui.
+                                </div>
                             </div>
                         </div>
                     </div>

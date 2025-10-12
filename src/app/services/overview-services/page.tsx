@@ -19,10 +19,10 @@ export default function OverviewServicesPage() {
             <div className='overview-services bg-blue-abstract'>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h1 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
+                        <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
                             <div>Redefining Your Boating </div>
                             <div>Experience with Passion Marine</div>
-                        </h1>
+                        </h2>
                         <div className='mt-4 flex justify-end'>
                             <div className='w-full lg:w-9/12'>
                                 <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
