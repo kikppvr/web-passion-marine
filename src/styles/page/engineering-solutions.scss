@@ -1,3 +1,44 @@
+@use "../base/_base" as base;
+@use "../base/_font-mixins" as fonts;
+@use "../base/_image" as image;
+
 .engineering-solutions {
     // Background handled by section--bg-blue-abstract class
+}
+
+.gallery-engineering-solutions {
+    .gallery-slider__main {
+        margin-bottom: 0;
+    }
+    .gallery-slider__image-container {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        overflow: hidden;
+        @include image.baseRatioImg(75%);
+
+        @include base.media-down(laptop) {
+            @include image.baseRatioImg(70%);
+        }
+
+        img {
+            border: 0;
+        }
+    }
+
+    .swiper-pagination-bullets {
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--white);
+            opacity: 0.5;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
+    }
 }

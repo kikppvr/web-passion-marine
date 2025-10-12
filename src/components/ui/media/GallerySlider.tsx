@@ -20,6 +20,10 @@ export interface GalleryImage {
 export interface GallerySliderProps {
     images: GalleryImage[];
     className?: string;
+    swiperClassName?: string;
+    slideClassName?: string;
+    thumbsClassName?: string;
+    thumbSlideClassName?: string;
     showThumbs?: boolean;
     autoplay?: boolean;
     autoplayDelay?: number;
@@ -32,11 +36,15 @@ export interface GallerySliderProps {
 export const GallerySlider = ({
     images,
     className = "",
-    showThumbs = true,
+    swiperClassName = "",
+    slideClassName = "",
+    thumbsClassName = "",
+    thumbSlideClassName = "",
+    showThumbs = false,
     autoplay = false,
     autoplayDelay = 3000,
-    showNavigation = true,
-    showPagination = true,
+    showNavigation = false,
+    showPagination = false,
     loop = true,
     speed = 1000,
 }: GallerySliderProps) => {
@@ -70,9 +78,11 @@ export const GallerySlider = ({
                             : false
                     }
                     thumbs={{ swiper: thumbsSwiper }}
-                    className='gallery-slider__swiper'>
+                    className={`gallery-slider__swiper ${swiperClassName}`}>
                     {images.map((image, index) => (
-                        <SwiperSlide key={index} className='gallery-slider__slide'>
+                        <SwiperSlide
+                            key={index}
+                            className={`gallery-slider__slide ${slideClassName}`}>
                             <div className='gallery-slider__image-container'>
                                 <Image
                                     src={image.src}
@@ -112,16 +122,18 @@ export const GallerySlider = ({
 
             {/* Thumbnail Gallery */}
             {showThumbs && images.length > 1 && (
-                <div className='gallery-slider__thumbs'>
+                <div className={`gallery-slider__thumbs ${thumbsClassName}`}>
                     <Swiper
                         modules={[Thumbs]}
                         spaceBetween={8}
                         slidesPerView='auto'
                         watchSlidesProgress
                         onSwiper={setThumbsSwiper}
-                        className='gallery-slider__thumbs-swiper'>
+                        className={`gallery-slider__thumbs-swiper ${thumbsClassName}`}>
                         {images.map((image, index) => (
-                            <SwiperSlide key={index} className='gallery-slider__thumb-slide'>
+                            <SwiperSlide
+                                key={index}
+                                className={`gallery-slider__thumb-slide ${thumbSlideClassName}`}>
                                 <div className='gallery-slider__thumb-container'>
                                     <Image
                                         src={image.src}
