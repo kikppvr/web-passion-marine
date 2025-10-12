@@ -2,6 +2,7 @@ import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/engineering-solutions.scss";
 import Image from "next/image";
 import { ServiceCard } from "@/components/ui/cards";
+import { GallerySlider } from "@/components/ui/media";
 
 export default function OverviewServicesPage() {
     const bannerProps = {
@@ -13,6 +14,49 @@ export default function OverviewServicesPage() {
             { label: "Engineering Solutions" },
         ],
     };
+
+    const galleryImages = [
+        {
+            src: "/images/our-services/engineering-solutions/boat-upgrades/01.webp",
+            alt: "Boat Upgrades Service",
+            title: "Boat Upgrades",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/boat-upgrades/02.webp",
+            alt: "Boat Upgrades Service",
+            title: "Boat Upgrades",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/electronics-solar/01.webp",
+            alt: "Electronics & Solar Service",
+            title: "Electronics & Solar",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/electronics-solar/02.webp",
+            alt: "Electronics & Solar Service",
+            title: "Electronics & Solar",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/engine-repair/01.webp",
+            alt: "Engine Repair Service",
+            title: "Engine Repair",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/engine-repair/02.webp",
+            alt: "Engine Repair Service",
+            title: "Engine Repair",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/structure-repair/01.webp",
+            alt: "Structure Repair Service",
+            title: "Structure Repair",
+        },
+        {
+            src: "/images/our-services/engineering-solutions/structure-repair/02.webp",
+            alt: "Structure Repair Service",
+            title: "Structure Repair",
+        },
+    ];
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
@@ -36,13 +80,15 @@ export default function OverviewServicesPage() {
                 </section>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='grid grid-cols-1 items-center gap-4 md:grid-cols-2 lg:gap-6'>
+                        <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12'>
                             <div>
-                                <Image
-                                    src='/images/our-services/engineering-solutions/boat-upgrades/01.webp'
-                                    alt='Engineering Solutions'
-                                    width={500}
-                                    height={500}
+                                <GallerySlider
+                                    images={galleryImages}
+                                    showThumbs={true}
+                                    showNavigation={true}
+                                    showPagination={true}
+                                    autoplay={false}
+                                    loop={true}
                                 />
                             </div>
                             <div>
