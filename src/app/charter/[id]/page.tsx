@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import CharterSpecificationsSlider from "@/components/ui/charter/CharterSpecificationsSlider";
+import CharterTestimonialsSlider from "@/components/ui/charter/CharterTestimonialsSlider";
 import charterDataJson from "@/data/charter-data.json";
 
 interface ImageData {
@@ -62,12 +63,20 @@ interface CharterDetailData {
     gallery: ImageData[];
 }
 
-export default function CharterDetailPage({ params }: { params: { id: string } }) {
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+export default function CharterDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
+
+    useEffect(() => {
+        params.then(setResolvedParams);
+    }, [params]);
+
+    if (!resolvedParams) {
+        return <div>Loading...</div>;
+    }
 
     // Get charter data from JSON file - in real app, fetch based on params.id
     const charterData: CharterDetailData =
-        charterDataJson.charters.find(charter => charter.id === params.id) ||
+        charterDataJson.charters.find(charter => charter.id === resolvedParams.id) ||
         charterDataJson.charters[0];
 
     const handleBookNow = (type: string) => {
@@ -245,100 +254,7 @@ export default function CharterDetailPage({ params }: { params: { id: string } }
                 {/* Testimonials */}
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div className='charter-testimonials'>
-                            <h2 className='charter-testimonials__title'>Testimonials</h2>
-                            <div className='charter-testimonials__content'>
-                                <div className='charter-testimonials__list'>
-                                    {charterData.testimonials.map((testimonial, index) => (
-                                        <div
-                                            key={index}
-                                            className={`charter-testimonials__item ${currentTestimonial === index ? "charter-testimonials__item--active" : ""}`}
-                                            style={{
-                                                transform: `translateX(-${currentTestimonial * 100}%)`,
-                                            }}>
-                                            <div className='charter-testimonials__avatar'>
-                                                <Image
-                                                    src={testimonial.avatar}
-                                                    alt={testimonial.name}
-                                                    width={111}
-                                                    height={111}
-                                                    className='charter-testimonials__avatar-img'
-                                                />
-                                            </div>
-                                            <div className='charter-testimonials__text'>
-                                                <h3 className='charter-testimonials__name'>
-                                                    {testimonial.name}
-                                                </h3>
-                                                <p className='charter-testimonials__review'>
-                                                    {testimonial.review}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className='charter-testimonials__navigation'>
-                                    <div className='charter-testimonials__dots'>
-                                        {charterData.testimonials.map((_, index) => (
-                                            <div
-                                                key={index}
-                                                className={`charter-testimonials__dot ${currentTestimonial === index ? "charter-testimonials__dot--active" : ""}`}
-                                                onClick={() => setCurrentTestimonial(index)}></div>
-                                        ))}
-                                    </div>
-                                    <div className='charter-testimonials__arrows'>
-                                        <button
-                                            className='charter-testimonials__arrow charter-testimonials__arrow--prev'
-                                            onClick={() =>
-                                                setCurrentTestimonial(
-                                                    currentTestimonial === 0
-                                                        ? charterData.testimonials.length - 1
-                                                        : currentTestimonial - 1
-                                                )
-                                            }>
-                                            <svg
-                                                width='30'
-                                                height='30'
-                                                viewBox='0 0 30 30'
-                                                fill='none'>
-                                                <circle cx='15' cy='15' r='15' fill='white' />
-                                                <path
-                                                    d='M18 10L12 15L18 20'
-                                                    stroke='#1c4583'
-                                                    strokeWidth='2'
-                                                    strokeLinecap='round'
-                                                    strokeLinejoin='round'
-                                                />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            className='charter-testimonials__arrow charter-testimonials__arrow--next'
-                                            onClick={() =>
-                                                setCurrentTestimonial(
-                                                    currentTestimonial ===
-                                                        charterData.testimonials.length - 1
-                                                        ? 0
-                                                        : currentTestimonial + 1
-                                                )
-                                            }>
-                                            <svg
-                                                width='30'
-                                                height='30'
-                                                viewBox='0 0 30 30'
-                                                fill='none'>
-                                                <circle cx='15' cy='15' r='15' fill='white' />
-                                                <path
-                                                    d='M12 10L18 15L12 20'
-                                                    stroke='#1c4583'
-                                                    strokeWidth='2'
-                                                    strokeLinecap='round'
-                                                    strokeLinejoin='round'
-                                                />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CharterTestimonialsSlider testimonials={charterData.testimonials} />
                     </div>
                 </section>
 
