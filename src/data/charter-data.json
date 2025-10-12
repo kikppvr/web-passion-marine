@@ -1,0 +1,424 @@
+{
+    "charters": [
+        {
+            "id": "1",
+            "title": "Speedboats from XXXXX 1",
+            "description": "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper.",
+            "mainImage": "/images/home/charter/charter-01.webp",
+            "specifications": {
+                "type": "Speedboats",
+                "length": "50",
+                "cabins": "1",
+                "restrooms": "0",
+                "passengerCapacity": "5-6",
+                "speed": "10"
+            },
+            "pricing": {
+                "hourly": {
+                    "price": 10000,
+                    "duration": "1 hours",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "Rama VIII Bridge – Asiatique"
+                },
+                "halfDay": {
+                    "price": 36500,
+                    "duration": "Half-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                },
+                "fullDay": {
+                    "price": 60000,
+                    "duration": "Full-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                }
+            },
+            "testimonials": [
+                {
+                    "name": "Ms.XXXX XXXXX",
+                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "review": "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor."
+                },
+                {
+                    "name": "Mr.XXXX XXXXX",
+                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "review": "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor."
+                }
+            ],
+            "gallery": [
+                {
+                    "src": "/images/home/charter/charter-01.webp",
+                    "alt": "Speedboat exterior view",
+                    "specifications": {
+                        "type": "Speedboats",
+                        "length": "50",
+                        "cabins": "1",
+                        "restrooms": "0",
+                        "passengerCapacity": "5-6",
+                        "speed": "10"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-02.webp",
+                    "alt": "Boat helm and controls",
+                    "specifications": {
+                        "type": "Speedboats",
+                        "length": "45",
+                        "cabins": "1",
+                        "restrooms": "1",
+                        "passengerCapacity": "4-5",
+                        "speed": "12"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-03.webp",
+                    "alt": "Sailboat with mast",
+                    "specifications": {
+                        "type": "Sailboats",
+                        "length": "35",
+                        "cabins": "2",
+                        "restrooms": "1",
+                        "passengerCapacity": "6-8",
+                        "speed": "8"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Catamarans from XXXXX 1",
+            "description": "Experience luxury sailing with our premium catamaran. Perfect for groups looking for comfort and stability on the water. Features spacious deck areas and modern amenities.",
+            "mainImage": "/images/home/charter/charter-02.webp",
+            "specifications": {
+                "type": "Catamarans",
+                "length": "45",
+                "cabins": "2",
+                "restrooms": "1",
+                "passengerCapacity": "8-10",
+                "speed": "12"
+            },
+            "pricing": {
+                "hourly": {
+                    "price": 15000,
+                    "duration": "1 hours",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "Rama VIII Bridge – Asiatique"
+                },
+                "halfDay": {
+                    "price": 45000,
+                    "duration": "Half-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                },
+                "fullDay": {
+                    "price": 75000,
+                    "duration": "Full-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                }
+            },
+            "testimonials": [
+                {
+                    "name": "Ms.Sarah Johnson",
+                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "review": "Amazing experience! The catamaran was spacious and comfortable. Perfect for our family outing."
+                },
+                {
+                    "name": "Mr.David Chen",
+                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "review": "Great service and beautiful views. Highly recommended for anyone looking for a premium sailing experience."
+                }
+            ],
+            "gallery": [
+                {
+                    "src": "/images/home/charter/charter-02.webp",
+                    "alt": "Catamaran deck view",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "45",
+                        "cabins": "2",
+                        "restrooms": "1",
+                        "passengerCapacity": "8-10",
+                        "speed": "12"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-01.webp",
+                    "alt": "Catamaran interior",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "42",
+                        "cabins": "2",
+                        "restrooms": "1",
+                        "passengerCapacity": "6-8",
+                        "speed": "10"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-03.webp",
+                    "alt": "Catamaran sailing",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "48",
+                        "cabins": "3",
+                        "restrooms": "2",
+                        "passengerCapacity": "10-12",
+                        "speed": "14"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Small yacht from XXXXX 1",
+            "description": "Elegant small yacht perfect for intimate gatherings. Features modern design, comfortable seating, and professional crew service.",
+            "mainImage": "/images/home/charter/charter-03.webp",
+            "specifications": {
+                "type": "Yachts",
+                "length": "35",
+                "cabins": "2",
+                "restrooms": "1",
+                "passengerCapacity": "6-8",
+                "speed": "15"
+            },
+            "pricing": {
+                "hourly": {
+                    "price": 20000,
+                    "duration": "1 hours",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "Rama VIII Bridge – Asiatique"
+                },
+                "halfDay": {
+                    "price": 55000,
+                    "duration": "Half-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                },
+                "fullDay": {
+                    "price": 90000,
+                    "duration": "Full-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                }
+            },
+            "testimonials": [
+                {
+                    "name": "Ms.Emma Wilson",
+                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "review": "Beautiful yacht with excellent service. Perfect for special occasions and celebrations."
+                },
+                {
+                    "name": "Mr.Michael Brown",
+                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "review": "Professional crew and luxurious amenities. Worth every baht for the experience."
+                }
+            ],
+            "gallery": [
+                {
+                    "src": "/images/home/charter/charter-03.webp",
+                    "alt": "Yacht exterior",
+                    "specifications": {
+                        "type": "Yachts",
+                        "length": "35",
+                        "cabins": "2",
+                        "restrooms": "1",
+                        "passengerCapacity": "6-8",
+                        "speed": "15"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-01.webp",
+                    "alt": "Yacht interior",
+                    "specifications": {
+                        "type": "Yachts",
+                        "length": "38",
+                        "cabins": "3",
+                        "restrooms": "2",
+                        "passengerCapacity": "8-10",
+                        "speed": "18"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-02.webp",
+                    "alt": "Yacht deck",
+                    "specifications": {
+                        "type": "Yachts",
+                        "length": "40",
+                        "cabins": "3",
+                        "restrooms": "2",
+                        "passengerCapacity": "10-12",
+                        "speed": "20"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "title": "Speedboats from XXXXX 2",
+            "description": "High-performance speedboat designed for thrill-seekers. Fast, agile, and perfect for water sports and adventure tours.",
+            "mainImage": "/images/home/charter/charter-01.webp",
+            "specifications": {
+                "type": "Speedboats",
+                "length": "42",
+                "cabins": "1",
+                "restrooms": "0",
+                "passengerCapacity": "4-5",
+                "speed": "25"
+            },
+            "pricing": {
+                "hourly": {
+                    "price": 12000,
+                    "duration": "1 hours",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "Rama VIII Bridge – Asiatique"
+                },
+                "halfDay": {
+                    "price": 40000,
+                    "duration": "Half-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                },
+                "fullDay": {
+                    "price": 70000,
+                    "duration": "Full-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                }
+            },
+            "testimonials": [
+                {
+                    "name": "Ms.Lisa Anderson",
+                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "review": "Incredible speed and excitement! Perfect for adrenaline junkies and water sports enthusiasts."
+                },
+                {
+                    "name": "Mr.James Taylor",
+                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "review": "Fast, fun, and reliable. Great for quick tours and water activities."
+                }
+            ],
+            "gallery": [
+                {
+                    "src": "/images/home/charter/charter-01.webp",
+                    "alt": "Speedboat racing",
+                    "specifications": {
+                        "type": "Speedboats",
+                        "length": "42",
+                        "cabins": "1",
+                        "restrooms": "0",
+                        "passengerCapacity": "4-5",
+                        "speed": "25"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-02.webp",
+                    "alt": "Speedboat cockpit",
+                    "specifications": {
+                        "type": "Speedboats",
+                        "length": "40",
+                        "cabins": "1",
+                        "restrooms": "0",
+                        "passengerCapacity": "3-4",
+                        "speed": "30"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-03.webp",
+                    "alt": "Speedboat wake",
+                    "specifications": {
+                        "type": "Speedboats",
+                        "length": "45",
+                        "cabins": "1",
+                        "restrooms": "1",
+                        "passengerCapacity": "5-6",
+                        "speed": "22"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Catamarans from XXXXX 2",
+            "description": "Spacious catamaran ideal for large groups and corporate events. Features multiple deck levels and premium facilities.",
+            "mainImage": "/images/home/charter/charter-02.webp",
+            "specifications": {
+                "type": "Catamarans",
+                "length": "55",
+                "cabins": "3",
+                "restrooms": "2",
+                "passengerCapacity": "12-15",
+                "speed": "14"
+            },
+            "pricing": {
+                "hourly": {
+                    "price": 18000,
+                    "duration": "1 hours",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "Rama VIII Bridge – Asiatique"
+                },
+                "halfDay": {
+                    "price": 50000,
+                    "duration": "Half-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                },
+                "fullDay": {
+                    "price": 85000,
+                    "duration": "Full-day",
+                    "boardingPoint": "Tha Maharaj Pier",
+                    "route": "-"
+                }
+            },
+            "testimonials": [
+                {
+                    "name": "Ms.Rachel Green",
+                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "review": "Perfect for our company event! Spacious and comfortable for all our guests."
+                },
+                {
+                    "name": "Mr.Tom Hanks",
+                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "review": "Excellent service and beautiful vessel. Great for large group celebrations."
+                }
+            ],
+            "gallery": [
+                {
+                    "src": "/images/home/charter/charter-02.webp",
+                    "alt": "Large catamaran",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "55",
+                        "cabins": "3",
+                        "restrooms": "2",
+                        "passengerCapacity": "12-15",
+                        "speed": "14"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-01.webp",
+                    "alt": "Catamaran upper deck",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "52",
+                        "cabins": "3",
+                        "restrooms": "2",
+                        "passengerCapacity": "10-12",
+                        "speed": "12"
+                    }
+                },
+                {
+                    "src": "/images/home/charter/charter-03.webp",
+                    "alt": "Catamaran dining area",
+                    "specifications": {
+                        "type": "Catamarans",
+                        "length": "58",
+                        "cabins": "4",
+                        "restrooms": "3",
+                        "passengerCapacity": "15-18",
+                        "speed": "16"
+                    }
+                }
+            ]
+        }
+    ]
+}

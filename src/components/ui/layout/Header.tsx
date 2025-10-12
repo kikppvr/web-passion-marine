@@ -177,6 +177,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 `header--${isHamburgerOpen || isScrolled || isHovered ? "white" : theme}`,
                 {
                     "header--hidden": !isHeaderVisible,
+                    "header--scrolled": isScrolled && theme === "white",
                 },
                 className
             )}
