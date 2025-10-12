@@ -1,7 +1,5 @@
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/engineering-solutions.scss";
-import Image from "next/image";
-import { ServiceCard } from "@/components/ui/cards";
 import { GallerySlider } from "@/components/ui/media";
 
 export default function AestheticSolutionsPage() {

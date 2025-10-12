@@ -1,0 +1,27 @@
+@use "../base/_base" as base;
+
+// Charter Page Styles
+.charter-page {
+    .section {
+        padding: 96px 0;
+    }
+}
+
+.charter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(349px, 1fr));
+    gap: 32px;
+    margin-bottom: 64px;
+
+    @include base.media-down(tablet) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 48px;
+    }
+}
+
+.charter-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
