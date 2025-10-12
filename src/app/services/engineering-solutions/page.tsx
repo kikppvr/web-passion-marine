@@ -88,7 +88,7 @@ export default function OverviewServicesPage() {
                                     images={galleryEngineeringSolutions}
                                     showPagination={true}
                                     autoplay={true}
-                                    autoplayDelay={1000}
+                                    autoplayDelay={3000}
                                     loop={true}
                                 />
                             </div>
@@ -128,7 +128,7 @@ export default function OverviewServicesPage() {
                                     images={galleryBoatUpgrades}
                                     showPagination={true}
                                     autoplay={true}
-                                    autoplayDelay={1500}
+                                    autoplayDelay={5000}
                                     loop={true}
                                 />
                             </div>
@@ -144,7 +144,7 @@ export default function OverviewServicesPage() {
                                     images={galleryElectronicsSolar}
                                     showPagination={true}
                                     autoplay={true}
-                                    autoplayDelay={2000}
+                                    autoplayDelay={3000}
                                     loop={true}
                                 />
                             </div>
@@ -184,7 +184,7 @@ export default function OverviewServicesPage() {
                                     images={galleryStructureRepair}
                                     showPagination={true}
                                     autoplay={true}
-                                    autoplayDelay={2500}
+                                    autoplayDelay={5000}
                                     loop={true}
                                 />
                             </div>
