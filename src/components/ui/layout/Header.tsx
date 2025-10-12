@@ -42,9 +42,9 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
             href: "/services",
             hasDropdown: true,
             dropdownItems: [
-                { label: "Overview Services", href: "/overview-services" },
-                { label: "Engineering Solutions", href: "/engineering-solutions" },
-                { label: "Aesthetic Solutions", href: "/aesthetic-solutions" },
+                { label: "Overview Services", href: "/services/overview-services" },
+                { label: "Engineering Solutions", href: "/services/engineering-solutions" },
+                { label: "Aesthetic Solutions", href: "/services/aesthetic-solutions" },
             ],
         },
         {

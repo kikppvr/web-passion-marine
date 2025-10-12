@@ -6,7 +6,6 @@ import { ServiceCard } from "@/components/ui/cards";
 export default function OverviewServicesPage() {
     const bannerProps = {
         title: "Overview Services",
-        subtitle: "Overview of our services",
         backgroundImage: "/images/banner/overview-services.webp",
         breadcrumbItems: [
             { label: "Homepage", href: "/" },
@@ -17,16 +16,16 @@ export default function OverviewServicesPage() {
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
-            <div className='overview-services'>
+            <div className='overview-services bg-blue-abstract'>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h1 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
+                        <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
                             <div>Redefining Your Boating </div>
                             <div>Experience with Passion Marine</div>
-                        </h1>
+                        </h2>
                         <div className='mt-4 flex justify-end'>
                             <div className='w-full lg:w-9/12'>
-                                <p className='text-h5 mb-4 text-left font-normal text-[var(--grey-600)]'>
+                                <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
                                     At Passion Marine, we combine aerospace-level engineering with a
                                     deep love for marine exploration. Founded by a team of aerospace
                                     engineers who are passionate about boats, our mission is to
@@ -40,7 +39,7 @@ export default function OverviewServicesPage() {
                     <div className='container'>
                         <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
                             <div className='col-span-1'>
-                                <div className='shadow-port-card rounded-20 h-full bg-white p-6'>
+                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         98%
                                     </div>
@@ -53,7 +52,7 @@ export default function OverviewServicesPage() {
                                 </div>
                             </div>
                             <div className='col-span-1'>
-                                <div className='shadow-port-card rounded-20 h-full bg-white p-6'>
+                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         120+
                                     </div>
@@ -66,7 +65,7 @@ export default function OverviewServicesPage() {
                                 </div>
                             </div>
                             <div className='col-span-1'>
-                                <div className='shadow-port-card rounded-20 h-full bg-white p-6'>
+                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         15+
                                     </div>
@@ -79,7 +78,7 @@ export default function OverviewServicesPage() {
                                 </div>
                             </div>
                             <div className='col-span-1'>
-                                <div className='shadow-port-card rounded-20 h-full bg-white p-6'>
+                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         3x
                                     </div>
@@ -93,7 +92,7 @@ export default function OverviewServicesPage() {
                                 </div>
                             </div>
                             <div className='col-span-1'>
-                                <div className='shadow-port-card rounded-20 h-full bg-white p-6'>
+                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         24/7
                                     </div>

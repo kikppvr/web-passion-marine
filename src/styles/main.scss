@@ -12,6 +12,7 @@
 @use "base/_modal-base" as modal;
 @use "base/_display" as display;
 @use "base/_image" as image;
+@use "base/_section" as section;
 // Container mixin is now in _base.scss
 
 // Import Component Styles
@@ -36,6 +37,7 @@
 
 // Media Components
 @use "components/media/_video-hero-banner" as video-hero-banner;
+@use "components/media/_gallery-slider" as gallery-slider;
 
 // Card Components
 @use "components/cards/_card-charter" as card-charter;

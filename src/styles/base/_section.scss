@@ -1,0 +1,24 @@
+/* ============================================
+   SECTION COMPONENTS
+   ============================================ */
+
+.section {
+    padding: var(--space-16) 0;
+
+    &--space-top {
+        padding-top: var(--space-20);
+    }
+
+    &--space-y {
+        padding: var(--space-20) 0;
+    }
+}
+
+.bg-blue-abstract {
+    background-image: url("/images/background/bg-blue-abstract.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
