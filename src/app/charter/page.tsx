@@ -4,6 +4,7 @@ import { useState } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { CharterCard } from "@/components/ui/cards/CharterCard";
 import Pagination from "@/components/ui/navigation/Pagination";
+import charterListData from "@/data/charter-list.json";
 
 interface CharterData {
     id: number;
@@ -28,129 +29,8 @@ export default function CharterPage() {
         breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Charter" }],
     };
 
-    // Mock charter data
-    const charterData: CharterData[] = [
-        {
-            id: 1,
-            title: "Speedboats from XXXXX 1",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-01.webp",
-            href: `/charter/1`,
-        },
-        {
-            id: 2,
-            title: "Catamarans from XXXXX 1",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-02.webp",
-            href: `/charter/2`,
-        },
-        {
-            id: 3,
-            title: "Small yacht from XXXXX 1",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-03.webp",
-            href: `/charter/3`,
-        },
-        {
-            id: 4,
-            title: "Speedboats from XXXXX 2",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-01.webp",
-            href: `/charter/4`,
-        },
-        {
-            id: 5,
-            title: "Catamarans from XXXXX 2",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-02.webp",
-            href: `/charter/5`,
-        },
-        {
-            id: 6,
-            title: "Small yacht from XXXXX 2",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-03.webp",
-            href: `/charter/6`,
-        },
-        {
-            id: 7,
-            title: "Speedboats from XXXXX 3",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-01.webp",
-            href: `/charter/7`,
-        },
-        {
-            id: 8,
-            title: "Catamarans from XXXXX 3",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-02.webp",
-            href: `/charter/8`,
-        },
-        {
-            id: 9,
-            title: "Small yacht from XXXXX 3",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-03.webp",
-            href: `/charter/9`,
-        },
-        {
-            id: 10,
-            title: "Speedboats from XXXXX 4",
-            location: "Maharaj Road, Phrankorn District, Bangkok",
-            passengers: "5-6",
-            passengerUnit: "Passenger",
-            restrooms: "1",
-            restroomUnit: "Restroom",
-            price: 36500,
-            image: "/images/home/charter/charter-01.webp",
-            href: `/charter/10`,
-        },
-    ];
+    // Get charter data from JSON file
+    const charterData: CharterData[] = charterListData.charters;
 
     const totalPages = Math.ceil(charterData.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;

@@ -5,6 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import CharterSpecificationsSlider from "@/components/ui/charter/CharterSpecificationsSlider";
+import charterDataJson from "@/data/charter-data.json";
+
+interface ImageData {
+    src: string;
+    alt: string;
+    specifications: {
+        type: string;
+        length: string;
+        cabins: string;
+        restrooms: string;
+        passengerCapacity: string;
+        speed: string;
+    };
+}
 
 interface CharterDetailData {
     id: string;
@@ -44,69 +59,16 @@ interface CharterDetailData {
         avatar: string;
         review: string;
     }>;
-    gallery: string[];
+    gallery: ImageData[];
 }
 
 export default function CharterDetailPage({ params }: { params: { id: string } }) {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-    // Mock data - in real app, fetch based on params.id
-    const charterData: CharterDetailData = {
-        id: params.id,
-        title: "Speedboats from XXXXX",
-        description:
-            "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper.",
-        mainImage: "/images/home/charter/charter-01.webp",
-        specifications: {
-            type: "Speedboats",
-            length: "50",
-            cabins: "1",
-            restrooms: "0",
-            passengerCapacity: "5-6",
-            speed: "10",
-        },
-        pricing: {
-            hourly: {
-                price: 10000,
-                duration: "1 hours",
-                boardingPoint: "Tha Maharaj Pier",
-                route: "Rama VIII Bridge – Asiatique",
-            },
-            halfDay: {
-                price: 36500,
-                duration: "Half-day",
-                boardingPoint: "Tha Maharaj Pier",
-                route: "-",
-            },
-            fullDay: {
-                price: 60000,
-                duration: "Full-day",
-                boardingPoint: "Tha Maharaj Pier",
-                route: "-",
-            },
-        },
-        testimonials: [
-            {
-                name: "Ms.XXXX XXXXX",
-                avatar: "/images/home/portfolio/review-01.webp",
-                review: "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor.",
-            },
-            {
-                name: "Mr.XXXX XXXXX",
-                avatar: "/images/home/portfolio/review-02.webp",
-                review: "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor.",
-            },
-        ],
-        gallery: [
-            "/images/home/charter/charter-01.webp",
-            "/images/home/charter/charter-02.webp",
-            "/images/home/charter/charter-03.webp",
-            "/images/home/charter/charter-01.webp",
-            "/images/home/charter/charter-02.webp",
-            "/images/home/charter/charter-03.webp",
-            "/images/home/charter/charter-01.webp",
-        ],
-    };
+    // Get charter data from JSON file - in real app, fetch based on params.id
+    const charterData: CharterDetailData =
+        charterDataJson.charters.find(charter => charter.id === params.id) ||
+        charterDataJson.charters[0];
 
     const handleBookNow = (type: string) => {
         console.log(`Booking ${type} for charter ${charterData.id}`);
@@ -128,148 +90,15 @@ export default function CharterDetailPage({ params }: { params: { id: string } }
                     </div>
                 </section>
 
-                {/* Boat Specifications */}
+                {/* Boat Specifications Slider */}
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div className='charter-specifications'>
-                            <div className='charter-specifications__image'>
-                                <Image
-                                    src={charterData.mainImage}
-                                    alt={charterData.title}
-                                    width={633}
-                                    height={483}
-                                    className='charter-specifications__img'
-                                />
-                            </div>
-                            <div className='charter-specifications__content'>
-                                <h2 className='charter-specifications__title'>
-                                    Boat Specifications
-                                </h2>
-                                <div className='charter-specifications__list'>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-passenger.svg'
-                                            alt='Type'
-                                            width={24}
-                                            height={11}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Type:
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.type}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-passenger.svg'
-                                            alt='Length'
-                                            width={24}
-                                            height={12}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Length (feet):
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.length}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-passenger.svg'
-                                            alt='Cabins'
-                                            width={24}
-                                            height={19}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Cabins:
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.cabins}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-restroom.svg'
-                                            alt='Restroom'
-                                            width={24}
-                                            height={21}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Restroom:
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.restrooms}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-passenger.svg'
-                                            alt='Passenger Capacity'
-                                            width={24}
-                                            height={21}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Passenger Capacity:
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.passengerCapacity}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='charter-specifications__item'>
-                                        <Image
-                                            src='/images/icon/ic-passenger.svg'
-                                            alt='Speed'
-                                            width={24}
-                                            height={21}
-                                            className='charter-specifications__icon'
-                                        />
-                                        <div className='charter-specifications__detail'>
-                                            <span className='charter-specifications__label'>
-                                                Speed (knots):
-                                            </span>
-                                            <span className='charter-specifications__value'>
-                                                {charterData.specifications.speed}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Gallery */}
-                <section className='section section--space-bottom'>
-                    <div className='container'>
-                        <div className='charter-gallery'>
-                            {charterData.gallery.map((image, index) => (
-                                <div key={index} className='charter-gallery__item'>
-                                    <Image
-                                        src={image}
-                                        alt={`Gallery image ${index + 1}`}
-                                        width={271}
-                                        height={204}
-                                        className='charter-gallery__image'
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                        <CharterSpecificationsSlider
+                            mainImage={charterData.mainImage}
+                            title={charterData.title}
+                            specifications={charterData.specifications}
+                            gallery={charterData.gallery}
+                        />
                     </div>
                 </section>
 
@@ -421,7 +250,12 @@ export default function CharterDetailPage({ params }: { params: { id: string } }
                             <div className='charter-testimonials__content'>
                                 <div className='charter-testimonials__list'>
                                     {charterData.testimonials.map((testimonial, index) => (
-                                        <div key={index} className='charter-testimonials__item'>
+                                        <div
+                                            key={index}
+                                            className={`charter-testimonials__item ${currentTestimonial === index ? "charter-testimonials__item--active" : ""}`}
+                                            style={{
+                                                transform: `translateX(-${currentTestimonial * 100}%)`,
+                                            }}>
                                             <div className='charter-testimonials__avatar'>
                                                 <Image
                                                     src={testimonial.avatar}
@@ -444,10 +278,23 @@ export default function CharterDetailPage({ params }: { params: { id: string } }
                                 </div>
                                 <div className='charter-testimonials__navigation'>
                                     <div className='charter-testimonials__dots'>
-                                        <div className='charter-testimonials__dot charter-testimonials__dot--active'></div>
+                                        {charterData.testimonials.map((_, index) => (
+                                            <div
+                                                key={index}
+                                                className={`charter-testimonials__dot ${currentTestimonial === index ? "charter-testimonials__dot--active" : ""}`}
+                                                onClick={() => setCurrentTestimonial(index)}></div>
+                                        ))}
                                     </div>
                                     <div className='charter-testimonials__arrows'>
-                                        <button className='charter-testimonials__arrow charter-testimonials__arrow--prev'>
+                                        <button
+                                            className='charter-testimonials__arrow charter-testimonials__arrow--prev'
+                                            onClick={() =>
+                                                setCurrentTestimonial(
+                                                    currentTestimonial === 0
+                                                        ? charterData.testimonials.length - 1
+                                                        : currentTestimonial - 1
+                                                )
+                                            }>
                                             <svg
                                                 width='30'
                                                 height='30'
@@ -463,7 +310,16 @@ export default function CharterDetailPage({ params }: { params: { id: string } }
                                                 />
                                             </svg>
                                         </button>
-                                        <button className='charter-testimonials__arrow charter-testimonials__arrow--next'>
+                                        <button
+                                            className='charter-testimonials__arrow charter-testimonials__arrow--next'
+                                            onClick={() =>
+                                                setCurrentTestimonial(
+                                                    currentTestimonial ===
+                                                        charterData.testimonials.length - 1
+                                                        ? 0
+                                                        : currentTestimonial + 1
+                                                )
+                                            }>
                                             <svg
                                                 width='30'
                                                 height='30'
