@@ -7,6 +7,7 @@ interface ServiceCardProps {
     imageAlt: string;
     icon: React.ReactNode;
     className?: string;
+    onClick?: () => void;
 }
 
 export default function ServiceCard({
@@ -16,9 +17,10 @@ export default function ServiceCard({
     imageAlt,
     icon,
     className = "",
+    onClick,
 }: ServiceCardProps) {
     return (
-        <div className={`card-services ${className}`}>
+        <div className={`card-services ${className}`} onClick={onClick}>
             <div className='card-services__icon'>{icon}</div>
             <div className='card-services__container'>
                 <Image src={imageSrc} alt={imageAlt} fill className='card-services__image' />
