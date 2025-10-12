@@ -103,7 +103,7 @@ export default function AestheticSolutionsPage() {
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
                                 <GallerySlider
-                                    className='gallery-engineering-solutions'
+                                    className='gallery-esthetic-solutions'
                                     images={galleryTeakEVAFlooring}
                                     showPagination={true}
                                     autoplay={true}
@@ -139,7 +139,7 @@ export default function AestheticSolutionsPage() {
                             </div>
                             <div className='order-1 lg:order-2'>
                                 <GallerySlider
-                                    className='gallery-engineering-solutions'
+                                    className='gallery-esthetic-solutions'
                                     images={galleryMarineUpholstery}
                                     showPagination={true}
                                     autoplay={true}
@@ -151,7 +151,7 @@ export default function AestheticSolutionsPage() {
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
                                 <GallerySlider
-                                    className='gallery-engineering-solutions'
+                                    className='gallery-esthetic-solutions'
                                     images={galleryGelcoatRepairFinishing}
                                     showPagination={true}
                                     autoplay={true}
@@ -187,7 +187,7 @@ export default function AestheticSolutionsPage() {
                             </div>
                             <div className='order-1 lg:order-2'>
                                 <GallerySlider
-                                    className='gallery-engineering-solutions'
+                                    className='gallery-esthetic-solutions'
                                     images={galleryFiberglassFurniture}
                                     showPagination={true}
                                     autoplay={true}
@@ -199,7 +199,7 @@ export default function AestheticSolutionsPage() {
                         <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
                                 <GallerySlider
-                                    className='gallery-engineering-solutions'
+                                    className='gallery-esthetic-solutions'
                                     images={galleryInteriorStyling}
                                     showPagination={true}
                                     autoplay={true}
