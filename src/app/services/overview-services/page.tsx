@@ -1,15 +1,20 @@
+"use client";
+
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/overview-services.scss";
 import Image from "next/image";
 import { ServiceCard } from "@/components/ui/cards";
+import { useRouter } from "next/navigation";
 
 export default function OverviewServicesPage() {
+    const router = useRouter();
+
     const bannerProps = {
         title: "Overview Services",
         backgroundImage: "/images/banner/overview-services.webp",
         breadcrumbItems: [
             { label: "Homepage", href: "/" },
-            { label: "Our Services", href: "/services" },
+            { label: "Our Services" },
             { label: "Overview Services" },
         ],
     };
@@ -197,6 +202,9 @@ export default function OverviewServicesPage() {
                             imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
                             imageAlt='Engineering Solutions'
                             icon={<i className='ph ph-arrow-up-right'></i>}
+                            onClick={() => {
+                                router.push("/services/engineering-solutions");
+                            }}
                         />
                         <ServiceCard
                             title='Aesthetic Solutions'
@@ -204,6 +212,9 @@ export default function OverviewServicesPage() {
                             imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
                             imageAlt='Aesthetic Solutions'
                             icon={<i className='ph ph-arrow-up-right'></i>}
+                            onClick={() => {
+                                router.push("/services/aesthetic-solutions");
+                            }}
                         />
                     </div>
                 </div>
