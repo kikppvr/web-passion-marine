@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 
 interface ContactFormData {
     firstName: string;
@@ -30,7 +31,7 @@ export default function ContactUsPage() {
 
     const bannerProps = {
         title: "Contact Us",
-        backgroundImage: "/images/banner/charter.webp", // Using existing banner image
+        backgroundImage: "/images/banner/contact-us.webp", // Using existing banner image
         breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Contact Us" }],
     };
 
@@ -162,9 +163,9 @@ export default function ContactUsPage() {
                                         />
                                     </a>
                                 </div>
-                                <BookNowButton onClick={handleGetDirections} variant='default'>
+                                <PrimaryButton onClick={handleGetDirections}>
                                     Get Directions
-                                </BookNowButton>
+                                </PrimaryButton>
                             </div>
                             <div className='contact-info__map'>
                                 <Image

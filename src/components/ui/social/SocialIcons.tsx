@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
 interface SocialIconsProps {
     className?: string;
     showLabel?: boolean;
@@ -97,47 +99,157 @@ export default function SocialIcons({
     showLabel = true,
     labelText = "Share",
 }: SocialIconsProps) {
-    const socialLinks = [
-        {
-            name: "Facebook",
-            href: "#",
-            icon: <FacebookIcon />,
-            alt: "Facebook",
-        },
-        {
-            name: "Instagram",
-            href: "#",
-            icon: <InstagramIcon />,
-            alt: "Instagram",
-        },
-        {
-            name: "Line",
-            href: "#",
-            icon: <LineIcon />,
-            alt: "Line",
-        },
-        {
-            name: "Link",
-            href: "#",
-            icon: <LinkIcon />,
-            alt: "Link",
-        },
-    ];
+    const socialLinks = useMemo(
+        () => [
+            {
+                name: "Facebook",
+                href: "#",
+                icon: <FacebookIcon />,
+                alt: "Facebook",
+            },
+            {
+                name: "Instagram",
+                href: "#",
+                icon: <InstagramIcon />,
+                alt: "Instagram",
+            },
+            {
+                name: "Line",
+                href: "#",
+                icon: <LineIcon />,
+                alt: "Line",
+            },
+            {
+                name: "Link",
+                href: "#",
+                icon: <LinkIcon />,
+                alt: "Link",
+            },
+        ],
+        []
+    );
+
+    // Tablet-only slider (<= 768px), 2 icons per page
+    const [isTablet, setIsTablet] = useState(false);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    useEffect(() => {
+        const media = window.matchMedia("(max-width: 768px)");
+        const onChange = () => setIsTablet(media.matches);
+        onChange();
+        media.addEventListener("change", onChange);
+        return () => media.removeEventListener("change", onChange);
+    }, []);
+
+    const pages = useMemo(() => {
+        const chunkSize = 2;
+        const result: (typeof socialLinks)[] = [] as any;
+        for (let i = 0; i < socialLinks.length; i += chunkSize) {
+            result.push(socialLinks.slice(i, i + chunkSize));
+        }
+        return result;
+    }, [socialLinks]);
+
+    useEffect(() => {
+        if (!isTablet) {
+            setCurrentPage(0);
+        } else {
+            // clamp page within bounds when switching breakpoints
+            setCurrentPage(p => Math.min(p, Math.max(0, pages.length - 1)));
+        }
+    }, [isTablet, pages.length]);
+
+    const goPrev = () => setCurrentPage(p => (p > 0 ? p - 1 : pages.length - 1));
+    const goNext = () => setCurrentPage(p => (p < pages.length - 1 ? p + 1 : 0));
 
     return (
         <div className={`charter-actions__social ${className}`}>
             {showLabel && <span className='charter-actions__social-label'>{labelText}</span>}
-            <div className='charter-actions__social-icons'>
-                {socialLinks.map((social, index) => (
-                    <a
-                        key={index}
-                        href={social.href}
-                        className='charter-actions__social-icon'
-                        aria-label={social.alt}>
-                        {social.icon}
-                    </a>
-                ))}
-            </div>
+            {!isTablet ? (
+                <div className='charter-actions__social-icons'>
+                    {socialLinks.map((social, index) => (
+                        <a
+                            key={index}
+                            href={social.href}
+                            className='charter-actions__social-icon'
+                            aria-label={social.alt}>
+                            {social.icon}
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <div
+                    className='charter-actions__social-icons'
+                    style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <button
+                        type='button'
+                        aria-label='Previous'
+                        onClick={goPrev}
+                        style={{
+                            background: "transparent",
+                            border: 0,
+                            cursor: "pointer",
+                            padding: 0,
+                        }}>
+                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                            <circle cx='12' cy='12' r='12' fill='#656567' />
+                            <path
+                                d='M13.5 8.5L9.5 12L13.5 15.5'
+                                stroke='white'
+                                strokeWidth='1.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                            />
+                        </svg>
+                    </button>
+                    {pages[currentPage].map((social, index) => (
+                        <a
+                            key={`${currentPage}-${index}`}
+                            href={social.href}
+                            className='charter-actions__social-icon'
+                            aria-label={social.alt}>
+                            {social.icon}
+                        </a>
+                    ))}
+                    <button
+                        type='button'
+                        aria-label='Next'
+                        onClick={goNext}
+                        style={{
+                            background: "transparent",
+                            border: 0,
+                            cursor: "pointer",
+                            padding: 0,
+                        }}>
+                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                            <circle cx='12' cy='12' r='12' fill='#656567' />
+                            <path
+                                d='M10.5 8.5L14.5 12L10.5 15.5'
+                                stroke='white'
+                                strokeWidth='1.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                            />
+                        </svg>
+                    </button>
+                    <div style={{ display: "flex", gap: 8, marginLeft: 8 }} aria-label='Pagination'>
+                        {pages.map((_, i) => (
+                            <span
+                                key={i}
+                                onClick={() => setCurrentPage(i)}
+                                style={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: "50%",
+                                    background:
+                                        i === currentPage ? "#1C4583" : "rgba(101,101,103,0.4)",
+                                    cursor: "pointer",
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

@@ -28,6 +28,7 @@
     flex: 0 0 445px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
 
     @include base.media-down(tablet) {

@@ -8,6 +8,7 @@ import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import CharterSpecificationsSlider from "@/components/ui/charter/CharterSpecificationsSlider";
 import CharterTestimonialsSlider from "@/components/ui/charter/CharterTestimonialsSlider";
+import PricingSlider from "@/components/ui/charter/PricingSlider";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import charterDataJson from "@/data/charter-data.json";
 
@@ -116,140 +117,7 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                 {/* Pricing Section */}
                 <section className='section section--space-top bg-blue-abstract'>
                     <div className='container'>
-                        <div className='charter-pricing'>
-                            <h2 className='charter-pricing__title'>Boat Rental Rates</h2>
-                            <div className='charter-pricing__cards'>
-                                {/* Hourly Rate */}
-                                <div className='charter-pricing__card'>
-                                    <div className='charter-pricing__card-header'>
-                                        <h3 className='charter-pricing__card-title'>Hourly Rate</h3>
-                                    </div>
-                                    <div className='charter-pricing__card-price'>
-                                        <span className='charter-pricing__card-amount'>
-                                            {charterData.pricing.hourly.price.toLocaleString()}
-                                        </span>
-                                        <span className='charter-pricing__card-currency'>THB</span>
-                                    </div>
-                                    <div className='charter-pricing__card-details'>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Duration:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.hourly.duration}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Boarding/Disembarkation Point:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.hourly.boardingPoint}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Route:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.hourly.route}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <BookNowButton onClick={() => handleBookNow("hourly")}>
-                                        Book Now
-                                    </BookNowButton>
-                                </div>
-
-                                {/* Half-day Rate */}
-                                <div className='charter-pricing__card'>
-                                    <div className='charter-pricing__card-header'>
-                                        <h3 className='charter-pricing__card-title'>
-                                            Half-day Charters
-                                        </h3>
-                                    </div>
-                                    <div className='charter-pricing__card-price'>
-                                        <span className='charter-pricing__card-amount'>
-                                            {charterData.pricing.halfDay.price.toLocaleString()}
-                                        </span>
-                                        <span className='charter-pricing__card-currency'>THB</span>
-                                    </div>
-                                    <div className='charter-pricing__card-details'>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Duration:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.halfDay.duration}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Boarding/Disembarkation Point:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.halfDay.boardingPoint}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Route:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.halfDay.route}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <BookNowButton onClick={() => handleBookNow("half-day")}>
-                                        Book Now
-                                    </BookNowButton>
-                                </div>
-
-                                {/* Full-day Rate */}
-                                <div className='charter-pricing__card'>
-                                    <div className='charter-pricing__card-header'>
-                                        <h3 className='charter-pricing__card-title'>
-                                            Full-day Charters
-                                        </h3>
-                                    </div>
-                                    <div className='charter-pricing__card-price'>
-                                        <span className='charter-pricing__card-amount'>
-                                            {charterData.pricing.fullDay.price.toLocaleString()}
-                                        </span>
-                                        <span className='charter-pricing__card-currency'>THB</span>
-                                    </div>
-                                    <div className='charter-pricing__card-details'>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Duration:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.fullDay.duration}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Boarding/Disembarkation Point:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.fullDay.boardingPoint}
-                                            </span>
-                                        </div>
-                                        <div className='charter-pricing__card-detail'>
-                                            <span className='charter-pricing__card-detail-label'>
-                                                Route:
-                                            </span>
-                                            <span className='charter-pricing__card-detail-value'>
-                                                {charterData.pricing.fullDay.route}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <BookNowButton onClick={() => handleBookNow("full-day")}>
-                                        Book Now
-                                    </BookNowButton>
-                                </div>
-                            </div>
-                        </div>
+                        <PricingSlider pricing={charterData.pricing} onBookNow={handleBookNow} />
                     </div>
                 </section>
 

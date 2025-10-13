@@ -3,6 +3,7 @@
 
 // Charter Detail Page Styles
 .charter-detail-page {
+    overflow: hidden;
     .section {
         &:first-child {
             padding-top: 192px; // 96px + 96px for missing banner
@@ -21,6 +22,15 @@
 // Hero Section
 .charter-detail-hero {
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
     max-width: 920px;
     margin: 0 auto;
 }
@@ -241,6 +251,14 @@
 // Pricing Section
 .charter-pricing {
     text-align: center;
+    position: relative;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
 }
 
 .charter-pricing__title {
@@ -281,6 +299,15 @@
     width: 100%;
     padding: 16px 10px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
 }
 
 .charter-pricing__card-title {
@@ -353,6 +380,15 @@
     @include base.media-down(tablet) {
         flex-direction: column;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        text-align: center;
+        :hover {
+            .charter-pricing__navigation-wrapper {
+                opacity: 1;
+            }
+        }
         align-items: center;
     }
 
@@ -393,6 +429,15 @@
     @include base.media-down(tablet) {
         flex-direction: column;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        text-align: center;
+        :hover {
+            .charter-pricing__navigation-wrapper {
+                opacity: 1;
+            }
+        }
         align-items: center;
         // gap: 16px;
     }
@@ -544,5 +589,179 @@
     &:hover {
         // opacity: 0.8;
         background-color: var(--blue-400);
+    }
+}
+
+// Pricing Slider Styles (similar to boat-solutions-swiper)
+.charter-pricing__slider {
+    position: relative;
+    margin-top: 24px;
+
+    @include base.media-down(laptop) {
+        padding-bottom: 70px;
+    }
+
+    .swiper {
+        overflow: visible;
+    }
+}
+
+.charter-pricing__navigation-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    @include base.container;
+
+    @include base.media-down(laptop) {
+        position: absolute;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        top: auto;
+        transform: none;
+        opacity: 1;
+        padding: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        z-index: 5;
+        width: 80px;
+    }
+
+    @include base.media-down(mobile) {
+        right: 16px;
+    }
+}
+
+.charter-pricing__button-prev,
+.charter-pricing__button-next {
+    color: var(--blue-500);
+    background: var(--white);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+
+    i {
+        font-size: 18px;
+        color: var(--blue-500);
+        transition: all 0.3s ease;
+    }
+
+    @include base.media-down(laptop) {
+        position: absolute;
+        top: 50%;
+        width: 36px;
+        height: 36px;
+        transform: translateY(-50%);
+        background: var(--blue-500);
+        i {
+            color: var(--white);
+        }
+    }
+
+    &:hover {
+        background: var(--blue-500);
+
+        i {
+            color: var(--white);
+        }
+    }
+
+    &.charter-pricing__button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+.charter-pricing__button-prev {
+    margin-left: -25px;
+
+    @include base.media-down(laptop) {
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+.charter-pricing__button-next {
+    @include base.media-down(laptop) {
+        right: 0;
+    }
+}
+
+.charter-pricing__pagination-wrapper {
+    @include base.media-down(laptop) {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+}
+
+.charter-pricing__pagination {
+    text-align: left;
+    display: none;
+
+    @include base.media-down(laptop) {
+        display: block !important;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        bottom: -30px !important;
+        transform: none !important;
+        margin: 0 !important;
+        width: auto !important;
+        z-index: auto !important;
+        height: 30px;
+    }
+}
+
+.charter-pricing__pagination-bullet {
+    background: var(--blue-500);
+    opacity: 0.3;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+
+    &.charter-pricing__pagination-bullet-active {
+        opacity: 1;
+    }
+
+    @include base.media-down(laptop) {
+        background: var(--blue-500);
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        transition: all 0.3s ease;
+
+        &.charter-pricing__pagination-bullet-active {
+            opacity: 1;
+        }
     }
 }
