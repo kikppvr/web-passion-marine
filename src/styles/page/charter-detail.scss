@@ -597,8 +597,8 @@
     position: relative;
     margin-top: 24px;
 
-    @include base.media-down(laptop) {
-        padding-bottom: 70px;
+    @include base.media-down(tablet) {
+        padding-bottom: 50px;
     }
 
     .swiper {
@@ -624,7 +624,7 @@
     pointer-events: none;
     @include base.container;
 
-    @include base.media-down(laptop) {
+    @include base.media-down(tablet) {
         position: absolute;
         bottom: 0;
         left: auto;
@@ -667,7 +667,7 @@
         transition: all 0.3s ease;
     }
 
-    @include base.media-down(laptop) {
+    @include base.media-down(tablet) {
         position: absolute;
         top: 50%;
         width: 36px;
@@ -697,62 +697,39 @@
 .charter-pricing__button-prev {
     margin-left: -25px;
 
-    @include base.media-down(laptop) {
+    @include base.media-down(tablet) {
         left: 0;
         margin-left: 0;
     }
 }
 
 .charter-pricing__button-next {
-    @include base.media-down(laptop) {
+    @include base.media-down(tablet) {
         right: 0;
     }
 }
 
-.charter-pricing__pagination-wrapper {
-    @include base.media-down(laptop) {
-        position: absolute;
-        left: 50%;
-        bottom: 20px;
-        transform: translateX(-50%);
-        z-index: 10;
-    }
-}
+// Swiper Pagination Styles
+.charter-pricing__slider {
+    .swiper-pagination {
+        text-align: left;
+        display: none;
 
-.charter-pricing__pagination {
-    text-align: left;
-    display: none;
-
-    @include base.media-down(laptop) {
-        display: block !important;
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        bottom: -30px !important;
-        transform: none !important;
-        margin: 0 !important;
-        width: auto !important;
-        z-index: auto !important;
-        height: 30px;
-    }
-}
-
-.charter-pricing__pagination-bullet {
-    background: var(--blue-500);
-    opacity: 0.3;
-    width: 8px;
-    height: 8px;
-    margin: 0 4px;
-    transition: all 0.3s ease;
-    border-radius: 50%;
-    cursor: pointer;
-    display: inline-block;
-
-    &.charter-pricing__pagination-bullet-active {
-        opacity: 1;
+        @include base.media-down(tablet) {
+            display: block !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            bottom: -40px !important;
+            transform: none !important;
+            margin: 0 !important;
+            width: auto !important;
+            z-index: auto !important;
+            height: 30px;
+        }
     }
 
-    @include base.media-down(laptop) {
+    .swiper-pagination-bullet {
         background: var(--blue-500);
         opacity: 0.3;
         width: 8px;
@@ -760,8 +737,21 @@
         margin: 0 4px;
         transition: all 0.3s ease;
 
-        &.charter-pricing__pagination-bullet-active {
+        &.swiper-pagination-bullet-active {
             opacity: 1;
+        }
+
+        @include base.media-down(tablet) {
+            background: var(--blue-500);
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
         }
     }
 }

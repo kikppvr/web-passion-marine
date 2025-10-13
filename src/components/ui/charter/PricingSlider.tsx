@@ -172,11 +172,6 @@ export default function PricingSlider({ pricing, onBookNow, className = "" }: Pr
                         <i className='ph ph-caret-right'></i>
                     </button>
                 </div>
-
-                {/* Pagination */}
-                <div className='charter-pricing__pagination-wrapper'>
-                    {/* Pagination will be rendered by Swiper automatically */}
-                </div>
             </div>
         </div>
     );
