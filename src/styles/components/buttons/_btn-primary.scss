@@ -79,6 +79,36 @@
     }
 }
 
+// Btn Primary revert theme (same styling as light, but icon and text positions are swapped)
+.btn-primary--revert {
+    // Same styling as default light theme
+    background-color: var(--primary);
+    color: var(--text-white);
+    padding: 4px 16px 4px 4px;
+
+    .btn-icon {
+        background-color: white;
+        color: var(--blue-500);
+        margin-left: 0;
+        transform: rotate(180deg);
+    }
+
+    .btn-content {
+        margin-right: 0;
+        margin-left: 16px;
+        min-width: auto;
+    }
+
+    &:hover {
+        .btn-content {
+            transform: translateX(-8px); // Reverse direction for revert
+        }
+        .btn-icon {
+            transform: rotate(225deg); // Reverse rotation for revert
+        }
+    }
+}
+
 // Primary Button Hover Mixin
 @mixin btn-primary-hover {
     &:hover {

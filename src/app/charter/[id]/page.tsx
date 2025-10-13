@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import CharterSpecificationsSlider from "@/components/ui/charter/CharterSpecificationsSlider";
 import CharterTestimonialsSlider from "@/components/ui/charter/CharterTestimonialsSlider";
 import charterDataJson from "@/data/charter-data.json";
@@ -262,19 +263,12 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                 <section className='section py-[64px]'>
                     <div className='container'>
                         <div className='charter-actions'>
-                            <Link href='/charter' className='charter-actions__back'>
-                                <svg width='30' height='30' viewBox='0 0 30 30' fill='none'>
-                                    <circle cx='15' cy='15' r='15' fill='#1c4583' />
-                                    <path
-                                        d='M18 10L12 15L18 20'
-                                        stroke='white'
-                                        strokeWidth='2'
-                                        strokeLinecap='round'
-                                        strokeLinejoin='round'
-                                    />
-                                </svg>
-                                <span>Back</span>
-                            </Link>
+                            <PrimaryButton
+                                theme='revert'
+                                onClick={() => window.history.back()}
+                                className='charter-actions__back'>
+                                Back
+                            </PrimaryButton>
                             <div className='charter-actions__social'>
                                 <span className='charter-actions__social-label'>Share</span>
                                 <div className='charter-actions__social-icons'>

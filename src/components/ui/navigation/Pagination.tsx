@@ -60,16 +60,7 @@ export default function Pagination({
                 className='pagination__nav pagination__nav--prev'
                 onClick={handlePrevious}
                 disabled={currentPage === 1}>
-                <svg width='30' height='30' viewBox='0 0 30 30' fill='none'>
-                    <circle cx='15' cy='15' r='15' fill='#1c4583' />
-                    <path
-                        d='M18 10L12 15L18 20'
-                        stroke='white'
-                        strokeWidth='2'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                    />
-                </svg>
+                <i className='ph ph-arrow-left'></i>
             </button>
 
             <div className='pagination__pages'>{renderPageNumbers()}</div>
@@ -78,16 +69,7 @@ export default function Pagination({
                 className='pagination__nav pagination__nav--next'
                 onClick={handleNext}
                 disabled={currentPage === totalPages}>
-                <svg width='30' height='30' viewBox='0 0 30 30' fill='none'>
-                    <circle cx='15' cy='15' r='15' fill='#1c4583' />
-                    <path
-                        d='M12 10L18 15L12 20'
-                        stroke='white'
-                        strokeWidth='2'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                    />
-                </svg>
+                <i className='ph ph-arrow-right'></i>
             </button>
         </div>
     );
