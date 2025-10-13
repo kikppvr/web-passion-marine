@@ -65,16 +65,7 @@ export default function CharterTestimonialsSlider({
                                         : currentTestimonial - 1
                                 )
                             }>
-                            <svg width='30' height='30' viewBox='0 0 30 30' fill='none'>
-                                <circle cx='15' cy='15' r='15' fill='white' />
-                                <path
-                                    d='M18 10L12 15L18 20'
-                                    stroke='#1c4583'
-                                    strokeWidth='2'
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                />
-                            </svg>
+                            <i className='ph ph-arrow-left'></i>
                         </button>
                         <button
                             className='charter-testimonials__arrow charter-testimonials__arrow--next'
@@ -85,16 +76,7 @@ export default function CharterTestimonialsSlider({
                                         : currentTestimonial + 1
                                 )
                             }>
-                            <svg width='30' height='30' viewBox='0 0 30 30' fill='none'>
-                                <circle cx='15' cy='15' r='15' fill='white' />
-                                <path
-                                    d='M12 10L18 15L12 20'
-                                    stroke='#1c4583'
-                                    strokeWidth='2'
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                />
-                            </svg>
+                            <i className='ph ph-arrow-right'></i>
                         </button>
                     </div>
                 </div>

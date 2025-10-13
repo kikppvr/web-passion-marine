@@ -36,12 +36,12 @@
             "testimonials": [
                 {
                     "name": "Ms.XXXX XXXXX",
-                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "avatar": "/images/charter/reviews/01.webp",
                     "review": "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor."
                 },
                 {
                     "name": "Mr.XXXX XXXXX",
-                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "avatar": "/images/charter/reviews/02.webp",
                     "review": "Lorem ipsum dolor sit amet consectetur. Maecenas est rutrum felis risus massa a non lorem massa. Quis cum massa nec facilisis sit proin. Tincidunt donec orci amet eget elit amet morbi ultricies tortor."
                 }
             ],
@@ -180,12 +180,12 @@
             "testimonials": [
                 {
                     "name": "Ms.Sarah Johnson",
-                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "avatar": "/images/charter/reviews/01.webp",
                     "review": "Amazing experience! The catamaran was spacious and comfortable. Perfect for our family outing."
                 },
                 {
                     "name": "Mr.David Chen",
-                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "avatar": "/images/charter/reviews/02.webp",
                     "review": "Great service and beautiful views. Highly recommended for anyone looking for a premium sailing experience."
                 }
             ],
@@ -264,12 +264,12 @@
             "testimonials": [
                 {
                     "name": "Ms.Emma Wilson",
-                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "avatar": "/images/charter/reviews/01.webp",
                     "review": "Beautiful yacht with excellent service. Perfect for special occasions and celebrations."
                 },
                 {
                     "name": "Mr.Michael Brown",
-                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "avatar": "/images/charter/reviews/02.webp",
                     "review": "Professional crew and luxurious amenities. Worth every baht for the experience."
                 }
             ],
@@ -348,12 +348,12 @@
             "testimonials": [
                 {
                     "name": "Ms.Lisa Anderson",
-                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "avatar": "/images/charter/reviews/01.webp",
                     "review": "Incredible speed and excitement! Perfect for adrenaline junkies and water sports enthusiasts."
                 },
                 {
                     "name": "Mr.James Taylor",
-                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "avatar": "/images/charter/reviews/02.webp",
                     "review": "Fast, fun, and reliable. Great for quick tours and water activities."
                 }
             ],
@@ -432,12 +432,12 @@
             "testimonials": [
                 {
                     "name": "Ms.Rachel Green",
-                    "avatar": "/images/home/portfolio/review-01.webp",
+                    "avatar": "/images/charter/reviews/01.webp",
                     "review": "Perfect for our company event! Spacious and comfortable for all our guests."
                 },
                 {
                     "name": "Mr.Tom Hanks",
-                    "avatar": "/images/home/portfolio/review-02.webp",
+                    "avatar": "/images/charter/reviews/02.webp",
                     "review": "Excellent service and beautiful vessel. Great for large group celebrations."
                 }
             ],

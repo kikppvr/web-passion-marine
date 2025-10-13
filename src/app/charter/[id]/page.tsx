@@ -112,7 +112,7 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                 </section>
 
                 {/* Pricing Section */}
-                <section className='section section--space-y bg-blue-abstract'>
+                <section className='section section--space-top bg-blue-abstract'>
                     <div className='container'>
                         <div className='charter-pricing'>
                             <h2 className='charter-pricing__title'>Boat Rental Rates</h2>
@@ -252,14 +252,14 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                 </section>
 
                 {/* Testimonials */}
-                <section className='section section--space-bottom'>
+                <section className='section pt-[64px]'>
                     <div className='container'>
                         <CharterTestimonialsSlider testimonials={charterData.testimonials} />
                     </div>
                 </section>
 
                 {/* Back Button and Social Sharing */}
-                <section className='section section--space-y'>
+                <section className='section py-[64px]'>
                     <div className='container'>
                         <div className='charter-actions'>
                             <Link href='/charter' className='charter-actions__back'>
