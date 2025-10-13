@@ -3,6 +3,7 @@
 
 // Charter Detail Page Styles
 .charter-detail-page {
+    overflow: hidden;
     .section {
         &:first-child {
             padding-top: 192px; // 96px + 96px for missing banner
@@ -21,6 +22,15 @@
 // Hero Section
 .charter-detail-hero {
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
     max-width: 920px;
     margin: 0 auto;
 }
@@ -44,12 +54,15 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: hidden;
 }
 
 .charter-specifications-slider__main {
     display: flex;
     gap: 32px;
-    align-items: flex-start;
+    align-items: center;
+    width: 100%;
+    @include base.container;
 
     @include base.media-down(tablet) {
         flex-direction: column;
@@ -138,10 +151,20 @@
 }
 
 .charter-specifications-slider__navigation {
-    display: flex;
-    gap: 8px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 8px 0;
+    width: 100%;
+    @include base.container;
+}
+
+.charter-specifications-slider__navigation-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding-bottom: 8px;
 
     @include base.media-down(tablet) {
         gap: 12px;
@@ -205,6 +228,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(271px, 1fr));
     gap: 8px;
+    padding-bottom: 8px;
 
     @include base.media-down(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -227,6 +251,14 @@
 // Pricing Section
 .charter-pricing {
     text-align: center;
+    position: relative;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
 }
 
 .charter-pricing__title {
@@ -242,6 +274,10 @@
     gap: 32px;
 
     @include base.media-down(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include base.media-down(mobile) {
         grid-template-columns: 1fr;
         gap: 24px;
     }
@@ -263,6 +299,15 @@
     width: 100%;
     padding: 16px 10px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    :hover {
+        .charter-pricing__navigation-wrapper {
+            opacity: 1;
+        }
+    }
 }
 
 .charter-pricing__card-title {
@@ -329,12 +374,26 @@
     border-radius: 20px;
     padding: 32px;
     display: flex;
-    gap: 32px;
+    // gap: 32px;
     align-items: flex-start;
 
     @include base.media-down(tablet) {
         flex-direction: column;
-        gap: 24px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        text-align: center;
+        :hover {
+            .charter-pricing__navigation-wrapper {
+                opacity: 1;
+            }
+        }
+        align-items: center;
+    }
+
+    @include base.media-down(mobile) {
+        padding: 26px 24px;
     }
 }
 
@@ -342,23 +401,21 @@
     @include fonts.text-h3;
     @include fonts.font-semibold;
     color: white;
-    flex-shrink: 0;
+    flex: 0 0 33.33%;
+
+    @include base.media-down(tablet) {
+        margin-bottom: 24px;
+    }
 }
 
 .charter-testimonials__content {
-    flex: 1;
+    flex: 0 0 66.66%;
 }
 
 .charter-testimonials__list {
     display: flex;
-    gap: 24px;
     margin-bottom: 24px;
     overflow: hidden;
-
-    @include base.media-down(tablet) {
-        flex-direction: column;
-        gap: 16px;
-    }
 }
 
 .charter-testimonials__item {
@@ -372,7 +429,17 @@
     @include base.media-down(tablet) {
         flex-direction: column;
         text-align: center;
-        gap: 16px;
+        position: relative;
+        overflow: hidden;
+
+        text-align: center;
+        :hover {
+            .charter-pricing__navigation-wrapper {
+                opacity: 1;
+            }
+        }
+        align-items: center;
+        // gap: 16px;
     }
 }
 
@@ -399,6 +466,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding-bottom: 8px;
 }
 
 .charter-testimonials__name {
@@ -449,6 +517,23 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    background-color: var(--white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    i {
+        font-size: 20px;
+        color: var(--blue-500);
+    }
+
+    &:hover {
+        background-color: var(--grey-100);
+    }
 }
 
 // Actions Section
@@ -457,30 +542,15 @@
     justify-content: space-between;
     align-items: center;
 
-    @include base.media-down(tablet) {
+    @include base.media-down(mini-mobile) {
         flex-direction: column;
         gap: 24px;
     }
 }
 
 .charter-actions__back {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--blue-500);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 18px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-        background: var(--blue-600);
-    }
-
-    span {
-        @include fonts.text-body;
-        @include fonts.font-normal;
+    @include base.media-down(mini-mobile) {
+        order: 2;
     }
 }
 
@@ -488,6 +558,10 @@
     display: flex;
     align-items: center;
     gap: 16px;
+
+    @include base.media-down(mini-mobile) {
+        order: 1;
+    }
 }
 
 .charter-actions__social-label {
@@ -507,9 +581,177 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    transition: opacity 0.3s ease;
+    background-color: var(--blue-500);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: all 0.3s ease;
 
     &:hover {
-        opacity: 0.8;
+        // opacity: 0.8;
+        background-color: var(--blue-400);
+    }
+}
+
+// Pricing Slider Styles (similar to boat-solutions-swiper)
+.charter-pricing__slider {
+    position: relative;
+    margin-top: 24px;
+
+    @include base.media-down(tablet) {
+        padding-bottom: 50px;
+    }
+
+    .swiper {
+        overflow: visible;
+    }
+}
+
+.charter-pricing__navigation-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    @include base.container;
+
+    @include base.media-down(tablet) {
+        position: absolute;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        top: auto;
+        transform: none;
+        opacity: 1;
+        padding: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        z-index: 5;
+        width: 80px;
+    }
+
+    @include base.media-down(mobile) {
+        right: 16px;
+    }
+}
+
+.charter-pricing__button-prev,
+.charter-pricing__button-next {
+    color: var(--blue-500);
+    background: var(--white);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+
+    i {
+        font-size: 18px;
+        color: var(--blue-500);
+        transition: all 0.3s ease;
+    }
+
+    @include base.media-down(tablet) {
+        position: absolute;
+        top: 50%;
+        width: 36px;
+        height: 36px;
+        transform: translateY(-50%);
+        background: var(--blue-500);
+        i {
+            color: var(--white);
+        }
+    }
+
+    &:hover {
+        background: var(--blue-500);
+
+        i {
+            color: var(--white);
+        }
+    }
+
+    &.charter-pricing__button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+.charter-pricing__button-prev {
+    margin-left: -25px;
+
+    @include base.media-down(tablet) {
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+.charter-pricing__button-next {
+    @include base.media-down(tablet) {
+        right: 0;
+    }
+}
+
+// Swiper Pagination Styles
+.charter-pricing__slider {
+    .swiper-pagination {
+        text-align: left;
+        display: none;
+
+        @include base.media-down(tablet) {
+            display: block !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            bottom: -40px !important;
+            transform: none !important;
+            margin: 0 !important;
+            width: auto !important;
+            z-index: auto !important;
+            height: 30px;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--blue-500);
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        transition: all 0.3s ease;
+
+        &.swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        @include base.media-down(tablet) {
+            background: var(--blue-500);
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
     }
 }

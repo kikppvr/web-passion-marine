@@ -78,6 +78,7 @@ export default function PrimaryButtonPage() {
                             <div className='flex items-center justify-center gap-6'>
                                 <PrimaryButton>Default</PrimaryButton>
                                 <PrimaryButton theme='dark'>Dark Theme</PrimaryButton>
+                                <PrimaryButton theme='revert'>Revert Theme</PrimaryButton>
                             </div>
                             {/* Background decoration */}
                             <div className='absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 opacity-50'></div>
@@ -158,6 +159,38 @@ export default function PrimaryButtonPage() {
                                     <code>{`<PrimaryButton theme="dark">Dark Theme</PrimaryButton>`}</code>
                                 </pre>
                             </div>
+                            <div className='rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 p-4'>
+                                <div className='mb-3 flex items-center justify-between'>
+                                    <div className='flex items-center gap-2'>
+                                        <div className='flex h-2 w-2 rounded-full bg-red-500'></div>
+                                        <div className='flex h-2 w-2 rounded-full bg-yellow-500'></div>
+                                        <div className='flex h-2 w-2 rounded-full bg-green-500'></div>
+                                    </div>
+                                    <button
+                                        className='h-8 rounded border border-gray-600 bg-gray-800 px-3 text-xs text-gray-300 hover:bg-gray-700 hover:text-white'
+                                        onClick={() =>
+                                            copyToClipboard(
+                                                `<PrimaryButton theme="revert">Revert Theme</PrimaryButton>`,
+                                                "primary-button-revert-code"
+                                            )
+                                        }>
+                                        {copiedCode === "primary-button-revert-code" ? (
+                                            <i className='ph ph-check-circle text-green-400'></i>
+                                        ) : (
+                                            <i className='ph ph-copy'></i>
+                                        )}
+                                    </button>
+                                </div>
+                                <div className='mb-2 flex items-center gap-2'>
+                                    <div className='h-3 w-3 rounded-full bg-green-500'></div>
+                                    <span className='text-small text-gray-400'>
+                                        PrimaryButton.tsx
+                                    </span>
+                                </div>
+                                <pre className='text-small overflow-x-auto text-gray-300'>
+                                    <code>{`<PrimaryButton theme="revert">Revert Theme</PrimaryButton>`}</code>
+                                </pre>
+                            </div>
                         </div>
                     </div>
 
@@ -205,13 +238,15 @@ export default function PrimaryButtonPage() {
                                             theme
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;light&apos; | &apos;dark&apos;
+                                            &apos;light&apos; | &apos;dark&apos; |
+                                            &apos;revert&apos;
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
                                             &apos;light&apos;
                                         </td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
-                                            ธีมสีของปุ่ม
+                                            ธีมสีของปุ่ม (light: ปุ่มสีน้ำเงิน, dark: ปุ่มสีขาว,
+                                            revert: สลับตำแหน่ง icon กับ text)
                                         </td>
                                     </tr>
                                     <tr className='border-b border-gray-100'>

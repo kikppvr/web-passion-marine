@@ -1,0 +1,255 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+interface SocialIconsProps {
+    className?: string;
+    showLabel?: boolean;
+    labelText?: string;
+}
+
+// SVG Icons Components
+const FacebookIcon = () => (
+    <svg xmlns='http://www.w3.org/2000/svg' width='8' height='15' viewBox='0 0 8 15' fill='none'>
+        <g clip-path='url(#clip0_400_2101)'>
+            <path
+                d='M2.53824 14.284V7.97788H0.400391V5.48763H2.53824C2.59194 4.17091 2.2966 2.74792 3.11214 1.60796C3.87621 0.54071 5.13028 0.357242 6.36981 0.424364L7.60039 0.507149V2.72666H6.15278C6.04762 2.72666 5.77914 2.77812 5.67286 2.81504C5.34284 2.92915 5.0833 3.27931 5.0833 3.63282V5.48652H7.51984L7.19542 7.97676H5.08442V14.2829H2.54048L2.53824 14.284Z'
+                fill='white'
+            />
+        </g>
+        <defs>
+            <clipPath id='clip0_400_2101'>
+                <rect
+                    width='7.2'
+                    height='13.872'
+                    fill='white'
+                    transform='translate(0.400391 0.412109)'
+                />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+const InstagramIcon = () => (
+    <svg xmlns='http://www.w3.org/2000/svg' width='10' height='11' viewBox='0 0 10 11' fill='none'>
+        <g clip-path='url(#clip0_400_2104)'>
+            <path
+                d='M3.59772 0.376061C4.86184 0.338942 6.23939 0.329043 7.49609 0.403282C9.06501 0.496081 9.84823 1.28549 9.94433 2.85235C10.0169 4.03481 10.0153 5.3707 9.98558 6.56059C9.9365 8.52957 9.90061 10.1381 7.49609 10.2857C6.30126 10.3592 4.95093 10.3583 3.74826 10.327C1.79536 10.2763 0.207469 10.2214 0.0660022 7.83626C-0.0272091 6.26445 -0.0272091 4.42374 0.0660022 2.85193C0.204582 0.520827 1.66709 0.432153 3.59772 0.376061ZM8.08011 1.40303C7.32328 1.52429 7.334 2.73233 8.11516 2.83007C9.23989 2.97113 9.20565 1.22239 8.08011 1.40303ZM4.5851 2.26957C3.40552 2.39 2.33648 3.3514 2.02261 4.48066C1.29713 7.08851 3.97015 9.32269 6.399 8.11837C9.42053 6.61998 8.18074 1.9025 4.5851 2.26957Z'
+                fill='white'
+            />
+            <path
+                d='M4.70739 3.33804C7.47032 2.98334 7.84523 7.10361 5.22665 7.35644C2.54167 7.61545 2.20801 3.65851 4.70739 3.33804Z'
+                fill='white'
+            />
+        </g>
+        <defs>
+            <clipPath id='clip0_400_2104'>
+                <rect
+                    width='10.0087'
+                    height='10'
+                    fill='white'
+                    transform='translate(-0.00390625 0.347656)'
+                />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+const LineIcon = () => (
+    <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'>
+        <g clip-path='url(#clip0_400_2108)'>
+            <path
+                d='M11.743 4.70634V5.35659C11.5988 7.34897 9.62555 8.90165 8.11613 9.97092C7.54617 10.3747 6.68463 10.9905 6.05353 11.2499C5.86894 11.3256 5.50994 11.4667 5.48447 11.1519C5.46589 10.924 5.58545 10.5726 5.59804 10.3238C5.61842 9.91581 5.5447 9.7978 5.15304 9.68998C4.48238 9.50548 3.94209 9.46684 3.27143 9.17182C-0.30298 7.60086 -0.888528 3.41214 2.54804 1.28917C4.69275 -0.0358827 7.71968 0.0392957 9.77598 1.50452C10.8011 2.23504 11.6453 3.41663 11.743 4.70634ZM2.90494 5.96191V3.88807C2.90494 3.86441 2.82134 3.75269 2.79197 3.73202C2.62026 3.61161 2.38412 3.69159 2.32689 3.89316L2.33168 6.38902C2.38293 6.47858 2.45335 6.55016 2.55913 6.56514C2.74492 6.59149 3.6607 6.59658 3.83061 6.56214C4.07094 6.51332 4.12758 6.17037 3.92561 6.029C3.89084 6.00474 3.77997 5.96191 3.74611 5.96191H2.90494ZM4.58187 3.6799C4.45302 3.69847 4.35563 3.8036 4.34004 3.9324C4.39608 4.68747 4.26752 5.54559 4.33944 6.28808C4.37391 6.64391 4.83749 6.66757 4.92229 6.33032C4.86955 5.56925 4.99751 4.70245 4.92499 3.95426C4.90701 3.77006 4.76887 3.65295 4.58187 3.6799ZM5.95554 6.35428V4.86329L7.16589 6.48996C7.41132 6.67086 7.65734 6.53968 7.68371 6.24316C7.74934 5.51264 7.63727 4.67939 7.67742 3.93839C7.62168 3.67331 7.29864 3.56759 7.13473 3.81109C7.12454 3.82637 7.07719 3.90484 7.07719 3.91053V5.37905L5.88033 3.77275C5.69933 3.59304 5.41105 3.67721 5.37209 3.9324L5.37419 6.33032C5.42304 6.6475 5.9007 6.63013 5.95584 6.35428H5.95554ZM8.69209 4.28043H9.5782C9.61266 4.28043 9.71845 4.21304 9.74661 4.1798C9.89525 4.00518 9.80565 3.71974 9.57281 3.6805C9.38971 3.64965 8.5066 3.64786 8.3271 3.6805C8.19285 3.70476 8.09725 3.82337 8.08647 3.95546C8.13591 4.70065 8.02054 5.53061 8.08557 6.26562C8.09965 6.42526 8.17517 6.54746 8.34388 6.56783C8.60729 6.59958 9.26385 6.59359 9.53415 6.56813C9.74632 6.54806 9.85689 6.39142 9.80895 6.17966C9.78228 6.06255 9.62345 5.96191 9.51078 5.96191H8.69209V5.42398H9.60068C9.62645 5.42398 9.73373 5.34072 9.7562 5.31047C9.83831 5.20054 9.84041 5.02293 9.74661 4.9193C9.72474 4.89504 9.60158 4.81866 9.5782 4.81866H8.69209V4.28073V4.28043Z'
+                fill='white'
+            />
+        </g>
+        <defs>
+            <clipPath id='clip0_400_2108'>
+                <rect
+                    width='11.4853'
+                    height='11'
+                    fill='white'
+                    transform='translate(0.257812 0.347656)'
+                />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+const LinkIcon = () => (
+    <svg xmlns='http://www.w3.org/2000/svg' width='12' height='13' viewBox='0 0 12 13' fill='none'>
+        <g clip-path='url(#clip0_400_1088)'>
+            <path
+                d='M11.9992 2.92583V3.37114C11.9288 3.95763 11.7178 4.49599 11.3424 4.95245C10.3657 5.83513 9.48235 6.94296 8.49656 7.80157C7.4462 8.71683 5.70559 8.73239 4.71099 7.71938C3.98816 6.98317 4.86595 5.91468 5.72701 6.49237C5.8444 6.57104 5.94272 6.68699 6.07331 6.75538C6.56342 7.01165 7.08288 6.90979 7.48905 6.5593C8.38621 5.78552 9.18711 4.76458 10.0784 3.96938C11.0073 2.87006 9.70862 1.40617 8.51006 2.16615L6.77531 3.85255C6.62622 3.90039 6.47127 3.78943 6.33392 3.75245C6.06392 3.67994 5.7992 3.63239 5.52011 3.60538C5.37601 3.59159 5.19376 3.65558 5.09955 3.51057C5.02237 3.39198 5.08018 3.31302 5.15649 3.21791C5.9119 2.52955 6.61243 1.6774 7.38281 1.01517C9.10992 -0.469275 11.8184 0.677594 11.9992 2.92554V2.92583Z'
+                fill='white'
+            />
+            <path
+                d='M3.04898 12.3479H2.58029C0.338126 12.1527 -0.822871 9.47152 0.670343 7.73052C1.52377 6.73542 2.66129 5.84687 3.54085 4.85939C4.57271 3.99373 6.13548 3.98904 7.1606 4.87201C8.02459 5.61614 7.27476 6.67612 6.41399 6.29833C6.24495 6.22407 6.12756 6.06203 5.97025 5.96898C5.50069 5.69129 4.94367 5.76849 4.53632 6.11281C3.61187 6.89422 2.78162 7.97446 1.86773 8.78728C0.994048 9.97465 2.44735 11.3743 3.59895 10.4487L5.22687 8.84246C5.35366 8.80166 5.58462 8.92612 5.72021 8.96105C5.96262 9.02358 6.20885 9.06555 6.4586 9.08992C6.6024 9.10371 6.81224 9.03737 6.90175 9.18561C6.95634 9.27661 6.94929 9.36027 6.86917 9.43043C5.70407 10.3915 4.68159 12.2141 3.04927 12.3479H3.04898Z'
+                fill='white'
+            />
+        </g>
+        <defs>
+            <clipPath id='clip0_400_1088'>
+                <rect width='12' height='12' fill='white' transform='translate(0 0.347656)' />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export default function SocialIcons({
+    className = "",
+    showLabel = true,
+    labelText = "Share",
+}: SocialIconsProps) {
+    const socialLinks = useMemo(
+        () => [
+            {
+                name: "Facebook",
+                href: "#",
+                icon: <FacebookIcon />,
+                alt: "Facebook",
+            },
+            {
+                name: "Instagram",
+                href: "#",
+                icon: <InstagramIcon />,
+                alt: "Instagram",
+            },
+            {
+                name: "Line",
+                href: "#",
+                icon: <LineIcon />,
+                alt: "Line",
+            },
+            {
+                name: "Link",
+                href: "#",
+                icon: <LinkIcon />,
+                alt: "Link",
+            },
+        ],
+        []
+    );
+
+    // Tablet-only slider (<= 768px), 2 icons per page
+    const [isTablet, setIsTablet] = useState(false);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    useEffect(() => {
+        const media = window.matchMedia("(max-width: 768px)");
+        const onChange = () => setIsTablet(media.matches);
+        onChange();
+        media.addEventListener("change", onChange);
+        return () => media.removeEventListener("change", onChange);
+    }, []);
+
+    const pages = useMemo(() => {
+        const chunkSize = 2;
+        const result: (typeof socialLinks)[] = [] as any;
+        for (let i = 0; i < socialLinks.length; i += chunkSize) {
+            result.push(socialLinks.slice(i, i + chunkSize));
+        }
+        return result;
+    }, [socialLinks]);
+
+    useEffect(() => {
+        if (!isTablet) {
+            setCurrentPage(0);
+        } else {
+            // clamp page within bounds when switching breakpoints
+            setCurrentPage(p => Math.min(p, Math.max(0, pages.length - 1)));
+        }
+    }, [isTablet, pages.length]);
+
+    const goPrev = () => setCurrentPage(p => (p > 0 ? p - 1 : pages.length - 1));
+    const goNext = () => setCurrentPage(p => (p < pages.length - 1 ? p + 1 : 0));
+
+    return (
+        <div className={`charter-actions__social ${className}`}>
+            {showLabel && <span className='charter-actions__social-label'>{labelText}</span>}
+            {!isTablet ? (
+                <div className='charter-actions__social-icons'>
+                    {socialLinks.map((social, index) => (
+                        <a
+                            key={index}
+                            href={social.href}
+                            className='charter-actions__social-icon'
+                            aria-label={social.alt}>
+                            {social.icon}
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <div
+                    className='charter-actions__social-icons'
+                    style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <button
+                        type='button'
+                        aria-label='Previous'
+                        onClick={goPrev}
+                        style={{
+                            background: "transparent",
+                            border: 0,
+                            cursor: "pointer",
+                            padding: 0,
+                        }}>
+                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                            <circle cx='12' cy='12' r='12' fill='#656567' />
+                            <path
+                                d='M13.5 8.5L9.5 12L13.5 15.5'
+                                stroke='white'
+                                strokeWidth='1.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                            />
+                        </svg>
+                    </button>
+                    {pages[currentPage].map((social, index) => (
+                        <a
+                            key={`${currentPage}-${index}`}
+                            href={social.href}
+                            className='charter-actions__social-icon'
+                            aria-label={social.alt}>
+                            {social.icon}
+                        </a>
+                    ))}
+                    <button
+                        type='button'
+                        aria-label='Next'
+                        onClick={goNext}
+                        style={{
+                            background: "transparent",
+                            border: 0,
+                            cursor: "pointer",
+                            padding: 0,
+                        }}>
+                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                            <circle cx='12' cy='12' r='12' fill='#656567' />
+                            <path
+                                d='M10.5 8.5L14.5 12L10.5 15.5'
+                                stroke='white'
+                                strokeWidth='1.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                            />
+                        </svg>
+                    </button>
+                    <div style={{ display: "flex", gap: 8, marginLeft: 8 }} aria-label='Pagination'>
+                        {pages.map((_, i) => (
+                            <span
+                                key={i}
+                                onClick={() => setCurrentPage(i)}
+                                style={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: "50%",
+                                    background:
+                                        i === currentPage ? "#1C4583" : "rgba(101,101,103,0.4)",
+                                    cursor: "pointer",
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}

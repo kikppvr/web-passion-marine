@@ -4,7 +4,7 @@ import * as React from "react";
 export interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     icon?: string;
-    theme?: "light" | "dark";
+    theme?: "light" | "dark" | "revert";
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
@@ -12,17 +12,36 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
         const defaultIcon = "ph ph-arrow-right";
         const iconClass = icon || defaultIcon;
 
-        const buttonClasses = cn("btn-primary", theme === "dark" && "btn-primary--dark", className);
+        const buttonClasses = cn(
+            "btn-primary",
+            theme === "dark" && "btn-primary--dark",
+            theme === "revert" && "btn-primary--revert",
+            className
+        );
 
         return (
             <button className={buttonClasses} ref={ref} {...props}>
-                {/* Content container */}
-                <div className='btn-content'>
-                    <span>{children}</span>
-                </div>
-                <div className='btn-icon'>
-                    <i className={cn(iconClass)}></i>
-                </div>
+                {theme === "revert" ? (
+                    <>
+                        {/* Icon first for revert theme */}
+                        <div className='btn-icon'>
+                            <i className={cn(iconClass)}></i>
+                        </div>
+                        <div className='btn-content'>
+                            <span>{children}</span>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        {/* Content first for normal themes */}
+                        <div className='btn-content'>
+                            <span>{children}</span>
+                        </div>
+                        <div className='btn-icon'>
+                            <i className={cn(iconClass)}></i>
+                        </div>
+                    </>
+                )}
             </button>
         );
     }

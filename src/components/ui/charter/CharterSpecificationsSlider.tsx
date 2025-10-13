@@ -38,6 +38,7 @@ export default function CharterSpecificationsSlider({
 }: CharterSpecificationsSliderProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
 
+    console.log("gallery", gallery);
     return (
         <div className='charter-specifications-slider'>
             <div className='charter-specifications-slider__main'>
@@ -55,7 +56,7 @@ export default function CharterSpecificationsSlider({
                     <div className='charter-specifications-slider__list'>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-passenger.svg'
+                                src='/images/icon/chapter/ic-type.svg'
                                 alt='Type'
                                 width={24}
                                 height={11}
@@ -72,7 +73,7 @@ export default function CharterSpecificationsSlider({
                         </div>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-passenger.svg'
+                                src='/images/icon/chapter/ic-length.svg'
                                 alt='Length'
                                 width={24}
                                 height={12}
@@ -91,7 +92,7 @@ export default function CharterSpecificationsSlider({
                         </div>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-passenger.svg'
+                                src='/images/icon/chapter/ic-cabins.svg'
                                 alt='Cabins'
                                 width={24}
                                 height={19}
@@ -110,7 +111,7 @@ export default function CharterSpecificationsSlider({
                         </div>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-restroom.svg'
+                                src='/images/icon/chapter/ic-restroom.svg'
                                 alt='Restroom'
                                 width={24}
                                 height={21}
@@ -129,7 +130,7 @@ export default function CharterSpecificationsSlider({
                         </div>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-passenger.svg'
+                                src='/images/icon/chapter/ic-passenger.svg'
                                 alt='Passenger Capacity'
                                 width={24}
                                 height={21}
@@ -149,7 +150,7 @@ export default function CharterSpecificationsSlider({
                         </div>
                         <div className='charter-specifications-slider__item'>
                             <Image
-                                src='/images/icon/ic-passenger.svg'
+                                src='/images/icon/chapter/ic-speed.svg'
                                 alt='Speed'
                                 width={24}
                                 height={21}
@@ -172,31 +173,22 @@ export default function CharterSpecificationsSlider({
 
             {/* Navigation Thumbnails */}
             <div className='charter-specifications-slider__navigation'>
-                <div
-                    className={`charter-specifications-slider__thumb ${currentSlide === 0 ? "charter-specifications-slider__thumb--active" : ""}`}
-                    onClick={() => setCurrentSlide(0)}>
-                    <Image
-                        src={mainImage}
-                        alt='Main image'
-                        width={271}
-                        height={204}
-                        className='charter-specifications-slider__thumb-img'
-                    />
+                <div className='charter-specifications-slider__navigation-wrapper'>
+                    {gallery.map((image, index) => (
+                        <div
+                            key={index}
+                            className='charter-specifications-slider__thumb'
+                            onClick={() => setCurrentSlide(index + 1)}>
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={271}
+                                height={204}
+                                className='charter-specifications-slider__thumb-img'
+                            />
+                        </div>
+                    ))}
                 </div>
-                {gallery.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`charter-specifications-slider__thumb ${currentSlide === index + 1 ? "charter-specifications-slider__thumb--active" : ""}`}
-                        onClick={() => setCurrentSlide(index + 1)}>
-                        <Image
-                            src={image.src}
-                            alt={image.alt}
-                            width={271}
-                            height={204}
-                            className='charter-specifications-slider__thumb-img'
-                        />
-                    </div>
-                ))}
             </div>
         </div>
     );
