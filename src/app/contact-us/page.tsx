@@ -179,7 +179,7 @@ export default function ContactUsPage() {
                 </section>
 
                 {/* Contact Form Section */}
-                <section className='section section--space-y'>
+                <section className='section section--space-y bg-blue-abstract'>
                     <div className='container'>
                         <div className='contact-form'>
                             <div className='contact-form__header'>

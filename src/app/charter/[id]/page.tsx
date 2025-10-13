@@ -8,6 +8,7 @@ import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import CharterSpecificationsSlider from "@/components/ui/charter/CharterSpecificationsSlider";
 import CharterTestimonialsSlider from "@/components/ui/charter/CharterTestimonialsSlider";
+import SocialIcons from "@/components/ui/social/SocialIcons";
 import charterDataJson from "@/data/charter-data.json";
 
 interface ImageData {
@@ -269,46 +270,7 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                                 className='charter-actions__back'>
                                 Back
                             </PrimaryButton>
-                            <div className='charter-actions__social'>
-                                <span className='charter-actions__social-label'>Share</span>
-                                <div className='charter-actions__social-icons'>
-                                    <a href='#' className='charter-actions__social-icon'>
-                                        <Image
-                                            src='/images/icon/ic-facebook.svg'
-                                            alt='Facebook'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
-                                    <a href='#' className='charter-actions__social-icon'>
-                                        <Image
-                                            src='/images/icon/ic-instagram.svg'
-                                            alt='Instagram'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
-                                    <a href='#' className='charter-actions__social-icon'>
-                                        <Image
-                                            src='/images/icon/ic-line.svg'
-                                            alt='Line'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
-                                    <a href='#' className='charter-actions__social-icon'>
-                                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
-                                            <circle cx='12' cy='12' r='12' fill='#656567' />
-                                            <path
-                                                d='M16 8L8 16M8 8L16 16'
-                                                stroke='white'
-                                                strokeWidth='2'
-                                                strokeLinecap='round'
-                                            />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
+                            <SocialIcons />
                         </div>
                     </div>
                 </section>

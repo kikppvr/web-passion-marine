@@ -16,5 +16,8 @@ export * from "./navigation";
 // Card Components
 export * from "./cards";
 
+// Social Components
+export { default as SocialIcons } from "./social/SocialIcons";
+
 // Legacy button component (deprecated - use individual button components instead)
 export { Button } from "./button";
