@@ -44,12 +44,15 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: hidden;
 }
 
 .charter-specifications-slider__main {
     display: flex;
     gap: 32px;
-    align-items: flex-start;
+    align-items: center;
+    width: 100%;
+    @include base.container;
 
     @include base.media-down(tablet) {
         flex-direction: column;
@@ -138,10 +141,15 @@
 }
 
 .charter-specifications-slider__navigation {
+    overflow: visible;
+    padding: 8px 0;
+    @include base.container;
+}
+
+.charter-specifications-slider__navigation-wrapper {
+    overflow-x: auto;
     display: flex;
     gap: 8px;
-    overflow-x: auto;
-    padding: 8px 0;
 
     @include base.media-down(tablet) {
         gap: 12px;

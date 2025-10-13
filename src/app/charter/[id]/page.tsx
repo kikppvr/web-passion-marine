@@ -101,14 +101,14 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
 
                 {/* Boat Specifications Slider */}
                 <section className='section section--space-bottom'>
-                    <div className='container'>
-                        <CharterSpecificationsSlider
-                            mainImage={charterData.mainImage}
-                            title={charterData.title}
-                            specifications={charterData.specifications}
-                            gallery={charterData.gallery}
-                        />
-                    </div>
+                    {/* <div className='container'> */}
+                    <CharterSpecificationsSlider
+                        mainImage={charterData.mainImage}
+                        title={charterData.title}
+                        specifications={charterData.specifications}
+                        gallery={charterData.gallery}
+                    />
+                    {/* </div> */}
                 </section>
 
                 {/* Pricing Section */}
