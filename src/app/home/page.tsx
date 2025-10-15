@@ -444,7 +444,7 @@ export default function HeaderPage() {
                 </section>
             </div>
 
-            <section className='easy-boat-rental'>
+            {/* <section className='easy-boat-rental'>
                 <div className='easy-boat-rental__container'>
                     <div className='easy-boat-rental__header'>
                         <h2 className='easy-boat-rental__title'>Easy Boat Rental for Every Trip</h2>
@@ -481,7 +481,7 @@ export default function HeaderPage() {
                         <PrimaryButton>View All</PrimaryButton>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className='volvo-penta'>
                 <div className='volvo-penta__container'>
