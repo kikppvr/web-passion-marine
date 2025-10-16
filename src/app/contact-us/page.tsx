@@ -5,6 +5,7 @@ import Image from "next/image";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import SocialIcons from "@/components/ui/social/SocialIcons";
 
 interface ContactFormData {
     firstName: string;
@@ -101,9 +102,9 @@ export default function ContactUsPage() {
     };
 
     const handleGetDirections = () => {
-        // Open Google Maps with the company address
-        const address = "113/14, Moo 5, Chiang Rak Yai, Sam Khok, Pathum Thani 12160";
-        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+        // Open Google Maps with Passion Marine location
+        const googleMapsUrl =
+            "https://www.google.com/maps/place/Passion+Marine+Co.,Ltd./@14.0579515,100.5729664,17z/data=!3m1!4b1!4m6!3m5!1s0x30e27f6e657ab7f1:0xccbc7d7df24a6f44!8m2!3d14.0579515!4d100.5755413!16s%2Fg%2F11lz2q076g?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D";
         window.open(googleMapsUrl, "_blank");
     };
 
@@ -138,41 +139,30 @@ export default function ContactUsPage() {
                                     </div>
                                 </div>
                                 <div className='contact-info__social'>
-                                    <a href='#' className='contact-info__social-link'>
-                                        <Image
-                                            src='/images/icon/ic-facebook.svg'
-                                            alt='Facebook'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
-                                    <a href='#' className='contact-info__social-link'>
-                                        <Image
-                                            src='/images/icon/ic-instagram.svg'
-                                            alt='Instagram'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
-                                    <a href='#' className='contact-info__social-link'>
-                                        <Image
-                                            src='/images/icon/ic-line.svg'
-                                            alt='Line'
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </a>
+                                    <SocialIcons
+                                        showLabel={false}
+                                        showIcons={{
+                                            facebook: true,
+                                            instagram: true,
+                                            line: true,
+                                            link: false,
+                                        }}
+                                    />
                                 </div>
                                 <PrimaryButton onClick={handleGetDirections}>
                                     Get Directions
                                 </PrimaryButton>
                             </div>
                             <div className='contact-info__map'>
-                                <Image
-                                    src='/images/home/charter/charter-01.webp'
-                                    alt='Passion Marine Location'
-                                    fill
-                                    className='contact-info__map-image'
+                                <iframe
+                                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.123456789!2d100.5729664!3d14.0579515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e27f6e657ab7f1%3A0xccbc7d7df24a6f44!2sPassion%20Marine%20Co.%2CLtd.!5e0!3m2!1sen!2sth!4v1234567890123!5m2!1sen!2sth'
+                                    width='100%'
+                                    height='100%'
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading='lazy'
+                                    referrerPolicy='no-referrer-when-downgrade'
+                                    className='contact-info__map-iframe'
                                 />
                             </div>
                         </div>
@@ -326,7 +316,7 @@ export default function ContactUsPage() {
                                     )}
                                 </div>
                                 <div className='contact-form__submit'>
-                                    <BookNowButton type='submit' variant='default'>
+                                    <BookNowButton type='submit' variant='default' showIcon={false}>
                                         Submit
                                     </BookNowButton>
                                 </div>

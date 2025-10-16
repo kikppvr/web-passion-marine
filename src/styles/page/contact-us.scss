@@ -34,6 +34,7 @@
     @include base.media-down(tablet) {
         flex: none;
         width: 100%;
+        order: 2;
     }
 }
 
@@ -105,11 +106,18 @@
 .contact-info__map {
     flex: 1;
     position: relative;
-    height: 483px;
+    height: 500px;
     border-radius: 5px;
     overflow: hidden;
 
     @include base.media-down(tablet) {
+        flex: none;
+        width: 100%;
+        height: 350px;
+        order: 1;
+    }
+
+    @include base.media-down(mobile) {
         height: 300px;
     }
 }
@@ -119,6 +127,13 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.contact-info__map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
 }
 
 // Contact Form Section

@@ -4,6 +4,12 @@ interface SocialIconsProps {
     className?: string;
     showLabel?: boolean;
     labelText?: string;
+    showIcons?: {
+        facebook?: boolean;
+        instagram?: boolean;
+        line?: boolean;
+        link?: boolean;
+    };
 }
 
 // SVG Icons Components
@@ -98,36 +104,60 @@ export default function SocialIcons({
     className = "",
     showLabel = true,
     labelText = "Share",
+    showIcons = {
+        facebook: true,
+        instagram: true,
+        line: true,
+        link: true,
+    },
 }: SocialIconsProps) {
-    const socialLinks = useMemo(
-        () => [
+    const socialLinks = useMemo(() => {
+        const allSocialLinks = [
             {
                 name: "Facebook",
                 href: "#",
                 icon: <FacebookIcon />,
                 alt: "Facebook",
+                key: "facebook",
             },
             {
                 name: "Instagram",
                 href: "#",
                 icon: <InstagramIcon />,
                 alt: "Instagram",
+                key: "instagram",
             },
             {
                 name: "Line",
                 href: "#",
                 icon: <LineIcon />,
                 alt: "Line",
+                key: "line",
             },
             {
                 name: "Link",
                 href: "#",
                 icon: <LinkIcon />,
                 alt: "Link",
+                key: "link",
             },
-        ],
-        []
-    );
+        ];
+
+        return allSocialLinks.filter(social => {
+            switch (social.key) {
+                case "facebook":
+                    return showIcons.facebook;
+                case "instagram":
+                    return showIcons.instagram;
+                case "line":
+                    return showIcons.line;
+                case "link":
+                    return showIcons.link;
+                default:
+                    return true;
+            }
+        });
+    }, [showIcons]);
 
     return (
         <div className={`charter-actions__social ${className}`}>

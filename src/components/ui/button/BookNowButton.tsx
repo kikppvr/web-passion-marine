@@ -5,10 +5,11 @@ export interface BookNowButtonProps extends React.ButtonHTMLAttributes<HTMLButto
     children: React.ReactNode;
     icon?: string;
     variant?: "default" | "dark";
+    showIcon?: boolean;
 }
 
 const BookNowButton = React.forwardRef<HTMLButtonElement, BookNowButtonProps>(
-    ({ className, children, icon, variant = "default", ...props }, ref) => {
+    ({ className, children, icon, variant = "default", showIcon = true, ...props }, ref) => {
         const defaultIcon = "ph ph-calendar-check";
         const iconClass = icon || defaultIcon;
 
@@ -20,9 +21,11 @@ const BookNowButton = React.forwardRef<HTMLButtonElement, BookNowButtonProps>(
 
         return (
             <button className={buttonClasses} ref={ref} {...props}>
-                <div className='btn-booknow__icon'>
-                    <i className={cn(iconClass)}></i>
-                </div>
+                {showIcon && (
+                    <div className='btn-booknow__icon'>
+                        <i className={cn(iconClass)}></i>
+                    </div>
+                )}
                 <div className='btn-booknow__text'>{children}</div>
             </button>
         );
