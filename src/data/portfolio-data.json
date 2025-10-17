@@ -1,0 +1,118 @@
+{
+    "portfolios": [
+        {
+            "id": "1",
+            "title": "Chaparral 215 SSi",
+            "model": "215 SSi",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": [
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "href": "/portfolio/1"
+        },
+        {
+            "id": "2",
+            "title": "Mercury Saxdor 215",
+            "model": "215 SSi",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
+            "href": "/portfolio/2"
+        },
+        {
+            "id": "3",
+            "title": "Sea Ray 215 SPX",
+            "model": "215 SPX",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": [
+                "/images/home/brands/searay.webp",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "href": "/portfolio/3"
+        },
+        {
+            "id": "4",
+            "title": "Boston Whaler 215 Outrage",
+            "model": "215 Outrage",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
+            "href": "/portfolio/4"
+        },
+        {
+            "id": "5",
+            "title": "Regal 2150 LSR",
+            "model": "2150 LSR",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": [
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "href": "/portfolio/5"
+        },
+        {
+            "id": "6",
+            "title": "Cobalt 215S",
+            "model": "215S",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": [
+                "/images/home/brands/cobalt-boats.webp",
+                "/images/home/brands/mercury.webp"
+            ],
+            "href": "/portfolio/6"
+        },
+        {
+            "id": "7",
+            "title": "Crownline 215 CR",
+            "model": "215 CR",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": [
+                "/images/home/brands/crownline.jpg",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "href": "/portfolio/7"
+        },
+        {
+            "id": "8",
+            "title": "Nautic 215 Sport",
+            "model": "215 Sport",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": ["/images/home/brands/nautic.webp", "/images/home/brands/yamaha.jpg"],
+            "href": "/portfolio/8"
+        },
+        {
+            "id": "9",
+            "title": "Nautica 215 Classic",
+            "model": "215 Classic",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": ["/images/home/brands/nautica.jpg", "/images/home/brands/mercury.webp"],
+            "href": "/portfolio/9"
+        },
+        {
+            "id": "10",
+            "title": "Axopar 215 Adventure",
+            "model": "215 Adventure",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": ["/images/home/brands/axoppr.jpg", "/images/home/brands/volvo-penta.png"],
+            "href": "/portfolio/10"
+        },
+        {
+            "id": "11",
+            "title": "Saxdor 215 Sport",
+            "model": "215 Sport",
+            "image": "/images/home/portfolio/portfolio-01.webp",
+            "brandLogos": ["/images/home/brands/saxdor.webp", "/images/home/brands/mercury.webp"],
+            "href": "/portfolio/11"
+        },
+        {
+            "id": "12",
+            "title": "Volvo Penta 215 Pro",
+            "model": "215 Pro",
+            "image": "/images/home/portfolio/portfolio-02.webp",
+            "brandLogos": [
+                "/images/home/brands/volvo-penta-white.webp",
+                "/images/home/brands/yamaha.jpg"
+            ],
+            "href": "/portfolio/12"
+        }
+    ]
+}
