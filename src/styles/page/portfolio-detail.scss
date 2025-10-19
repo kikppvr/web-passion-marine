@@ -25,7 +25,7 @@
     // Main gallery container styles
 }
 
-.portfolio-detail-gallery-main {
+อันไ.portfolio-detail-gallery__main {
     margin-bottom: 8px;
     border-radius: 5px;
     overflow: hidden;
@@ -33,19 +33,19 @@
     transition: transform 0.3s ease;
 }
 
-.portfolio-detail-gallery-main-image {
+.portfolio-detail-gallery__main-image {
     width: 100%;
     height: auto;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.portfolio-detail-gallery-thumbnails {
+.portfolio-detail-gallery__thumbnails {
     display: flex;
     gap: 8px;
 }
 
-.portfolio-detail-gallery-thumbnail {
+.portfolio-detail-gallery__thumbnail {
     position: relative;
     flex: 1;
     aspect-ratio: 254/191;
@@ -59,135 +59,40 @@
     // }
 }
 
-.portfolio-detail-gallery-thumbnail-image {
+.portfolio-detail-gallery__thumbnail-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.portfolio-detail-gallery-overlay {
+.portfolio-detail-gallery__overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+    backdrop-filter: blur(2px);
 }
 
-.portfolio-detail-gallery-count {
+.portfolio-detail-gallery__count {
     @include fonts.text-h3;
     color: white;
     text-align: center;
-}
-
-// Gallery Modal
-.portfolio-gallery-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.portfolio-gallery-modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    max-height: 90vh;
-}
-
-.portfolio-gallery-modal-close {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10000;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: white;
-        transform: scale(1.1);
-    }
-
-    i {
-        font-size: 1.25rem;
-        color: var(--blue-500);
-    }
-}
-
-.portfolio-gallery-modal-slider {
-    .gallery-slider-main {
-        margin-bottom: 16px;
-    }
-
-    .gallery-slider-image-container {
-        border-radius: 8px;
-        overflow: hidden;
-        aspect-ratio: 16/9;
-    }
-
-    .gallery-slider-image {
-        border-radius: 8px;
-    }
-
-    .gallery-slider-thumbs {
-        margin-top: 16px;
-    }
-
-    .gallery-slider-thumb-container {
-        width: 120px;
-        height: 80px;
-        border-radius: 8px;
-    }
-
-    .gallery-slider-nav {
-        width: 50px;
-        height: 50px;
-        background: rgba(28, 69, 131, 0.9);
-
-        &:hover {
-            background: var(--blue-500);
-        }
-
-        i {
-            color: white;
-            font-size: 1.25rem;
-        }
-    }
-
-    .gallery-slider-nav-next {
-        right: 20px;
-    }
-
-    .gallery-slider-nav-prev {
-        left: 20px;
-    }
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 // Services Section
-.portfolio-services-title {
+.portfolio-services__title {
     @include fonts.text-h2;
     color: var(--blue-500);
     margin-bottom: 40px;
     text-align: left;
 }
 
-.portfolio-services-grid {
+.portfolio-services__grid {
     display: flex;
     gap: 32px;
     overflow-x: auto;
@@ -213,7 +118,7 @@
     }
 }
 
-.portfolio-services-item {
+.portfolio-services__item {
     flex-shrink: 0;
     width: 253px;
     background-color: var(--grey-50);
@@ -226,7 +131,7 @@
     text-align: center;
 }
 
-.portfolio-services-icon {
+.portfolio-services__icon {
     width: 62px;
     height: 62px;
     display: flex;
@@ -240,7 +145,7 @@
     }
 }
 
-.portfolio-services-item-title {
+.portfolio-services__item-title {
     @include fonts.text-h6;
     color: var(--blue-500);
     margin: 0;

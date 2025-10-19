@@ -6,7 +6,6 @@ import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
-import { GallerySlider } from "@/components/ui/media/GallerySlider";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 
@@ -38,8 +37,6 @@ interface PortfolioDetailData {
 
 export default function PortfolioDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
-    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         params.then(setResolvedParams);
@@ -54,15 +51,6 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         portfolioDetailDataJson.portfolioDetails.find(
             portfolio => portfolio.id === resolvedParams.id
         ) || portfolioDetailDataJson.portfolioDetails[0];
-
-    const handleImageClick = (index: number) => {
-        setCurrentImageIndex(index);
-        setIsGalleryOpen(true);
-    };
-
-    const handleCloseGallery = () => {
-        setIsGalleryOpen(false);
-    };
 
     return (
         <MainLayout headerTheme='white'>
@@ -101,32 +89,30 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section py-[48px] lg:py-[64px]'>
                     <div className='container'>
                         <div className='portfolio-detail-gallery'>
-                            <div className='portfolio-detail-gallery-main'>
+                            <div className='portfolio-detail-gallery__main'>
                                 <Image
                                     src={portfolioDetailData.mainImage}
                                     alt={portfolioDetailData.title}
                                     width={1110}
                                     height={624}
-                                    className='portfolio-detail-gallery-main-image'
-                                    onClick={() => handleImageClick(0)}
+                                    className='portfolio-detail-gallery__main-image'
                                 />
                             </div>
-                            <div className='portfolio-detail-gallery-thumbnails'>
+                            <div className='portfolio-detail-gallery__thumbnails'>
                                 {portfolioDetailData.gallery.slice(0, 4).map((image, index) => (
                                     <div
                                         key={index}
-                                        className='portfolio-detail-gallery-thumbnail'
-                                        onClick={() => handleImageClick(index)}>
+                                        className='portfolio-detail-gallery__thumbnail'>
                                         <Image
                                             src={image.src}
                                             alt={image.alt}
                                             width={254}
                                             height={191}
-                                            className='portfolio-detail-gallery-thumbnail-image'
+                                            className='portfolio-detail-gallery__thumbnail-image'
                                         />
                                         {index === 3 && portfolioDetailData.gallery.length > 4 && (
-                                            <div className='portfolio-detail-gallery-overlay'>
-                                                <span className='portfolio-detail-gallery-count'>
+                                            <div className='portfolio-detail-gallery__overlay'>
+                                                <span className='portfolio-detail-gallery__count'>
                                                     {portfolioDetailData.gallery.length - 4}+
                                                 </span>
                                             </div>
@@ -212,34 +198,6 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                     </div>
                 </section>
             </div>
-
-            {/* Gallery Modal */}
-            {isGalleryOpen && (
-                <div className='portfolio-gallery-modal' onClick={handleCloseGallery}>
-                    <div
-                        className='portfolio-gallery-modal-content'
-                        onClick={e => e.stopPropagation()}>
-                        <button
-                            className='portfolio-gallery-modal-close'
-                            onClick={handleCloseGallery}
-                            aria-label='Close gallery'>
-                            <i className='ph-light ph-x'></i>
-                        </button>
-                        <GallerySlider
-                            images={portfolioDetailData.gallery.map((image, index) => ({
-                                src: image.src,
-                                alt: image.alt,
-                                title: index === 0 ? portfolioDetailData.title : undefined,
-                            }))}
-                            showThumbs={true}
-                            showNavigation={true}
-                            className='portfolio-gallery-modal-slider'
-                            swiperClassName='portfolio-gallery-modal-main-swiper'
-                            thumbsClassName='portfolio-gallery-modal-thumbs-swiper'
-                        />
-                    </div>
-                </div>
-            )}
         </MainLayout>
     );
 }
