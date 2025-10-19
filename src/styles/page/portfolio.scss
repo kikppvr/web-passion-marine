@@ -1,12 +1,5 @@
 @use "../base/_base" as base;
 
-// Portfolio Page Styles
-.portfolio-page {
-    .section {
-        padding: 96px 0;
-    }
-}
-
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -6,6 +6,7 @@ import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
+import { GallerySlider } from "@/components/ui/media/GallerySlider";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 
@@ -37,6 +38,8 @@ interface PortfolioDetailData {
 
 export default function PortfolioDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
+    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         params.then(setResolvedParams);
@@ -52,71 +55,79 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
             portfolio => portfolio.id === resolvedParams.id
         ) || portfolioDetailDataJson.portfolioDetails[0];
 
+    const handleImageClick = (index: number) => {
+        setCurrentImageIndex(index);
+        setIsGalleryOpen(true);
+    };
+
+    const handleCloseGallery = () => {
+        setIsGalleryOpen(false);
+    };
+
     return (
         <MainLayout headerTheme='white'>
             <div className='portfolio-detail-page'>
                 {/* Hero Section */}
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='portfolio-detail-hero'>
-                            <h1 className='portfolio-detail-hero__title'>
+                        <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
+                            <h1 className='text-h1 text-[var(--blue-500)]'>
                                 {portfolioDetailData.title}
                             </h1>
-                            <p className='portfolio-detail-hero__description'>
+                            <p className='text-body lg:text-lead-2 text-[var(--grey-600)]'>
                                 {portfolioDetailData.description}
                             </p>
-                            <div className='portfolio-detail-hero__model'>
-                                <p className='portfolio-detail-hero__model-text'>
-                                    Model: {portfolioDetailData.model}
-                                </p>
-                                <div className='portfolio-detail-hero__brands'>
-                                    {portfolioDetailData.brandLogos.map((logo, index) => (
-                                        <div
-                                            key={index}
-                                            className='portfolio-detail-hero__brand-logo'>
-                                            <Image
-                                                src={logo}
-                                                alt={`Brand ${index + 1}`}
-                                                width={139}
-                                                height={37}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+
+                            <div className='text-h6 font-semibold text-[var(--blue-500)]'>
+                                Model: {portfolioDetailData.model}
+                            </div>
+                            <div className='flex justify-center gap-4'>
+                                {portfolioDetailData.brandLogos.map((logo, index) => (
+                                    <div key={index} className=''>
+                                        <Image
+                                            src={logo}
+                                            alt={`Brand ${index + 1}`}
+                                            width={139}
+                                            height={37}
+                                        />
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
 
                 {/* Main Image and Gallery */}
-                <section className='section py-[64px]'>
+                <section className='section py-[48px] lg:py-[64px]'>
                     <div className='container'>
                         <div className='portfolio-detail-gallery'>
-                            <div className='portfolio-detail-gallery__main'>
+                            <div className='portfolio-detail-gallery-main'>
                                 <Image
                                     src={portfolioDetailData.mainImage}
                                     alt={portfolioDetailData.title}
                                     width={1110}
                                     height={624}
-                                    className='portfolio-detail-gallery__main-image'
+                                    className='portfolio-detail-gallery-main-image'
+                                    onClick={() => handleImageClick(0)}
                                 />
                             </div>
-                            <div className='portfolio-detail-gallery__thumbnails'>
-                                {portfolioDetailData.gallery.map((image, index) => (
+                            <div className='portfolio-detail-gallery-thumbnails'>
+                                {portfolioDetailData.gallery.slice(0, 4).map((image, index) => (
                                     <div
                                         key={index}
-                                        className='portfolio-detail-gallery__thumbnail'>
+                                        className='portfolio-detail-gallery-thumbnail'
+                                        onClick={() => handleImageClick(index)}>
                                         <Image
                                             src={image.src}
                                             alt={image.alt}
                                             width={254}
                                             height={191}
-                                            className='portfolio-detail-gallery__thumbnail-image'
+                                            className='portfolio-detail-gallery-thumbnail-image'
                                         />
-                                        {index === 3 && (
-                                            <div className='portfolio-detail-gallery__overlay'>
-                                                <span className='portfolio-detail-gallery__count'>
-                                                    8+
+                                        {index === 3 && portfolioDetailData.gallery.length > 4 && (
+                                            <div className='portfolio-detail-gallery-overlay'>
+                                                <span className='portfolio-detail-gallery-count'>
+                                                    {portfolioDetailData.gallery.length - 4}+
                                                 </span>
                                             </div>
                                         )}
@@ -130,9 +141,11 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Content Section */}
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div className='portfolio-detail-content'>
+                        <div className='text-center lg:px-16 xl:px-28'>
                             {portfolioDetailData.content.map((paragraph, index) => (
-                                <p key={index} className='portfolio-detail-content__paragraph'>
+                                <p
+                                    key={index}
+                                    className='text-body mb-4 text-[var(--grey-800)] last:mb-0'>
                                     {paragraph}
                                 </p>
                             ))}
@@ -147,7 +160,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                             <PrimaryButton
                                 theme='revert'
                                 onClick={() => window.history.back()}
-                                className='portfolio-actions__back'>
+                                className='portfolio-actions-back'>
                                 Back
                             </PrimaryButton>
                             <SocialIcons />
@@ -159,11 +172,11 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section section--space-y'>
                     <div className='container'>
                         <div className='portfolio-services'>
-                            <h2 className='portfolio-services__title'>Services provided</h2>
-                            <div className='portfolio-services__grid'>
+                            <h2 className='portfolio-services-title'>Services provided</h2>
+                            <div className='portfolio-services-grid'>
                                 {portfolioDetailData.servicesProvided.map((service, index) => (
-                                    <div key={index} className='portfolio-services__item'>
-                                        <div className='portfolio-services__icon'>
+                                    <div key={index} className='portfolio-services-item'>
+                                        <div className='portfolio-services-icon'>
                                             <Image
                                                 src={service.icon}
                                                 alt={service.title}
@@ -171,7 +184,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                                 height={62}
                                             />
                                         </div>
-                                        <h3 className='portfolio-services__item-title'>
+                                        <h3 className='portfolio-services-item-title'>
                                             {service.title}
                                         </h3>
                                     </div>
@@ -185,8 +198,8 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section section--space-y bg-blue-abstract'>
                     <div className='container'>
                         <div className='portfolio-other'>
-                            <h2 className='portfolio-other__title'>Other portfolio</h2>
-                            <div className='portfolio-other__grid'>
+                            <h2 className='portfolio-other-title'>Other portfolio</h2>
+                            <div className='portfolio-other-grid'>
                                 {portfolioDetailData.otherPortfolios.map(portfolio => (
                                     <PortfolioCard
                                         key={portfolio.id}
@@ -202,6 +215,34 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                     </div>
                 </section>
             </div>
+
+            {/* Gallery Modal */}
+            {isGalleryOpen && (
+                <div className='portfolio-gallery-modal' onClick={handleCloseGallery}>
+                    <div
+                        className='portfolio-gallery-modal-content'
+                        onClick={e => e.stopPropagation()}>
+                        <button
+                            className='portfolio-gallery-modal-close'
+                            onClick={handleCloseGallery}
+                            aria-label='Close gallery'>
+                            <i className='ph-light ph-x'></i>
+                        </button>
+                        <GallerySlider
+                            images={portfolioDetailData.gallery.map((image, index) => ({
+                                src: image.src,
+                                alt: image.alt,
+                                title: index === 0 ? portfolioDetailData.title : undefined,
+                            }))}
+                            showThumbs={true}
+                            showNavigation={true}
+                            className='portfolio-gallery-modal-slider'
+                            swiperClassName='portfolio-gallery-modal-main-swiper'
+                            thumbsClassName='portfolio-gallery-modal-thumbs-swiper'
+                        />
+                    </div>
+                </div>
+            )}
         </MainLayout>
     );
 }
