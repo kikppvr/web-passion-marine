@@ -156,11 +156,8 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Back Button and Social Sharing */}
                 <section className='section'>
                     <div className='container'>
-                        <div className='portfolio-actions'>
-                            <PrimaryButton
-                                theme='revert'
-                                onClick={() => window.history.back()}
-                                className='portfolio-actions-back'>
+                        <div className='flex items-center justify-between lg:px-16 xl:px-28'>
+                            <PrimaryButton theme='revert' onClick={() => window.history.back()}>
                                 Back
                             </PrimaryButton>
                             <SocialIcons />
@@ -197,9 +194,9 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Other Portfolio Section */}
                 <section className='section section--space-y bg-blue-abstract'>
                     <div className='container'>
-                        <div className='portfolio-other'>
-                            <h2 className='portfolio-other-title'>Other portfolio</h2>
-                            <div className='portfolio-other-grid'>
+                        <div className=''>
+                            <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>Other portfolio</h2>
+                            <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
                                 {portfolioDetailData.otherPortfolios.map(portfolio => (
                                     <PortfolioCard
                                         key={portfolio.id}
