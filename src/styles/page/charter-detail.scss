@@ -15,6 +15,10 @@
             @include base.media-down(tablet) {
                 padding-top: 128px; // 48px + 48px for missing banner
             }
+
+            @include base.media-down(mobile) {
+                padding-top: 96px; // 48px + 48px for missing banner
+            }
         }
     }
 }

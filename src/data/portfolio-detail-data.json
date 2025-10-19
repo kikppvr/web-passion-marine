@@ -1,0 +1,136 @@
+{
+    "portfolioDetails": [
+        {
+            "id": "1",
+            "title": "Mooring and Anchoring systems for Floating Offshore Wind",
+            "description": "In partnership with First Marine Solutions, we delivered a study for the Offshore Renewable Energy Catapult (OREC) Floating Offshore Wind Centre of Excellence (FOW CoE). The work involved assessing and developing the requirements for floating offshore wind anchoring and mooring in UK waters.",
+            "model": "215 SSi",
+            "brandLogos": [
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Main portfolio image"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Portfolio gallery image 1"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Portfolio gallery image 2"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Portfolio gallery image 3"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Portfolio gallery image 4"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Portfolio gallery image 5"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Portfolio gallery image 6"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Portfolio gallery image 7"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Portfolio gallery image 8"
+                }
+            ],
+            "content": [
+                "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper ac mollis.",
+                "Ultrices egestas est ornare elementum lacus aliquam in. Ullamcorper nulla suscipit consequat est nunc sem ac donec tortor. Arcu egestas cursus phasellus mauris cras faucibus faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec. Quam dui consequat feugiat orci quis. Eu lectus lectus justo interdum ut sed semper. Eget sit pellentesque feugiat ornare et arcu. Bibendum orci donec amet metus dolor sit ut ipsum. Placerat ac purus venenatis mauris volutpat at venenatis. Turpis libero ut amet accumsan. Gravida aliquet vitae fames tortor volutpat neque lacus. Id leo cursus risus eget consectetur volutpat congue id cras. Sed vulputate pellentesque cursus aliquet. Elementum tortor diam et turpis non nisl. Blandit faucibus pulvinar fermentum blandit.",
+                "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper ac mollis.",
+                "Ultrices egestas est ornare elementum lacus aliquam in. Ullamcorper nulla suscipit consequat est nunc sem ac donec tortor. Arcu egestas cursus phasellus mauris cras faucibus faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec. Quam dui consequat feugiat orci quis. Eu lectus lectus justo interdum ut sed semper. Eget sit pellentesque feugiat ornare et arcu. Bibendum orci donec amet metus dolor sit ut ipsum. Placerat ac purus venenatis mauris volutpat at venenatis. Turpis libero ut amet accumsan. Gravida aliquet vitae fames tortor volutpat neque lacus. Id leo cursus risus eget consectetur volutpat congue id cras. Sed vulputate pellentesque cursus aliquet. Elementum tortor diam et turpis non nisl. Blandit faucibus pulvinar fermentum blandit."
+            ],
+            "servicesProvided": [
+                {
+                    "title": "Engine Repair & Maintenance",
+                    "icon": "/images/icon/chapter/ic-type.svg"
+                },
+                {
+                    "title": "Electronics & Solar",
+                    "icon": "/images/icon/chapter/ic-speed.svg"
+                },
+                {
+                    "title": "Boat Upgrades",
+                    "icon": "/images/icon/chapter/ic-length.svg"
+                },
+                {
+                    "title": "Structure Repair",
+                    "icon": "/images/icon/chapter/ic-passenger.svg"
+                },
+                {
+                    "title": "Custom Boat Design",
+                    "icon": "/images/icon/chapter/ic-cabins.svg"
+                },
+                {
+                    "title": "Teak & EVA Flooring",
+                    "icon": "/images/icon/chapter/ic-restroom.svg"
+                },
+                {
+                    "title": "Marine Upholstery",
+                    "icon": "/images/icon/chapter/ic-type.svg"
+                },
+                {
+                    "title": "Gelcoat Repair & Finishing",
+                    "icon": "/images/icon/chapter/ic-speed.svg"
+                },
+                {
+                    "title": "Fiberglass Furniture",
+                    "icon": "/images/icon/chapter/ic-length.svg"
+                },
+                {
+                    "title": "Interior Styling",
+                    "icon": "/images/icon/chapter/ic-passenger.svg"
+                }
+            ],
+            "otherPortfolios": [
+                {
+                    "id": "2",
+                    "title": "Mercury Saxdor 215",
+                    "model": "215 SSi",
+                    "image": "/images/home/portfolio/portfolio-02.webp",
+                    "brandLogos": [
+                        "/images/home/brands/mercury.webp",
+                        "/images/home/brands/saxdor.webp"
+                    ],
+                    "href": "/portfolio/2"
+                },
+                {
+                    "id": "3",
+                    "title": "Sea Ray 215 SPX",
+                    "model": "215 SPX",
+                    "image": "/images/home/portfolio/portfolio-01.webp",
+                    "brandLogos": [
+                        "/images/home/brands/searay.webp",
+                        "/images/home/brands/volvo-penta.png"
+                    ],
+                    "href": "/portfolio/3"
+                },
+                {
+                    "id": "4",
+                    "title": "Boston Whaler 215 Outrage",
+                    "model": "215 Outrage",
+                    "image": "/images/home/portfolio/portfolio-02.webp",
+                    "brandLogos": [
+                        "/images/home/brands/mercury.webp",
+                        "/images/home/brands/saxdor.webp"
+                    ],
+                    "href": "/portfolio/4"
+                }
+            ]
+        }
+    ]
+}
