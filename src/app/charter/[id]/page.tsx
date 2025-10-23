@@ -89,13 +89,13 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
 
     return (
         <MainLayout headerTheme='white'>
-            <div className='charter-detail-page'>
+            <div className='charter-detail'>
                 {/* Hero Section */}
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='charter-detail-hero'>
-                            <h1 className='charter-detail-hero__title'>{charterData.title}</h1>
-                            <p className='charter-detail-hero__description'>
+                        <div className='charter-detail__hero'>
+                            <h1 className='charter-detail__hero-title'>{charterData.title}</h1>
+                            <p className='charter-detail__hero-description'>
                                 {charterData.description}
                             </p>
                         </div>
@@ -131,14 +131,22 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                 {/* Back Button and Social Sharing */}
                 <section className='section py-[64px]'>
                     <div className='container'>
-                        <div className='charter-actions'>
+                        <div className='charter-detail__actions'>
                             <PrimaryButton
                                 theme='revert'
                                 onClick={() => window.history.back()}
-                                className='charter-actions__back'>
+                                className='charter-detail__actions-back'>
                                 Back
                             </PrimaryButton>
-                            <SocialIcons />
+                            <SocialIcons
+                                showLabel={true}
+                                showIcons={{
+                                    facebook: true,
+                                    instagram: true,
+                                    line: true,
+                                    link: true,
+                                }}
+                            />
                         </div>
                     </div>
                 </section>

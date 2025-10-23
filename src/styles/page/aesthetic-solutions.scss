@@ -3,14 +3,10 @@
 @use "../base/_image" as image;
 
 .gallery-esthetic-solutions {
-    // Background handled by section--bg-blue-abstract class
-}
-
-.gallery-esthetic-solutions {
-    .swiper-slider__main {
+    .gallery-slider__main {
         margin-bottom: 0;
     }
-    .swiper-slider__image-container {
+    .gallery-slider__image-container {
         width: 100%;
         height: auto;
         border-radius: 5px;

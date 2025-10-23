@@ -37,6 +37,10 @@
 
 // Media Components
 @use "components/media/_video-hero-banner" as video-hero-banner;
+@use "components/media/_gallery-slider" as gallery-slider;
+
+// Social Components
+@use "components/social/_social-icons" as social-icons;
 
 // Card Components
 @use "components/cards/_card-charter" as card-charter;
@@ -51,11 +55,14 @@
 
 // Import Page Styles
 @use "page/about-us" as about-us;
-@use "page/charter" as charter;
-@use "page/charter-detail" as charter-detail;
+@use "page/charter/charter" as charter;
+@use "page/charter/charter-detail" as charter-detail;
 @use "page/contact-us" as contact-us;
-@use "page/portfolio" as portfolio;
-@use "page/portfolio-detail" as portfolio-detail;
+@use "page/portfolio/portfolio" as portfolio;
+@use "page/portfolio/portfolio-detail" as portfolio-detail;
+@use "page/overview-services" as overview-services;
+@use "page/aesthetic-solutions" as aesthetic-solutions;
+@use "page/engineering-solutions" as engineering-solutions;
 
 // ========================================
 // GLOBAL STYLES

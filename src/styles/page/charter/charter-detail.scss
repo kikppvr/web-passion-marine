@@ -1,8 +1,8 @@
-@use "../base/_base" as base;
-@use "../base/_font-mixins" as fonts;
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
 // Charter Detail Page Styles
-.charter-detail-page {
+.charter-detail {
     overflow: hidden;
     .section {
         &:first-child {
@@ -24,12 +24,12 @@
 }
 
 // Hero Section
-.charter-detail-hero {
+.charter-detail__hero {
     text-align: center;
     position: relative;
     overflow: hidden;
-
     text-align: center;
+
     :hover {
         .charter-pricing__navigation-wrapper {
             opacity: 1;
@@ -39,14 +39,14 @@
     margin: 0 auto;
 }
 
-.charter-detail-hero__title {
+.charter-detail__hero-title {
     @include fonts.text-h1;
     @include fonts.font-semibold;
     color: var(--blue-500);
     margin-bottom: 24px;
 }
 
-.charter-detail-hero__description {
+.charter-detail__hero-description {
     @include fonts.text-lead-2;
     @include fonts.font-normal;
     color: var(--grey-600);
@@ -217,37 +217,12 @@
 }
 
 .charter-specifications-slider__thumb--active {
-    // border-color: var(--blue-500);
+    border-color: var(--blue-500);
 }
 
 .charter-specifications-slider__thumb-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-// Gallery Section
-.charter-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(271px, 1fr));
-    gap: 8px;
-    padding-bottom: 8px;
-
-    @include base.media-down(tablet) {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-    }
-}
-
-.charter-gallery__item {
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.charter-gallery__image {
-    width: 100%;
-    height: 204px;
     object-fit: cover;
     object-position: center;
 }
@@ -541,7 +516,7 @@
 }
 
 // Actions Section
-.charter-actions {
+.charter-detail__actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -552,47 +527,9 @@
     }
 }
 
-.charter-actions__back {
+.charter-detail__actions-back {
     @include base.media-down(mini-mobile) {
         order: 2;
-    }
-}
-
-.charter-actions__social {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    @include base.media-down(mini-mobile) {
-        order: 1;
-    }
-}
-
-.charter-actions__social-label {
-    @include fonts.text-body;
-    @include fonts.font-normal;
-    color: var(--grey-800);
-}
-
-.charter-actions__social-icons {
-    display: flex;
-    gap: 8px;
-}
-
-.charter-actions__social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background-color: var(--blue-500);
-    border-radius: 50%;
-    font-size: 20px;
-    transition: all 0.3s ease;
-
-    &:hover {
-        // opacity: 0.8;
-        background-color: var(--blue-400);
     }
 }
 
