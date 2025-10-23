@@ -1,0 +1,25 @@
+@use "../base/_base" as base;
+@use "../base/_font-mixins" as fonts;
+
+.news__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 64px;
+
+    @include base.media-down(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 48px;
+    }
+
+    @include base.media-down(mobile) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.news__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
