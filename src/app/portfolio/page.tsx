@@ -39,10 +39,10 @@ export default function PortfolioPage() {
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
-            <div className='portfolio-page'>
+            <div className='portfolio'>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='portfolio-grid'>
+                        <div className='portfolio__grid'>
                             {currentPortfolios.map(portfolio => (
                                 <PortfolioCard
                                     key={portfolio.id}
@@ -54,7 +54,7 @@ export default function PortfolioPage() {
                                 />
                             ))}
                         </div>
-                        <div className='portfolio-pagination'>
+                        <div className='portfolio__pagination'>
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}

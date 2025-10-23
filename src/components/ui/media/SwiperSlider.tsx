@@ -23,7 +23,7 @@ export interface SwiperSlideData {
 }
 
 export interface SwiperSliderProps {
-    data: SwiperSlideData[];
+    data?: SwiperSlideData[];
     className?: string;
     swiperClassName?: string;
     slideClassName?: string;
@@ -47,6 +47,15 @@ export interface SwiperSliderProps {
         desktop?: number;
         large?: number;
     };
+    slidesPerGroup?: {
+        mobile?: number;
+        tablet?: number;
+        laptop?: number;
+        desktop?: number;
+        large?: number;
+    };
+    prevIcon?: React.ReactNode;
+    nextIcon?: React.ReactNode;
     renderSlide?: (item: SwiperSlideData, index: number) => React.ReactNode;
     cardComponent?: React.ComponentType<any>;
 }
@@ -76,6 +85,15 @@ export const SwiperSlider = ({
         desktop: 24,
         large: 32,
     },
+    slidesPerGroup = {
+        mobile: 1,
+        tablet: 1,
+        laptop: 1,
+        desktop: 1,
+        large: 1,
+    },
+    prevIcon = <i className='ph ph-caret-left'></i>,
+    nextIcon = <i className='ph ph-caret-right'></i>,
     renderSlide,
     cardComponent: CardComponent = BusinessCard,
 }: SwiperSliderProps) => {
@@ -100,6 +118,7 @@ export const SwiperSlider = ({
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={spaceBetween.mobile}
                 slidesPerView={slidesPerView.mobile}
+                slidesPerGroup={slidesPerGroup.mobile}
                 loop={loop}
                 speed={speed}
                 navigation={
@@ -123,22 +142,27 @@ export const SwiperSlider = ({
                     576: {
                         slidesPerView: slidesPerView.mobile,
                         spaceBetween: spaceBetween.mobile,
+                        slidesPerGroup: slidesPerGroup.mobile,
                     },
                     768: {
                         slidesPerView: slidesPerView.tablet,
                         spaceBetween: spaceBetween.tablet,
+                        slidesPerGroup: slidesPerGroup.tablet,
                     },
                     1024: {
                         slidesPerView: slidesPerView.laptop,
                         spaceBetween: spaceBetween.laptop,
+                        slidesPerGroup: slidesPerGroup.laptop,
                     },
                     1200: {
                         slidesPerView: slidesPerView.desktop,
                         spaceBetween: spaceBetween.desktop,
+                        slidesPerGroup: slidesPerGroup.desktop,
                     },
                     1440: {
                         slidesPerView: slidesPerView.large,
                         spaceBetween: spaceBetween.large,
+                        slidesPerGroup: slidesPerGroup.large,
                     },
                 }}
                 onSlideChange={swiper => {
@@ -164,13 +188,13 @@ export const SwiperSlider = ({
                         id={prevButtonId}
                         className={`swiper-button-prev-custom ${isBeginning ? "swiper-button-disabled" : ""}`}
                         disabled={isBeginning}>
-                        <i className='ph ph-caret-left'></i>
+                        {prevIcon}
                     </button>
                     <button
                         id={nextButtonId}
                         className={`swiper-button-next-custom ${isEnd ? "swiper-button-disabled" : ""}`}
                         disabled={isEnd}>
-                        <i className='ph ph-caret-right'></i>
+                        {nextIcon}
                     </button>
                 </div>
             )}

@@ -57,43 +57,43 @@
             "servicesProvided": [
                 {
                     "title": "Engine Repair & Maintenance",
-                    "icon": "/images/icon/chapter/ic-type.svg"
+                    "image": "/images/portfolio/services-provided/01.webp"
                 },
                 {
                     "title": "Electronics & Solar",
-                    "icon": "/images/icon/chapter/ic-speed.svg"
+                    "image": "/images/portfolio/services-provided/02.webp"
                 },
                 {
                     "title": "Boat Upgrades",
-                    "icon": "/images/icon/chapter/ic-length.svg"
+                    "image": "/images/portfolio/services-provided/03.webp"
                 },
                 {
                     "title": "Structure Repair",
-                    "icon": "/images/icon/chapter/ic-passenger.svg"
+                    "image": "/images/portfolio/services-provided/04.webp"
                 },
                 {
                     "title": "Custom Boat Design",
-                    "icon": "/images/icon/chapter/ic-cabins.svg"
+                    "image": "/images/portfolio/services-provided/05.webp"
                 },
                 {
                     "title": "Teak & EVA Flooring",
-                    "icon": "/images/icon/chapter/ic-restroom.svg"
+                    "image": "/images/portfolio/services-provided/06.webp"
                 },
                 {
                     "title": "Marine Upholstery",
-                    "icon": "/images/icon/chapter/ic-type.svg"
+                    "image": "/images/portfolio/services-provided/07.webp"
                 },
                 {
                     "title": "Gelcoat Repair & Finishing",
-                    "icon": "/images/icon/chapter/ic-speed.svg"
+                    "image": "/images/portfolio/services-provided/08.webp"
                 },
                 {
                     "title": "Fiberglass Furniture",
-                    "icon": "/images/icon/chapter/ic-length.svg"
+                    "image": "/images/portfolio/services-provided/09.webp"
                 },
                 {
                     "title": "Interior Styling",
-                    "icon": "/images/icon/chapter/ic-passenger.svg"
+                    "image": "/images/portfolio/services-provided/10.webp"
                 }
             ],
             "otherPortfolios": [

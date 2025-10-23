@@ -1,6 +1,6 @@
-@use "../base/_base" as base;
+@use "../../base/_base" as base;
 
-.charter-grid {
+.charter__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
@@ -17,7 +17,7 @@
     }
 }
 
-.charter-pagination {
+.charter__pagination {
     display: flex;
     justify-content: center;
     align-items: center;

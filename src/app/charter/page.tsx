@@ -43,10 +43,10 @@ export default function CharterPage() {
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
-            <div className='charter-page'>
+            <div className='charter'>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='charter-grid'>
+                        <div className='charter__grid'>
                             {currentCharters.map(charter => (
                                 <CharterCard
                                     key={charter.id}
@@ -62,7 +62,7 @@ export default function CharterPage() {
                                 />
                             ))}
                         </div>
-                        <div className='charter-pagination'>
+                        <div className='charter__pagination'>
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}

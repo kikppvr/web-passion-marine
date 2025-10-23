@@ -1,6 +1,7 @@
-@use "../base/_base" as base;
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
-.portfolio-grid {
+.portfolio__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
@@ -17,7 +18,7 @@
     }
 }
 
-.portfolio-pagination {
+.portfolio__pagination {
     display: flex;
     justify-content: center;
     align-items: center;
