@@ -1,8 +1,6 @@
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/engineering-solutions.scss";
-import Image from "next/image";
-import { ServiceCard } from "@/components/ui/cards";
-import { SwiperSlider } from "@/components/ui/media";
+import { GallerySlider } from "@/components/ui/media";
 
 export default function EngineeringSolutionsPage() {
     const bannerProps = {
@@ -84,7 +82,7 @@ export default function EngineeringSolutionsPage() {
                     <div className='container'>
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-engineering-solutions'
                                     images={galleryEngineeringSolutions}
                                     showPagination={true}
@@ -120,7 +118,7 @@ export default function EngineeringSolutionsPage() {
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-engineering-solutions'
                                     images={galleryBoatUpgrades}
                                     showPagination={true}
@@ -132,7 +130,7 @@ export default function EngineeringSolutionsPage() {
                         </div>
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-engineering-solutions'
                                     images={galleryElectronicsSolar}
                                     showPagination={true}
@@ -168,7 +166,7 @@ export default function EngineeringSolutionsPage() {
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-engineering-solutions'
                                     images={galleryStructureRepair}
                                     showPagination={true}

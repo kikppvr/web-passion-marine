@@ -23,7 +23,7 @@ export interface SwiperSlideData {
 }
 
 export interface SwiperSliderProps {
-    data?: SwiperSlideData[];
+    data: SwiperSlideData[];
     className?: string;
     swiperClassName?: string;
     slideClassName?: string;

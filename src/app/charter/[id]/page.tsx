@@ -138,7 +138,15 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                                 className='charter-detail__actions-back'>
                                 Back
                             </PrimaryButton>
-                            <SocialIcons />
+                            <SocialIcons
+                                showLabel={true}
+                                showIcons={{
+                                    facebook: true,
+                                    instagram: true,
+                                    line: true,
+                                    link: true,
+                                }}
+                            />
                         </div>
                     </div>
                 </section>

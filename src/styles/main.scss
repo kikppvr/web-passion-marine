@@ -37,6 +37,10 @@
 
 // Media Components
 @use "components/media/_video-hero-banner" as video-hero-banner;
+@use "components/media/_gallery-slider" as gallery-slider;
+
+// Social Components
+@use "components/social/_social-icons" as social-icons;
 
 // Card Components
 @use "components/cards/_card-charter" as card-charter;
@@ -56,6 +60,9 @@
 @use "page/contact-us" as contact-us;
 @use "page/portfolio/portfolio" as portfolio;
 @use "page/portfolio/portfolio-detail" as portfolio-detail;
+@use "page/overview-services" as overview-services;
+@use "page/aesthetic-solutions" as aesthetic-solutions;
+@use "page/engineering-solutions" as engineering-solutions;
 
 // ========================================
 // GLOBAL STYLES

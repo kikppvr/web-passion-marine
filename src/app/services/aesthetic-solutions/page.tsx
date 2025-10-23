@@ -1,6 +1,6 @@
 import MainLayout from "@/components/ui/layout/MainLayout";
-import "@/styles/page/esthetic-solutions.scss";
-import { SwiperSlider } from "@/components/ui/media";
+import "@/styles/page/aesthetic-solutions.scss";
+import { GallerySlider } from "@/components/ui/media";
 
 export default function AestheticSolutionsPage() {
     const bannerProps = {
@@ -100,11 +100,11 @@ export default function AestheticSolutionsPage() {
                     <div className='container'>
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-esthetic-solutions'
                                     images={galleryTeakEVAFlooring}
                                     showPagination={true}
-                                    autoplay={true}
+                                    autoplay={false}
                                     autoplayDelay={3000}
                                     loop={true}
                                 />
@@ -136,7 +136,7 @@ export default function AestheticSolutionsPage() {
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-esthetic-solutions'
                                     images={galleryMarineUpholstery}
                                     showPagination={true}
@@ -148,7 +148,7 @@ export default function AestheticSolutionsPage() {
                         </div>
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-esthetic-solutions'
                                     images={galleryGelcoatRepairFinishing}
                                     showPagination={true}
@@ -184,7 +184,7 @@ export default function AestheticSolutionsPage() {
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-esthetic-solutions'
                                     images={galleryFiberglassFurniture}
                                     showPagination={true}
@@ -196,7 +196,7 @@ export default function AestheticSolutionsPage() {
                         </div>
                         <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
-                                <SwiperSlider
+                                <GallerySlider
                                     className='gallery-esthetic-solutions'
                                     images={galleryInteriorStyling}
                                     showPagination={true}

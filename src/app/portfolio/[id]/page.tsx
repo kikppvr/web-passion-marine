@@ -146,7 +146,15 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                             <PrimaryButton theme='revert' onClick={() => window.history.back()}>
                                 Back
                             </PrimaryButton>
-                            <SocialIcons />
+                            <SocialIcons
+                                showLabel={true}
+                                showIcons={{
+                                    facebook: true,
+                                    instagram: true,
+                                    line: true,
+                                    link: true,
+                                }}
+                            />
                         </div>
                     </div>
                 </section>
