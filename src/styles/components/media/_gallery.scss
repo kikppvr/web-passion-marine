@@ -3,30 +3,25 @@
 
 // Gallery Component
 .gallery-thumbnails {
-    &__main {
+    .gallery-thumbnails__main {
         cursor: pointer;
         border-radius: 8px;
         overflow: hidden;
         margin-bottom: 8px;
-        transition: transform 0.3s ease;
-
-        &:hover {
-            transform: scale(1.02);
-        }
 
         @include base.media-down(laptop) {
             margin-bottom: 4px;
         }
     }
 
-    &__main-image {
+    .gallery-thumbnails__main-image {
         width: 100%;
         height: auto;
         object-fit: cover;
         border-radius: 8px;
     }
 
-    &__thumbnails {
+    .gallery-thumbnails__thumbnails {
         display: flex;
         gap: 8px;
 
@@ -35,27 +30,22 @@
         }
     }
 
-    &__thumbnail {
+    .gallery-thumbnails__thumbnail {
         position: relative;
         flex: 1;
         aspect-ratio: 254/191;
         border-radius: 5px;
         overflow: hidden;
         cursor: pointer;
-        transition: transform 0.3s ease;
-
-        &:hover {
-            transform: scale(1.05);
-        }
     }
 
-    &__thumbnail-image {
+    .gallery-thumbnails__thumbnail-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    &__overlay {
+    .gallery-thumbnails__overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -68,7 +58,7 @@
         border-radius: 5px;
     }
 
-    &__count {
+    .gallery-thumbnails__count {
         @include fonts.text-h3;
         @include fonts.font-semibold;
         color: var(--white);
@@ -90,141 +80,157 @@
     padding: 20px;
     cursor: pointer;
 
-    &__content {
+    .gallery-modal__content {
         position: relative;
         max-width: 90vw;
         max-height: 90vh;
-        background-color: var(--white);
-        border-radius: 12px;
+        background: transparent;
+        border-radius: 16px;
         overflow: hidden;
         cursor: default;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
-    &__close {
+    .gallery-modal__close {
         position: absolute;
-        top: 16px;
-        right: 16px;
+        top: 20px;
+        right: 20px;
         z-index: 10000;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
         color: var(--white);
         border: none;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
         }
     }
 
-    &__nav {
+    .gallery-modal__nav {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
         color: var(--white);
         border: none;
         border-radius: 50%;
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
         z-index: 10000;
+        backdrop-filter: blur(10px);
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
         }
 
         &--prev {
-            left: 16px;
+            left: 20px;
         }
 
         &--next {
-            right: 16px;
+            right: 20px;
         }
     }
 
-    &__image-container {
+    .gallery-modal__image-container {
         position: relative;
         width: 100%;
-        height: 70vh;
+        height: 75vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--grey-50);
+        background: transparent;
+        border-radius: 12px;
+        overflow: hidden;
 
         @include base.media-down(tablet) {
-            height: 50vh;
+            height: 60vh;
         }
     }
 
-    &__image {
+    .gallery-modal__image {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        border-radius: 8px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     }
 
-    &__counter {
+    .gallery-modal__counter {
         position: absolute;
-        bottom: 80px;
+        bottom: 100px;
         left: 50%;
         transform: translateX(-50%);
         background-color: rgba(0, 0, 0, 0.7);
         color: var(--white);
-        padding: 8px 16px;
-        border-radius: 20px;
+        padding: 12px 20px;
+        border-radius: 25px;
         @include fonts.text-small;
         @include fonts.font-medium;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    &__thumbnails {
+    .gallery-modal__thumbnails {
         display: flex;
-        gap: 8px;
-        padding: 16px;
-        background-color: var(--white);
+        gap: 12px;
+        padding: 20px;
+        background: transparent;
         overflow-x: auto;
         justify-content: center;
+        backdrop-filter: blur(10px);
 
         @include base.media-down(mobile) {
-            padding: 12px;
-            gap: 6px;
+            padding: 16px;
+            gap: 8px;
         }
     }
 
-    &__thumbnail {
+    .gallery-modal__thumbnail {
         flex-shrink: 0;
-        width: 80px;
-        height: 60px;
-        border-radius: 6px;
+        width: 90px;
+        height: 68px;
+        border-radius: 8px;
         overflow: hidden;
         cursor: pointer;
-        border: 2px solid transparent;
-        transition: border-color 0.3s ease;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
         &--active {
             border-color: var(--blue-500);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         &:hover {
             border-color: var(--blue-300);
+            transform: scale(1.02);
         }
 
         @include base.media-down(mobile) {
-            width: 60px;
-            height: 45px;
+            width: 70px;
+            height: 53px;
         }
     }
 
-    &__thumbnail-image {
+    .gallery-modal__thumbnail-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -232,33 +238,33 @@
 }
 
 // Responsive adjustments
-@include base.media-down(mobile) {
-    .gallery-modal {
-        padding: 10px;
+// @include base.media-down(mobile) {
+//     .gallery-modal {
+//         padding: 10px;
 
-        &__content {
-            max-width: 95vw;
-            max-height: 95vh;
-        }
+//         &__content {
+//             max-width: 95vw;
+//             max-height: 95vh;
+//         }
 
-        &__nav {
-            width: 40px;
-            height: 40px;
+//         &__nav {
+//             width: 40px;
+//             height: 40px;
 
-            &--prev {
-                left: 8px;
-            }
+//             &--prev {
+//                 left: 8px;
+//             }
 
-            &--next {
-                right: 8px;
-            }
-        }
+//             &--next {
+//                 right: 8px;
+//             }
+//         }
 
-        &__close {
-            width: 36px;
-            height: 36px;
-            top: 12px;
-            right: 12px;
-        }
-    }
-}
+//         &__close {
+//             width: 36px;
+//             height: 36px;
+//             top: 12px;
+//             right: 12px;
+//         }
+//     }
+// }
