@@ -28,16 +28,16 @@ const colorPalette = {
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/blue.webp",
         },
         {
-            id: "gray",
-            name: "Gray",
+            id: "grey",
+            name: "Grey",
             hex: "#6B7280",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/gray.webp",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/grey.webp",
         },
         {
-            id: "dark-gray",
-            name: "Dark Gray",
-            hex: "#4B5563",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/dark-gray.webp",
+            id: "darkgrey",
+            name: "Dark Grey",
+            hex: "#374151",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/dark-grey.webp",
         },
         {
             id: "red",
@@ -66,16 +66,16 @@ const colorPalette = {
             image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/blue.webp",
         },
         {
-            id: "gray",
-            name: "Gray",
+            id: "grey",
+            name: "Grey",
             hex: "#6B7280",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/gray.webp",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/grey.webp",
         },
         {
-            id: "dark-gray",
-            name: "Dark Gray",
-            hex: "#4B5563",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/dark-gray.webp",
+            id: "darkgrey",
+            name: "Dark Grey",
+            hex: "#374151",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/dark-grey.webp",
         },
         {
             id: "red",
@@ -104,16 +104,16 @@ const colorPalette = {
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/blue.webp",
         },
         {
-            id: "gray",
-            name: "Gray",
+            id: "grey",
+            name: "Grey",
             hex: "#6B7280",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/gray.webp",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/grey.webp",
         },
         {
-            id: "dark-gray",
-            name: "Dark Gray",
-            hex: "#4B5563",
-            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/dark-gray.webp",
+            id: "darkgrey",
+            name: "Dark Grey",
+            hex: "#374151",
+            image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/dark-grey.webp",
         },
         {
             id: "red",
@@ -134,21 +134,6 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
     const [selectedHullSide, setSelectedHullSide] = useState<string>("white");
     const [selectedBootStripe, setSelectedBootStripe] = useState<string>("white");
     const [selectedHullBottom, setSelectedHullBottom] = useState<string>("white");
-    const [activeSection, setActiveSection] = useState<string>("hullSide");
-
-    const handleColorSelect = (colorId: string) => {
-        switch (activeSection) {
-            case "hullSide":
-                setSelectedHullSide(colorId);
-                break;
-            case "bootStripe":
-                setSelectedBootStripe(colorId);
-                break;
-            case "hullBottom":
-                setSelectedHullBottom(colorId);
-                break;
-        }
-    };
 
     const getCurrentColors = () => {
         return {
@@ -169,165 +154,97 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
     return (
         <div className={`boat-color-customizer ${className}`}>
             <div className='boat-color-customizer__container'>
-                {/* Header */}
-                {/* <div className='boat-color-customizer__header'>
-                    <h3 className='boat-color-customizer__title'>Customize Your Boat Colors</h3>
-                    <p className='boat-color-customizer__subtitle'>
-                        Choose from our premium color options to create your perfect boat design
-                    </p>
-                </div> */}
-
-                {/* <div className='boat-color-customizer__content'> */}
                 {/* Boat Preview */}
                 <div className='boat-color-customizer__preview'>
-                    <div className='boat-color-customizer__boat-container'>
-                        <div className='boat-color-customizer__boat'>
-                            {/* Hull Side */}
-                            <div
-                                className='boat-color-customizer__hull-side'
-                                style={{ backgroundColor: currentColors.hullSide.hex }}
-                                onClick={() => setActiveSection("hullSide")}>
-                                <div
-                                    className={`boat-color-customizer__section-indicator ${activeSection === "hullSide" ? "active" : ""}`}>
-                                    Hull Side
-                                </div>
-                            </div>
-
-                            {/* Boot Stripe */}
-                            <div
-                                className='boat-color-customizer__boot-stripe'
-                                style={{ backgroundColor: currentColors.bootStripe.hex }}
-                                onClick={() => setActiveSection("bootStripe")}>
-                                <div
-                                    className={`boat-color-customizer__section-indicator ${activeSection === "bootStripe" ? "active" : ""}`}>
-                                    Boot Stripe
-                                </div>
-                            </div>
-
-                            {/* Hull Bottom */}
-                            <div
-                                className='boat-color-customizer__hull-bottom'
-                                style={{ backgroundColor: currentColors.hullBottom.hex }}
-                                onClick={() => setActiveSection("hullBottom")}>
-                                <div
-                                    className={`boat-color-customizer__section-indicator ${activeSection === "hullBottom" ? "active" : ""}`}>
-                                    Hull Bottom
-                                </div>
-                            </div>
-                        </div>
+                    <div className='boat-color-customizer__boat'>
+                        {/* Hull Side Layer */}
+                        <div
+                            className='boat-color-customizer__hull-side'
+                            style={{
+                                backgroundImage: `url(${currentColors.hullSide.image})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                            }}></div>
+                        {/* Boot Stripe Layer */}
+                        <div
+                            className='boat-color-customizer__boot-stripe'
+                            style={{
+                                backgroundImage: `url(${currentColors.bootStripe.image})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                            }}></div>
+                        {/* Hull Bottom Layer */}
+                        <div
+                            className='boat-color-customizer__hull-bottom'
+                            style={{
+                                backgroundImage: `url(${currentColors.hullBottom.image})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                            }}></div>
                     </div>
                 </div>
 
                 {/* Color Selection */}
                 <div className='boat-color-customizer__controls'>
-                    <div className='boat-color-customizer__section-tabs'>
-                        <button
-                            className={`boat-color-customizer__tab ${activeSection === "hullSide" ? "active" : ""}`}
-                            onClick={() => setActiveSection("hullSide")}>
-                            Hull Side
-                        </button>
-                        <button
-                            className={`boat-color-customizer__tab ${activeSection === "bootStripe" ? "active" : ""}`}
-                            onClick={() => setActiveSection("bootStripe")}>
-                            Boot Stripe
-                        </button>
-                        <button
-                            className={`boat-color-customizer__tab ${activeSection === "hullBottom" ? "active" : ""}`}
-                            onClick={() => setActiveSection("hullBottom")}>
-                            Hull Bottom
-                        </button>
-                    </div>
-
-                    <div className='boat-color-customizer__color-palette'>
-                        <h4 className='boat-color-customizer__palette-title'>
-                            Select{" "}
-                            {activeSection === "hullSide"
-                                ? "Hull Side"
-                                : activeSection === "bootStripe"
-                                  ? "Boot Stripe"
-                                  : "Hull Bottom"}{" "}
-                            Color
-                        </h4>
-                        <div className='boat-color-customizer__colors'>
-                            {colorPalette[activeSection as keyof typeof colorPalette].map(color => {
-                                const isSelected =
-                                    (activeSection === "hullSide" &&
-                                        selectedHullSide === color.id) ||
-                                    (activeSection === "bootStripe" &&
-                                        selectedBootStripe === color.id) ||
-                                    (activeSection === "hullBottom" &&
-                                        selectedHullBottom === color.id);
-
-                                return (
-                                    <button
-                                        key={color.id}
-                                        className={`boat-color-customizer__color-option ${isSelected ? "selected" : ""}`}
-                                        onClick={() => handleColorSelect(color.id)}
-                                        style={{ backgroundColor: color.hex }}
-                                        title={color.name}>
-                                        <div className='boat-color-customizer__color-check'>
-                                            {isSelected && (
-                                                <svg
-                                                    width='16'
-                                                    height='16'
-                                                    viewBox='0 0 24 24'
-                                                    fill='none'>
-                                                    <path
-                                                        d='M20 6L9 17L4 12'
-                                                        stroke='currentColor'
-                                                        strokeWidth='2'
-                                                        strokeLinecap='round'
-                                                        strokeLinejoin='round'
-                                                    />
-                                                </svg>
-                                            )}
-                                        </div>
-                                    </button>
-                                );
-                            })}
+                    <div className='boat-color-customizer__color-sections'>
+                        {/* Hull Side Colors */}
+                        <div className='boat-color-customizer__color-section'>
+                            <h4 className='boat-color-customizer__section-title'>Hull Side</h4>
+                            <div className='boat-color-customizer__colors'>
+                                {colorPalette.hullSide.map(color => {
+                                    const isSelected = selectedHullSide === color.id;
+                                    return (
+                                        <button
+                                            key={color.id}
+                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
+                                            onClick={() => setSelectedHullSide(color.id)}
+                                            style={{ backgroundColor: color.hex }}
+                                            title={color.name}></button>
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Current Selection Display */}
-                    <div className='boat-color-customizer__current-selection'>
-                        <h4 className='boat-color-customizer__selection-title'>
-                            Current Selection
-                        </h4>
-                        <div className='boat-color-customizer__selection-items'>
-                            <div className='boat-color-customizer__selection-item'>
-                                <div
-                                    className='boat-color-customizer__selection-color'
-                                    style={{
-                                        backgroundColor: currentColors.hullSide.hex,
-                                    }}></div>
-                                <span className='boat-color-customizer__selection-name'>
-                                    Hull Side: {currentColors.hullSide.name}
-                                </span>
+                        {/* Boot Stripe Colors */}
+                        <div className='boat-color-customizer__color-section'>
+                            <h4 className='boat-color-customizer__section-title'>Boot Stripe</h4>
+                            <div className='boat-color-customizer__colors'>
+                                {colorPalette.bootStripe.map(color => {
+                                    const isSelected = selectedBootStripe === color.id;
+                                    return (
+                                        <button
+                                            key={color.id}
+                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
+                                            onClick={() => setSelectedBootStripe(color.id)}
+                                            style={{ backgroundColor: color.hex }}
+                                            title={color.name}></button>
+                                    );
+                                })}
                             </div>
-                            <div className='boat-color-customizer__selection-item'>
-                                <div
-                                    className='boat-color-customizer__selection-color'
-                                    style={{
-                                        backgroundColor: currentColors.bootStripe.hex,
-                                    }}></div>
-                                <span className='boat-color-customizer__selection-name'>
-                                    Boot Stripe: {currentColors.bootStripe.name}
-                                </span>
-                            </div>
-                            <div className='boat-color-customizer__selection-item'>
-                                <div
-                                    className='boat-color-customizer__selection-color'
-                                    style={{
-                                        backgroundColor: currentColors.hullBottom.hex,
-                                    }}></div>
-                                <span className='boat-color-customizer__selection-name'>
-                                    Hull Bottom: {currentColors.hullBottom.name}
-                                </span>
+                        </div>
+
+                        {/* Hull Bottom Colors */}
+                        <div className='boat-color-customizer__color-section'>
+                            <h4 className='boat-color-customizer__section-title'>Hull Bottom</h4>
+                            <div className='boat-color-customizer__colors'>
+                                {colorPalette.hullBottom.map(color => {
+                                    const isSelected = selectedHullBottom === color.id;
+                                    return (
+                                        <button
+                                            key={color.id}
+                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
+                                            onClick={() => setSelectedHullBottom(color.id)}
+                                            style={{ backgroundColor: color.hex }}
+                                            title={color.name}></button>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* </div> */}
             </div>
         </div>
     );

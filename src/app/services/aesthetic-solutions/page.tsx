@@ -91,7 +91,7 @@ export default function AestheticSolutionsPage() {
                     </div>
                 </section>
                 {/* Boat Color Customizer Section */}
-                <section className='section section--space-y bg-[var(--blue-50)]'>
+                <section className='section'>
                     {/* <div className='container'> */}
                     <BoatColorCustomizer />
                     {/* </div> */}
