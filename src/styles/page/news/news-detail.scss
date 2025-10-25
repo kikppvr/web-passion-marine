@@ -1,0 +1,95 @@
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
+
+.news-detail {
+    overflow: hidden;
+    section {
+        &:first-child {
+            padding-top: 192px; // 96px + 96px for missing banner
+            padding-bottom: 64px;
+
+            @include base.media-down(laptop) {
+                padding-top: 168px; // 64px + 64px for missing banner
+                padding-bottom: 48px;
+            }
+
+            @include base.media-down(tablet) {
+                padding-top: 128px; // 48px + 48px for missing banner
+                padding-bottom: 32px;
+            }
+
+            @include base.media-down(mobile) {
+                padding-top: 96px; // 48px + 48px for missing banner
+            }
+        }
+    }
+}
+
+// News Gallery Section
+.news-gallery {
+    margin-bottom: 3rem;
+
+    @include base.media-down(tablet) {
+        margin-bottom: 2rem;
+    }
+
+    .news-gallery__main {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include base.media-down(laptop) {
+            gap: 4px;
+        }
+    }
+
+    .news-gallery__main-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .news-gallery__thumbnails {
+        display: flex;
+        gap: 8px;
+
+        @include base.media-down(laptop) {
+            gap: 4px;
+        }
+    }
+
+    .news-gallery__thumbnail {
+        position: relative;
+        flex: 1;
+        aspect-ratio: 254/191;
+        border-radius: 5px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .news-gallery__thumbnail-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .news-gallery__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .news-gallery__count {
+        @include fonts.text-h3;
+        @include fonts.font-semibold;
+        color: var(--white);
+    }
+}
