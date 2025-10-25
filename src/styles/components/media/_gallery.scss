@@ -1,5 +1,6 @@
 @use "../../base/_base" as base;
 @use "../../base/_font-mixins" as fonts;
+@use "../../base/_image" as image;
 
 // Gallery Component
 .gallery-thumbnails {
@@ -8,8 +9,14 @@
         border-radius: 8px;
         overflow: hidden;
         margin-bottom: 8px;
+        @include image.baseRatioImg(55%);
+
+        img {
+            border: none;
+        }
 
         @include base.media-down(laptop) {
+            @include image.baseRatioImg(66.66%);
             margin-bottom: 4px;
         }
     }
@@ -33,10 +40,15 @@
     .gallery-thumbnails__thumbnail {
         position: relative;
         flex: 1;
-        aspect-ratio: 254/191;
+        aspect-ratio: 55%;
         border-radius: 5px;
         overflow: hidden;
         cursor: pointer;
+        transition: transform 0.3s ease;
+
+        @include base.media-down(laptop) {
+            aspect-ratio: 66.66%;
+        }
     }
 
     .gallery-thumbnails__thumbnail-image {
@@ -94,10 +106,10 @@
 
     .gallery-modal__close {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 0;
+        right: 0;
         z-index: 10000;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(123, 122, 122, 0.6);
         color: var(--white);
         border: none;
         border-radius: 50%;
@@ -111,8 +123,7 @@
         backdrop-filter: blur(10px);
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
+            background-color: rgba(123, 122, 122, 1);
         }
     }
 
