@@ -8,6 +8,7 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
+import { GalleryWithThumbnails } from "@/components/ui/media";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 
 interface PortfolioDetailData {
@@ -90,37 +91,11 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Main Image and Gallery */}
                 <section className='section portfolio-gallery'>
                     <div className='container'>
-                        <div className='portfolio-gallery__main'>
-                            <div className='portfolio-gallery__main'>
-                                <Image
-                                    src={portfolioDetailData.mainImage}
-                                    alt={portfolioDetailData.title}
-                                    width={1110}
-                                    height={624}
-                                    className='portfolio-gallery__main-image'
-                                />
-                            </div>
-                            <div className='portfolio-gallery__thumbnails'>
-                                {portfolioDetailData.gallery.slice(0, 4).map((image, index) => (
-                                    <div key={index} className='portfolio-gallery__thumbnail'>
-                                        <Image
-                                            src={image.src}
-                                            alt={image.alt}
-                                            width={254}
-                                            height={191}
-                                            className='portfolio-gallery__thumbnail-image'
-                                        />
-                                        {index === 3 && portfolioDetailData.gallery.length > 4 && (
-                                            <div className='portfolio-gallery__overlay'>
-                                                <span className='portfolio-gallery__count'>
-                                                    {portfolioDetailData.gallery.length - 4}+
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        <GalleryWithThumbnails
+                            mainImage={portfolioDetailData.mainImage}
+                            mainImageAlt={portfolioDetailData.title}
+                            gallery={portfolioDetailData.gallery}
+                        />
                     </div>
                 </section>
 
