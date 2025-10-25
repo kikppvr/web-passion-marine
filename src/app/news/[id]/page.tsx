@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/news/news-detail.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { NewsCard } from "@/components/ui/cards";
 import SocialIcons from "@/components/ui/social/SocialIcons";
+import { GalleryWithThumbnails } from "@/components/ui/media";
 import newsDetailDataJson from "@/data/news-detail-data.json";
 
 interface NewsDetailData {
@@ -72,35 +72,11 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                 {/* Main Image and Gallery */}
                 <section className='section news-gallery'>
                     <div className='container'>
-                        <div className='news-gallery__main'>
-                            <Image
-                                src={newsDetail.mainImage}
-                                alt={newsDetail.title}
-                                width={1110}
-                                height={624}
-                                className='news-gallery__main-image'
-                            />
-                            <div className='news-gallery__thumbnails'>
-                                {newsDetail.gallery.slice(0, 4).map((image, index) => (
-                                    <div key={index} className='news-gallery__thumbnail'>
-                                        <Image
-                                            src={image.src}
-                                            alt={image.alt}
-                                            width={254}
-                                            height={191}
-                                            className='news-gallery__thumbnail-image'
-                                        />
-                                        {index === 3 && newsDetail.gallery.length > 4 && (
-                                            <div className='news-gallery__overlay'>
-                                                <span className='news-gallery__count'>
-                                                    {newsDetail.gallery.length - 4}+
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        <GalleryWithThumbnails
+                            mainImage={newsDetail.mainImage}
+                            mainImageAlt={newsDetail.title}
+                            gallery={newsDetail.gallery}
+                        />
                     </div>
                 </section>
 
