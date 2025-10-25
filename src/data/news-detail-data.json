@@ -1,0 +1,79 @@
+{
+    "newsDetails": [
+        {
+            "id": "1",
+            "title": "Passion Marine Launches New Speedboat Collection",
+            "description": "Discover our latest collection of premium speedboats designed for ultimate performance and luxury on the water. Experience cutting-edge technology and superior craftsmanship.",
+            "category": "Product Launch",
+            "date": "16 December 2024",
+            "author": "Passion Marine Team",
+            "mainImage": "/images/home/news/news-01.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/news/news-01.webp",
+                    "alt": "New Speedboat Collection"
+                },
+                {
+                    "src": "/images/home/news/news-02.webp",
+                    "alt": "Speedboat Interior"
+                },
+                {
+                    "src": "/images/home/news/news-03.webp",
+                    "alt": "Speedboat Exterior"
+                }
+            ],
+            "content": [
+                "Passion Marine is proud to announce the launch of our revolutionary new speedboat collection, featuring state-of-the-art design and engineering that sets new standards in marine excellence.",
+                "Our latest collection combines cutting-edge technology with timeless elegance, offering boat enthusiasts an unparalleled experience on the water. Each vessel is meticulously crafted to deliver exceptional performance, comfort, and style.",
+                "The new speedboats feature advanced hull designs that provide superior stability and speed, while the luxurious interiors offer premium comfort for extended journeys. Our engineering team has incorporated the latest innovations in marine technology to ensure optimal fuel efficiency and environmental sustainability.",
+                "Key features of the new collection include:",
+                "• Advanced composite hull construction for enhanced durability and performance",
+                "• State-of-the-art navigation and safety systems",
+                "• Luxurious interior finishes with premium materials",
+                "• Eco-friendly propulsion systems",
+                "• Customizable layouts to suit individual preferences",
+                "The collection is now available for viewing at our showroom and can be customized according to your specific requirements. Our team of marine experts is ready to assist you in selecting the perfect vessel for your needs.",
+                "For more information about our new speedboat collection or to schedule a private viewing, please contact our sales team. We look forward to helping you discover the perfect vessel for your next adventure on the water."
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Marine Safety Guidelines for 2024",
+            "description": "Stay updated with the latest marine safety regulations and best practices for boat owners and operators. Your safety is our priority.",
+            "category": "Safety",
+            "date": "10 December 2024",
+            "author": "Safety Department",
+            "mainImage": "/images/home/news/news-02.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/news/news-02.webp",
+                    "alt": "Marine Safety Guidelines"
+                },
+                {
+                    "src": "/images/home/news/news-01.webp",
+                    "alt": "Safety Equipment"
+                },
+                {
+                    "src": "/images/home/news/news-03.webp",
+                    "alt": "Safety Training"
+                },
+                {
+                    "src": "/images/home/news/news-02.webp",
+                    "alt": "Marine Safety Guidelines"
+                }
+            ],
+            "content": [
+                "As we enter 2024, it's crucial for all boat owners and operators to stay informed about the latest marine safety regulations and best practices. At Passion Marine, we prioritize your safety above all else.",
+                "The marine industry continues to evolve with new safety standards and technological advancements. This comprehensive guide covers the essential safety measures every boat owner should implement.",
+                "Key safety guidelines for 2024 include:",
+                "• Regular safety equipment inspections and maintenance",
+                "• Updated navigation and communication systems",
+                "• Proper emergency response procedures",
+                "• Weather monitoring and trip planning",
+                "• Crew training and certification requirements",
+                "Our safety experts recommend conducting monthly safety checks and annual professional inspections to ensure all equipment is functioning correctly. Remember, prevention is always better than reaction when it comes to marine safety.",
+                "For detailed safety checklists and training resources, please visit our safety center or contact our safety department. We're committed to helping you maintain the highest safety standards on the water."
+            ]
+        }
+    ]
+}

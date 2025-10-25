@@ -1,5 +1,5 @@
-@use "../base/_base" as base;
-@use "../base/_font-mixins" as fonts;
+@use "../../base/_base" as base;
+@use "../../base/_font-mixins" as fonts;
 
 .news__grid {
     display: grid;

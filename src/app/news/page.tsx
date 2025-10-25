@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
-import "@/styles/page/news.scss";
+import "@/styles/page/news/news.scss";
 import { NewsCard } from "@/components/ui/cards";
 import Pagination from "@/components/ui/navigation/Pagination";
 import newsData from "@/data/news-data.json";
