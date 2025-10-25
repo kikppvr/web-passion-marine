@@ -162,7 +162,7 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             className='boat-color-customizer__hull-side'
                             style={{
                                 backgroundImage: `url(${currentColors.hullSide.image})`,
-                                backgroundSize: "cover",
+                                backgroundSize: "contain",
                                 backgroundPosition: "center",
                                 backgroundRepeat: "no-repeat",
                             }}></div>
@@ -171,7 +171,7 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             className='boat-color-customizer__boot-stripe'
                             style={{
                                 backgroundImage: `url(${currentColors.bootStripe.image})`,
-                                backgroundSize: "cover",
+                                backgroundSize: "contain",
                                 backgroundPosition: "center",
                                 backgroundRepeat: "no-repeat",
                             }}></div>
@@ -180,7 +180,7 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             className='boat-color-customizer__hull-bottom'
                             style={{
                                 backgroundImage: `url(${currentColors.hullBottom.image})`,
-                                backgroundSize: "cover",
+                                backgroundSize: "contain",
                                 backgroundPosition: "center",
                                 backgroundRepeat: "no-repeat",
                             }}></div>

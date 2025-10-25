@@ -10,7 +10,7 @@
 }
 
 .boat-color-customizer__preview {
-    background-image: url("/images/our-services/aesthetic-solutions/boat-customizer/default-boat.webp");
+    background-image: url("/images/our-services/aesthetic-solutions/boat-customizer/bg-preview.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,12 +19,33 @@
     position: relative;
     margin-bottom: 3rem;
     overflow: hidden;
+
+    @include base.media-down(tablet) {
+        height: 400px;
+    }
+
+    @include base.media-down(mobile) {
+        height: 300px;
+    }
 }
 
 .boat-color-customizer__boat {
+    background-image: url("/images/our-services/aesthetic-solutions/boat-customizer/boat.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    width: 100%;
+    margin: 0 auto;
+    width: 830px;
     height: 100%;
+
+    @include base.media-down(tablet) {
+        width: 600px;
+    }
+
+    @include base.media-down(mobile) {
+        width: 350px;
+    }
 }
 
 .boat-color-customizer__hull-side,
@@ -35,14 +56,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    // mix-blend-mode: multiply;
 }
 
 .boat-color-customizer__controls {
-    // display: flex;
-    // flex-direction: column;
-    // gap: 2rem;
-
     @include base.container;
 }
 
@@ -52,16 +68,15 @@
     gap: 2rem;
 
     @include base.media-down(tablet) {
+        gap: 1rem;
+    }
+
+    @include base.media-down(mobile) {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 }
 
 .boat-color-customizer__color-section {
-    // background-color: var(--white);
-    // padding: 2rem;
-    // border-radius: 12px;
-    // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .boat-color-customizer__section-title {
@@ -84,15 +99,23 @@
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    @include base.media-down(tablet) {
+        width: 30px;
+        height: 30px;
+    }
+
+    @include base.media-down(mobile) {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .boat-color-customizer__color-option:hover {
-    // transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .boat-color-customizer__color-option--selected {
-    border: 2px solid black;
-    // transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    border: 3px solid black;
+    // box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
 }
