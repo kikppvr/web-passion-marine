@@ -51,6 +51,9 @@
 @use "components/cards/_card-mission" as card-mission;
 @use "components/cards/_service-card" as service-card;
 
+// Aesthetic Components
+@use "components/aesthetic/_boat-color-customizer" as boat-color-customizer;
+
 // Import Animation Styles
 @use "animation/_transitions" as transitions;
 

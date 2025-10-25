@@ -1,6 +1,7 @@
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/aesthetic-solutions.scss";
 import { GallerySlider } from "@/components/ui/media";
+import { BoatColorCustomizer } from "@/components/ui/aesthetic";
 
 export default function AestheticSolutionsPage() {
     const bannerProps = {
@@ -89,12 +90,11 @@ export default function AestheticSolutionsPage() {
                         </div>
                     </div>
                 </section>
+                {/* Boat Color Customizer Section */}
                 <section className='section section--space-y bg-[var(--blue-50)]'>
-                    <div className='container'>
-                        <h3 className='text-h3 lg:text-h4 mb-4 text-center font-semibold text-[var(--blue-500)] md:mb-6'>
-                            [Coming Soon]
-                        </h3>
-                    </div>
+                    {/* <div className='container'> */}
+                    <BoatColorCustomizer />
+                    {/* </div> */}
                 </section>
                 <section className='section section--space-y'>
                     <div className='container'>
