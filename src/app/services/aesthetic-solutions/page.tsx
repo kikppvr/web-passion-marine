@@ -91,12 +91,10 @@ export default function AestheticSolutionsPage() {
                     </div>
                 </section>
                 {/* Boat Color Customizer Section */}
-                <section className='section'>
-                    {/* <div className='container'> */}
+                {/* <section className='section'>
                     <BoatColorCustomizer />
-                    {/* </div> */}
-                </section>
-                <section className='section section--space-y'>
+                </section> */}
+                <section className='section section--space-bottom'>
                     <div className='container'>
                         <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
                             <div>
