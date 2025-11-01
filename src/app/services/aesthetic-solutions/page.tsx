@@ -92,9 +92,9 @@ export default function AestheticSolutionsPage() {
                 </section>
 
                 {/* Boat Color Customizer Section */}
-                <section className='section section--space-bottom'>
+                {/* <section className='section section--space-bottom'>
                     <BoatColorCustomizer />
-                </section>
+                </section> */}
             </div>
             <section className='section section--space-bottom'>
                 <div className='container'>
