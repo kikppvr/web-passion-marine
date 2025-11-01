@@ -8,6 +8,7 @@ import { Footer } from "@/components/ui/layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
@@ -16,6 +17,7 @@ import { useAOS } from "@/hooks/useAOS";
 import CountUp from "react-countup";
 
 export default function HeaderPage() {
+    const router = useRouter();
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isStatsVisible, setIsStatsVisible] = useState(false);
@@ -203,21 +205,21 @@ export default function HeaderPage() {
     // Our Latest News data
     const ourLatestNewsData = [
         {
-            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            title: "Motor Expo 2023",
             date: "16 December 2024",
             image: "/images/home/news/news-01.webp",
             video: "",
             href: "/comingsoon",
         },
         {
-            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            title: "Boat Fair#2 @Riverdale Marina",
             date: "16 December 2024",
             image: "/images/home/news/news-02.webp",
             video: "",
             href: "/comingsoon",
         },
         {
-            title: "Lorem ipsum dolor sit amet consectetur. Feugiat at fusce felis eget vulputate proin eget duis.",
+            title: "Grow Boating Event @Riverdale Marina",
             date: "16 December 2024",
             image: "/images/home/news/news-03.webp",
             video: "",
@@ -409,7 +411,10 @@ export default function HeaderPage() {
                         <div className='boat-solutions__header'>
                             <h2 className='boat-solutions__title'>Boat Solutions</h2>
                             <div className='boat-solutions__button boat-solutions__button--desktop'>
-                                <PrimaryButton>Overview Services</PrimaryButton>
+                                <PrimaryButton
+                                    onClick={() => router.push("/services/overview-services")}>
+                                    Overview Services
+                                </PrimaryButton>
                             </div>
                         </div>
                         <div className='boat-solutions__swiper'>
@@ -438,7 +443,10 @@ export default function HeaderPage() {
                             />
                         </div>
                         <div className='boat-solutions__button boat-solutions__button--mobile'>
-                            <PrimaryButton>Overview Services</PrimaryButton>
+                            <PrimaryButton
+                                onClick={() => router.push("/services/overview-services")}>
+                                Overview Services
+                            </PrimaryButton>
                         </div>
                     </div>
                 </section>
@@ -552,7 +560,9 @@ export default function HeaderPage() {
                     <div className='our-portfolio__header'>
                         <h2 className='our-portfolio__title'>Our Portfolio</h2>
                         <div className='our-portfolio__button'>
-                            <PrimaryButton theme='dark'>Explore More</PrimaryButton>
+                            <PrimaryButton theme='dark' onClick={() => router.push("/portfolio")}>
+                                Explore More
+                            </PrimaryButton>
                         </div>
                     </div>
 
@@ -670,7 +680,9 @@ export default function HeaderPage() {
 
                     {/* Mobile Explore More Button */}
                     <div className='our-portfolio__mobile-button'>
-                        <PrimaryButton theme='dark'>Explore More</PrimaryButton>
+                        <PrimaryButton theme='dark' onClick={() => router.push("/portfolio")}>
+                            Explore More
+                        </PrimaryButton>
                     </div>
                 </div>
             </section>
@@ -680,7 +692,9 @@ export default function HeaderPage() {
                     <div className='our-latest-news__header'>
                         <h2 className='our-latest-news__title'>Our Latest News</h2>
                         <div className='our-latest-news__button our-latest-news__button--desktop'>
-                            <PrimaryButton>View All</PrimaryButton>
+                            <PrimaryButton onClick={() => router.push("/news")}>
+                                View All
+                            </PrimaryButton>
                         </div>
                     </div>
                     <div className='our-latest-news__swiper'>
@@ -709,7 +723,7 @@ export default function HeaderPage() {
                         />
                     </div>
                     <div className='our-latest-news__button our-latest-news__button--mobile'>
-                        <PrimaryButton>View All</PrimaryButton>
+                        <PrimaryButton onClick={() => router.push("/news")}>View All</PrimaryButton>
                     </div>
                 </div>
             </section>

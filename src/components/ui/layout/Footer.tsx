@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 //components
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 
@@ -11,6 +12,8 @@ export interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => {
+    const router = useRouter();
+
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -39,7 +42,9 @@ const Footer = ({ className }: FooterProps) => {
                             113/14, Moo 5, Chiang Rak Yai, Sam Khok, Pathum Thani 12160
                         </div>
                         <div className='footer__column-contact'>
-                            <PrimaryButton theme='dark'>Contact Us</PrimaryButton>
+                            <PrimaryButton theme='dark' onClick={() => router.push("/contact-us")}>
+                                Contact Us
+                            </PrimaryButton>
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@ export default function AboutUsPage() {
         {
             title: "Maintainability",
             description:
-                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+                "Our mission is to ensure that every vessel we service is easy to maintain over time, reducing downtime and extending the life of essential systems through smart design, quality materials, and reliable support.",
             image: "/images/about-us/mission-01.webp",
             video: "",
             href: "#",
@@ -22,7 +22,7 @@ export default function AboutUsPage() {
         {
             title: "Customizability",
             description:
-                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+                "We aim to deliver solutions that make sense in the real world—balancing performance, safety, and cost-effectiveness to meet the unique demands of each customer’s boating lifestyle or commercial operations.",
             image: "/images/about-us/mission-02.webp",
             video: "",
             href: "#",
@@ -30,7 +30,7 @@ export default function AboutUsPage() {
         {
             title: "Upgradability",
             description:
-                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+                "Every boat and owner is unique, which is why we’re committed to providing tailored solutions—from system integrations to structural modifications—that align perfectly with each client’s vision and needs.",
             image: "/images/about-us/mission-03.webp",
             video: "",
             href: "#",
@@ -38,7 +38,7 @@ export default function AboutUsPage() {
         {
             title: "Practicality",
             description:
-                "Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper. Lorem ipsum dolor sit amet consectetur. Odio integer ultrices urna massa posuere. Eu quis scelerisque habitant faucibus sit semper.",
+                "We design with the future in mind, offering scalable systems and modular components that make it easy to upgrade as technologies evolve or customer requirements change, ensuring long-term value and adaptability.",
             image: "/images/about-us/mission-04.webp",
             video: "",
             href: "#",
@@ -59,7 +59,8 @@ export default function AboutUsPage() {
                             </h3>
                             <p className='text-lead-2 mb-4 text-[var(--grey-600)] md:mb-6'>
                                 Our company was established by a group of experienced aerospace
-                                engineers who are fascinated by boats; passionate about the rides,
+                                engineers who are fascinated by boats;{" "}
+                                <span className='font-semibold'>passionate</span> about the rides,
                                 adventures and atmospheres. In aspiration to grow the boat-lover
                                 community, we offer products and services that accommodate your
                                 personal water-journey lifestyle .
@@ -84,11 +85,10 @@ export default function AboutUsPage() {
                         </div>
                         <div className='lg:col-span-9'>
                             <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
-                                พันธกิจ (Mission) ของบริษัทฯ ถือเป็นแนวทางสำคัญที่บริษัทฯ
-                                ยึดถือในการดำเนิน กิจกรรมและการลงทุนทุกประเภท
-                                โดยทำหน้าที่เป็นเข็มทิศในการกำหนดทิศทางว่า ไม่ว่าบริษัทฯ
-                                จะริเริ่มแนวคิดใดหรือดำเนินการใด ๆ จะต้องพิจารณาตามหลักเกณฑ์ 4
-                                ข้อสำคัญนี้เสมอ
+                                The company’s overall Mission serves as the guideline in every
+                                activity we undertake and every investment we make. It defines the
+                                direction of the company, ensuring that whenever we consider or take
+                                action, these 4 principles are always taken into account.
                             </p>
                         </div>
                     </div>
@@ -119,70 +119,55 @@ export default function AboutUsPage() {
                             <div className='milestone__item'>
                                 <h3 className='milestone__title'>2022</h3>
                                 <p className='milestone__subtitle'>
-                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
-                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
-                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                    Passion Marine Co., Ltd. was established, marking the beginning
+                                    of its business direction. The company’s primary objective is to
+                                    offer high-quality services to the boating community, delivered
+                                    by skilled professionals following internationally recognized
+                                    standards.
                                 </p>
                                 <p className='milestone__description'>
-                                    Ultrices egestas est ornare elementum lacus aliquam in.
-                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
-                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
-                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
-                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
-                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
-                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
-                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
-                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
-                                    volutpat neque lacus. Id leo cursus risus eget consectetur
-                                    volutpat congue id cras. Sed vulputate pellentesque cursus
-                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
-                                    faucibus pulvinar fermentum blandit.
+                                    Passion Marine aims to be a reliable option for those seeking to
+                                    refurbish or customize their boats to suit different ownership
+                                    purposes and functional needs (Customization), using quality
+                                    materials suitable for marine environments.
                                 </p>
                             </div>
                             <div className='milestone__item'>
                                 <h3 className='milestone__title'>2023</h3>
                                 <p className='milestone__subtitle'>
-                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
-                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
-                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                    Passion Marine had the opportunity to showcase
                                 </p>
                                 <p className='milestone__description'>
-                                    Ultrices egestas est ornare elementum lacus aliquam in.
-                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
-                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
-                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
-                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
-                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
-                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
-                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
-                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
-                                    volutpat neque lacus. Id leo cursus risus eget consectetur
-                                    volutpat congue id cras. Sed vulputate pellentesque cursus
-                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
-                                    faucibus pulvinar fermentum blandit.
+                                    its work to the boating community and to participate in
+                                    promoting and providing information about boats to interested
+                                    individuals at the Motor Expo 2023.
                                 </p>
                             </div>
                             <div className='milestone__item'>
                                 <h3 className='milestone__title'>2024</h3>
                                 <p className='milestone__subtitle'>
-                                    Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi
-                                    praesent nisi pulvinar velit suspendisse orci magna. In aliquet
-                                    gravida velit id amet ullamcorper massa lectus morbi.
+                                    Passion Marine expanded its capabilities to meet the growing
+                                    demand for quality among boat owners.
                                 </p>
                                 <p className='milestone__description'>
-                                    Ultrices egestas est ornare elementum lacus aliquam in.
-                                    Ullamcorper nulla suscipit consequat est nunc sem ac donec
-                                    tortor. Arcu egestas cursus phasellus mauris cras faucibus
-                                    faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec.
-                                    Quam dui consequat feugiat orci quis. Eu lectus lectus justo
-                                    interdum ut sed semper. Eget sit pellentesque feugiat ornare et
-                                    arcu. Bibendum orci donec amet metus dolor sit ut ipsum.
-                                    Placerat ac purus venenatis mauris volutpat at venenatis. Turpis
-                                    libero ut amet accumsan. Gravida aliquet vitae fames tortor
-                                    volutpat neque lacus. Id leo cursus risus eget consectetur
-                                    volutpat congue id cras. Sed vulputate pellentesque cursus
-                                    aliquet. Elementum tortor diam et turpis non nisl. Blandit
-                                    faucibus pulvinar fermentum blandit.
+                                    This included expanding its workspace and acquiring additional
+                                    tools for interior design and manufacturing, upholstery, and the
+                                    design and production of EVA (Ethylene Vinyl Acetate) boat
+                                    flooring. Moreover, in 2024, Passion Marine was officially
+                                    appointed as an Authorized Service Partner for Volvo Penta
+                                    engines, spare parts, and maintenance services.
+                                </p>
+                            </div>
+                            <div className='milestone__item'>
+                                <h3 className='milestone__title'>2025</h3>
+                                <p className='milestone__subtitle'>
+                                    Passion Marine expanded its repair and production area from 420
+                                    square meters to 1,100 square meters
+                                </p>
+                                <p className='milestone__description'>
+                                    a key factor in enabling the company to respond more efficiently
+                                    to customer needs and to support the integration of new tools
+                                    and technologies in the coming years.
                                 </p>
                             </div>
                         </div>
