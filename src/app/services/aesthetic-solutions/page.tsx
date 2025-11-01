@@ -90,135 +90,136 @@ export default function AestheticSolutionsPage() {
                         </div>
                     </div>
                 </section>
+
                 {/* Boat Color Customizer Section */}
-                {/* <section className='section'>
-                    <BoatColorCustomizer />
-                </section> */}
                 <section className='section section--space-bottom'>
-                    <div className='container'>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div>
-                                <GallerySlider
-                                    className='gallery-esthetic-solutions'
-                                    images={galleryTeakEVAFlooring}
-                                    showPagination={true}
-                                    autoplay={false}
-                                    autoplayDelay={3000}
-                                    loop={true}
-                                />
-                            </div>
-                            <div>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Teak & EVA Flooring
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
-                                </div>
-                            </div>
+                    <BoatColorCustomizer />
+                </section>
+            </div>
+            <section className='section section--space-bottom'>
+                <div className='container'>
+                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div>
+                            <GallerySlider
+                                className='gallery-esthetic-solutions'
+                                images={galleryTeakEVAFlooring}
+                                showPagination={true}
+                                autoplay={false}
+                                autoplayDelay={3000}
+                                loop={true}
+                            />
                         </div>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div className='order-2 lg:order-1'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Marine Upholstery
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
-                                </div>
-                            </div>
-                            <div className='order-1 lg:order-2'>
-                                <GallerySlider
-                                    className='gallery-esthetic-solutions'
-                                    images={galleryMarineUpholstery}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={5000}
-                                    loop={true}
-                                />
-                            </div>
-                        </div>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div>
-                                <GallerySlider
-                                    className='gallery-esthetic-solutions'
-                                    images={galleryGelcoatRepairFinishing}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={3000}
-                                    loop={true}
-                                />
-                            </div>
-                            <div>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Gelcoat Repair & Finishing
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
-                                </div>
-                            </div>
-                        </div>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div className='order-2 lg:order-1'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Fiberglass Furniture
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
-                                </div>
-                            </div>
-                            <div className='order-1 lg:order-2'>
-                                <GallerySlider
-                                    className='gallery-esthetic-solutions'
-                                    images={galleryFiberglassFurniture}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={5000}
-                                    loop={true}
-                                />
-                            </div>
-                        </div>
-                        <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div>
-                                <GallerySlider
-                                    className='gallery-esthetic-solutions'
-                                    images={galleryInteriorStyling}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={3000}
-                                    loop={true}
-                                />
-                            </div>
-                            <div>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Interior Styling
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
-                                </div>
+                        <div>
+                            <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                Teak & EVA Flooring
+                            </h3>
+                            <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
+                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
+                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
+                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
+                                dui.
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div className='order-2 lg:order-1'>
+                            <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                Marine Upholstery
+                            </h3>
+                            <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
+                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
+                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
+                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
+                                dui.
+                            </div>
+                        </div>
+                        <div className='order-1 lg:order-2'>
+                            <GallerySlider
+                                className='gallery-esthetic-solutions'
+                                images={galleryMarineUpholstery}
+                                showPagination={true}
+                                autoplay={true}
+                                autoplayDelay={5000}
+                                loop={true}
+                            />
+                        </div>
+                    </div>
+                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div>
+                            <GallerySlider
+                                className='gallery-esthetic-solutions'
+                                images={galleryGelcoatRepairFinishing}
+                                showPagination={true}
+                                autoplay={true}
+                                autoplayDelay={3000}
+                                loop={true}
+                            />
+                        </div>
+                        <div>
+                            <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                Gelcoat Repair & Finishing
+                            </h3>
+                            <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
+                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
+                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
+                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
+                                dui.
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div className='order-2 lg:order-1'>
+                            <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                Fiberglass Furniture
+                            </h3>
+                            <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
+                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
+                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
+                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
+                                dui.
+                            </div>
+                        </div>
+                        <div className='order-1 lg:order-2'>
+                            <GallerySlider
+                                className='gallery-esthetic-solutions'
+                                images={galleryFiberglassFurniture}
+                                showPagination={true}
+                                autoplay={true}
+                                autoplayDelay={5000}
+                                loop={true}
+                            />
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div>
+                            <GallerySlider
+                                className='gallery-esthetic-solutions'
+                                images={galleryInteriorStyling}
+                                showPagination={true}
+                                autoplay={true}
+                                autoplayDelay={3000}
+                                loop={true}
+                            />
+                        </div>
+                        <div>
+                            <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                Interior Styling
+                            </h3>
+                            <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
+                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
+                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
+                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
+                                dui.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </MainLayout>
     );
 }

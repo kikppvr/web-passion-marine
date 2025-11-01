@@ -5,7 +5,8 @@ import { useState } from "react";
 interface ColorOption {
     id: string;
     name: string;
-    hex: string;
+    hex?: string;
+    gradient?: string;
     image: string;
 }
 
@@ -13,7 +14,11 @@ interface BoatColorCustomizerProps {
     className?: string;
 }
 
-const colorPalette = {
+const colorPalette: {
+    hullSide: ColorOption[];
+    bootStripe: ColorOption[];
+    hullBottom: ColorOption[];
+} = {
     hullSide: [
         {
             id: "white",
@@ -24,25 +29,26 @@ const colorPalette = {
         {
             id: "blue",
             name: "Blue",
-            hex: "#2563EB",
+            hex: "#1C4583",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/blue.webp",
         },
         {
             id: "grey",
             name: "Grey",
             hex: "#6B7280",
+            gradient: "linear-gradient(140deg, #D2D2D3 0%, #9F9FA0 69%, #D2D2D3 100%)",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/grey.webp",
         },
         {
             id: "darkgrey",
             name: "Dark Grey",
-            hex: "#374151",
+            hex: "#6F6F71",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/dark-grey.webp",
         },
         {
             id: "red",
             name: "Red",
-            hex: "#DC2626",
+            hex: "#E22222",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-side/red.webp",
         },
         {
@@ -62,25 +68,26 @@ const colorPalette = {
         {
             id: "blue",
             name: "Blue",
-            hex: "#2563EB",
+            hex: "#1C4583",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/blue.webp",
         },
         {
             id: "grey",
             name: "Grey",
             hex: "#6B7280",
+            gradient: "linear-gradient(140deg, #D2D2D3 0%, #9F9FA0 69%, #D2D2D3 100%)",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/grey.webp",
         },
         {
             id: "darkgrey",
             name: "Dark Grey",
-            hex: "#374151",
+            hex: "#6F6F71",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/dark-grey.webp",
         },
         {
             id: "red",
             name: "Red",
-            hex: "#DC2626",
+            hex: "#E22222",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/boot-stripe/red.webp",
         },
         {
@@ -100,25 +107,26 @@ const colorPalette = {
         {
             id: "blue",
             name: "Blue",
-            hex: "#2563EB",
+            hex: "#1C4583",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/blue.webp",
         },
         {
             id: "grey",
             name: "Grey",
             hex: "#6B7280",
+            gradient: "linear-gradient(140deg, #D2D2D3 0%, #9F9FA0 69%, #D2D2D3 100%)",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/grey.webp",
         },
         {
             id: "darkgrey",
             name: "Dark Grey",
-            hex: "#374151",
+            hex: "#6F6F71",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/dark-grey.webp",
         },
         {
             id: "red",
             name: "Red",
-            hex: "#DC2626",
+            hex: "#E22222",
             image: "/images/our-services/aesthetic-solutions/boat-customizer/hull-bottom/red.webp",
         },
         {
@@ -201,7 +209,10 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                             key={color.id}
                                             className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
                                             onClick={() => setSelectedHullSide(color.id)}
-                                            style={{ backgroundColor: color.hex }}
+                                            style={{
+                                                backgroundColor: color.hex,
+                                                background: color.gradient || color.hex,
+                                            }}
                                             title={color.name}></button>
                                     );
                                 })}
@@ -219,7 +230,10 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                             key={color.id}
                                             className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
                                             onClick={() => setSelectedBootStripe(color.id)}
-                                            style={{ backgroundColor: color.hex }}
+                                            style={{
+                                                backgroundColor: color.hex,
+                                                background: color.gradient || color.hex,
+                                            }}
                                             title={color.name}></button>
                                     );
                                 })}
@@ -237,7 +251,10 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                             key={color.id}
                                             className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
                                             onClick={() => setSelectedHullBottom(color.id)}
-                                            style={{ backgroundColor: color.hex }}
+                                            style={{
+                                                backgroundColor: color.hex,
+                                                background: color.gradient || color.hex,
+                                            }}
                                             title={color.name}></button>
                                     );
                                 })}
