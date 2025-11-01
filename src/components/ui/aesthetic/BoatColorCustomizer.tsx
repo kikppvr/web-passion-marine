@@ -204,16 +204,23 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             <div className='boat-color-customizer__colors'>
                                 {colorPalette.hullSide.map(color => {
                                     const isSelected = selectedHullSide === color.id;
+                                    const isWhite = color.id === "white";
                                     return (
-                                        <button
+                                        <div
                                             key={color.id}
-                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
-                                            onClick={() => setSelectedHullSide(color.id)}
-                                            style={{
-                                                backgroundColor: color.hex,
-                                                background: color.gradient || color.hex,
-                                            }}
-                                            title={color.name}></button>
+                                            className={`boat-color-customizer__color-wrapper ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}>
+                                            <button
+                                                className='boat-color-customizer__color-option'
+                                                onClick={() => setSelectedHullSide(color.id)}
+                                                style={{
+                                                    backgroundColor: color.hex,
+                                                    background: color.gradient || color.hex,
+                                                    border: isWhite
+                                                        ? "1px solid #BDBDBE"
+                                                        : undefined,
+                                                }}
+                                                title={color.name}></button>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -225,16 +232,23 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             <div className='boat-color-customizer__colors'>
                                 {colorPalette.bootStripe.map(color => {
                                     const isSelected = selectedBootStripe === color.id;
+                                    const isWhite = color.id === "white";
                                     return (
-                                        <button
+                                        <div
                                             key={color.id}
-                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
-                                            onClick={() => setSelectedBootStripe(color.id)}
-                                            style={{
-                                                backgroundColor: color.hex,
-                                                background: color.gradient || color.hex,
-                                            }}
-                                            title={color.name}></button>
+                                            className={`boat-color-customizer__color-wrapper ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}>
+                                            <button
+                                                className='boat-color-customizer__color-option'
+                                                onClick={() => setSelectedBootStripe(color.id)}
+                                                style={{
+                                                    backgroundColor: color.hex,
+                                                    background: color.gradient || color.hex,
+                                                    border: isWhite
+                                                        ? "1px solid #BDBDBE"
+                                                        : undefined,
+                                                }}
+                                                title={color.name}></button>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -246,16 +260,23 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                             <div className='boat-color-customizer__colors'>
                                 {colorPalette.hullBottom.map(color => {
                                     const isSelected = selectedHullBottom === color.id;
+                                    const isWhite = color.id === "white";
                                     return (
-                                        <button
+                                        <div
                                             key={color.id}
-                                            className={`boat-color-customizer__color-option ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}
-                                            onClick={() => setSelectedHullBottom(color.id)}
-                                            style={{
-                                                backgroundColor: color.hex,
-                                                background: color.gradient || color.hex,
-                                            }}
-                                            title={color.name}></button>
+                                            className={`boat-color-customizer__color-wrapper ${isSelected ? "boat-color-customizer__color-option--selected" : ""}`}>
+                                            <button
+                                                className='boat-color-customizer__color-option'
+                                                onClick={() => setSelectedHullBottom(color.id)}
+                                                style={{
+                                                    backgroundColor: color.hex,
+                                                    background: color.gradient || color.hex,
+                                                    border: isWhite
+                                                        ? "1px solid #BDBDBE"
+                                                        : undefined,
+                                                }}
+                                                title={color.name}></button>
+                                        </div>
                                     );
                                 })}
                             </div>
