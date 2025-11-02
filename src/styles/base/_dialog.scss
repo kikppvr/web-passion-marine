@@ -1,0 +1,128 @@
+// @use "../../base/_base" as base;
+
+// Dialog Overlay
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+
+    &[data-state="open"] {
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    &[data-state="closed"] {
+        animation: fadeOut 0.2s ease-out;
+    }
+}
+
+// Dialog Content
+.dialog-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1101;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    outline: none;
+
+    // Size variants
+    &--sm {
+        max-width: 384px; // max-w-sm
+    }
+
+    &--md {
+        max-width: 448px; // max-w-md
+    }
+
+    &--lg {
+        max-width: 512px; // max-w-lg
+    }
+
+    &--xl {
+        max-width: 576px; // max-w-xl
+    }
+
+    &--full {
+        max-width: 100%;
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        padding: 0;
+        left: 0;
+        top: 0;
+        transform: none;
+    }
+
+    // Animations
+    &[data-state="open"] {
+        animation: dialogSlideIn 0.3s ease-out;
+    }
+
+    &[data-state="closed"] {
+        animation: dialogSlideOut 0.3s ease-out;
+    }
+
+    // Remove animations for fullscreen
+    &--full[data-state="open"],
+    &--full[data-state="closed"] {
+        animation: none;
+    }
+}
+
+// Specific Modal Classes
+.modal-document {
+    // Styles สำหรับ DocumentModal
+}
+
+.modal-confirm {
+    // Styles สำหรับ ConfirmModal
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes dialogSlideOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
+    }
+}
