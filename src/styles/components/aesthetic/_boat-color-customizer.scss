@@ -27,27 +27,39 @@
     @include base.media-down(mobile) {
         height: 300px;
     }
+
+    @include base.media-down(mini-mobile) {
+        height: 250px;
+    }
 }
 
 .boat-color-customizer__boat {
-    // background-image: url("/images/our-services/aesthetic-solutions/boat-customizer/boat.webp");
+    background-image: url("/images/our-services/aesthetic-solutions/boat-customizer/boat.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    // width: 830px;
+    // width: 100%;
     // height: 100%;
+    width: 850px;
+    height: 100%;
 
-    // @include base.media-down(tablet) {
-    //     width: 600px;
-    // }
+    @include base.media-up(wide) {
+        width: 1100px;
+    }
 
-    // @include base.media-down(mobile) {
-    //     width: 350px;
-    // }
+    @include base.media-down(tablet) {
+        width: 600px;
+    }
+
+    @include base.media-down(mobile) {
+        width: 370px;
+    }
+
+    @include base.media-down(mini-mobile) {
+        width: 300px;
+    }
 }
 
 .boat-color-customizer__hull-side,
@@ -91,78 +103,60 @@
 
 .boat-color-customizer__colors {
     display: flex;
-    gap: 2px;
-
-    @include base.media-down(laptop) {
-        gap: 4px;
-    }
+    gap: 6px;
 
     @include base.media-down(tablet) {
         gap: 2px;
     }
 
     @include base.media-down(mobile) {
-        width: 100%;
-        gap: 2px;
+        gap: 4px;
     }
 }
 
 .boat-color-customizer__color-wrapper {
     position: relative;
-    width: 58px;
-    height: 58px;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
+    width: auto;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    padding: 2px;
 
     &.boat-color-customizer__color-option--selected {
         border: 2px solid var(--black);
     }
 
-    @include base.media-down(laptop) {
-        width: 42px;
-        height: 42px;
-    }
-
     @include base.media-down(tablet) {
-        width: 32px;
-        height: 32px;
+        padding: 1px;
     }
 
     @include base.media-down(mobile) {
-        flex: 1;
-        width: auto;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        min-width: 0;
         padding: 2px;
     }
+
+    // @include base.media-down(mobile) {
+    //     flex: 1;
+    //     width: auto;
+    //     height: auto;
+    //     aspect-ratio: 1 / 1;
+    //     min-width: 0;
+    //     padding: 2px;
+    // }
 }
 
 .boat-color-customizer__color-option {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-
-    @include base.media-down(laptop) {
-        width: 36px;
-        height: 36px;
-    }
-
-    @include base.media-down(tablet) {
-        width: 26px;
-        height: 26px;
-    }
-
-    @include base.media-down(mobile) {
-        width: 100%;
-        height: 100%;
-    }
 }
 
 .boat-color-customizer__color-option:hover {

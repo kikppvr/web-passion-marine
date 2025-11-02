@@ -51,7 +51,7 @@ export const DocumentModal = ({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent size='full' className={cn(variantStyles[variant], className)}>
+            <DialogContent size='md' className={cn(variantStyles[variant], className)}>
                 {/* Close Button */}
                 <DialogClose asChild>
                     <button aria-label='Close dialog'>✕</button>

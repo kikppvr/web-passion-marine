@@ -528,21 +528,28 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
-                            <PrimaryButton
+                            {/* <PrimaryButton
                                 theme='dark'
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}
                                 onClick={confirmDialog.open}>
                                 View Document
+                            </PrimaryButton> */}
+
+                            <PrimaryButton
+                                theme='dark'
+                                icon='ph-fill ph-file-text'
+                                noIconRotate={true}>
+                                View Document
                             </PrimaryButton>
 
-                            <DocumentModal
+                            {/* <DocumentModal
                                 open={confirmDialog.isOpen}
                                 onOpenChange={confirmDialog.setIsOpen}
                                 title='Title'
                                 onConfirm={handleDelete}
                                 className='modal-document'
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>
