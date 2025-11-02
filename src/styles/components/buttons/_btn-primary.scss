@@ -120,3 +120,17 @@
         }
     }
 }
+
+.btn-primary--no-icon-rotate {
+    &:hover {
+        .btn-icon {
+            transform: none !important;
+        }
+    }
+
+    &.btn-primary--revert:hover {
+        .btn-icon {
+            transform: rotate(180deg) !important;
+        }
+    }
+}

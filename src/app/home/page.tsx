@@ -1,20 +1,24 @@
 "use client";
-
+import Link from "next/link";
+import Image from "next/image";
+//components
 import { Header } from "@/components/ui/layout";
 import { VideoHeroBanner, SwiperSlider } from "@/components/ui/media";
 import { BusinessCard, CharterCard, NewsCard, PortfolioCard } from "@/components/ui/cards";
 import { LanguageToggle } from "@/components/LanguageSwitcher";
 import { Footer } from "@/components/ui/layout";
+import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import { DocumentModal } from "@/components/ui/dialog/DocumentModal";
+//contexts
 import { useLanguage } from "@/contexts/LanguageContext";
-import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
+import { useAOS } from "@/hooks/useAOS";
+import { useDialog } from "@/components/ui/dialog";
+import CountUp from "react-countup";
+//styles
 import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
-import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
-import { useAOS } from "@/hooks/useAOS";
-import CountUp from "react-countup";
 
 export default function HeaderPage() {
     const router = useRouter();
@@ -22,6 +26,12 @@ export default function HeaderPage() {
     const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isStatsVisible, setIsStatsVisible] = useState(false);
     const { language } = useLanguage();
+    const confirmDialog = useDialog();
+
+    const handleDelete = () => {
+        // Delete logic
+        console.log("Deleted!");
+    };
 
     // Initialize AOS
     useAOS();
@@ -518,7 +528,21 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
-                            <PrimaryButton theme='dark'>View Document</PrimaryButton>
+                            <PrimaryButton
+                                theme='dark'
+                                icon='ph-fill ph-file-text'
+                                noIconRotate={true}
+                                onClick={confirmDialog.open}>
+                                View Document
+                            </PrimaryButton>
+
+                            <DocumentModal
+                                open={confirmDialog.isOpen}
+                                onOpenChange={confirmDialog.setIsOpen}
+                                title='Title'
+                                onConfirm={handleDelete}
+                                className='modal-document'
+                            />
                         </div>
                     </div>
                 </div>

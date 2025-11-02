@@ -5,10 +5,11 @@ export interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButto
     children: React.ReactNode;
     icon?: string;
     theme?: "light" | "dark" | "revert";
+    noIconRotate?: boolean;
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
-    ({ className, children, icon, theme = "light", ...props }, ref) => {
+    ({ className, children, icon, theme = "light", noIconRotate = false, ...props }, ref) => {
         const defaultIcon = "ph ph-arrow-right";
         const iconClass = icon || defaultIcon;
 
@@ -16,6 +17,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
             "btn-primary",
             theme === "dark" && "btn-primary--dark",
             theme === "revert" && "btn-primary--revert",
+            noIconRotate && "btn-primary--no-icon-rotate",
             className
         );
 
