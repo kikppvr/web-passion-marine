@@ -518,7 +518,12 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
-                            <PrimaryButton theme='dark'>View Document</PrimaryButton>
+                            <PrimaryButton
+                                theme='dark'
+                                icon='ph-fill ph-file-text'
+                                noIconRotate={true}>
+                                View Document
+                            </PrimaryButton>
                         </div>
                     </div>
                 </div>
