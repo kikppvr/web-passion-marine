@@ -62,7 +62,8 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 {
                     error: "Email service is not configured",
-                    details: "Please configure SMTP settings (SMTP_HOST, SMTP_USER, SMTP_PASS, FROM_EMAIL) in your environment variables.",
+                    details:
+                        "Please configure SMTP settings (SMTP_HOST, SMTP_USER, SMTP_PASS, FROM_EMAIL) in your environment variables.",
                 },
                 { status: 500 }
             );
