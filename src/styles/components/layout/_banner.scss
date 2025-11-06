@@ -106,7 +106,7 @@
 }
 
 .banner__title {
-    @include fonts.text-display-2;
+    @include fonts.text-display-3;
     @include fonts.font-semibold;
     color: var(--white);
     text-transform: uppercase;

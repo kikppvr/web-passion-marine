@@ -5,6 +5,9 @@ import "@/styles/page/overview-services.scss";
 import Image from "next/image";
 import { ServiceCard } from "@/components/ui/cards";
 import { useRouter } from "next/navigation";
+import { useAOS } from "@/hooks/useAOS";
+//styles
+import "aos/dist/aos.css";
 
 export default function OverviewServicesPage() {
     const router = useRouter();
@@ -19,18 +22,31 @@ export default function OverviewServicesPage() {
         ],
     };
 
+    // Initialize AOS
+    useAOS();
+
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
             <div className='overview-services bg-blue-abstract'>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
+                        <h2
+                            className='text-h1 font-semibold uppercase text-[var(--blue-500)]'
+                            data-aos='fade-up'
+                            data-aos-delay='200'
+                            data-aos-duration='800'
+                            data-aos-easing='ease-out-cubic'>
                             <div>Redefining Your Boating </div>
                             <div>Experience with Passion Marine</div>
                         </h2>
                         <div className='mt-4 flex justify-end'>
                             <div className='w-full lg:w-9/12'>
-                                <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
+                                <p
+                                    className='text-h5 text-left font-normal text-[var(--grey-600)]'
+                                    data-aos='fade-up'
+                                    data-aos-delay='400'
+                                    data-aos-duration='800'
+                                    data-aos-easing='ease-out-cubic'>
                                     At Passion Marine, we combine aerospace-level engineering with a
                                     deep love for marine exploration. Founded by a team of aerospace
                                     engineers who are passionate about boats, our mission is to
@@ -43,7 +59,12 @@ export default function OverviewServicesPage() {
                 <section className='our-achievements'>
                     <div className='container'>
                         <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='600'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         98%
@@ -56,7 +77,12 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='700'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         120+
@@ -69,7 +95,12 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='800'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         15+
@@ -82,7 +113,12 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='900'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         3x
@@ -96,7 +132,12 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='1000'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         24/7
@@ -114,18 +155,28 @@ export default function OverviewServicesPage() {
                 </section>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h2 className='text-h2 mb-10 text-center font-semibold text-[var(--blue-500)] md:text-left'>
+                        <h2
+                            className='text-h2 mb-10 text-center font-semibold text-[var(--blue-500)] md:text-left'
+                            data-aos='fade-up'
+                            data-aos-delay='200'
+                            data-aos-duration='800'
+                            data-aos-easing='ease-out-cubic'>
                             Comprehensive Services
                         </h2>
                         <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='300'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='flex flex-col gap-3'>
                                     <Image
                                         src='/images/our-services/overview-services/comprehensive-01.svg'
                                         alt='Custom Boat Design'
                                         width={50}
                                         height={50}
-                                        className='mx-auto md:mx-0'
+                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
                                     />
                                     <div className='text-h5 font-semibold text-[var(--blue-500)]'>
                                         Custom Boat Design
@@ -135,14 +186,19 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='400'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='flex flex-col gap-3'>
                                     <Image
                                         src='/images/our-services/overview-services/comprehensive-02.svg'
                                         alt='High-Performance Builds'
                                         width={50}
                                         height={50}
-                                        className='mx-auto md:mx-0'
+                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
                                     />
                                     <div className='text-h5 font-semibold text-[var(--blue-500)]'>
                                         High-Performance Builds
@@ -153,14 +209,19 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='500'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='flex flex-col gap-3'>
                                     <Image
                                         src='/images/our-services/overview-services/comprehensive-03.svg'
                                         alt='Marine Technology Integration'
                                         width={50}
                                         height={50}
-                                        className='mx-auto md:mx-0'
+                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
                                     />
                                     <div className='text-h5 font-semibold text-[var(--blue-500)]'>
                                         Marine Technology Integration
@@ -171,14 +232,19 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-span-1'>
+                            <div
+                                className='col-span-1'
+                                data-aos='fade-up'
+                                data-aos-delay='600'
+                                data-aos-duration='700'
+                                data-aos-easing='ease-out-cubic'>
                                 <div className='flex flex-col gap-3'>
                                     <Image
                                         src='/images/our-services/overview-services/comprehensive-04.svg'
                                         alt='After-sales Service & Maintenance'
                                         width={50}
                                         height={50}
-                                        className='mx-auto md:mx-0'
+                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
                                     />
                                     <div className='text-h5 font-semibold text-[var(--blue-500)]'>
                                         After-sales Service & Maintenance
@@ -191,34 +257,45 @@ export default function OverviewServicesPage() {
                         </div>
                     </div>
                 </section>
-            </div>
-
-            <section className='section section--space-y'>
-                <div className='container'>
-                    <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6'>
-                        <ServiceCard
-                            title='Engineering Solutions'
-                            description='Your Trusted Partner in After-Sales & Maintenance'
-                            imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
-                            imageAlt='Engineering Solutions'
-                            icon={<i className='ph ph-arrow-up-right'></i>}
-                            onClick={() => {
-                                router.push("/services/engineering-solutions");
-                            }}
-                        />
-                        <ServiceCard
-                            title='Aesthetic Solutions'
-                            description="Elevate Your Boat's Style and Comfort"
-                            imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
-                            imageAlt='Aesthetic Solutions'
-                            icon={<i className='ph ph-arrow-up-right'></i>}
-                            onClick={() => {
-                                router.push("/services/aesthetic-solutions");
-                            }}
-                        />
+                <section className='section section--space-y'>
+                    <div className='container'>
+                        <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6'>
+                            <div
+                                data-aos='fade-up'
+                                data-aos-delay='200'
+                                data-aos-duration='800'
+                                data-aos-easing='ease-out-cubic'>
+                                <ServiceCard
+                                    title='Engineering Solutions'
+                                    description='Your Trusted Partner in After-Sales & Maintenance'
+                                    imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
+                                    imageAlt='Engineering Solutions'
+                                    icon={<i className='ph ph-arrow-up-right'></i>}
+                                    onClick={() => {
+                                        router.push("/services/engineering-solutions");
+                                    }}
+                                />
+                            </div>
+                            <div
+                                data-aos='fade-up'
+                                data-aos-delay='400'
+                                data-aos-duration='800'
+                                data-aos-easing='ease-out-cubic'>
+                                <ServiceCard
+                                    title='Aesthetic Solutions'
+                                    description="Elevate Your Boat's Style and Comfort"
+                                    imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
+                                    imageAlt='Aesthetic Solutions'
+                                    icon={<i className='ph ph-arrow-up-right'></i>}
+                                    onClick={() => {
+                                        router.push("/services/aesthetic-solutions");
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </MainLayout>
     );
 }

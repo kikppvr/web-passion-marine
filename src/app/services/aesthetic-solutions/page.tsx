@@ -109,7 +109,7 @@ export default function AestheticSolutionsPage() {
                                 loop={true}
                             />
                         </div>
-                        <div>
+                        <div className='lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Teak & EVA Flooring
                             </h3>
@@ -123,7 +123,7 @@ export default function AestheticSolutionsPage() {
                         </div>
                     </div>
                     <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                        <div className='order-2 lg:order-1'>
+                        <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Marine Upholstery
                             </h3>
@@ -157,7 +157,7 @@ export default function AestheticSolutionsPage() {
                                 loop={true}
                             />
                         </div>
-                        <div>
+                        <div className='lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Gelcoat Repair & Finishing
                             </h3>
@@ -171,7 +171,7 @@ export default function AestheticSolutionsPage() {
                         </div>
                     </div>
                     <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                        <div className='order-2 lg:order-1'>
+                        <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Fiberglass Furniture
                             </h3>
@@ -205,7 +205,7 @@ export default function AestheticSolutionsPage() {
                                 loop={true}
                             />
                         </div>
-                        <div>
+                        <div className='lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Interior Styling
                             </h3>

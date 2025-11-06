@@ -316,8 +316,12 @@
 
 .charter-pricing__card-details {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 24px;
     margin-bottom: 26px;
+
+    @include base.media-down(laptop) {
+        padding: 0 16px;
+    }
 }
 
 .charter-pricing__card-detail {
