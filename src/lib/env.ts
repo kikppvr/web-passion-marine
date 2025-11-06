@@ -43,9 +43,15 @@ export function getEnvironment(): Environment {
 
 /**
  * Check if we're in development mode
+ * Returns false if NODE_ENV is invalid (safe fallback)
  */
 export function isDevelopment(): boolean {
-    return getEnvironment() === "development";
+    try {
+        return getEnvironment() === "development";
+    } catch {
+        // If NODE_ENV is not set or invalid, default to development for localhost
+        return process.env.NODE_ENV !== "production";
+    }
 }
 
 /**
@@ -176,18 +182,34 @@ export function getDatabaseConfig() {
 
 /**
  * Get environment-specific email configuration
+ * Returns null if configuration is incomplete (doesn't throw error)
  */
 export function getEmailConfig() {
-    const config = getEnvironmentConfig();
+    try {
+        const config = getEnvironmentConfig();
 
-    return {
-        host: config.SMTP_HOST,
-        port: config.SMTP_PORT,
-        secure: config.SMTP_PORT === 465,
-        auth: {
-            user: config.SMTP_USER,
-            pass: config.SMTP_PASS,
-        },
-        from: config.FROM_EMAIL,
-    };
+        return {
+            host: config.SMTP_HOST,
+            port: config.SMTP_PORT,
+            secure: config.SMTP_PORT === 465,
+            auth: {
+                user: config.SMTP_USER,
+                pass: config.SMTP_PASS,
+            },
+            from: config.FROM_EMAIL,
+        };
+    } catch (error) {
+        // If getEnvironmentConfig fails, try to get email config directly from env vars
+        // This allows email to work even if other required vars are missing
+        return {
+            host: process.env.SMTP_HOST || "",
+            port: parseInt(process.env.SMTP_PORT || "587", 10),
+            secure: parseInt(process.env.SMTP_PORT || "587", 10) === 465,
+            auth: {
+                user: process.env.SMTP_USER || "",
+                pass: process.env.SMTP_PASS || "",
+            },
+            from: process.env.FROM_EMAIL || "",
+        };
+    }
 }

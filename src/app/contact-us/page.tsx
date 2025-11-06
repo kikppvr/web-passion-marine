@@ -29,6 +29,8 @@ export default function ContactUsPage() {
     });
 
     const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
     const bannerProps = {
         title: "Contact Us",
@@ -92,12 +94,71 @@ export default function ContactUsPage() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (validateForm()) {
-            console.log("Form submitted:", formData);
-            // Handle form submission here
-            alert("Thank you for your message! We will get back to you soon.");
+
+        if (!validateForm()) {
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    telephone: formData.telephone,
+                    subject: formData.subject,
+                    message: formData.message,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                // Log detailed error information
+                console.error("API Error:", {
+                    status: response.status,
+                    error: data.error,
+                    details: data.details,
+                    stack: data.stack,
+                });
+                throw new Error(data.error || data.details || "Failed to send message");
+            }
+
+            // Success - reset form and show success message
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                telephone: "",
+                subject: "",
+                message: "",
+                acceptTerms: false,
+            });
+            setSubmitStatus("success");
+
+            // Clear success message after 5 seconds
+            setTimeout(() => {
+                setSubmitStatus(null);
+            }, 5000);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setSubmitStatus("error");
+
+            // Clear error message after 5 seconds
+            setTimeout(() => {
+                setSubmitStatus(null);
+            }, 5000);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -315,9 +376,39 @@ export default function ContactUsPage() {
                                         </span>
                                     )}
                                 </div>
+                                {submitStatus === "success" && (
+                                    <div
+                                        style={{
+                                            padding: "12px 16px",
+                                            backgroundColor: "#d4edda",
+                                            color: "#155724",
+                                            border: "1px solid #c3e6cb",
+                                            borderRadius: "5px",
+                                            marginBottom: "16px",
+                                        }}>
+                                        Thank you for your message! We will get back to you soon.
+                                    </div>
+                                )}
+                                {submitStatus === "error" && (
+                                    <div
+                                        style={{
+                                            padding: "12px 16px",
+                                            backgroundColor: "#f8d7da",
+                                            color: "#721c24",
+                                            border: "1px solid #f5c6cb",
+                                            borderRadius: "5px",
+                                            marginBottom: "16px",
+                                        }}>
+                                        Failed to send message. Please try again later.
+                                    </div>
+                                )}
                                 <div className='contact-form__submit'>
-                                    <BookNowButton type='submit' variant='default' showIcon={false}>
-                                        Submit
+                                    <BookNowButton
+                                        type='submit'
+                                        variant='default'
+                                        showIcon={false}
+                                        disabled={isSubmitting}>
+                                        {isSubmitting ? "Sending..." : "Submit"}
                                     </BookNowButton>
                                 </div>
                             </form>
