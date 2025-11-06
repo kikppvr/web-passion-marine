@@ -66,6 +66,59 @@ export default function ContactUsPage() {
         }
     };
 
+    const formatPhoneNumber = (value: string): string => {
+        // Remove all non-digit characters
+        const numbers = value.replace(/\D/g, "");
+
+        // Limit to 10 digits (Thai phone number format)
+        const limitedNumbers = numbers.slice(0, 10);
+
+        // Format as XXX-XXX-XXXX
+        if (limitedNumbers.length <= 3) {
+            return limitedNumbers;
+        } else if (limitedNumbers.length <= 6) {
+            return `${limitedNumbers.slice(0, 3)}-${limitedNumbers.slice(3)}`;
+        } else {
+            return `${limitedNumbers.slice(0, 3)}-${limitedNumbers.slice(3, 6)}-${limitedNumbers.slice(6)}`;
+        }
+    };
+
+    const handleTelephoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const formattedValue = formatPhoneNumber(e.target.value);
+        setFormData(prev => ({
+            ...prev,
+            telephone: formattedValue,
+        }));
+    };
+
+    const handleTelephoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        // Allow: backspace, delete, tab, escape, enter, and arrow keys
+        const allowedKeys = [
+            "Backspace",
+            "Delete",
+            "Tab",
+            "Escape",
+            "Enter",
+            "ArrowLeft",
+            "ArrowRight",
+            "ArrowUp",
+            "ArrowDown",
+        ];
+
+        // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+        if (
+            allowedKeys.includes(e.key) ||
+            (e.ctrlKey && ["a", "c", "v", "x"].includes(e.key.toLowerCase()))
+        ) {
+            return;
+        }
+
+        // Only allow numeric keys (0-9) from both main keyboard and numpad
+        if (!/^[0-9]$/.test(e.key)) {
+            e.preventDefault();
+        }
+    };
+
     const validateForm = (): boolean => {
         const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
 
@@ -308,9 +361,11 @@ export default function ContactUsPage() {
                                             type='tel'
                                             name='telephone'
                                             value={formData.telephone}
-                                            onChange={handleInputChange}
+                                            onChange={handleTelephoneChange}
+                                            onKeyDown={handleTelephoneKeyDown}
                                             className='contact-form__input'
-                                            placeholder='Enter your phone number'
+                                            placeholder='Enter your telephone'
+                                            maxLength={12}
                                         />
                                     </div>
                                 </div>
