@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { getEmailConfig, isDevelopment } from "@/lib/env";
+import { getEmailConfig } from "@/lib/env";
 
 interface ContactFormData {
     firstName: string;
@@ -38,18 +38,6 @@ export async function POST(request: NextRequest) {
 
         let transporter;
         let emailConfig;
-        let isDev = false;
-
-        // Check development mode safely
-        try {
-            isDev = isDevelopment();
-            console.log("🔧 Environment check - isDevelopment:", isDev);
-        } catch (envError) {
-            console.error("⚠️ Error checking development mode:", envError);
-            // Default to development if we can't determine
-            isDev = process.env.NODE_ENV !== "production";
-            console.log("🔧 Fallback - isDevelopment:", isDev);
-        }
 
         // Get email configuration (won't throw error)
         try {
@@ -65,91 +53,36 @@ export async function POST(request: NextRequest) {
             emailConfig = null;
         }
 
-        // Check if email is configured, or use test account in development
+        // Check if email is configured
         const hasValidConfig =
             emailConfig && emailConfig.host && emailConfig.auth?.user && emailConfig.auth?.pass;
 
         if (!hasValidConfig) {
-            console.log("📧 No valid SMTP config found");
-            if (isDev) {
-                // Use Ethereal Email for testing in development
-                try {
-                    console.log("No SMTP config found, using Ethereal Email for testing...");
-
-                    // Add timeout for Ethereal account creation
-                    const createAccountPromise = nodemailer.createTestAccount();
-                    const timeoutPromise = new Promise((_, reject) =>
-                        setTimeout(
-                            () => reject(new Error("Ethereal account creation timeout")),
-                            10000
-                        )
-                    );
-
-                    const testAccount = (await Promise.race([
-                        createAccountPromise,
-                        timeoutPromise,
-                    ])) as nodemailer.TestAccount;
-
-                    if (!testAccount || !testAccount.user || !testAccount.pass) {
-                        throw new Error("Failed to create valid Ethereal test account");
-                    }
-
-                    transporter = nodemailer.createTransport({
-                        host: "smtp.ethereal.email",
-                        port: 587,
-                        secure: false,
-                        auth: {
-                            user: testAccount.user,
-                            pass: testAccount.pass,
-                        },
-                    });
-                    emailConfig = {
-                        host: "smtp.ethereal.email",
-                        port: 587,
-                        secure: false,
-                        auth: {
-                            user: testAccount.user,
-                            pass: testAccount.pass,
-                        },
-                        from: "test@ethereal.email",
-                    };
-                    console.log("✅ Using Ethereal Email for testing");
-                } catch (testError) {
-                    console.error("❌ Failed to create Ethereal test account:", testError);
-                    const errorMsg =
-                        testError instanceof Error ? testError.message : String(testError);
-                    return NextResponse.json(
-                        {
-                            error: "Email service is not configured. Please set up SMTP in .env.local or check your connection.",
-                            details: `Ethereal Email error: ${errorMsg}`,
-                        },
-                        { status: 500 }
-                    );
-                }
-            } else {
-                // Production requires real SMTP
-                console.error("Email configuration is missing in production");
-                return NextResponse.json(
-                    { error: "Email service is not configured" },
-                    { status: 500 }
-                );
-            }
-        } else {
-            // Use configured SMTP
-            if (!emailConfig) {
-                throw new Error("Email config is null but hasValidConfig is true");
-            }
-            transporter = nodemailer.createTransport({
-                host: emailConfig.host,
-                port: emailConfig.port,
-                secure: emailConfig.secure, // true for 465, false for other ports
-                auth: {
-                    user: emailConfig.auth.user,
-                    pass: emailConfig.auth.pass,
+            console.error("❌ Email configuration is missing");
+            return NextResponse.json(
+                {
+                    error: "Email service is not configured",
+                    details: "Please configure SMTP settings (SMTP_HOST, SMTP_USER, SMTP_PASS, FROM_EMAIL) in your environment variables.",
                 },
-            });
-            console.log(`✅ Using SMTP: ${emailConfig.host}:${emailConfig.port}`);
+                { status: 500 }
+            );
         }
+
+        // Use configured SMTP for all environments (dev, stg, prd)
+        if (!emailConfig) {
+            throw new Error("Email config is null but hasValidConfig is true");
+        }
+
+        transporter = nodemailer.createTransport({
+            host: emailConfig.host,
+            port: emailConfig.port,
+            secure: emailConfig.secure, // true for 465, false for other ports
+            auth: {
+                user: emailConfig.auth.user,
+                pass: emailConfig.auth.pass,
+            },
+        });
+        console.log(`✅ Using SMTP: ${emailConfig.host}:${emailConfig.port}`);
 
         // Email content
         if (!emailConfig) {
@@ -340,21 +273,6 @@ This email was sent from the Passion Marine contact form.
         const info = await transporter.sendMail(mailOptions);
 
         console.log("📧 Email sent successfully! Message ID:", info.messageId);
-
-        // In development with Ethereal, return preview URL
-        if (isDev && emailConfig && emailConfig.host === "smtp.ethereal.email") {
-            const previewUrl = nodemailer.getTestMessageUrl(info);
-            if (previewUrl) {
-                console.log("📧 Preview URL:", previewUrl);
-                return NextResponse.json(
-                    {
-                        message: "Email sent successfully (test mode)",
-                        previewUrl: previewUrl,
-                    },
-                    { status: 200 }
-                );
-            }
-        }
 
         return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
     } catch (error) {
