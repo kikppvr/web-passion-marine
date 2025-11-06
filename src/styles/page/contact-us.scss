@@ -256,9 +256,7 @@
 }
 
 .contact-form__checkbox {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
+    // Checkbox styles are handled by flex container in component
 }
 
 .contact-form__checkbox-input {
@@ -298,4 +296,163 @@
     display: flex;
     justify-content: center;
     margin-top: 16px;
+}
+
+// Contact Form Modal Styles
+.contact-form-modal {
+    .dialog-content {
+        padding: 48px 32px;
+        text-align: center;
+
+        @include base.media-down(tablet) {
+            padding: 32px 24px;
+        }
+    }
+}
+
+.contact-form-modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.contact-form-modal__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    animation: iconBounce 0.6s ease-out;
+
+    &--success {
+        background-color: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+
+        i {
+            animation: checkmarkDraw 0.6s ease-out;
+        }
+    }
+
+    &--error {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+
+        i {
+            animation: errorShake 0.6s ease-out;
+        }
+    }
+
+    @include base.media-down(tablet) {
+        width: 100px;
+        height: 100px;
+
+        i {
+            font-size: 48px !important;
+        }
+    }
+}
+
+.contact-form-modal__title {
+    @include fonts.text-h5;
+    @include fonts.font-bold;
+    color: var(--grey-900);
+    margin: 0;
+}
+
+.contact-form-modal__message {
+    @include fonts.text-body;
+    @include fonts.font-normal;
+    color: var(--grey-600);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 400px;
+}
+
+.contact-form-modal__error-details {
+    width: 100%;
+    text-align: left;
+    background-color: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+}
+
+.contact-form-modal__error-label {
+    @include fonts.text-small;
+    @include fonts.font-semibold;
+    color: var(--grey-700);
+    margin: 0 0 8px 0;
+}
+
+.contact-form-modal__error-text {
+    @include fonts.text-small;
+    @include fonts.font-normal;
+    color: #ef4444;
+    margin: 0;
+    word-break: break-word;
+}
+
+.contact-form-modal__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+    width: 100%;
+
+    button {
+        min-width: 120px;
+    }
+}
+
+// Animations
+@keyframes iconBounce {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes checkmarkDraw {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes errorShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-4px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(4px);
+    }
 }
