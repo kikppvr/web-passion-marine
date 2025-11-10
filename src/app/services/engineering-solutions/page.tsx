@@ -80,7 +80,7 @@ export default function EngineeringSolutionsPage() {
                 </section>
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                             <div>
                                 <GallerySlider
                                     className='gallery-engineering-solutions'
@@ -91,7 +91,7 @@ export default function EngineeringSolutionsPage() {
                                     loop={true}
                                 />
                             </div>
-                            <div>
+                            <div className='lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                     Engine Repair & Maintenance
                                 </h3>
@@ -104,8 +104,8 @@ export default function EngineeringSolutionsPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div className='order-2 lg:order-1'>
+                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                            <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                     Boat Upgrades
                                 </h3>
@@ -128,7 +128,7 @@ export default function EngineeringSolutionsPage() {
                                 />
                             </div>
                         </div>
-                        <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                             <div>
                                 <GallerySlider
                                     className='gallery-engineering-solutions'
@@ -139,7 +139,7 @@ export default function EngineeringSolutionsPage() {
                                     loop={true}
                                 />
                             </div>
-                            <div>
+                            <div className='lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                     Electronics & Solar
                                 </h3>
@@ -153,7 +153,7 @@ export default function EngineeringSolutionsPage() {
                             </div>
                         </div>
                         <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
-                            <div className='order-2 lg:order-1'>
+                            <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                     Structure Repair
                                 </h3>

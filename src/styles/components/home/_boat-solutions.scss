@@ -167,8 +167,10 @@
     }
 
     .swiper-button-next-custom {
+        margin-right: -25px;
         @include base.media-down(laptop) {
             right: 0;
+            margin-right: 0;
         }
     }
 

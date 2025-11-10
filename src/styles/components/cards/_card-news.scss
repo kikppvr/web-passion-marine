@@ -2,6 +2,7 @@
 @use "../../base/text" as text;
 @use "../buttons/btn-readmore" as btn-readmore;
 @use "../../base/_font-mixins" as fonts;
+@use "../../base/_base" as base;
 
 // News Card Component Styles
 .card-news {
@@ -50,13 +51,17 @@
     }
 
     .card-news__content {
-        padding: 24px 16px;
+        padding: 24px;
         border-radius: 0 0 5px 5px;
         display: flex;
         flex-direction: column;
         flex: 1;
         border: 1px solid var(--grey-100);
         border-top: none;
+
+        @include base.media-down(tablet) {
+            padding: 24px 16px;
+        }
     }
 
     .card-news__date {

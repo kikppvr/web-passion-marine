@@ -69,7 +69,7 @@
     }
 
     @include base.media-down(tablet) {
-        font-size: var(--text-h3); // 33px
+        font-size: var(--text-display-3); // 57px
     }
 }
 

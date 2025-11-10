@@ -17,6 +17,14 @@
             @include image.baseRatioImg(70%);
         }
 
+        @include base.media-down(tablet) {
+            @include image.baseRatioImg(56%);
+        }
+
+        @include base.media-down(mobile) {
+            @include image.baseRatioImg(70%);
+        }
+
         img {
             border: 0;
         }

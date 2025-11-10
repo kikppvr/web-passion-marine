@@ -143,15 +143,23 @@
 }
 
 .charter-specifications-slider__label {
-    @include fonts.text-body;
+    @include fonts.text-h5;
     @include fonts.font-normal;
     color: var(--grey-600);
+
+    @include base.media-down(large) {
+        @include fonts.text-body;
+    }
 }
 
 .charter-specifications-slider__value {
-    @include fonts.text-body;
+    @include fonts.text-h5;
     @include fonts.font-semibold;
     color: var(--blue-500);
+
+    @include base.media-down(large) {
+        @include fonts.text-body;
+    }
 }
 
 .charter-specifications-slider__navigation {
@@ -316,8 +324,12 @@
 
 .charter-pricing__card-details {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 24px;
     margin-bottom: 26px;
+
+    @include base.media-down(laptop) {
+        padding: 0 16px;
+    }
 }
 
 .charter-pricing__card-detail {
@@ -582,7 +594,8 @@
     }
 
     @include base.media-down(mobile) {
-        right: 16px;
+        // right: 16px;
+        right: 0;
     }
 }
 

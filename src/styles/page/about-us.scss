@@ -17,6 +17,10 @@
 .section-card-mission {
     .card-mission {
         height: 100%;
+
+        @include base.media-down(tablet) {
+            height: 450px;
+        }
     }
 
     .card-mission__title {
@@ -70,7 +74,7 @@
     flex: 0 0 66.66%;
     display: flex;
     flex-direction: column;
-    padding-left: 48px;
+    padding-left: 60px;
 
     @include base.media-down(laptop) {
         flex: none;
@@ -85,6 +89,10 @@
     position: relative;
     padding-bottom: 46px;
 
+    @include base.media-down(laptop) {
+        padding-bottom: 30px;
+    }
+
     @include base.media-down(mobile) {
         padding-bottom: 24px;
     }
@@ -96,7 +104,7 @@
     &::before {
         content: "";
         position: absolute;
-        left: -48px;
+        left: -60px;
         top: 35px;
         width: 32px;
         height: 1px;
@@ -106,9 +114,9 @@
             top: 30px;
         }
 
-        @include base.media-down(tablet) {
-            top: 20px;
-        }
+        // @include base.media-down(tablet) {
+        //     top: 20px;
+        // }
 
         @include base.media-down(mobile) {
             display: none;
@@ -118,7 +126,7 @@
     &:after {
         content: "";
         position: absolute;
-        left: -48px;
+        left: -60px;
         top: 80px; // เริ่มจากตำแหน่งแรก
         bottom: 0; // ขยายลงไปจนสุด content
         width: 16px;
@@ -146,9 +154,9 @@
             background-size: 16px 40px;
         }
 
-        @include base.media-down(tablet) {
-            top: 60px;
-        }
+        // @include base.media-down(tablet) {
+        //     top: 70px;
+        // }
 
         @include base.media-down(mobile) {
             display: none;

@@ -36,6 +36,10 @@
     @include base.media-down(tablet) {
         top: 20px;
         right: 20px;
+        font-size: 25px;
+    }
+
+    @include base.media-down(mobile) {
         font-size: 30px;
     }
 }
@@ -50,6 +54,14 @@
 
     img {
         border: 0;
+    }
+
+    @include base.media-down(tablet) {
+        @include image.baseRatioImg(90%);
+    }
+
+    @include base.media-down(mobile) {
+        @include image.baseRatioImg(82%);
     }
 }
 

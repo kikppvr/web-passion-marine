@@ -252,7 +252,7 @@ body {
         }
 
         .text-display-3 {
-            font-size: var(--text-h3);
+            font-size: var(--text-display-3);
         }
 
         .text-h1 {
