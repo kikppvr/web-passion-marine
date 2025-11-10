@@ -98,7 +98,7 @@ export default function AestheticSolutionsPage() {
             </div>
             <section className='section section--space-bottom'>
                 <div className='container'>
-                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                         <div>
                             <GallerySlider
                                 className='gallery-esthetic-solutions'
@@ -122,7 +122,7 @@ export default function AestheticSolutionsPage() {
                             </div>
                         </div>
                     </div>
-                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                         <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Marine Upholstery
@@ -146,7 +146,7 @@ export default function AestheticSolutionsPage() {
                             />
                         </div>
                     </div>
-                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                         <div>
                             <GallerySlider
                                 className='gallery-esthetic-solutions'
@@ -170,7 +170,7 @@ export default function AestheticSolutionsPage() {
                             </div>
                         </div>
                     </div>
-                    <div className='mb-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
                         <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Fiberglass Furniture

@@ -126,7 +126,7 @@
     display: flex;
     align-items: center;
 
-    @include base.media-down(mobile) {
+    @include base.media-down(tablet) {
         display: none;
     }
 }

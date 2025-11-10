@@ -12,7 +12,7 @@
         @include image.baseRatioImg(55%);
 
         img {
-            border: none;
+            border: none !important;
         }
 
         @include base.media-down(laptop) {

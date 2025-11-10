@@ -141,10 +141,16 @@
     background: white;
     border-radius: 20px;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
-    padding: 64px;
+    padding: 48px;
 
+    @include base.media-down(laptop) {
+        padding: 64px;
+    }
     @include base.media-down(tablet) {
-        padding: 32px;
+        padding: 48px;
+    }
+    @include base.media-down(mobile) {
+        padding: 24px;
     }
 }
 
