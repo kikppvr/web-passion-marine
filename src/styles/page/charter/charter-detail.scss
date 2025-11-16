@@ -44,6 +44,10 @@
     @include fonts.font-semibold;
     color: var(--blue-500);
     margin-bottom: 24px;
+
+    // @include base.media-down(laptop) {
+    //     font-size: var(--text-h3); // 33px
+    // }
 }
 
 .charter-detail__hero-description {
@@ -63,27 +67,44 @@
 
 .charter-specifications-slider__main {
     display: flex;
-    gap: 32px;
+    gap: 48px;
     align-items: center;
     width: 100%;
     @include base.container;
 
+    @include base.media-down(large) {
+        gap: 32px;
+    }
+
     @include base.media-down(tablet) {
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    @include base.media-down(mobile) {
         flex-direction: column;
         gap: 24px;
     }
 }
 
 .charter-specifications-slider__image {
-    flex: 0 0 55%;
+    flex: 0 0 50%;
     border-radius: 5px;
     overflow: hidden;
+
+    @include base.media-down(large) {
+        flex: 0 0 55%;
+    }
 
     @include base.media-down(laptop) {
         flex: 0 0 60%;
     }
 
     @include base.media-down(tablet) {
+        flex: 0 0 55%;
+    }
+
+    @include base.media-down(mobile) {
         flex: none;
         width: 100%;
     }
@@ -100,9 +121,7 @@
 .charter-specifications-slider__content {
     flex: 1;
 
-    // max-width: 445px;
-
-    @include base.media-down(tablet) {
+    @include base.media-down(mobile) {
         width: 100%;
     }
 }
@@ -168,6 +187,22 @@
     padding: 8px 0;
     width: 100%;
     @include base.container;
+
+    &--mobile {
+        display: block;
+
+        @include base.media-up(tablet) {
+            display: none;
+        }
+    }
+
+    &--desktop {
+        display: none;
+
+        @include base.media-up(tablet) {
+            display: block;
+        }
+    }
 }
 
 .charter-specifications-slider__navigation-wrapper {
@@ -179,7 +214,7 @@
     padding-bottom: 8px;
 
     @include base.media-down(tablet) {
-        gap: 12px;
+        gap: 4px;
     }
 
     &::-webkit-scrollbar {
@@ -253,6 +288,10 @@
     @include fonts.font-semibold;
     color: var(--blue-500);
     margin-bottom: 40px;
+
+    // @include base.media-down(laptop) {
+    //     font-size: var(--text-h3); // 33px
+    // }
 }
 
 .charter-pricing__cards {
@@ -260,8 +299,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 
+    @include base.media-down(laptop) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
     @include base.media-down(tablet) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     @include base.media-down(mobile) {
@@ -301,6 +346,14 @@
     @include fonts.text-h4;
     @include fonts.font-semibold;
     color: white;
+
+    @include base.media-down(laptop) {
+        font-size: var(--text-h6); // 19px
+    }
+
+    @include base.media-down(tablet) {
+        font-size: var(--text-h5); // 23px
+    }
 }
 
 .charter-pricing__card-price {
@@ -314,6 +367,10 @@
     @include fonts.text-h1;
     @include fonts.font-semibold;
     color: var(--blue-500);
+
+    // @include base.media-down(laptop) {
+    //     font-size: var(--text-h3); // 33px
+    // }
 }
 
 .charter-pricing__card-currency {
@@ -370,21 +427,23 @@
 
     @include base.media-down(tablet) {
         flex-direction: column;
-        text-align: center;
         position: relative;
         overflow: hidden;
 
-        text-align: center;
         :hover {
             .charter-pricing__navigation-wrapper {
                 opacity: 1;
             }
         }
-        align-items: center;
+    }
+
+    @include base.media-down(mobile) {
+        text-align: center;
     }
 
     @include base.media-down(mobile) {
         padding: 26px 24px;
+        align-items: center;
     }
 }
 
@@ -417,7 +476,7 @@
     flex-shrink: 0;
     transition: transform 0.3s ease;
 
-    @include base.media-down(tablet) {
+    @include base.media-down(mobile) {
         flex-direction: column;
         text-align: center;
         position: relative;
@@ -572,7 +631,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 0;
-    opacity: 0;
+    opacity: 1;
     transition: all 0.3s ease;
     pointer-events: none;
     @include base.container;
@@ -658,8 +717,11 @@
 }
 
 .charter-pricing__button-next {
+    margin-right: -25px;
+
     @include base.media-down(tablet) {
         right: 0;
+        margin-right: 0;
     }
 }
 

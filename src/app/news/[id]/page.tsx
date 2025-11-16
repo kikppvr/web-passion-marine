@@ -60,37 +60,55 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                 {/* News Content Section */}
                 <section className='section section--space-y portfolio-hero'>
                     <div className='container'>
-                        <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
+                                <h1 className='text-h1 mb-4 text-[var(--blue-500)] xl:mb-6'>
+                                    {newsDetail.title}
+                                </h1>
+                                <p className='text-body lg:text-lead-2 text-[var(--grey-600)]'>
+                                    {newsDetail.date}
+                                </p>
+                            </div>
+                        </div>
+                        {/* <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
                             <h1 className='text-h1 text-[var(--blue-500)]'>{newsDetail.title}</h1>
                             <p className='text-body lg:text-lead-2 text-[var(--grey-600)]'>
                                 {newsDetail.date}
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
                 {/* Main Image and Gallery */}
                 <section className='section news-gallery'>
                     <div className='container'>
-                        <GalleryWithThumbnails
-                            mainImage={newsDetail.mainImage}
-                            mainImageAlt={newsDetail.title}
-                            gallery={newsDetail.gallery}
-                        />
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
+                                <GalleryWithThumbnails
+                                    mainImage={newsDetail.mainImage}
+                                    mainImageAlt={newsDetail.title}
+                                    gallery={newsDetail.gallery}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 {/* Content Section */}
                 <section className='section section--space-none news-content'>
                     <div className='container'>
-                        <div className='text-center lg:px-16 xl:px-28'>
-                            {newsDetail.content.map((paragraph, index) => (
-                                <p
-                                    key={index}
-                                    className='text-body mb-4 text-[var(--grey-800)] last:mb-0'>
-                                    {paragraph}
-                                </p>
-                            ))}
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
+                                <div className='text-center'>
+                                    {newsDetail.content.map((paragraph, index) => (
+                                        <p
+                                            key={index}
+                                            className='text-body mb-4 text-[var(--grey-800)] last:mb-0'>
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

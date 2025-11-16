@@ -51,13 +51,17 @@
         height: 75vh;
         padding: 64px 0;
 
+        @include base.media-down(laptop) {
+            height: 40vh;
+        }
+
         @include base.media-down(tablet) {
-            height: 65vh;
+            // height: 65vh;
             padding: 48px 0;
         }
 
         @include base.media-down(mobile) {
-            height: 50vh;
+            // height: 50vh;
             padding: 28px 0;
         }
     }
@@ -126,7 +130,7 @@
     display: flex;
     align-items: center;
 
-    @include base.media-down(tablet) {
+    @include base.media-down(laptop) {
         display: none;
     }
 }

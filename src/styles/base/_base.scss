@@ -89,17 +89,20 @@ $breakpoints: (
     // <= 1024px (Laptop)
     @include media-down(laptop) {
         max-width: 960px;
-        padding: 0 var(--space-4);
+        padding: 0 57px;
+        // padding: 0 var(--space-4);
     }
 
     // <= 768px (Tablet)
     @include media-down(tablet) {
         max-width: 720px;
+        // padding: 0 57px;
     }
 
     // <= 576px (Mobile ใหญ่)
     @include media-down(mobile) {
         max-width: 540px;
+        padding: 0 var(--space-4);
     }
 
     // <= 320px (Mobile เล็กสุด)

@@ -19,7 +19,7 @@
         height: 100%;
 
         @include base.media-down(tablet) {
-            height: 450px;
+            // height: 450px;
         }
     }
 
@@ -81,7 +81,7 @@
     }
 
     @include base.media-down(mobile) {
-        padding-left: 0;
+        padding-left: 40px;
     }
 }
 
@@ -114,12 +114,10 @@
             top: 30px;
         }
 
-        // @include base.media-down(tablet) {
-        //     top: 20px;
-        // }
-
         @include base.media-down(mobile) {
-            display: none;
+            top: 35px;
+            left: -40px;
+            width: 28px;
         }
     }
 
@@ -154,12 +152,9 @@
             background-size: 16px 40px;
         }
 
-        // @include base.media-down(tablet) {
-        //     top: 70px;
-        // }
-
         @include base.media-down(mobile) {
-            display: none;
+            top: 75px;
+            left: -40px;
         }
     }
 }

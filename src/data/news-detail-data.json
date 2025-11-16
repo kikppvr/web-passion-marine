@@ -2,44 +2,102 @@
     "newsDetails": [
         {
             "id": "1",
-            "title": "Passion Marine Launches New Speedboat Collection",
-            "description": "Discover our latest collection of premium speedboats designed for ultimate performance and luxury on the water. Experience cutting-edge technology and superior craftsmanship.",
+            "title": "Motor Expo 2023",
+            "description": "เป็นงานแรกที่บริษัทแพสชั่นมารีน มีโอกาสนำผลงานไปแสดงให้กับบุคคลทั่วไปที่ไม่ได้อยู่ในแวดวงของคนเล่นเรือ และเป็นครั้งแรกที่แพสชั่นมารีนได้มีโอกาสแนะนำตัวเองกับผู้ประกอบการทางเรือ ถือได้ว่า งาน Motor Expo 2023 เป็นงานที่ทำให้แพสชั่นมารีนเป็นที่รู้จัก ทั้งกับคนทั่วไปและคนในแวดวงเรือ",
             "category": "Product Launch",
-            "date": "16 December 2024",
+            "date": "Nov 30, 2023 – Dec 11, 2023",
             "author": "Passion Marine Team",
-            "mainImage": "/images/home/news/news-01.webp",
+            "mainImage": "/images/news/motor-expo-2023/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "New Speedboat Collection"
+                    "src": "/images/news/motor-expo-2023/01.jpg",
+                    "alt": "Motor Expo 2023 "
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Speedboat Interior"
+                    "src": "/images/news/motor-expo-2023/02.jpg",
+                    "alt": "Motor Expo 2023"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Speedboat Exterior"
+                    "src": "/images/news/motor-expo-2023/03.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/04.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/05.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/06.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/07.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/08.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/09.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/10.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/11.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/12.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/13.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/14.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/15.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/16.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/17.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/18.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/19.jpg",
+                    "alt": "Motor Expo 2023"
+                },
+                {
+                    "src": "/images/news/motor-expo-2023/20.jpg",
+                    "alt": "Motor Expo 2023"
                 }
             ],
             "content": [
-                "Passion Marine is proud to announce the launch of our revolutionary new speedboat collection, featuring state-of-the-art design and engineering that sets new standards in marine excellence.",
-                "Our latest collection combines cutting-edge technology with timeless elegance, offering boat enthusiasts an unparalleled experience on the water. Each vessel is meticulously crafted to deliver exceptional performance, comfort, and style.",
-                "The new speedboats feature advanced hull designs that provide superior stability and speed, while the luxurious interiors offer premium comfort for extended journeys. Our engineering team has incorporated the latest innovations in marine technology to ensure optimal fuel efficiency and environmental sustainability.",
-                "Key features of the new collection include:",
-                "• Advanced composite hull construction for enhanced durability and performance",
-                "• State-of-the-art navigation and safety systems",
-                "• Luxurious interior finishes with premium materials",
-                "• Eco-friendly propulsion systems",
-                "• Customizable layouts to suit individual preferences",
-                "The collection is now available for viewing at our showroom and can be customized according to your specific requirements. Our team of marine experts is ready to assist you in selecting the perfect vessel for your needs.",
-                "For more information about our new speedboat collection or to schedule a private viewing, please contact our sales team. We look forward to helping you discover the perfect vessel for your next adventure on the water."
+                "เป็นงานแรกที่บริษัทแพสชั่นมารีน มีโอกาสนำผลงานไปแสดงให้กับบุคคลทั่วไปที่ไม่ได้อยู่ในแวดวงของคนเล่นเรือ และเป็นครั้งแรกที่แพสชั่นมารีนได้มีโอกาสแนะนำตัวเองกับผู้ประกอบการทางเรือ ถือได้ว่า งาน Motor Expo 2023 เป็นงานที่ทำให้แพสชั่นมารีนเป็นที่รู้จัก ทั้งกับคนทั่วไปและคนในแวดวงเรือ"
             ]
         },
         {
             "id": "2",
-            "title": "Marine Safety Guidelines for 2024",
-            "description": "Stay updated with the latest marine safety regulations and best practices for boat owners and operators. Your safety is our priority.",
+            "title": "Boat Fair#2 @Riverdale Marina",
+            "description": "หลังจากมีโอกาสได้แสดงขีดความสามารถและผลงานในงาน Motor Expo 2023 แล้ว แพสชั่นมารีน ก็มีโอกาสได้เข้าร่วมกิจกรรมที่ถือเป็นงานเรือแม่น้ำที่ใหญ่ที่สุดคืองาน Boat Fair#2 การออกงานครั้งนี้ ถือว่าเป็นโอกาสที่ทำให้ แพสชั่นมารีน ได้รับโอกาสจากผู้ประกอบการเรือเช่าเหมาลำขนาดใหญ่ (Luxury Yacht Charters) ให้แพสชั่นมารีน เป็นผู้ดำเนินการซ่อมคืนสภาพ (Restoration) เรือสำราญเดินทะเลขนาดใหญ่ รวมถึงการซ่อมคืนสถาพทุกระบบให้กับ Dinghy Boat ที่อยู่บนเรือสำราญลำนี้ด้วย",
             "category": "Safety",
             "date": "10 December 2024",
             "author": "Safety Department",
@@ -63,24 +121,15 @@
                 }
             ],
             "content": [
-                "As we enter 2024, it's crucial for all boat owners and operators to stay informed about the latest marine safety regulations and best practices. At Passion Marine, we prioritize your safety above all else.",
-                "The marine industry continues to evolve with new safety standards and technological advancements. This comprehensive guide covers the essential safety measures every boat owner should implement.",
-                "Key safety guidelines for 2024 include:",
-                "• Regular safety equipment inspections and maintenance",
-                "• Updated navigation and communication systems",
-                "• Proper emergency response procedures",
-                "• Weather monitoring and trip planning",
-                "• Crew training and certification requirements",
-                "Our safety experts recommend conducting monthly safety checks and annual professional inspections to ensure all equipment is functioning correctly. Remember, prevention is always better than reaction when it comes to marine safety.",
-                "For detailed safety checklists and training resources, please visit our safety center or contact our safety department. We're committed to helping you maintain the highest safety standards on the water."
+                "หลังจากมีโอกาสได้แสดงขีดความสามารถและผลงานในงาน Motor Expo 2023 แล้ว แพสชั่นมารีน ก็มีโอกาสได้เข้าร่วมกิจกรรมที่ถือเป็นงานเรือแม่น้ำที่ใหญ่ที่สุดคืองาน Boat Fair#2 การออกงานครั้งนี้ ถือว่าเป็นโอกาสที่ทำให้ แพสชั่นมารีน ได้รับโอกาสจากผู้ประกอบการเรือเช่าเหมาลำขนาดใหญ่ (Luxury Yacht Charters) ให้แพสชั่นมารีน เป็นผู้ดำเนินการซ่อมคืนสภาพ (Restoration) เรือสำราญเดินทะเลขนาดใหญ่ รวมถึงการซ่อมคืนสถาพทุกระบบให้กับ Dinghy Boat ที่อยู่บนเรือสำราญลำนี้ด้วย"
             ]
         },
         {
             "id": "3",
-            "title": "Passion Marine Wins International Marine Excellence Award",
-            "description": "We are honored to receive the prestigious International Marine Excellence Award for our outstanding contributions to marine innovation and customer service excellence.",
+            "title": "Grow Boating Event @Riverdale Marina",
+            "description": "งานพบปะสังสรรค์ระหว่างผู้ประกอบการเรือ เป็นงานที่ทำให้ผู้ประกอบการเรือได้มีโอกาสพบปะ พูดคุย และทำความรู้จักกัน รวมถึงเป็นโอกาสที่ผู้ประกอบการรายใหม่จะมีโอกาสได้แนะนำตนเองให้กับผู้ประกอบการรายอื่นๆด้วย ในโอกาสนี้ แพสชั่นมารีน ได้มีโอกาสเป็นผู้สนับสนุน(ร่วม) เพื่อให้เกิดกิจกรรมดีๆแบบนี้ต่อไป",
             "category": "Awards",
-            "date": "05 December 2024",
+            "date": "21 June 2024",
             "author": "Marketing Team",
             "mainImage": "/images/home/news/news-03.webp",
             "gallery": [
@@ -106,25 +155,15 @@
                 }
             ],
             "content": [
-                "Passion Marine is thrilled to announce that we have been honored with the prestigious International Marine Excellence Award, recognizing our outstanding contributions to marine innovation and exceptional customer service.",
-                "This award represents years of dedication to excellence in marine engineering, customer satisfaction, and industry leadership. Our team's commitment to pushing the boundaries of marine technology has been recognized on an international scale.",
-                "The International Marine Excellence Award is presented annually to companies that demonstrate exceptional innovation, quality, and service in the marine industry. This year's selection process involved rigorous evaluation of technical innovation, customer satisfaction, environmental responsibility, and industry impact.",
-                "Key achievements that contributed to this recognition include:",
-                "• Revolutionary hull design technology that improves fuel efficiency by 25%",
-                "• Industry-leading customer service with 99.8% satisfaction rating",
-                "• Sustainable manufacturing processes reducing environmental impact by 40%",
-                "• Advanced safety systems that have prevented over 200 potential incidents",
-                "• Comprehensive training programs for marine professionals worldwide",
-                "This award validates our mission to provide the highest quality marine solutions while maintaining our commitment to environmental sustainability and customer excellence. We are grateful to our customers, partners, and team members who have made this achievement possible.",
-                "Looking forward, we remain committed to continuing our tradition of excellence and innovation in the marine industry. This award serves as motivation to reach even greater heights in the years to come."
+                "งานพบปะสังสรรค์ระหว่างผู้ประกอบการเรือ เป็นงานที่ทำให้ผู้ประกอบการเรือได้มีโอกาสพบปะ พูดคุย และทำความรู้จักกัน รวมถึงเป็นโอกาสที่ผู้ประกอบการรายใหม่จะมีโอกาสได้แนะนำตนเองให้กับผู้ประกอบการรายอื่นๆด้วย ในโอกาสนี้ แพสชั่นมารีน ได้มีโอกาสเป็นผู้สนับสนุน(ร่วม) เพื่อให้เกิดกิจกรรมดีๆแบบนี้ต่อไป"
             ]
         },
         {
             "id": "4",
-            "title": "New Marina Facilities Opening in Phuket",
-            "description": "Passion Marine is excited to announce the opening of our new state-of-the-art marina facilities in Phuket, offering premium services and world-class amenities for boat owners.",
+            "title": "Becoming Volvo Penta Authorized Service Dealer",
+            "description": "ถือได้ว่าเป็นหนึ่งในเครื่องยนต์เรือที่ได้รับการยอมรับจากทั่วโลก ทั้งในแง่คุณภาพและเทคโนโลยี เป็นเครื่องยนต์ที่มีการใช้งานอยู่บนเรือหลากหลายประเภท และหลากหลายขนาด ตั้งแต่เรือเพื่อสันทนาการขนาดเล็ก (small recreational boats) จนถึงเรือเดินทะเล (ocean liner) และเรือในอุตสาหกรรมเฉพาะ (specialized vessels) ขนาดใหญ่ ในประเทศไทยมาอย่างยาวนาน บริษัทซึ่งมีชื่อเสียงเช่นนี้ ย่อมมีการกำหนดมาตรฐานการให้บริการที่ดีและเป็นสากล บริษัทแพสชั่นมารีน ได้รับความไว้วางใจให้เป็น Authorized Service Partner ให้กับเครื่องยนต์ Volvo Penta สำหรับพื้นที่ภาคกลางตอนบน และแม่น้ำเจ้าพระยา",
             "category": "Facilities",
-            "date": "28 November 2024",
+            "date": "1 August 2024",
             "author": "Operations Team",
             "mainImage": "/images/home/news/news-01.webp",
             "gallery": [
@@ -146,30 +185,15 @@
                 }
             ],
             "content": [
-                "Passion Marine is proud to announce the grand opening of our new marina facilities in Phuket, Thailand. This state-of-the-art facility represents our commitment to providing world-class marine services in one of Southeast Asia's most beautiful boating destinations.",
-                "The new marina features cutting-edge infrastructure designed to accommodate vessels of all sizes, from luxury yachts to fishing boats. Our facilities include modern docking systems, comprehensive maintenance services, and premium amenities for boat owners and their guests.",
-                "Located in the heart of Phuket's premier boating area, our marina offers easy access to some of the region's most spectacular cruising destinations, including the Phi Phi Islands, Phang Nga Bay, and the Andaman Sea's pristine waters.",
-                "Facilities and services available at our new marina include:",
-                "• 200+ berths accommodating vessels up to 150 feet",
-                "• 24/7 security and surveillance systems",
-                "• Full-service maintenance and repair facilities",
-                "• Fuel dock with premium marine fuels",
-                "• Fresh water and power hookups at every berth",
-                "• On-site restaurant and bar with panoramic ocean views",
-                "• Swimming pool and fitness center for marina guests",
-                "• Concierge services for local attractions and activities",
-                "• Weather monitoring and navigation assistance",
-                "• Emergency response and towing services",
-                "Our experienced marina team is ready to provide exceptional service and ensure your vessel receives the care it deserves. Whether you're planning a day trip to nearby islands or an extended stay in Phuket, our marina serves as the perfect home base for your marine adventures.",
-                "Special opening promotions are available for the first 100 boat owners who register for annual berth contracts. Contact our marina office for more information about berth availability and special introductory rates."
+                "ถือได้ว่าเป็นหนึ่งในเครื่องยนต์เรือที่ได้รับการยอมรับจากทั่วโลก ทั้งในแง่คุณภาพและเทคโนโลยี เป็นเครื่องยนต์ที่มีการใช้งานอยู่บนเรือหลากหลายประเภท และหลากหลายขนาด ตั้งแต่เรือเพื่อสันทนาการขนาดเล็ก (small recreational boats) จนถึงเรือเดินทะเล (ocean liner) และเรือในอุตสาหกรรมเฉพาะ (specialized vessels) ขนาดใหญ่ ในประเทศไทยมาอย่างยาวนาน บริษัทซึ่งมีชื่อเสียงเช่นนี้ ย่อมมีการกำหนดมาตรฐานการให้บริการที่ดีและเป็นสากล บริษัทแพสชั่นมารีน ได้รับความไว้วางใจให้เป็น Authorized Service Partner ให้กับเครื่องยนต์ Volvo Penta สำหรับพื้นที่ภาคกลางตอนบน และแม่น้ำเจ้าพระยา"
             ]
         },
         {
             "id": "5",
-            "title": "Marine Technology Innovation Summit 2024",
-            "description": "Join us at the Marine Technology Innovation Summit 2024, where industry leaders will discuss the future of marine technology, sustainability, and digital transformation.",
+            "title": "Motor Expo 2024",
+            "description": "ถือเป็นอีกหนึ่งโอกาสที่แพสชั่นมารีน ได้นำเรือเก่าที่ผ่านการฟื้นสภาพไปแสดงให้ผู้เข้าชมงาน Motor Expo ได้เห็นว่าถึงแม้เป็นเรือที่มีอายุมาก ผ่านการใช้งานมาอย่างยาวนาน ก็สามารถที่จะซ่อมแซมและบำรุงรักษาให้เรืออยู่ในสถาพที่พร้อมใช้ มีความปลอดภัย เช่นเดียวกันกับเรือใหม่",
             "category": "Events",
-            "date": "20 November 2024",
+            "date": "29 November 2024 - 10 December 2024",
             "author": "Events Team",
             "mainImage": "/images/home/news/news-02.webp",
             "gallery": [
@@ -199,26 +223,15 @@
                 }
             ],
             "content": [
-                "Passion Marine is excited to host the Marine Technology Innovation Summit 2024, bringing together industry leaders, innovators, and marine enthusiasts to explore the future of marine technology and sustainability.",
-                "This year's summit focuses on three key themes: digital transformation in marine operations, sustainable marine technologies, and the integration of artificial intelligence in marine systems. The event will feature keynote presentations, panel discussions, and hands-on demonstrations of cutting-edge marine technologies.",
-                "The summit will showcase the latest innovations in marine propulsion systems, navigation technology, safety systems, and environmental monitoring. Attendees will have the opportunity to interact with industry experts and discover how emerging technologies are reshaping the marine industry.",
-                "Featured topics and speakers include:",
-                "• 'The Future of Electric Marine Propulsion' - Dr. Sarah Chen, Marine Engineering Institute",
-                "• 'AI-Powered Navigation Systems' - Captain Michael Rodriguez, Maritime Technology Corp",
-                "• 'Sustainable Marine Operations' - Dr. Emma Thompson, Ocean Conservation Foundation",
-                "• 'Digital Twin Technology in Marine Maintenance' - James Wilson, Smart Marine Solutions",
-                "• 'Autonomous Vessel Operations' - Professor David Kim, Naval Architecture University",
-                "The summit will also feature an innovation showcase where emerging marine technology companies will present their latest products and solutions. This is an excellent opportunity for networking, collaboration, and discovering new technologies that could benefit your marine operations.",
-                "Registration is now open for marine professionals, boat owners, technology enthusiasts, and industry stakeholders. Early bird pricing is available until November 15th, with special group discounts for companies registering multiple attendees.",
-                "The event will be held at our state-of-the-art conference facility, featuring interactive displays, technology demonstrations, and networking opportunities. Don't miss this chance to be at the forefront of marine technology innovation."
+                "ถือเป็นอีกหนึ่งโอกาสที่แพสชั่นมารีน ได้นำเรือเก่าที่ผ่านการฟื้นสภาพไปแสดงให้ผู้เข้าชมงาน Motor Expo ได้เห็นว่าถึงแม้เป็นเรือที่มีอายุมาก ผ่านการใช้งานมาอย่างยาวนาน ก็สามารถที่จะซ่อมแซมและบำรุงรักษาให้เรืออยู่ในสถาพที่พร้อมใช้ มีความปลอดภัย เช่นเดียวกันกับเรือใหม่"
             ]
         },
         {
             "id": "6",
-            "title": "Winter Boat Storage Solutions",
-            "description": "Prepare your boat for winter storage with our comprehensive guide. Protect your investment with proper storage techniques.",
+            "title": "Saxdor Family Trip @Pattaya: Passion Marine ดูแลซัพพอร์ตลูกค้าเรือ Saxdor ท่านนึงในการออกทริปได้อย่างมั่นใจและปลอดภัย",
+            "description": "การออกเดินทางระยะไกล เป็นหนึ่งในกิจกรรมที่ผู้ครอบครองเรือโดยส่วนใหญ่ มีความปรารถนาที่จะทำ อย่างไรก็ตาม เจ้าของเรือมักจะมีข้อกังวลในเรื่องความพร้อมในการเดินทาง ทั้งความพร้อมของเรือ และความพร้อมของผู้ร่วมเดินทาง สำหรับแพสชั่นมารีนแล้ว นอกเหนือจากการให้บริการดูแลรักษาและซ่อมบำรุงให้กับลูกค้าแล้ว เรายังได้รับความไว้วางใจจากเจ้าของเรือ ให้ทำหน้าที่เป็นผู้ร่วมเดินทางและให้การสนับสนุนทางเทคนิคระหว่างการเดินทางด้วย ทั้งนี้เพื่อสร้างความมั่นใจให้กับเจ้าของเรือ ว่าการเดินทางไกลดังกล่าวจะเป็นการเดินทางที่ปลอดภัย มีทีมช่างที่มีทักษะและประสบการณ์คอยให้การสนับสนุนอยู่ตลอดเวลา",
             "category": "Storage",
-            "date": "15 December 2023",
+            "date": "3 May 2025 - 4 May 2025",
             "author": "Maintenance Team",
             "mainImage": "/images/home/news/news-03.webp",
             "gallery": [
@@ -240,28 +253,15 @@
                 }
             ],
             "content": [
-                "As winter approaches, proper boat storage becomes crucial to protect your investment and ensure your vessel is ready for the next boating season. At Passion Marine, we provide comprehensive winter storage solutions designed to keep your boat in pristine condition.",
-                "Our winter storage program includes thorough cleaning, maintenance checks, and protective measures to prevent damage from harsh weather conditions. Whether you choose indoor or outdoor storage, our experienced team ensures your boat receives the care it deserves.",
-                "Key components of our winter storage service include:",
-                "• Complete hull and deck cleaning and waxing",
-                "• Engine winterization and fluid changes",
-                "• Battery removal and proper storage",
-                "• Canvas and upholstery cleaning and storage",
-                "• Bilge cleaning and moisture prevention",
-                "• Propeller inspection and maintenance",
-                "• Electrical system protection",
-                "• Trailer inspection and maintenance",
-                "Proper winter storage not only protects your boat from weather damage but also prevents costly repairs in the spring. Our climate-controlled storage facilities maintain optimal temperature and humidity levels to prevent mold, mildew, and corrosion.",
-                "We offer flexible storage options including covered outdoor storage, indoor climate-controlled storage, and full-service storage with regular maintenance checks throughout the winter months.",
-                "Contact our storage team to schedule your winter storage service and ensure your boat is properly prepared for the off-season. Early booking is recommended as storage space fills up quickly during the winter months."
+                "การออกเดินทางระยะไกล เป็นหนึ่งในกิจกรรมที่ผู้ครอบครองเรือโดยส่วนใหญ่ มีความปรารถนาที่จะทำ อย่างไรก็ตาม เจ้าของเรือมักจะมีข้อกังวลในเรื่องความพร้อมในการเดินทาง ทั้งความพร้อมของเรือ และความพร้อมของผู้ร่วมเดินทาง สำหรับแพสชั่นมารีนแล้ว นอกเหนือจากการให้บริการดูแลรักษาและซ่อมบำรุงให้กับลูกค้าแล้ว เรายังได้รับความไว้วางใจจากเจ้าของเรือ ให้ทำหน้าที่เป็นผู้ร่วมเดินทางและให้การสนับสนุนทางเทคนิคระหว่างการเดินทางด้วย ทั้งนี้เพื่อสร้างความมั่นใจให้กับเจ้าของเรือ ว่าการเดินทางไกลดังกล่าวจะเป็นการเดินทางที่ปลอดภัย มีทีมช่างที่มีทักษะและประสบการณ์คอยให้การสนับสนุนอยู่ตลอดเวลา"
             ]
         },
         {
             "id": "7",
-            "title": "Passion Marine Expands Service Center",
-            "description": "Our new state-of-the-art service center is now open, offering comprehensive marine services and repairs for all boat types.",
+            "title": "Volvo Penta Workshop by Passion Marine @Petra Marina",
+            "description": "แพสชั่นมารีน ร่วมกับบริษัท อัลฟ่าเทค ได้เปิดศูนย์บริการ Volvo Penta แห่งใหม่ริมแม่น้ำเจ้าพระยา ในพื้นที่จังหวัดปทุมธานี โดยศูนย์บริการนี้ ตั้งอยู่ในบริเวณท่าจอดเรือ เภตรา มารีน่า ให้บริการชื้นส่วนอะไหล่ และงานซ่อมบำรุงเครื่องยนต์ (Marine Engine) และระบบชุดหาง (Stern Drive) ให้กับลูกค้าที่อยู่ในโซนแม่น้ำเจ้าพระยา",
             "category": "Service",
-            "date": "10 December 2023",
+            "date": "20 June 2025",
             "author": "Service Team",
             "mainImage": "/images/home/news/news-01.webp",
             "gallery": [
@@ -287,243 +287,7 @@
                 }
             ],
             "content": [
-                "Passion Marine is excited to announce the grand opening of our expanded service center, featuring state-of-the-art equipment and facilities designed to provide comprehensive marine services for all types of vessels.",
-                "Our new 15,000 square foot service center includes dedicated work bays for different types of repairs, a fully stocked parts department, and advanced diagnostic equipment. This expansion allows us to serve more customers while maintaining our commitment to quality and efficiency.",
-                "The expanded facility features:",
-                "• 8 dedicated service bays with overhead cranes",
-                "• Advanced engine diagnostic equipment",
-                "• Specialized hull repair and fiberglass work areas",
-                "• Climate-controlled parts storage",
-                "• Customer waiting area with WiFi and refreshments",
-                "• On-site parts counter with same-day availability",
-                "• Certified technicians with ongoing training",
-                "• Quality control inspection station",
-                "Our team of certified marine technicians is equipped to handle everything from routine maintenance to complex engine overhauls. We work on all major boat brands and engine manufacturers, ensuring your vessel receives expert care regardless of make or model.",
-                "The new service center also includes a customer education area where our technicians can explain maintenance procedures and answer questions about your boat's systems. We believe in empowering our customers with knowledge to help them maintain their vessels between service visits.",
-                "To celebrate our expansion, we're offering special introductory rates on all services booked within the first month. Contact our service department to schedule your appointment and experience the difference our new facility makes."
-            ]
-        },
-        {
-            "id": "8",
-            "title": "Environmental Sustainability in Marine Industry",
-            "description": "Learn about our commitment to environmental sustainability and eco-friendly practices in marine operations.",
-            "category": "Sustainability",
-            "date": "05 December 2023",
-            "author": "Environmental Team",
-            "mainImage": "/images/home/news/news-02.webp",
-            "gallery": [
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Environmental Sustainability"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Eco-friendly Practices"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Clean Water"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Green Technology"
-                }
-            ],
-            "content": [
-                "At Passion Marine, environmental sustainability is not just a goal—it's a core value that guides every aspect of our operations. We are committed to protecting our oceans and waterways while providing exceptional marine services.",
-                "Our environmental initiatives focus on reducing our carbon footprint, minimizing waste, and promoting sustainable practices throughout the marine industry. From our facilities to our fleet, we implement eco-friendly solutions that protect the environment for future generations.",
-                "Key sustainability initiatives include:",
-                "• Solar-powered facilities reducing energy consumption by 40%",
-                "• Water recycling systems for boat cleaning and maintenance",
-                "• Biodegradable cleaning products and eco-friendly materials",
-                "• Waste reduction programs with comprehensive recycling",
-                "• Fuel-efficient vessels and hybrid propulsion systems",
-                "• Marine life protection programs and habitat restoration",
-                "• Carbon offset programs for all operations",
-                "• Environmental education for customers and staff",
-                "We partner with local environmental organizations to support marine conservation efforts and participate in beach cleanups, coral reef restoration, and marine life protection programs. Our commitment extends beyond our own operations to supporting the broader marine ecosystem.",
-                "Our customers can also contribute to environmental sustainability through our eco-friendly service options, including green cleaning services, sustainable maintenance practices, and environmental awareness programs.",
-                "We believe that responsible marine operations and environmental protection go hand in hand. By choosing Passion Marine, you're supporting a company that prioritizes both excellent service and environmental stewardship."
-            ]
-        },
-        {
-            "id": "9",
-            "title": "Boat Insurance: What You Need to Know",
-            "description": "Comprehensive guide to boat insurance coverage, requirements, and tips for choosing the right policy for your vessel.",
-            "category": "Insurance",
-            "date": "28 November 2023",
-            "author": "Insurance Team",
-            "mainImage": "/images/home/news/news-03.webp",
-            "gallery": [
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Boat Insurance"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Insurance Documents"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Coverage Options"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Claims Process"
-                }
-            ],
-            "content": [
-                "Boat insurance is essential for protecting your investment and providing peace of mind on the water. Understanding your coverage options and requirements is crucial for making informed decisions about your vessel's protection.",
-                "At Passion Marine, we work with leading marine insurance providers to help our customers find the right coverage for their needs. Our insurance specialists understand the unique risks associated with boat ownership and can guide you through the process of selecting appropriate coverage.",
-                "Types of boat insurance coverage include:",
-                "• Hull and machinery coverage for physical damage",
-                "• Liability coverage for third-party injuries and property damage",
-                "• Personal effects coverage for belongings on board",
-                "• Medical payments coverage for injuries to passengers",
-                "• Uninsured boater coverage for accidents with uninsured vessels",
-                "• Towing and assistance coverage for breakdowns",
-                "• Pollution liability coverage for environmental damage",
-                "• Agreed value vs. actual cash value policies",
-                "Several factors affect your boat insurance premiums, including the vessel's age, value, type, and intended use. Your boating experience, safety record, and the waters where you operate also influence your rates.",
-                "We recommend reviewing your insurance policy annually and updating coverage as your needs change. Our insurance team can help you understand policy terms, coverage limits, and exclusions to ensure you have adequate protection.",
-                "Contact our insurance specialists for a free consultation and quote. We'll help you understand your options and find coverage that fits your budget while providing the protection your vessel deserves."
-            ]
-        },
-        {
-            "id": "10",
-            "title": "Passion Marine Customer Success Stories",
-            "description": "Read inspiring stories from our customers who have experienced unforgettable adventures with Passion Marine services.",
-            "category": "Customer Stories",
-            "date": "20 November 2023",
-            "author": "Customer Relations Team",
-            "mainImage": "/images/home/news/news-01.webp",
-            "gallery": [
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Customer Success Stories"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Happy Customers"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Adventure Stories"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Testimonials"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Memorable Moments"
-                }
-            ],
-            "content": [
-                "Our customers are at the heart of everything we do at Passion Marine. Their success stories and memorable experiences inspire us to continue providing exceptional marine services and creating unforgettable adventures on the water.",
-                "From first-time boaters to experienced mariners, our customers share their journeys of discovery, adventure, and achievement. These stories showcase the transformative power of marine experiences and the lasting memories created through our services.",
-                "Featured customer success stories include:",
-                "• The Johnson family's first charter experience discovering hidden coves",
-                "• Captain Martinez's successful completion of advanced navigation training",
-                "• The Williams' restoration project bringing a classic yacht back to life",
-                "• Sarah's journey from novice to confident boat operator",
-                "• The Thompson family's multi-generational fishing adventures",
-                "• Mike's successful business expansion using our charter services",
-                "• Lisa's achievement of her dream to sail around the islands",
-                "• The Chen family's environmental conservation efforts",
-                "Each story represents a unique journey of growth, learning, and achievement. Our customers' experiences demonstrate how marine activities can bring families together, build confidence, create lasting friendships, and provide opportunities for personal and professional growth.",
-                "We're proud to be part of our customers' marine adventures and look forward to creating many more success stories in the future. Share your Passion Marine story with us and inspire others to begin their own marine journey.",
-                "Contact our customer relations team to share your story or learn more about how we can help you create your own success story on the water."
-            ]
-        },
-        {
-            "id": "11",
-            "title": "Marine Electronics: Latest Technology Trends",
-            "description": "Stay ahead with the latest marine electronics and navigation technology. Discover innovations that enhance your boating experience.",
-            "category": "Technology",
-            "date": "15 November 2023",
-            "author": "Technology Team",
-            "mainImage": "/images/home/news/news-02.webp",
-            "gallery": [
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Marine Electronics"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Navigation Technology"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Digital Displays"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Advanced Systems"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Smart Technology"
-                }
-            ],
-            "content": [
-                "Marine electronics technology continues to evolve rapidly, offering boaters unprecedented capabilities for navigation, safety, and entertainment. At Passion Marine, we stay at the forefront of these innovations to provide our customers with the latest and most effective marine technology solutions.",
-                "The latest trends in marine electronics focus on integration, connectivity, and user-friendly interfaces. Modern systems combine multiple functions into intuitive platforms that enhance safety and enjoyment on the water.",
-                "Key technology trends include:",
-                "• Integrated navigation systems with real-time weather data",
-                "• Wireless connectivity for seamless device integration",
-                "• Advanced sonar and fish-finding technology",
-                "• Digital switching and monitoring systems",
-                "• Mobile app integration for remote monitoring",
-                "• LED lighting systems with smart controls",
-                "• Advanced autopilot and docking assistance",
-                "• High-resolution touchscreen displays",
-                "Modern marine electronics offer enhanced safety features including collision avoidance systems, automatic emergency signaling, and integrated weather monitoring. These systems help boaters make informed decisions and respond quickly to changing conditions.",
-                "Our technology specialists can help you select and install the right electronics package for your vessel and boating needs. We offer professional installation, training, and ongoing support to ensure you get the most from your marine electronics investment.",
-                "Stay connected with the latest marine technology trends by visiting our technology center or contacting our electronics specialists. We're here to help you navigate the ever-evolving world of marine electronics."
-            ]
-        },
-        {
-            "id": "12",
-            "title": "Passion Marine Partners with Leading Brands",
-            "description": "We're excited to announce new partnerships with industry-leading marine equipment manufacturers and service providers.",
-            "category": "Partnerships",
-            "date": "10 November 2023",
-            "author": "Partnership Team",
-            "mainImage": "/images/home/news/news-03.webp",
-            "gallery": [
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Partnership Announcement"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Brand Partners"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Collaboration"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Industry Leaders"
-                }
-            ],
-            "content": [
-                "Passion Marine is proud to announce strategic partnerships with leading marine equipment manufacturers and service providers. These collaborations enhance our ability to provide customers with the highest quality products and services in the marine industry.",
-                "Our new partnerships bring together industry expertise, innovative technology, and exceptional service to create comprehensive solutions for all marine needs. These relationships strengthen our position as a trusted leader in the marine services sector.",
-                "Key partnership announcements include:",
-                "• Exclusive distribution agreement with Mercury Marine",
-                "• Service partnership with Volvo Penta for engine support",
-                "• Collaboration with Raymarine for navigation systems",
-                "• Partnership with Sea Ray for yacht sales and service",
-                "• Alliance with Garmin for marine electronics",
-                "• Strategic relationship with Brunswick Corporation",
-                "• Partnership with Yamaha Marine for outboard engines",
-                "• Collaboration with Navico for integrated systems",
-                "These partnerships provide our customers with access to cutting-edge technology, genuine parts, expert technical support, and comprehensive warranty coverage. Our certified technicians receive ongoing training from our partners to ensure they can provide the highest level of service.",
-                "The partnerships also enable us to offer exclusive products, special pricing, and priority service to our customers. We're committed to leveraging these relationships to enhance the value and quality of our marine services.",
-                "Contact our team to learn more about how these partnerships benefit our customers and explore the enhanced services and products now available through Passion Marine."
+                "แพสชั่นมารีน ร่วมกับบริษัท อัลฟ่าเทค ได้เปิดศูนย์บริการ Volvo Penta แห่งใหม่ริมแม่น้ำเจ้าพระยา ในพื้นที่จังหวัดปทุมธานี โดยศูนย์บริการนี้ ตั้งอยู่ในบริเวณท่าจอดเรือ เภตรา มารีน่า ให้บริการชื้นส่วนอะไหล่ และงานซ่อมบำรุงเครื่องยนต์ (Marine Engine) และระบบชุดหาง (Stern Drive) ให้กับลูกค้าที่อยู่ในโซนแม่น้ำเจ้าพระยา"
             ]
         }
     ]

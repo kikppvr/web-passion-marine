@@ -2,17 +2,17 @@
     "news": [
         {
             "id": "1",
-            "title": "Passion Marine Launches New Speedboat Collection",
-            "description": "Discover our latest collection of premium speedboats designed for ultimate performance and luxury on the water. Experience cutting-edge technology and superior craftsmanship.",
-            "image": "/images/home/news/news-01.webp",
-            "date": "15 January 2024",
+            "title": "Motor Expo 2023",
+            "description": "เป็นงานแรกที่บริษัทแพสชั่นมารีน มีโอกาสนำผลงานไปแสดงให้กับบุคคลทั่วไปที่ไม่ได้อยู่ในแวดวงของคนเล่นเรือ และเป็นครั้งแรกที่แพสชั่นมารีนได้มีโอกาสแนะนำตัวเองกับผู้ประกอบการทางเรือ ถือได้ว่า งาน Motor Expo 2023 เป็นงานที่ทำให้แพสชั่นมารีนเป็นที่รู้จัก ทั้งกับคนทั่วไปและคนในแวดวงเรือ",
+            "image": "/images/news/motor-expo-2023/01.jpg",
+            "date": "30 November 2023 - 11 December 2023",
             "category": "Product Launch",
             "href": "/news/1"
         },
         {
             "id": "2",
-            "title": "Marine Safety Guidelines for 2024",
-            "description": "Stay updated with the latest marine safety regulations and best practices for boat owners and operators. Your safety is our priority.",
+            "title": "Boat Fair#2 @Riverdale Marina",
+            "description": "หลังจากมีโอกาสได้แสดงขีดความสามารถและผลงานในงาน Motor Expo 2023 แล้ว แพสชั่นมารีน ก็มีโอกาสได้เข้าร่วมกิจกรรมที่ถือเป็นงานเรือแม่น้ำที่ใหญ่ที่สุดคืองาน Boat Fair#2 การออกงานครั้งนี้ ถือว่าเป็นโอกาสที่ทำให้ แพสชั่นมารีน ได้รับโอกาสจากผู้ประกอบการเรือเช่าเหมาลำขนาดใหญ่ (Luxury Yacht Charters) ให้แพสชั่นมารีน เป็นผู้ดำเนินการซ่อมคืนสภาพ (Restoration) เรือสำราญเดินทะเลขนาดใหญ่ รวมถึงการซ่อมคืนสถาพทุกระบบให้กับ Dinghy Boat ที่อยู่บนเรือสำราญลำนี้ด้วย",
             "image": "/images/home/news/news-02.webp",
             "date": "10 January 2024",
             "category": "Safety",
@@ -20,93 +20,48 @@
         },
         {
             "id": "3",
-            "title": "Boat Maintenance Tips for Peak Performance",
-            "description": "Learn essential maintenance techniques to keep your vessel in top condition throughout the year. Expert advice from our marine engineers.",
+            "title": "Grow Boating Event @Riverdale Marina",
+            "description": "งานพบปะสังสรรค์ระหว่างผู้ประกอบการเรือ เป็นงานที่ทำให้ผู้ประกอบการเรือได้มีโอกาสพบปะ พูดคุย และทำความรู้จักกัน รวมถึงเป็นโอกาสที่ผู้ประกอบการรายใหม่จะมีโอกาสได้แนะนำตนเองให้กับผู้ประกอบการรายอื่นๆด้วย ในโอกาสนี้ แพสชั่นมารีน ได้มีโอกาสเป็นผู้สนับสนุน(ร่วม) เพื่อให้เกิดกิจกรรมดีๆแบบนี้ต่อไป",
             "image": "/images/home/news/news-03.webp",
-            "date": "05 January 2024",
+            "date": "21 June 2024",
             "category": "Maintenance",
             "href": "/news/3"
         },
         {
             "id": "4",
-            "title": "Passion Marine Wins Industry Excellence Award",
-            "description": "We're proud to announce that Passion Marine has been recognized for outstanding service and innovation in the marine industry.",
+            "title": "Becoming Volvo Penta Authorized Service Dealer",
+            "description": "ถือได้ว่าเป็นหนึ่งในเครื่องยนต์เรือที่ได้รับการยอมรับจากทั่วโลก ทั้งในแง่คุณภาพและเทคโนโลยี เป็นเครื่องยนต์ที่มีการใช้งานอยู่บนเรือหลากหลายประเภท และหลากหลายขนาด ตั้งแต่เรือเพื่อสันทนาการขนาดเล็ก (small recreational boats) จนถึงเรือเดินทะเล (ocean liner) และเรือในอุตสาหกรรมเฉพาะ (specialized vessels) ขนาดใหญ่ ในประเทศไทยมาอย่างยาวนาน บริษัทซึ่งมีชื่อเสียงเช่นนี้ ย่อมมีการกำหนดมาตรฐานการให้บริการที่ดีและเป็นสากล บริษัทแพสชั่นมารีน ได้รับความไว้วางใจให้เป็น Authorized Service Partner ให้กับเครื่องยนต์ Volvo Penta สำหรับพื้นที่ภาคกลางตอนบน และแม่น้ำเจ้าพระยา",
             "image": "/images/home/news/news-01.webp",
-            "date": "28 December 2023",
+            "date": "1 August 2024",
             "category": "Awards",
             "href": "/news/4"
         },
         {
             "id": "5",
-            "title": "New Charter Routes Available in Bangkok",
-            "description": "Explore Bangkok's waterways with our newly launched charter routes. Experience the city from a unique perspective on the Chao Phraya River.",
+            "title": "Motor Expo 2024",
+            "description": "ถือเป็นอีกหนึ่งโอกาสที่แพสชั่นมารีน ได้นำเรือเก่าที่ผ่านการฟื้นสภาพไปแสดงให้ผู้เข้าชมงาน Motor Expo ได้เห็นว่าถึงแม้เป็นเรือที่มีอายุมาก ผ่านการใช้งานมาอย่างยาวนาน ก็สามารถที่จะซ่อมแซมและบำรุงรักษาให้เรืออยู่ในสถาพที่พร้อมใช้ มีความปลอดภัย เช่นเดียวกันกับเรือใหม่",
             "image": "/images/home/news/news-02.webp",
-            "date": "20 December 2023",
+            "date": "29 November 2024 - 10 December 2024",
             "category": "Charter",
             "href": "/news/5"
         },
         {
             "id": "6",
-            "title": "Winter Boat Storage Solutions",
-            "description": "Prepare your boat for winter storage with our comprehensive guide. Protect your investment with proper storage techniques.",
+            "title": "Saxdor Family Trip @Pattaya: Passion Marine ดูแลซัพพอร์ตลูกค้าเรือ Saxdor ท่านนึงในการออกทริปได้อย่างมั่นใจและปลอดภัย",
+            "description": "การออกเดินทางระยะไกล เป็นหนึ่งในกิจกรรมที่ผู้ครอบครองเรือโดยส่วนใหญ่ มีความปรารถนาที่จะทำ อย่างไรก็ตาม เจ้าของเรือมักจะมีข้อกังวลในเรื่องความพร้อมในการเดินทาง ทั้งความพร้อมของเรือ และความพร้อมของผู้ร่วมเดินทาง สำหรับแพสชั่นมารีนแล้ว นอกเหนือจากการให้บริการดูแลรักษาและซ่อมบำรุงให้กับลูกค้าแล้ว เรายังได้รับความไว้วางใจจากเจ้าของเรือ ให้ทำหน้าที่เป็นผู้ร่วมเดินทางและให้การสนับสนุนทางเทคนิคระหว่างการเดินทางด้วย ทั้งนี้เพื่อสร้างความมั่นใจให้กับเจ้าของเรือ ว่าการเดินทางไกลดังกล่าวจะเป็นการเดินทางที่ปลอดภัย มีทีมช่างที่มีทักษะและประสบการณ์คอยให้การสนับสนุนอยู่ตลอดเวลา",
             "image": "/images/home/news/news-03.webp",
-            "date": "15 December 2023",
+            "date": "3 May 2025 - 4 May 2025",
             "category": "Storage",
             "href": "/news/6"
         },
         {
             "id": "7",
-            "title": "Passion Marine Expands Service Center",
-            "description": "Our new state-of-the-art service center is now open, offering comprehensive marine services and repairs for all boat types.",
+            "title": "Volvo Penta Workshop by Passion Marine @Petra Marina",
+            "description": "แพสชั่นมารีน ร่วมกับบริษัท อัลฟ่าเทค ได้เปิดศูนย์บริการ Volvo Penta แห่งใหม่ริมแม่น้ำเจ้าพระยา ในพื้นที่จังหวัดปทุมธานี โดยศูนย์บริการนี้ ตั้งอยู่ในบริเวณท่าจอดเรือ เภตรา มารีน่า ให้บริการชื้นส่วนอะไหล่ และงานซ่อมบำรุงเครื่องยนต์ (Marine Engine) และระบบชุดหาง (Stern Drive) ให้กับลูกค้าที่อยู่ในโซนแม่น้ำเจ้าพระยา",
             "image": "/images/home/news/news-01.webp",
-            "date": "10 December 2023",
+            "date": "20 June 2025",
             "category": "Service",
             "href": "/news/7"
-        },
-        {
-            "id": "8",
-            "title": "Environmental Sustainability in Marine Industry",
-            "description": "Learn about our commitment to environmental sustainability and eco-friendly practices in marine operations.",
-            "image": "/images/home/news/news-02.webp",
-            "date": "05 December 2023",
-            "category": "Sustainability",
-            "href": "/news/8"
-        },
-        {
-            "id": "9",
-            "title": "Boat Insurance: What You Need to Know",
-            "description": "Comprehensive guide to boat insurance coverage, requirements, and tips for choosing the right policy for your vessel.",
-            "image": "/images/home/news/news-03.webp",
-            "date": "28 November 2023",
-            "category": "Insurance",
-            "href": "/news/9"
-        },
-        {
-            "id": "10",
-            "title": "Passion Marine Customer Success Stories",
-            "description": "Read inspiring stories from our customers who have experienced unforgettable adventures with Passion Marine services.",
-            "image": "/images/home/news/news-01.webp",
-            "date": "20 November 2023",
-            "category": "Customer Stories",
-            "href": "/news/10"
-        },
-        {
-            "id": "11",
-            "title": "Marine Electronics: Latest Technology Trends",
-            "description": "Stay ahead with the latest marine electronics and navigation technology. Discover innovations that enhance your boating experience.",
-            "image": "/images/home/news/news-02.webp",
-            "date": "15 November 2023",
-            "category": "Technology",
-            "href": "/news/11"
-        },
-        {
-            "id": "12",
-            "title": "Passion Marine Partners with Leading Brands",
-            "description": "We're excited to announce new partnerships with industry-leading marine equipment manufacturers and service providers.",
-            "image": "/images/home/news/news-03.webp",
-            "date": "10 November 2023",
-            "category": "Partnerships",
-            "href": "/news/12"
         }
     ]
 }
