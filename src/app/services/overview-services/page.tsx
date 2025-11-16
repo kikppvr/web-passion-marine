@@ -65,7 +65,7 @@ export default function OverviewServicesPage() {
                                 data-aos-delay='600'
                                 data-aos-duration='700'
                                 data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
+                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         98%
                                     </div>
@@ -83,7 +83,7 @@ export default function OverviewServicesPage() {
                                 data-aos-delay='700'
                                 data-aos-duration='700'
                                 data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
+                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         120+
                                     </div>
@@ -101,7 +101,7 @@ export default function OverviewServicesPage() {
                                 data-aos-delay='800'
                                 data-aos-duration='700'
                                 data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
+                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         15+
                                     </div>
@@ -119,7 +119,7 @@ export default function OverviewServicesPage() {
                                 data-aos-delay='900'
                                 data-aos-duration='700'
                                 data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
+                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         3x
                                     </div>
@@ -138,7 +138,7 @@ export default function OverviewServicesPage() {
                                 data-aos-delay='1000'
                                 data-aos-duration='700'
                                 data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 shadow-port-card'>
+                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
                                     <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
                                         24/7
                                     </div>

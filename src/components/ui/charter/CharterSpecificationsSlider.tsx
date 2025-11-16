@@ -51,6 +51,26 @@ export default function CharterSpecificationsSlider({
                         className='charter-specifications-slider__img'
                     />
                 </div>
+
+                {/* Navigation Thumbnails */}
+                <div className='charter-specifications-slider__navigation charter-specifications-slider__navigation--mobile'>
+                    <div className='charter-specifications-slider__navigation-wrapper'>
+                        {gallery.map((image, index) => (
+                            <div
+                                key={index}
+                                className='charter-specifications-slider__thumb'
+                                onClick={() => setCurrentSlide(index + 1)}>
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    width={271}
+                                    height={204}
+                                    className='charter-specifications-slider__thumb-img'
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
                 <div className='charter-specifications-slider__content'>
                     <h2 className='charter-specifications-slider__title'>Boat Specifications</h2>
                     <div className='charter-specifications-slider__list'>
@@ -172,7 +192,7 @@ export default function CharterSpecificationsSlider({
             </div>
 
             {/* Navigation Thumbnails */}
-            <div className='charter-specifications-slider__navigation'>
+            <div className='charter-specifications-slider__navigation charter-specifications-slider__navigation--desktop'>
                 <div className='charter-specifications-slider__navigation-wrapper'>
                     {gallery.map((image, index) => (
                         <div

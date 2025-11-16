@@ -42,6 +42,14 @@
         padding: 40px 24px 0 24px;
         position: relative;
         z-index: 2;
+
+        @include base.media-down(laptop) {
+            padding: 40px 57px 0 57px;
+        }
+
+        @include base.media-down(mobile) {
+            padding: 40px 24px 0 24px;
+        }
     }
 
     .footer__main {

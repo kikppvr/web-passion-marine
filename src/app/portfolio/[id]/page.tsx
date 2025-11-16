@@ -60,7 +60,34 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Hero Section */}
                 <section className='section section--space-y portfolio-hero'>
                     <div className='container'>
-                        <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
+                                <h1 className='text-h1 mb-4 text-[var(--blue-500)] xl:mb-6'>
+                                    {portfolioDetailData.title}
+                                </h1>
+                                <p className='text-body lg:text-lead-2 mb-4 text-[var(--grey-600)] xl:mb-6'>
+                                    {portfolioDetailData.description}
+                                </p>
+
+                                <div className='text-h6 mb-4 font-semibold text-[var(--blue-500)] xl:mb-6'>
+                                    Model: {portfolioDetailData.model}
+                                </div>
+                                <div className='flex justify-center gap-4'>
+                                    {portfolioDetailData.brandLogos.map((logo, index) => (
+                                        <div key={index} className=''>
+                                            <Image
+                                                src={logo}
+                                                alt={`Brand ${index + 1}`}
+                                                width={100}
+                                                height={37}
+                                                className='portfolio-hero__brand-logo'
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
                             <h1 className='text-h1 text-[var(--blue-500)]'>
                                 {portfolioDetailData.title}
                             </h1>
@@ -84,18 +111,22 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
                 {/* Main Image and Gallery */}
                 <section className='section portfolio-gallery'>
                     <div className='container'>
-                        <GalleryWithThumbnails
-                            mainImage={portfolioDetailData.mainImage}
-                            mainImageAlt={portfolioDetailData.title}
-                            gallery={portfolioDetailData.gallery}
-                        />
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 xl:col-span-10 xl:col-start-2'>
+                                <GalleryWithThumbnails
+                                    mainImage={portfolioDetailData.mainImage}
+                                    mainImageAlt={portfolioDetailData.title}
+                                    gallery={portfolioDetailData.gallery}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -137,37 +168,43 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {/* Services Provided Section */}
                 <section className='section section--space-y portfolio-services'>
                     <div className='container'>
-                        <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>Services provided</h2>
-                        <div className='portfolio-services__swiper'>
-                            <ServicesSwiper
-                                services={portfolioDetailData.servicesProvided}
-                                autoplay={false}
-                                showNavigation={true}
-                                showPagination={true}
-                                loop={false}
-                                speed={500}
-                                slidesPerView={{
-                                    mobile: 1.5,
-                                    tablet: 3,
-                                    laptop: 4,
-                                    desktop: 4,
-                                    large: 4,
-                                }}
-                                spaceBetween={{
-                                    mobile: 16,
-                                    tablet: 16,
-                                    laptop: 16,
-                                    desktop: 32,
-                                    large: 32,
-                                }}
-                                slidesPerGroup={{
-                                    mobile: 1,
-                                    tablet: 3,
-                                    laptop: 4,
-                                    desktop: 4,
-                                    large: 4,
-                                }}
-                            />
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 xl:col-span-10 xl:col-start-2'>
+                                <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
+                                    Services provided
+                                </h2>
+                                <div className='portfolio-services__swiper'>
+                                    <ServicesSwiper
+                                        services={portfolioDetailData.servicesProvided}
+                                        autoplay={false}
+                                        showNavigation={true}
+                                        showPagination={true}
+                                        loop={false}
+                                        speed={500}
+                                        slidesPerView={{
+                                            mobile: 1.5,
+                                            tablet: 3,
+                                            laptop: 4,
+                                            desktop: 4,
+                                            large: 4,
+                                        }}
+                                        spaceBetween={{
+                                            mobile: 16,
+                                            tablet: 16,
+                                            laptop: 16,
+                                            desktop: 32,
+                                            large: 32,
+                                        }}
+                                        slidesPerGroup={{
+                                            mobile: 1,
+                                            tablet: 3,
+                                            laptop: 4,
+                                            desktop: 4,
+                                            large: 4,
+                                        }}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

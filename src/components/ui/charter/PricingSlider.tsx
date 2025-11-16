@@ -1,14 +1,7 @@
 "use client";
 
-import { useMemo, useId, useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { useMemo } from "react";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 interface PricingData {
     hourly: {
@@ -38,15 +31,6 @@ interface PricingSliderProps {
 }
 
 export default function PricingSlider({ pricing, onBookNow, className = "" }: PricingSliderProps) {
-    // Generate stable unique IDs for navigation buttons
-    const uniqueId = useId();
-    const nextButtonId = `pricing-button-next-${uniqueId}`;
-    const prevButtonId = `pricing-button-prev-${uniqueId}`;
-
-    // State for navigation disable
-    const [isBeginning, setIsBeginning] = useState(true);
-    const [isEnd, setIsEnd] = useState(false);
-
     const pricingCards = useMemo(
         () => [
             {
@@ -117,61 +101,8 @@ export default function PricingSlider({ pricing, onBookNow, className = "" }: Pr
         <div className={`charter-pricing ${className}`}>
             <h2 className='charter-pricing__title'>Boat Rental Rates</h2>
 
-            <div className='charter-pricing__slider'>
-                <Swiper
-                    modules={[Navigation, Pagination]}
-                    spaceBetween={24}
-                    slidesPerView={3}
-                    loop={false}
-                    speed={1000}
-                    navigation={{
-                        nextEl: `#${nextButtonId}`,
-                        prevEl: `#${prevButtonId}`,
-                    }}
-                    pagination={{ clickable: true }}
-                    breakpoints={{
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 16,
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 24,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 24,
-                        },
-                    }}
-                    onSlideChange={swiper => {
-                        setIsBeginning(swiper.isBeginning);
-                        setIsEnd(swiper.isEnd);
-                    }}
-                    onSwiper={swiper => {
-                        setIsBeginning(swiper.isBeginning);
-                        setIsEnd(swiper.isEnd);
-                    }}
-                    className='charter-pricing__swiper'>
-                    {pricingCards.map(card => (
-                        <SwiperSlide key={card.id}>{renderCard(card)}</SwiperSlide>
-                    ))}
-                </Swiper>
-
-                {/* Custom Navigation Buttons */}
-                <div className='charter-pricing__navigation-wrapper'>
-                    <button
-                        id={prevButtonId}
-                        className={`charter-pricing__button-prev ${isBeginning ? "charter-pricing__button-disabled" : ""}`}
-                        disabled={isBeginning}>
-                        <i className='ph ph-caret-left'></i>
-                    </button>
-                    <button
-                        id={nextButtonId}
-                        className={`charter-pricing__button-next ${isEnd ? "charter-pricing__button-disabled" : ""}`}
-                        disabled={isEnd}>
-                        <i className='ph ph-caret-right'></i>
-                    </button>
-                </div>
+            <div className='charter-pricing__cards'>
+                {pricingCards.map(card => renderCard(card))}
             </div>
         </div>
     );

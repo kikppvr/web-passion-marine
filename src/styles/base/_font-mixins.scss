@@ -81,12 +81,12 @@
     margin-bottom: 0;
 
     @include base.media-down(laptop) {
-        font-size: var(--text-h2); // 40px
+        font-size: var(--text-h3); // 40px
     }
 
-    @include base.media-down(tablet) {
-        font-size: var(--text-h3); // 33px
-    }
+    // @include base.media-down(tablet) {
+    //     font-size: var(--text-h3); // 33px
+    // }
 }
 
 @mixin text-h2 {

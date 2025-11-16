@@ -33,6 +33,12 @@
     z-index: 1;
     transition: transform 0.3s ease-in-out;
 
+    @include base.media-down(laptop) {
+        top: 30px;
+        right: 30px;
+        font-size: 40px;
+    }
+
     @include base.media-down(tablet) {
         top: 20px;
         right: 20px;
@@ -82,10 +88,16 @@
 
 .card-services__content {
     position: absolute;
-    bottom: 32px;
-    left: 32px;
-    right: 32px;
+    bottom: 48px;
+    left: 48px;
+    right: 48px;
     color: var(--white);
+
+    @include base.media-down(laptop) {
+        bottom: 32px;
+        left: 32px;
+        right: 32px;
+    }
 
     @include base.media-down(tablet) {
         bottom: 20px;
