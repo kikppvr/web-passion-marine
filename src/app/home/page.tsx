@@ -16,6 +16,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAOS } from "@/hooks/useAOS";
 import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
+import newsData from "@/data/news-data.json";
 //styles
 import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
@@ -212,30 +213,19 @@ export default function HeaderPage() {
         },
     ];
 
-    // Our Latest News data
-    const ourLatestNewsData = [
-        {
-            title: "Motor Expo 2023",
-            date: "16 December 2024",
-            image: "/images/home/news/news-01.webp",
-            video: "",
-            href: "/comingsoon",
-        },
-        {
-            title: "Boat Fair#2 @Riverdale Marina",
-            date: "16 December 2024",
-            image: "/images/home/news/news-02.webp",
-            video: "",
-            href: "/comingsoon",
-        },
-        {
-            title: "Grow Boating Event @Riverdale Marina",
-            date: "16 December 2024",
-            image: "/images/home/news/news-03.webp",
-            video: "",
-            href: "/comingsoon",
-        },
-    ];
+    // Our Latest News data - ดึง 3 ข่าวล่าสุดจาก news-data.json
+    const allNews = newsData.news;
+    const ourLatestNewsData = allNews
+        .slice(0, 3) // เอา 3 ข่าวล่าสุด
+        .map(news => ({
+            title: news.title,
+            description: news.description,
+            image: news.image,
+            date: news.date,
+            category: news.category,
+            href: news.href,
+            video: "", // SwiperSlideData requires video property
+        }));
 
     // Brands data for slider
     const brandsData = [

@@ -101,23 +101,79 @@
             "category": "Safety",
             "date": "10 December 2024",
             "author": "Safety Department",
-            "mainImage": "/images/home/news/news-02.webp",
+            "mainImage": "/images/news/boat-fair-2/02.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Marine Safety Guidelines"
+                    "src": "/images/news/boat-fair-2/03.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Safety Equipment"
+                    "src": "/images/news/boat-fair-2/04.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Safety Training"
+                    "src": "/images/news/boat-fair-2/05.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Marine Safety Guidelines"
+                    "src": "/images/news/boat-fair-2/06.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/07.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/08.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/09.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/10.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/11.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/12.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/13.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/14.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/15.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/16.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/17.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/18.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/19.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
+                },
+                {
+                    "src": "/images/news/boat-fair-2/20.jpg",
+                    "alt": "Boat Fair#2 @Riverdale Marina"
                 }
             ],
             "content": [
@@ -131,27 +187,67 @@
             "category": "Awards",
             "date": "21 June 2024",
             "author": "Marketing Team",
-            "mainImage": "/images/home/news/news-03.webp",
+            "mainImage": "/images/news/grow-boating/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Marine Excellence Award"
+                    "src": "/images/news/grow-boating/02.jpg",
+                    "alt": "Grow Boating Event"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Award Ceremony"
+                    "src": "/images/news/grow-boating/03.jpg",
+                    "alt": "Grow Boating Event"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Team Celebration"
+                    "src": "/images/news/grow-boating/04.jpg",
+                    "alt": "Grow Boating Event"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Award Trophy"
+                    "src": "/images/news/grow-boating/05.jpg",
+                    "alt": "Grow Boating Event"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Company Recognition"
+                    "src": "/images/news/grow-boating/06.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/07.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/08.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/09.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/10.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/11.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/12.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/13.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/14.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/15.jpg",
+                    "alt": "Grow Boating Event"
+                },
+                {
+                    "src": "/images/news/grow-boating/16.jpg",
+                    "alt": "Grow Boating Event"
                 }
             ],
             "content": [
@@ -165,23 +261,11 @@
             "category": "Facilities",
             "date": "1 August 2024",
             "author": "Operations Team",
-            "mainImage": "/images/home/news/news-01.webp",
+            "mainImage": "/images/news/grow-boating/05.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "New Marina Facilities"
-                },
-                {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Marina Dock"
-                },
-                {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Facilities Overview"
-                },
-                {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Service Center"
+                    "src": "/images/news/grow-boating/06.jpg",
+                    "alt": "Volvo Penta Authorized Service Dealer"
                 }
             ],
             "content": [
@@ -195,31 +279,75 @@
             "category": "Events",
             "date": "29 November 2024 - 10 December 2024",
             "author": "Events Team",
-            "mainImage": "/images/home/news/news-02.webp",
+            "mainImage": "/images/news/motor-expo-2024/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Technology Summit"
+                    "src": "/images/news/motor-expo-2024/02.jpg",
+                    "alt": "Motor Expo 2024"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Innovation Display"
+                    "src": "/images/news/motor-expo-2024/03.jpg",
+                    "alt": "Motor Expo 2024"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Conference Hall"
+                    "src": "/images/news/motor-expo-2024/04.jpg",
+                    "alt": "Motor Expo 2024"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Networking Event"
+                    "src": "/images/news/motor-expo-2024/05.jpg",
+                    "alt": "Motor Expo 2024"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Technology Demo"
+                    "src": "/images/news/motor-expo-2024/06.jpg",
+                    "alt": "Motor Expo 2024"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Panel Discussion"
+                    "src": "/images/news/motor-expo-2024/07.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/09.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/10.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/11.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/12.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/13.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/14.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/15.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/16.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/17.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/18.jpg",
+                    "alt": "Motor Expo 2024"
+                },
+                {
+                    "src": "/images/news/motor-expo-2024/19.jpg",
+                    "alt": "Motor Expo 2024"
                 }
             ],
             "content": [
@@ -228,28 +356,56 @@
         },
         {
             "id": "6",
-            "title": "Saxdor Family Trip @Pattaya: Passion Marine ดูแลซัพพอร์ตลูกค้าเรือ Saxdor ท่านนึงในการออกทริปได้อย่างมั่นใจและปลอดภัย",
-            "description": "การออกเดินทางระยะไกล เป็นหนึ่งในกิจกรรมที่ผู้ครอบครองเรือโดยส่วนใหญ่ มีความปรารถนาที่จะทำ อย่างไรก็ตาม เจ้าของเรือมักจะมีข้อกังวลในเรื่องความพร้อมในการเดินทาง ทั้งความพร้อมของเรือ และความพร้อมของผู้ร่วมเดินทาง สำหรับแพสชั่นมารีนแล้ว นอกเหนือจากการให้บริการดูแลรักษาและซ่อมบำรุงให้กับลูกค้าแล้ว เรายังได้รับความไว้วางใจจากเจ้าของเรือ ให้ทำหน้าที่เป็นผู้ร่วมเดินทางและให้การสนับสนุนทางเทคนิคระหว่างการเดินทางด้วย ทั้งนี้เพื่อสร้างความมั่นใจให้กับเจ้าของเรือ ว่าการเดินทางไกลดังกล่าวจะเป็นการเดินทางที่ปลอดภัย มีทีมช่างที่มีทักษะและประสบการณ์คอยให้การสนับสนุนอยู่ตลอดเวลา",
+            "title": "Saxdor Family Trip @Pattaya",
+            "description": ": Passion Marine ดูแลซัพพอร์ตลูกค้าเรือ Saxdor ท่านนึงในการออกทริปได้อย่างมั่นใจและปลอดภัย",
             "category": "Storage",
             "date": "3 May 2025 - 4 May 2025",
             "author": "Maintenance Team",
-            "mainImage": "/images/home/news/news-03.webp",
+            "mainImage": "/images/news/saxdor-family-trip/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Winter Storage Solutions"
+                    "src": "/images/news/saxdor-family-trip/02.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Boat Storage Facility"
+                    "src": "/images/news/saxdor-family-trip/03.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Storage Preparation"
+                    "src": "/images/news/saxdor-family-trip/04.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
+                    "src": "/images/news/saxdor-family-trip/05.jpg",
                     "alt": "Covered Storage"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/06.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/07.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/08.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/09.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/10.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/11.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/12.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 }
             ],
             "content": [
@@ -263,27 +419,51 @@
             "category": "Service",
             "date": "20 June 2025",
             "author": "Service Team",
-            "mainImage": "/images/home/news/news-01.webp",
+            "mainImage": "/images/news/saxdor-family-trip/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "New Service Center"
+                    "src": "/images/news/saxdor-family-trip/02.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Service Bay"
+                    "src": "/images/news/saxdor-family-trip/03.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-03.webp",
-                    "alt": "Equipment"
+                    "src": "/images/news/saxdor-family-trip/04.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 },
                 {
-                    "src": "/images/home/news/news-01.webp",
-                    "alt": "Technicians"
+                    "src": "/images/news/saxdor-family-trip/05.jpg",
+                    "alt": "Covered Storage"
                 },
                 {
-                    "src": "/images/home/news/news-02.webp",
-                    "alt": "Parts Department"
+                    "src": "/images/news/saxdor-family-trip/06.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/07.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/08.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/09.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/10.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/11.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
+                },
+                {
+                    "src": "/images/news/saxdor-family-trip/12.jpg",
+                    "alt": "Saxdor Family Trip @Pattaya"
                 }
             ],
             "content": [
