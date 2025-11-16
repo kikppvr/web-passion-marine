@@ -275,6 +275,48 @@
     flex-shrink: 0;
     margin-top: 2px;
     cursor: pointer;
+
+    // Custom checkbox styling
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #d2d2d3;
+    border-radius: 2px;
+    background: white;
+    position: relative;
+    // transition: all 0.2s ease;
+
+    // Hover state
+    // &:hover {
+    //     border-color: var(--blue-500);
+    // }
+
+    // Focus state
+    &:focus {
+        outline: none;
+        border-color: var(--blue-500);
+        background-color: var(--blue-500) !important;
+        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+
+    // Checked state
+    &:checked {
+        background-color: var(--blue-500);
+        border-color: var(--blue-500);
+
+        // Checkmark icon
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+        }
+    }
 }
 
 .contact-form__checkbox-label {
