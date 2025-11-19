@@ -80,7 +80,9 @@ export default function EngineeringSolutionsPage() {
                 </section>
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                        <div
+                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                            id='engine-repair-maintenance'>
                             <div>
                                 <GallerySlider
                                     className='gallery-engineering-solutions'
@@ -93,28 +95,32 @@ export default function EngineeringSolutionsPage() {
                             </div>
                             <div className='lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Engine Repair & Maintenance
+                                    Engine Maintenance, Repair and Overhaul
                                 </h3>
                                 <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
+                                    Passion Marine provides comprehensive maintenance and repair
+                                    services for marine engines and related components, including
+                                    stern drive systems, power generators, steering systems, and
+                                    cooling systems. The company offers full-cycle maintenance
+                                    services, covering both routine and preventive maintenance.
+                                    Using computer-based diagnostic tools, Passion Marine can
+                                    accurately identify malfunctions down to the sensor level.
                                 </div>
                             </div>
                         </div>
-                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                        <div
+                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                            id='boat-upgrades'>
                             <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Boat Upgrades
+                                    Electrical System Integration
                                 </h3>
                                 <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
+                                    Passion Marine offers design, installation, and maintenance
+                                    services for marine electrical systems, including electrical
+                                    equipment, switch systems, and overcurrent protection fuses. The
+                                    company also provides inspection, repair, and replacement of
+                                    wiring systems that have deteriorated over time.
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>
@@ -128,7 +134,9 @@ export default function EngineeringSolutionsPage() {
                                 />
                             </div>
                         </div>
-                        <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                        <div
+                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                            id='electronics-solar'>
                             <div>
                                 <GallerySlider
                                     className='gallery-engineering-solutions'
@@ -141,28 +149,28 @@ export default function EngineeringSolutionsPage() {
                             </div>
                             <div className='lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Electronics & Solar
+                                    Electronic Device
                                 </h3>
                                 <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
+                                    Passion Marine designs and installs various electronic systems,
+                                    such as console instrument systems, audio systems, communication
+                                    radios, and navigation aids including GPS and multi-function
+                                    display (MFD) systems for monitoring and control.
                                 </div>
                             </div>
                         </div>
-                        <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                        <div
+                            className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'
+                            id='structure-repair'>
                             <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                                 <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Structure Repair
+                                    Fiberglass Structure Repair
                                 </h3>
                                 <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu
-                                    vitae. Tincidunt dignissim dolor sit quisque faucibus ultrices
-                                    nulla ac fermentum. Mollis elementum amet morbi odio neque.
-                                    Elementum et rhoncus ante placerat nullam molestie metus. In in
-                                    odio faucibus dui.
+                                    Passion Marine provides repair and fabrication services for boat
+                                    structures, including hull skins and reinforcement structures
+                                    made from composite materials such as fiberglass and carbon
+                                    fiber.
                                 </div>
                             </div>
                             <div className='order-1 lg:order-2'>

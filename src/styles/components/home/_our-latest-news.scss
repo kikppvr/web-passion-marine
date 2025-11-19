@@ -90,11 +90,11 @@
         transition: all 0.3s ease;
         @include base.container;
 
-        &:hover {
-            opacity: 1;
-        }
+        // &:hover {
+        //     opacity: 1;
+        // }
 
-        @include base.media-down(laptop) {
+        @include base.media-down(tablet) {
             position: absolute;
             bottom: 0;
             left: auto;

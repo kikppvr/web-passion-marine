@@ -92,13 +92,15 @@ export default function AestheticSolutionsPage() {
                 </section>
 
                 {/* Boat Color Customizer Section */}
-                <section className='section section--space-bottom'>
+                <section className='section section--space-bottom' id='custom-boat-design'>
                     <BoatColorCustomizer />
                 </section>
             </div>
             <section className='section section--space-bottom'>
                 <div className='container'>
-                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                    <div
+                        className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                        id='teak-eva-flooring'>
                         <div>
                             <GallerySlider
                                 className='gallery-esthetic-solutions'
@@ -114,25 +116,30 @@ export default function AestheticSolutionsPage() {
                                 Teak & EVA Flooring
                             </h3>
                             <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
-                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
-                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
-                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
-                                dui.
+                                Passion Marine provides design and fabrication services for boat
+                                flooring using teak wood and modern materials such as EVA (Ethylene
+                                Vinyl Acetate). The flooring can be custom-designed in terms of
+                                pattern and color according to the boat owner’s preferences. Designs
+                                are created using computer software to allow the owner to preview
+                                and adjust the layout before production, which is executed using CNC
+                                (Computer Numerical Control) cutting machines and laser engraving
+                                technology for precise detailing.
                             </div>
                         </div>
                     </div>
-                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                    <div
+                        className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                        id='marine-upholstery'>
                         <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
                                 Marine Upholstery
                             </h3>
                             <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
-                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
-                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
-                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
-                                dui.
+                                Passion Marine designs, manufactures, and repairs boat seats and
+                                canopies using marine-grade materials specifically made for marine
+                                environments. Boat owners can customize seat and backrest firmness,
+                                patterns, materials, stitching styles, fabric or leather types,
+                                colors, and textures according to their personal preferences.
                             </div>
                         </div>
                         <div className='order-1 lg:order-2'>
@@ -146,7 +153,9 @@ export default function AestheticSolutionsPage() {
                             />
                         </div>
                     </div>
-                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                    <div
+                        className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                        id='gelcoat-paint'>
                         <div>
                             <GallerySlider
                                 className='gallery-esthetic-solutions'
@@ -159,28 +168,29 @@ export default function AestheticSolutionsPage() {
                         </div>
                         <div className='lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                Gelcoat Repair & Finishing
+                                Gelcoat Paint
                             </h3>
                             <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
-                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
-                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
-                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
-                                dui.
+                                Passion Marine offers exterior repair and color restoration services
+                                using gelcoat paint, which is thicker and more durable than
+                                conventional 2K automotive paint that is thin and less resistant to
+                                impact or scratches. The thicker gelcoat layer also allows for the
+                                integration of decorative materials, such as glitter, to create a
+                                shimmering effect under light.
                             </div>
                         </div>
                     </div>
-                    <div className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'>
+                    <div
+                        className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
+                        id='fiberglass-furniture'>
                         <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                Fiberglass Furniture
+                                Custom Fiberglass Furniture
                             </h3>
                             <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
-                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
-                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
-                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
-                                dui.
+                                Passion Marine designs and manufactures furniture with custom
+                                shapes, forms, and functions tailored to the user’s needs, using
+                                fiberglass and stainless steel materials.
                             </div>
                         </div>
                         <div className='order-1 lg:order-2'>
@@ -194,7 +204,9 @@ export default function AestheticSolutionsPage() {
                             />
                         </div>
                     </div>
-                    <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'>
+                    <div
+                        className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'
+                        id='interior-styling'>
                         <div>
                             <GallerySlider
                                 className='gallery-esthetic-solutions'
@@ -207,14 +219,14 @@ export default function AestheticSolutionsPage() {
                         </div>
                         <div className='lg:px-4 xl:px-6'>
                             <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                Interior Styling
+                                Yacht Interior Styling
                             </h3>
                             <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                Lorem ipsum dolor sit amet consectetur. In nibh egestas arcu vitae.
-                                Tincidunt dignissim dolor sit quisque faucibus ultrices nulla ac
-                                fermentum. Mollis elementum amet morbi odio neque. Elementum et
-                                rhoncus ante placerat nullam molestie metus. In in odio faucibus
-                                dui.
+                                Passion Marine provides yacht interior design services that combine
+                                the owner’s creativity and aesthetic preferences with professional
+                                design and construction techniques. The process adheres to proper
+                                engineering standards to ensure a balance between satisfaction,
+                                comfort, and safety during use.
                             </div>
                         </div>
                     </div>

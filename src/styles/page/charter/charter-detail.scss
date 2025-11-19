@@ -217,6 +217,10 @@
         gap: 4px;
     }
 
+    // @include base.media-down(mobile) {
+    //     gap: 12px;
+    // }
+
     &::-webkit-scrollbar {
         height: 4px;
     }
@@ -422,7 +426,6 @@
     border-radius: 20px;
     padding: 32px;
     display: flex;
-    // gap: 32px;
     align-items: flex-start;
 
     @include base.media-down(tablet) {
@@ -435,10 +438,7 @@
                 opacity: 1;
             }
         }
-    }
-
-    @include base.media-down(mobile) {
-        text-align: center;
+        align-items: center;
     }
 
     @include base.media-down(mobile) {
@@ -460,6 +460,10 @@
 
 .charter-testimonials__content {
     flex: 0 0 66.66%;
+
+    @include base.media-down(tablet) {
+        flex: 0 0 100%;
+    }
 }
 
 .charter-testimonials__list {
@@ -482,14 +486,11 @@
         position: relative;
         overflow: hidden;
 
-        text-align: center;
         :hover {
             .charter-pricing__navigation-wrapper {
                 opacity: 1;
             }
         }
-        align-items: center;
-        // gap: 16px;
     }
 }
 
@@ -503,6 +504,10 @@
     height: 111px;
     border-radius: 50%;
     overflow: hidden;
+
+    @include base.media-down(mobile) {
+        margin: 0 auto;
+    }
 }
 
 .charter-testimonials__avatar-img {
