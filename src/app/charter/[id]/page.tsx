@@ -141,7 +141,7 @@ export default function CharterDetailPage({ params }: { params: Promise<{ id: st
                             <SocialIcons
                                 showLabel={true}
                                 showIcons={{
-                                    facebook: true,
+                                    facebook: false,
                                     instagram: true,
                                     line: true,
                                     link: true,

@@ -83,7 +83,7 @@ const Footer = ({ className }: FooterProps) => {
                     <div className='footer__column'>
                         <h3 className='footer__column-title'>Social</h3>
                         <div className='footer__social'>
-                            <Link
+                            {/* <Link
                                 href='https://facebook.com/passionmarine'
                                 target='_blank'
                                 rel='noopener noreferrer'
@@ -114,7 +114,7 @@ const Footer = ({ className }: FooterProps) => {
                                     </svg>
                                 </div>
                                 <span>Passion Marine</span>
-                            </Link>
+                            </Link> */}
                             <Link
                                 href='https://instagram.com/passion.marine'
                                 target='_blank'

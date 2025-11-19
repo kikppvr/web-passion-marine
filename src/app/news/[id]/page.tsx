@@ -123,7 +123,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                             <SocialIcons
                                 showLabel={true}
                                 showIcons={{
-                                    facebook: true,
+                                    facebook: false,
                                     instagram: true,
                                     line: true,
                                     link: true,

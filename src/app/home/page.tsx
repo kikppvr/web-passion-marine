@@ -109,7 +109,7 @@ export default function HeaderPage() {
             title: "Gelcoat Repair & Finishing",
             image: "/images/home/business/business-08.webp",
             video: "/videos/business/video-08.mp4",
-            href: "/services/aesthetic-solutions#gelcoat-repair-finishing",
+            href: "/services/aesthetic-solutions#gelcoat-paint",
         },
         {
             title: "Fiberglass Furniture",

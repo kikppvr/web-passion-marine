@@ -53,7 +53,7 @@ export default function ContactUsPage() {
                                     <SocialIcons
                                         showLabel={false}
                                         showIcons={{
-                                            facebook: true,
+                                            facebook: false,
                                             instagram: true,
                                             line: true,
                                             link: false,
