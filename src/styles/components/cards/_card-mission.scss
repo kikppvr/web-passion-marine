@@ -24,9 +24,13 @@
         border-radius: 5px;
         @include image.baseRatioImg(140%);
 
-        @include base.media-down(mobile) {
-            @include image.baseRatioImg(130%);
+        @include base.media-down(laptop) {
+            @include image.baseRatioImg(120%);
         }
+
+        // @include base.media-down(mobile) {
+        //     @include image.baseRatioImg(130%);
+        // }
 
         .card-mission__image {
             width: 100%;
@@ -56,7 +60,7 @@
             flex-direction: column;
             transition: all 0.5s ease-in-out;
 
-            @include base.media-down(laptop) {
+            @include base.media-down(tablet) {
                 padding: 24px;
             }
 

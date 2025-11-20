@@ -280,4 +280,10 @@ body {
             font-size: var(--text-body);
         }
     }
+
+    @media (max-width: 576px) {
+        .text-display-3 {
+            font-size: var(--text-h2);
+        }
+    }
 }

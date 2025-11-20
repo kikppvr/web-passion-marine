@@ -1,8 +1,14 @@
+"use client";
+
 import { MainLayout } from "@/components/ui/layout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { MissionCard } from "@/components/ui/cards/MissionCard";
+import { useAOS } from "@/hooks/useAOS";
+import "aos/dist/aos.css";
 
 export default function AboutUsPage() {
+    // Initialize AOS
+    useAOS();
     const bannerProps = {
         title: "About Us",
         subtitle: "Learn more about Passion Marine and our commitment to excellence",
@@ -50,14 +56,20 @@ export default function AboutUsPage() {
             <section className='section section--space-top'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-                        <div className='lg:col-span-3'>
+                        <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
                             <h2 className='text-h3 text-[var(--blue-500)]'>Vision</h2>
                         </div>
                         <div className='lg:col-span-9'>
-                            <h3 className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'>
+                            <h3
+                                className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'
+                                data-aos='fade-up'
+                                data-aos-delay='200'>
                                 PASSION DRIVES PERFECTION
                             </h3>
-                            <p className='text-lead-2 mb-4 text-[var(--grey-600)] md:mb-6'>
+                            <p
+                                className='text-lead-2 mb-4 text-[var(--grey-600)] md:mb-6'
+                                data-aos='fade-up'
+                                data-aos-delay='300'>
                                 Our company was established by a group of experienced aerospace
                                 engineers who are fascinated by boats;{" "}
                                 <span className='font-semibold'>passionate</span> about the rides,
@@ -65,7 +77,10 @@ export default function AboutUsPage() {
                                 community, we offer products and services that accommodate your
                                 personal water-journey lifestyle .
                             </p>
-                            <p className='text-lead-2 mb-0 text-[var(--grey-600)]'>
+                            <p
+                                className='text-lead-2 mb-0 text-[var(--grey-600)]'
+                                data-aos='fade-up'
+                                data-aos-delay='400'>
                                 We believe in the never-ending enjoyment of owning a boat and for
                                 that very reason, quality maintenance and repairs are what we highly
                                 valued. They are essentially the core of a complete platform with
@@ -80,12 +95,15 @@ export default function AboutUsPage() {
             <section className='section section--space-top'>
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-                        <div className='lg:col-span-3'>
+                        <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
                             <h2 className='text-h3 text-[var(--blue-500)]'>Mission</h2>
                         </div>
                         <div className='lg:col-span-9'>
-                            <p className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'>
-                                The company’s overall Mission serves as the guideline in every
+                            <p
+                                className='text-h5 mb-0 font-semibold text-[var(--blue-500)]'
+                                data-aos='fade-up'
+                                data-aos-delay='200'>
+                                The company&apos;s overall Mission serves as the guideline in every
                                 activity we undertake and every investment we make. It defines the
                                 direction of the company, ensuring that whenever we consider or take
                                 action, these 4 principles are always taken into account.
@@ -98,7 +116,11 @@ export default function AboutUsPage() {
                 <div className='container'>
                     <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4'>
                         {missionData.map((item, index) => (
-                            <div key={index} className='h-full w-full'>
+                            <div
+                                key={index}
+                                className='h-full w-full'
+                                data-aos='fade-up'
+                                data-aos-delay={`${(index + 1) * 100}`}>
                                 <MissionCard
                                     title={item.title}
                                     description={item.description}
@@ -112,18 +134,21 @@ export default function AboutUsPage() {
             <section className='milestone section section--space-y'>
                 <div className='container'>
                     <div className='milestone__wrapper'>
-                        <div className='milestone__left'>
+                        <div className='milestone__left' data-aos='fade-up' data-aos-delay='100'>
                             <h2 className='text-h3 text-[var(--blue-500)]'>Milestones</h2>
                         </div>
                         <div className='milestone__right'>
-                            <div className='milestone__item'>
+                            <div
+                                className='milestone__item'
+                                data-aos='fade-up'
+                                data-aos-delay='200'>
                                 <h3 className='milestone__title'>2022</h3>
                                 <p className='milestone__subtitle'>
                                     Passion Marine Co., Ltd. was established, marking the beginning
-                                    of its business direction. The company’s primary objective is to
-                                    offer high-quality services to the boating community, delivered
-                                    by skilled professionals following internationally recognized
-                                    standards.
+                                    of its business direction. The company&apos;s primary objective
+                                    is to offer high-quality services to the boating community,
+                                    delivered by skilled professionals following internationally
+                                    recognized standards.
                                 </p>
                                 <p className='milestone__description'>
                                     Passion Marine aims to be a reliable option for those seeking to
@@ -132,7 +157,10 @@ export default function AboutUsPage() {
                                     materials suitable for marine environments.
                                 </p>
                             </div>
-                            <div className='milestone__item'>
+                            <div
+                                className='milestone__item'
+                                data-aos='fade-up'
+                                data-aos-delay='300'>
                                 <h3 className='milestone__title'>2023</h3>
                                 <p className='milestone__subtitle'>
                                     Passion Marine had the opportunity to showcase
@@ -143,7 +171,10 @@ export default function AboutUsPage() {
                                     individuals at the Motor Expo 2023.
                                 </p>
                             </div>
-                            <div className='milestone__item'>
+                            <div
+                                className='milestone__item'
+                                data-aos='fade-up'
+                                data-aos-delay='400'>
                                 <h3 className='milestone__title'>2024</h3>
                                 <p className='milestone__subtitle'>
                                     Passion Marine expanded its capabilities to meet the growing
@@ -158,7 +189,10 @@ export default function AboutUsPage() {
                                     engines, spare parts, and maintenance services.
                                 </p>
                             </div>
-                            <div className='milestone__item'>
+                            <div
+                                className='milestone__item'
+                                data-aos='fade-up'
+                                data-aos-delay='500'>
                                 <h3 className='milestone__title'>2025</h3>
                                 <p className='milestone__subtitle'>
                                     Passion Marine expanded its repair and production area from 420

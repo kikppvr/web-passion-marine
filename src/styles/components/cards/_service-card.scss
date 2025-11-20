@@ -13,7 +13,7 @@
         .card-services__icon {
             transform: translate3d(15px, -15px, 0px);
 
-            @include base.media-down(tablet) {
+            @include base.media-down(laptop) {
                 transform: translate3d(10px, -10px, 0px);
             }
         }
@@ -34,14 +34,12 @@
     transition: transform 0.3s ease-in-out;
 
     @include base.media-down(laptop) {
-        top: 30px;
-        right: 30px;
+        top: 20px;
+        right: 20px;
         font-size: 40px;
     }
 
     @include base.media-down(tablet) {
-        top: 20px;
-        right: 20px;
         font-size: 25px;
     }
 
@@ -62,7 +60,7 @@
         border: 0;
     }
 
-    @include base.media-down(tablet) {
+    @include base.media-down(laptop) {
         @include image.baseRatioImg(90%);
     }
 
@@ -94,12 +92,6 @@
     color: var(--white);
 
     @include base.media-down(laptop) {
-        bottom: 32px;
-        left: 32px;
-        right: 32px;
-    }
-
-    @include base.media-down(tablet) {
         bottom: 20px;
         left: 20px;
         right: 20px;
@@ -110,6 +102,11 @@
     @include fonts.text-h2;
     @include fonts.font-semibold;
     margin-bottom: 12px;
+
+    @include base.media-down(laptop) {
+        @include fonts.text-h3;
+        margin-bottom: 12px;
+    }
 }
 
 .card-services__description {

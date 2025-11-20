@@ -51,6 +51,10 @@
         height: 75vh;
         padding: 64px 0;
 
+        @include base.media-down(desktop) {
+            height: 50vh;
+        }
+
         @include base.media-down(laptop) {
             height: 40vh;
         }
@@ -130,7 +134,8 @@
     display: flex;
     align-items: center;
 
-    @include base.media-down(laptop) {
+    @include base.media-down(desktop) {
+        // max width 1200px
         display: none;
     }
 }
