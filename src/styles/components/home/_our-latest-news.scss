@@ -94,7 +94,7 @@
         //     opacity: 1;
         // }
 
-        @include base.media-down(tablet) {
+        @include base.media-down(laptop) {
             position: absolute;
             bottom: 0;
             left: auto;

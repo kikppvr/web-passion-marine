@@ -71,6 +71,10 @@
     @include base.media-down(tablet) {
         font-size: var(--text-display-3); // 57px
     }
+
+    @include base.media-down(mobile) {
+        font-size: var(--text-h2); // 40px
+    }
 }
 
 // Heading Typography Mixins

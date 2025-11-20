@@ -518,28 +518,31 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
-                            {/* <PrimaryButton
+                            <PrimaryButton
                                 theme='dark'
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}
                                 onClick={confirmDialog.open}>
                                 View Document
-                            </PrimaryButton> */}
+                            </PrimaryButton>
 
-                            <PrimaryButton
+                            {/* <PrimaryButton
                                 theme='dark'
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}>
                                 View Document
-                            </PrimaryButton>
+                            </PrimaryButton> */}
 
-                            {/* <DocumentModal
+                            <DocumentModal
                                 open={confirmDialog.isOpen}
                                 onOpenChange={confirmDialog.setIsOpen}
-                                title='Title'
-                                onConfirm={handleDelete}
+                                documentImageSrc='/images/home/cer-volvo.png'
+                                documentImageAlt='Volvo Penta Appointment Letter - Letter of Appointment from Alpha Tech and Volvo Penta dated 1st August 2024'
+                                announcementText='Passion Marine has been appointed as an authorized service dealer for Volvo Penta'
+                                announcementHighlight={["Passion Marine", "Volvo Penta"]}
+                                locationText='Connect with us at Petra Marina Pathum Thani'
                                 className='modal-document'
-                            /> */}
+                            />
                         </div>
                     </div>
                 </div>
@@ -595,12 +598,7 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp
-                                                start={100}
-                                                end={120}
-                                                duration={2}
-                                                suffix='+'
-                                            />
+                                            <CountUp start={80} end={103} duration={2} suffix='+' />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Project</div>
@@ -608,7 +606,7 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp start={50} end={80} duration={2} suffix='+' />
+                                            <CountUp start={20} end={47} duration={2} suffix='+' />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Customer</div>
@@ -660,11 +658,13 @@ export default function HeaderPage() {
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        {/* <i className='ph ph-star our-portfolio__star'></i> */}
-                                        <span className='our-portfolio__rating-text'>(5)</span>
+                                        <div className='our-portfolio__star-half'>
+                                            <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--base'></i>
+                                            <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--fill'></i>
+                                        </div>
+                                        <span className='our-portfolio__rating-text'>(4.5)</span>
                                     </div>
-                                    <div className='our-portfolio__review-count'>8K Review</div>
+                                    <div className='our-portfolio__review-count'>32 Review</div>
                                 </div>
                             </div>
                         </div>
@@ -682,7 +682,7 @@ export default function HeaderPage() {
                                     showPagination={true}
                                     slidesPerView={{
                                         mobile: 1.1,
-                                        tablet: 2.2,
+                                        tablet: 1.6,
                                         laptop: 1.6,
                                         desktop: 2.2,
                                         large: 2.2,

@@ -65,7 +65,7 @@
     //     font-size: var(--text-h1);
     // }
 
-    // @include base.media-down(mobile) {
-    //     font-size: var(--text-h2);
-    // }
+    @include base.media-down(mobile) {
+        font-size: var(--text-h3);
+    }
 }

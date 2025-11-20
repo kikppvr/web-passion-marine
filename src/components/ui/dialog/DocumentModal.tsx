@@ -8,17 +8,14 @@ import Image from "next/image";
 interface DocumentModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
-    title: string;
+    title?: string;
     description?: string | React.ReactNode;
     subtitle?: string;
-    imageSrc?: string;
-    imageAlt?: string;
-    imageWidth?: number;
-    imageHeight?: number;
-    confirmText?: string;
-    cancelText?: string;
-    onConfirm?: () => void;
-    variant?: "danger" | "warning" | "info";
+    documentImageSrc?: string;
+    documentImageAlt?: string;
+    announcementText?: string;
+    announcementHighlight?: string[];
+    locationText?: string;
     className?: string;
 }
 
@@ -28,53 +25,73 @@ export const DocumentModal = ({
     title,
     description,
     subtitle,
-    imageSrc,
-    imageAlt = "",
-    imageWidth,
-    imageHeight,
-    confirmText = "Confirm",
-    cancelText = "Cancel",
-    onConfirm,
-    variant = "info",
+    documentImageSrc,
+    documentImageAlt = "Document",
+    announcementText,
+    announcementHighlight = [],
+    locationText,
     className,
 }: DocumentModalProps) => {
-    const handleConfirm = () => {
-        onConfirm?.();
-        onOpenChange(false);
-    };
-
-    const variantStyles = {
-        danger: "",
-        warning: "",
-        info: "",
-    };
-
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent size='md' className={cn(variantStyles[variant], className)}>
+            <DialogContent size='xl' className={cn("modal-document", className)}>
                 {/* Close Button */}
                 <DialogClose asChild>
-                    <button aria-label='Close dialog'>✕</button>
+                    <button className='modal-document__close' aria-label='Close dialog'>
+                        <i className='ph-light ph-x'></i>
+                    </button>
                 </DialogClose>
 
                 {/* Content */}
                 <div className='modal-document__content'>
-                    {/* Image */}
-                    {imageSrc && (
-                        <div className='modal-document__image'>
-                            <Image
-                                src={imageSrc}
-                                alt={imageAlt}
-                                width={imageWidth || 178}
-                                height={imageHeight || 48}
-                                className='modal-document__image-img'
-                            />
+                    {/* Left Side - Document */}
+                    {documentImageSrc && (
+                        <div className='modal-document__left'>
+                            <div className='modal-document__document'>
+                                <Image
+                                    src={documentImageSrc}
+                                    alt={documentImageAlt}
+                                    width={300}
+                                    height={300}
+                                    className='modal-document__document-img'
+                                />
+                            </div>
                         </div>
                     )}
 
-                    <DialogTitle>{title}</DialogTitle>
-                    {description && <DialogDescription>{description}</DialogDescription>}
-                    {subtitle && <p className='modal-document__subtitle'>{subtitle}</p>}
+                    {/* Right Side - Announcement */}
+                    <div className='modal-document__right'>
+                        <div className='modal-document__announcement'>
+                            {announcementText && (
+                                <h2
+                                    className='modal-document__announcement-title'
+                                    dangerouslySetInnerHTML={{
+                                        __html:
+                                            announcementHighlight.length > 0
+                                                ? announcementHighlight.reduce(
+                                                      (text, highlight) => {
+                                                          const regex = new RegExp(
+                                                              `(${highlight})`,
+                                                              "gi"
+                                                          );
+                                                          return text.replace(
+                                                              regex,
+                                                              `<span class="modal-document__announcement-title--highlight">$1</span>`
+                                                          );
+                                                      },
+                                                      announcementText
+                                                  )
+                                                : announcementText,
+                                    }}
+                                />
+                            )}
+                            {locationText && (
+                                <p className='modal-document__announcement-location'>
+                                    {locationText}
+                                </p>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </DialogContent>
         </Dialog>
