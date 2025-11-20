@@ -10,6 +10,7 @@ import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { GalleryWithThumbnails } from "@/components/ui/media";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
+import portfolioDataJson from "@/data/portfolio-data.json";
 
 interface PortfolioDetailData {
     id: string;
@@ -53,6 +54,11 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         portfolioDetailDataJson.portfolioDetails.find(
             portfolio => portfolio.id === resolvedParams.id
         ) || portfolioDetailDataJson.portfolioDetails[0];
+
+    // Get other portfolios (excluding current one)
+    const otherPortfolios = portfolioDataJson.portfolios.filter(
+        portfolio => portfolio.id !== resolvedParams.id
+    );
 
     return (
         <MainLayout headerTheme='white'>
@@ -174,6 +180,8 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                             </PrimaryButton>
                             <SocialIcons
                                 showLabel={true}
+                                shareUrl={typeof window !== "undefined" ? window.location.href : ""}
+                                shareText={portfolioDetailData.title}
                                 showIcons={{
                                     facebook: false,
                                     instagram: true,
@@ -230,25 +238,29 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 </section>
 
                 {/* Other Portfolio Section */}
-                <section className='section section--space-y bg-blue-abstract portfolio-related'>
-                    <div className='container'>
-                        <div className=''>
-                            <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>Other portfolio</h2>
-                            <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-                                {portfolioDetailData.otherPortfolios.map(portfolio => (
-                                    <PortfolioCard
-                                        key={portfolio.id}
-                                        title={portfolio.title}
-                                        model={portfolio.model}
-                                        image={portfolio.image}
-                                        brandLogos={portfolio.brandLogos}
-                                        href={portfolio.href}
-                                    />
-                                ))}
+                {otherPortfolios.length > 0 && (
+                    <section className='section section--space-y bg-blue-abstract portfolio-related'>
+                        <div className='container'>
+                            <div className=''>
+                                <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
+                                    Other portfolio
+                                </h2>
+                                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+                                    {otherPortfolios.map(portfolio => (
+                                        <PortfolioCard
+                                            key={portfolio.id}
+                                            title={portfolio.title}
+                                            model={portfolio.model}
+                                            image={portfolio.image}
+                                            brandLogos={portfolio.brandLogos}
+                                            href={portfolio.href}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
             </div>
         </MainLayout>
     );

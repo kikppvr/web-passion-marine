@@ -1,9 +1,11 @@
 "use client";
-import { useMemo } from "react";
+import { useMemo, useState, useCallback } from "react";
 interface SocialIconsProps {
     className?: string;
     showLabel?: boolean;
     labelText?: string;
+    shareUrl?: string;
+    shareText?: string;
     showIcons?: {
         facebook?: boolean;
         instagram?: boolean;
@@ -89,6 +91,8 @@ export default function SocialIcons({
     className = "",
     showLabel = true,
     labelText = "Share",
+    shareUrl = typeof window !== "undefined" ? window.location.href : "",
+    shareText = "",
     showIcons = {
         facebook: true,
         instagram: true,
@@ -96,6 +100,47 @@ export default function SocialIcons({
         link: true,
     },
 }: SocialIconsProps) {
+    const [copied, setCopied] = useState(false);
+
+    const handleInstagramClick = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        // Open Instagram in new tab (you can customize this to your Instagram account URL)
+        window.open("https://www.instagram.com/passionmarine/", "_blank", "noopener,noreferrer");
+    }, []);
+
+    const handleLineClick = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        const url = encodeURIComponent(shareUrl);
+        const text = shareText ? encodeURIComponent(shareText) : "";
+        const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${url}${text ? `&text=${text}` : ""}`;
+        window.open(lineShareUrl, "_blank", "width=600,height=600");
+    }, [shareUrl, shareText]);
+
+    const handleLinkClick = useCallback(async (e: React.MouseEvent) => {
+        e.preventDefault();
+        try {
+            await navigator.clipboard.writeText(shareUrl);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = shareUrl;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand("copy");
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+            } catch (fallbackErr) {
+                console.error("Failed to copy URL", fallbackErr);
+            }
+            document.body.removeChild(textArea);
+        }
+    }, [shareUrl]);
+
     const socialLinks = useMemo(() => {
         const allSocialLinks = [
             {
@@ -104,6 +149,7 @@ export default function SocialIcons({
                 icon: <FacebookIcon />,
                 alt: "Facebook",
                 key: "facebook",
+                onClick: undefined,
             },
             {
                 name: "Instagram",
@@ -111,6 +157,7 @@ export default function SocialIcons({
                 icon: <InstagramIcon />,
                 alt: "Instagram",
                 key: "instagram",
+                onClick: handleInstagramClick,
             },
             {
                 name: "Line",
@@ -118,13 +165,15 @@ export default function SocialIcons({
                 icon: <LineIcon />,
                 alt: "Line",
                 key: "line",
+                onClick: handleLineClick,
             },
             {
                 name: "Link",
                 href: "#",
                 icon: <LinkIcon />,
-                alt: "Link",
+                alt: copied ? "Copied!" : "Copy Link",
                 key: "link",
+                onClick: handleLinkClick,
             },
         ];
 
@@ -142,7 +191,7 @@ export default function SocialIcons({
                     return true;
             }
         });
-    }, [showIcons]);
+    }, [showIcons, handleInstagramClick, handleLineClick, handleLinkClick, copied]);
 
     return (
         <div className={`social-icons ${className}`}>
@@ -153,7 +202,8 @@ export default function SocialIcons({
                         key={index}
                         href={social.href}
                         className='social-icons__item'
-                        aria-label={social.alt}>
+                        aria-label={social.alt}
+                        onClick={social.onClick}>
                         {social.icon}
                     </a>
                 ))}
