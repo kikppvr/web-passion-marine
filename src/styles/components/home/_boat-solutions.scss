@@ -70,7 +70,8 @@
         height: auto;
         overflow: visible;
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             padding-bottom: 40px;
         }
     }
@@ -93,7 +94,8 @@
         pointer-events: none;
         @include base.container;
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             position: absolute;
             bottom: 0;
             left: auto;
@@ -136,7 +138,8 @@
             transition: all 0.3s ease;
         }
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             position: absolute;
             top: 50%;
             width: 36px;
@@ -160,7 +163,8 @@
     .swiper-button-prev-custom {
         margin-left: -25px;
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             left: 0;
             margin-left: 0;
         }
@@ -168,14 +172,16 @@
 
     .swiper-button-next-custom {
         margin-right: -25px;
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             right: 0;
             margin-right: 0;
         }
     }
 
     .swiper-pagination-wrapper {
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             position: absolute;
             left: 50%;
             bottom: 20px;
@@ -188,7 +194,8 @@
         text-align: left;
         display: none;
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             display: block !important;
             position: relative !important;
             left: auto !important;
@@ -214,7 +221,8 @@
             opacity: 1;
         }
 
-        @include base.media-down(laptop) {
+        @include base.media-down(desktop) {
+            // max width 1200px
             background: var(--blue-500);
             opacity: 0.3;
             width: 8px;

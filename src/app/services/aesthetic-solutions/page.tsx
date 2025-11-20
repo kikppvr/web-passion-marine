@@ -1,9 +1,44 @@
+"use client";
+
+import { useEffect } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/aesthetic-solutions.scss";
 import { GallerySlider } from "@/components/ui/media";
 import { BoatColorCustomizer } from "@/components/ui/aesthetic";
 
 export default function AestheticSolutionsPage() {
+    // Handle hash links with scroll offset for fixed header
+    useEffect(() => {
+        const getHeaderHeight = () => {
+            if (window.innerWidth <= 768) return 60;
+            if (window.innerWidth <= 1024) return 80;
+            return 94;
+        };
+
+        const scrollToHash = () => {
+            const hash = window.location.hash;
+            if (!hash) return;
+
+            const element = document.getElementById(hash.substring(1));
+            if (!element) return;
+
+            const offset = getHeaderHeight() + 30;
+            const targetPosition =
+                element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        };
+
+        // Wait for page to render, then scroll
+        const timeoutId = setTimeout(scrollToHash, 100);
+        window.addEventListener("hashchange", scrollToHash);
+
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener("hashchange", scrollToHash);
+        };
+    }, []);
+
     const bannerProps = {
         title: "Aesthetic Solutions",
         backgroundImage: "/images/banner/aesthetic-solutions.webp",
