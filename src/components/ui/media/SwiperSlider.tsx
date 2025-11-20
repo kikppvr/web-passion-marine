@@ -182,7 +182,7 @@ export const SwiperSlider = ({
             </Swiper>
 
             {/* Custom Navigation Buttons with Phosphor Icons */}
-            {showNavigation && (
+            {showNavigation && !(isBeginning && isEnd) && (
                 <div className='swiper-navigation-wrapper'>
                     <button
                         id={prevButtonId}

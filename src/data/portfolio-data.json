@@ -4,7 +4,7 @@
             "id": "1",
             "title": "Model R7",
             "model": "R7",
-            "image": "/images/home/portfolio/portfolio-01.webp",
+            "image": "/images/home/portfolio/Model-R7/01.png",
             "brandLogos": [
                 "/images/home/brands/volvo-penta.png",
                 "/images/home/brands/cobalt-boats.webp"
@@ -15,7 +15,7 @@
             "id": "2",
             "title": "Model 320 GTO",
             "model": "320 GTO",
-            "image": "/images/home/portfolio/portfolio-02.webp",
+            "image": "/images/home/portfolio/Model-320-GTO/01.png",
             "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
             "href": "/portfolio/2"
         },
@@ -23,7 +23,7 @@
             "id": "3",
             "title": "Model 245SS",
             "model": "245SS",
-            "image": "/images/home/portfolio/portfolio-01.webp",
+            "image": "/images/home/portfolio/Model-245SS/01.jpg",
             "brandLogos": [
                 "/images/home/brands/crownline.jpg",
                 "/images/home/brands/mercury-mercruiser.jpg"
@@ -34,7 +34,7 @@
             "id": "4",
             "title": "Model 220 Sundeck",
             "model": "220 Sundeck",
-            "image": "/images/home/portfolio/portfolio-02.webp",
+            "image": "/images/home/portfolio/Model-220-Sundeck/01.jpg",
             "brandLogos": ["/images/home/brands/chaparral.png"],
             "href": "/portfolio/4"
         },
@@ -42,7 +42,7 @@
             "id": "5",
             "title": "Model 25 Cross Top",
             "model": "25 Cross Top",
-            "image": "/images/home/portfolio/portfolio-01.webp",
+            "image": "/images/home/portfolio/Model-25-Cross-Top/01.png",
             "brandLogos": ["/images/home/brands/chaparral.png"],
             "href": "/portfolio/5"
         },
@@ -50,7 +50,7 @@
             "id": "6",
             "title": "Model 215 SSi",
             "model": "215 SSi",
-            "image": "/images/home/portfolio/portfolio-02.webp",
+            "image": "/images/home/portfolio/Model-215-SSi/01.jpg",
             "brandLogos": [
                 "/images/home/brands/chaparral.png",
                 "/images/home/brands/volvo-penta.png"
@@ -61,7 +61,7 @@
             "id": "7",
             "title": "Model 18 Widebody",
             "model": "18 Widebody",
-            "image": "/images/home/portfolio/portfolio-01.webp",
+            "image": "/images/home/portfolio/Model-18-Widebody/01.png",
             "brandLogos": [
                 "/images/home/brands/chaparral.png",
                 "/images/home/brands/volvo-penta.png"

@@ -9,15 +9,35 @@
                 "/images/home/brands/volvo-penta.png",
                 "/images/home/brands/cobalt-boats.webp"
             ],
-            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "mainImage": "/images/home/portfolio/Model-R7/01.png",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "src": "/images/home/portfolio/Model-R7/01.png",
                     "alt": "Model R7 Electric Boat"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Model R7 Electric Boat Repair"
+                    "src": "/images/home/portfolio/Model-R7/02.png",
+                    "alt": "Model R7 Electric Boat"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-R7/03.png",
+                    "alt": "Model R7 Electric Boat"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-R7/04.png",
+                    "alt": "Model R7 Electric Boat"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-R7/05.png",
+                    "alt": "Model R7 Electric Boat"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-R7/06.png",
+                    "alt": "Model R7 Electric Boat"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-R7/07.png",
+                    "alt": "Model R7 Electric Boat"
                 }
             ],
             "content": "<p class='text-h5 font-semibold text-[var(--blue-500)] mb-4'>Electric Boat Repairs</p><ul><li>Electric Boat Motor Control Module Repair</li><li>Drive Shaft and Suspension Balancing</li><li>Charger and Battery Recondition</li></ul>",
@@ -35,15 +55,19 @@
             "description": "Comprehensive services including Incoming Inspection Services (FAT, HAT, SAT), Cooling System Repair, and Onboard Electronic Navigation Verification and Calibration.",
             "model": "320 GTO",
             "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
-            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "mainImage": "/images/home/portfolio/Model-320-GTO/01.png",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "src": "/images/home/portfolio/Model-320-GTO/01.png",
                     "alt": "Model 320 GTO"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Model 320 GTO Services"
+                    "src": "/images/home/portfolio/Model-320-GTO/02.png",
+                    "alt": "Model 320 GTO"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-320-GTO/03.png",
+                    "alt": "Model 320 GTO"
                 }
             ],
             "content": "<div class='mb-6'><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Incoming Inspection Services</h3><ul class='ml-6 mt-2 text-body'><li>Factory Acceptance Test (FAT)</li><li>Harbor Acceptance Test (HAT)</li><li>Sea Acceptance Test (SAT)</li></ul></div><div class='mb-6'><h3 class='text-h5 mb-2 font-semibold text-[var(--blue-500)]'>Cooling System Repair</h3></div><div class=''><h3 class='text-h5 mb-2 font-semibold text-[var(--blue-500)]'>Onboard Electronic Navigation Verification and Calibration</h3></div>",
@@ -76,15 +100,51 @@
                 "/images/home/brands/crownline.jpg",
                 "/images/home/brands/mercury-mercruiser.jpg"
             ],
-            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "mainImage": "/images/home/portfolio/Model-245SS/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "src": "/images/home/portfolio/Model-245SS/01.jpg",
                     "alt": "Model 245SS"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Model 245SS Refurbishment"
+                    "src": "/images/home/portfolio/Model-245SS/02.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/03.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/04.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/05.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/06.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/07.jpg",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/08.png",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/09.png",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/10.png",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-245SS/11.png",
+                    "alt": "Model 245SS"
                 }
             ],
             "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment & Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Marine Grade Leatherwork Retrofitting</li><li>Customized EVA Floor Installation</li><li>Gelcoat Repair and Brightening</li><li>Engine and Drive Overhaul</li></ul></div>",
@@ -118,15 +178,47 @@
             "description": "Leatherwork Retrofitting services for Model 220 Sundeck.",
             "model": "220 Sundeck",
             "brandLogos": ["/images/home/brands/chaparral.png"],
-            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "mainImage": "/images/home/portfolio/Model-220-Sundeck/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "src": "/images/home/portfolio/Model-220-Sundeck/01.jpg",
                     "alt": "Model 220 Sundeck"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Model 220 Sundeck Leatherwork"
+                    "src": "/images/home/portfolio/Model-220-Sundeck/02.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/03.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/04.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/05.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/06.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/07.jpg",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/08.png",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/10.png",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-220-Sundeck/11.png",
+                    "alt": "Model 220 Sundeck"
                 }
             ],
             "content": ["Leatherwork Retrofitting"],
@@ -144,15 +236,55 @@
             "description": "Anchor windlass mounting design, stress and deflection analysis and manufacture, along with anchor system installation.",
             "model": "25 Cross Top",
             "brandLogos": ["/images/home/brands/chaparral.png"],
-            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "mainImage": "/images/home/portfolio/Model-25-Cross-Top/01.png",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/01.png",
                     "alt": "Model 25 Cross Top"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Model 25 Cross Top Anchor System"
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/02.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/03.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/04.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/05.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/06.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/07.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/08.png",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/09.jpg",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/10.jpg",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/11.jpg",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-25-Cross-Top/12.png",
+                    "alt": "Model 25 Cross Top"
                 }
             ],
             "content": "<ul class='text-body'><li>Anchor windlass mounting design, stress and deflection analysis and manufacture</li><li>Anchor system installation</li></ul>",
@@ -173,15 +305,39 @@
                 "/images/home/brands/chaparral.png",
                 "/images/home/brands/volvo-penta.png"
             ],
-            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "mainImage": "/images/home/portfolio/Model-215-SSi/01.jpg",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "src": "/images/home/portfolio/Model-215-SSi/01.jpg",
                     "alt": "Model 215 SSi"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Model 215 SSi Refurbishment"
+                    "src": "/images/home/portfolio/Model-215-SSi/02.jpg",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/03.jpg",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/04.jpg",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/05.jpg",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/06.png",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/07.jpg",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-215-SSi/08.png",
+                    "alt": "Model 215 SSi"
                 }
             ],
             "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment and Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Personalized EVA floor and foldable table</li><li>Leatherwork upholstery</li><li>New external colors</li><li>Engine and drive overhaul</li></ul></div>",
@@ -222,15 +378,51 @@
                 "/images/home/brands/chaparral.png",
                 "/images/home/brands/volvo-penta.png"
             ],
-            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "mainImage": "/images/home/portfolio/Model-18-Widebody/01.png",
             "gallery": [
                 {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "src": "/images/home/portfolio/Model-18-Widebody/01.png",
                     "alt": "Model 18 Widebody"
                 },
                 {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Model 18 Widebody Refurbishment"
+                    "src": "/images/home/portfolio/Model-18-Widebody/02.jpg",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/03.jpg",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/04.jpg",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/05.jpg",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/06.png",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/07.png",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/08.png",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/09.png",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/10.png",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/Model-18-Widebody/11.png",
+                    "alt": "Model 18 Widebody"
                 }
             ],
             "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment & Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Marine Grade Leatherwork Retrofitting</li><li>Personalized EVA Floor and Inflatable</li><li>Gelcoat Repair and Brightening</li><li>Engine and Drive Overhaul</li><li>Helm upgrades: Garmin, VHF, gauges, etc.</li></ul></div>",
