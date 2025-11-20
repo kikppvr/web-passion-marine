@@ -655,8 +655,10 @@ export default function HeaderPage() {
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
                                         <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        <i className='ph-fill ph-star our-portfolio__star'></i>
-                                        {/* <i className='ph ph-star our-portfolio__star'></i> */}
+                                        <div className='our-portfolio__star-half'>
+                                            <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--base'></i>
+                                            <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--fill'></i>
+                                        </div>
                                         <span className='our-portfolio__rating-text'>(4.5)</span>
                                     </div>
                                     <div className='our-portfolio__review-count'>32 Review</div>

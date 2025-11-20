@@ -251,6 +251,27 @@
     color: var(--blue-500);
 }
 
+.our-portfolio__star-half {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    
+    .our-portfolio__star--base {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .our-portfolio__star--fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        clip-path: inset(0 50% 0 0);
+        color: var(--blue-500);
+    }
+}
+
 .our-portfolio__rating-text {
     @include fonts.text-h6;
     color: var(--white);
