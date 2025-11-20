@@ -518,28 +518,31 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
-                            {/* <PrimaryButton
+                            <PrimaryButton
                                 theme='dark'
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}
                                 onClick={confirmDialog.open}>
                                 View Document
-                            </PrimaryButton> */}
+                            </PrimaryButton>
 
-                            <PrimaryButton
+                            {/* <PrimaryButton
                                 theme='dark'
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}>
                                 View Document
-                            </PrimaryButton>
+                            </PrimaryButton> */}
 
-                            {/* <DocumentModal
+                            <DocumentModal
                                 open={confirmDialog.isOpen}
                                 onOpenChange={confirmDialog.setIsOpen}
-                                title='Title'
-                                onConfirm={handleDelete}
+                                documentImageSrc='/images/home/cer-volvo.png'
+                                documentImageAlt='Volvo Penta Appointment Letter - Letter of Appointment from Alpha Tech and Volvo Penta dated 1st August 2024'
+                                announcementText='Passion Marine has been appointed as an authorized service dealer for Volvo Penta'
+                                announcementHighlight={["Passion Marine", "Volvo Penta"]}
+                                locationText='Connect with us at Petra Marina Pathum Thani'
                                 className='modal-document'
-                            /> */}
+                            />
                         </div>
                     </div>
                 </div>
