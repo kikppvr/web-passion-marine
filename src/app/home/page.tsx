@@ -17,6 +17,7 @@ import { useAOS } from "@/hooks/useAOS";
 import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
 import newsData from "@/data/news-data.json";
+import portfolioData from "@/data/portfolio-data.json";
 //styles
 import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
@@ -165,53 +166,15 @@ export default function HeaderPage() {
         },
     ];
 
-    // Our Portfolio data
-    const ourPortfolioData = [
-        {
-            title: "Chaparral 215 SSi",
-            model: "215 SSi",
-            image: "/images/home/portfolio/portfolio-01.webp",
-            video: "",
-            brandLogos: [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png",
-            ],
-            href: "/comingsoon",
-        },
-        {
-            title: "Chaparral 215 SSi",
-            model: "215 SSi",
-            image: "/images/home/portfolio/portfolio-02.webp",
-            video: "",
-            brandLogos: [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png",
-            ],
-            href: "/comingsoon",
-        },
-        {
-            title: "Chaparral 215 SSi",
-            model: "215 SSi",
-            image: "/images/home/portfolio/portfolio-01.webp",
-            video: "",
-            brandLogos: [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png",
-            ],
-            href: "/comingsoon",
-        },
-        {
-            title: "Chaparral 215 SSi",
-            model: "215 SSi",
-            image: "/images/home/portfolio/portfolio-02.webp",
-            video: "",
-            brandLogos: [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png",
-            ],
-            href: "/comingsoon",
-        },
-    ];
+    // Our Portfolio data - ดึงจาก portfolio-data.json
+    const ourPortfolioData = portfolioData.portfolios.map(portfolio => ({
+        title: portfolio.title,
+        model: portfolio.model,
+        image: portfolio.image,
+        video: "",
+        brandLogos: portfolio.brandLogos,
+        href: portfolio.href,
+    }));
 
     // Our Latest News data - ดึง 3 ข่าวล่าสุดจาก news-data.json
     const allNews = newsData.news;

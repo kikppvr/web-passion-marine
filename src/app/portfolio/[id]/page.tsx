@@ -10,6 +10,7 @@ import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { GalleryWithThumbnails } from "@/components/ui/media";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
+import portfolioDataJson from "@/data/portfolio-data.json";
 
 interface PortfolioDetailData {
     id: string;
@@ -22,7 +23,7 @@ interface PortfolioDetailData {
         src: string;
         alt: string;
     }>;
-    content: string[];
+    content: string | string[];
     servicesProvided: Array<{
         title: string;
         image: string;
@@ -53,6 +54,11 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         portfolioDetailDataJson.portfolioDetails.find(
             portfolio => portfolio.id === resolvedParams.id
         ) || portfolioDetailDataJson.portfolioDetails[0];
+
+    // Get other portfolios (excluding current one)
+    const otherPortfolios = portfolioDataJson.portfolios.filter(
+        portfolio => portfolio.id !== resolvedParams.id
+    );
 
     return (
         <MainLayout headerTheme='white'>
@@ -134,13 +140,33 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section section--space-bottom portfolio-content'>
                     <div className='container'>
                         <div className='text-center lg:px-16 xl:px-28'>
-                            {portfolioDetailData.content.map((paragraph, index) => (
-                                <p
-                                    key={index}
-                                    className='text-body mb-4 text-[var(--grey-800)] last:mb-0'>
-                                    {paragraph}
-                                </p>
-                            ))}
+                            {typeof portfolioDetailData.content === "string" ? (
+                                <div
+                                    className='portfolio-content'
+                                    dangerouslySetInnerHTML={{
+                                        __html: portfolioDetailData.content,
+                                    }}
+                                />
+                            ) : (
+                                <div className='portfolio-content'>
+                                    {portfolioDetailData.content.map((item, index) => {
+                                        // Check if item contains HTML tags
+                                        const hasHTML = /<[^>]+>/.test(item);
+                                        return hasHTML ? (
+                                            <div
+                                                key={index}
+                                                dangerouslySetInnerHTML={{ __html: item }}
+                                            />
+                                        ) : (
+                                            <p
+                                                key={index}
+                                                className='text-body text-[var(--grey-800)]'>
+                                                {item}
+                                            </p>
+                                        );
+                                    })}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </section>
@@ -154,6 +180,8 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                             </PrimaryButton>
                             <SocialIcons
                                 showLabel={true}
+                                shareUrl={typeof window !== "undefined" ? window.location.href : ""}
+                                shareText={portfolioDetailData.title}
                                 showIcons={{
                                     facebook: false,
                                     instagram: true,
@@ -210,25 +238,29 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 </section>
 
                 {/* Other Portfolio Section */}
-                <section className='section section--space-y bg-blue-abstract portfolio-related'>
-                    <div className='container'>
-                        <div className=''>
-                            <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>Other portfolio</h2>
-                            <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-                                {portfolioDetailData.otherPortfolios.map(portfolio => (
-                                    <PortfolioCard
-                                        key={portfolio.id}
-                                        title={portfolio.title}
-                                        model={portfolio.model}
-                                        image={portfolio.image}
-                                        brandLogos={portfolio.brandLogos}
-                                        href={portfolio.href}
-                                    />
-                                ))}
+                {otherPortfolios.length > 0 && (
+                    <section className='section section--space-y bg-blue-abstract portfolio-related'>
+                        <div className='container'>
+                            <div className=''>
+                                <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
+                                    Other portfolio
+                                </h2>
+                                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+                                    {otherPortfolios.map(portfolio => (
+                                        <PortfolioCard
+                                            key={portfolio.id}
+                                            title={portfolio.title}
+                                            model={portfolio.model}
+                                            image={portfolio.image}
+                                            brandLogos={portfolio.brandLogos}
+                                            href={portfolio.href}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
             </div>
         </MainLayout>
     );

@@ -103,9 +103,53 @@
     }
 }
 
-// Portfolio Services Section
-.portfolio-services {
+// Portfolio Content Section
+.portfolio-content {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+
+    // Style for ul and li
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        color: var(--grey-800);
+
+        @include base.media-down(mobile) {
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        &::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--blue-500);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Style for paragraphs
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
+
+// Portfolio Services Section
 .portfolio-services__container {
     position: relative;
 }
