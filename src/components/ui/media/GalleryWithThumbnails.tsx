@@ -24,8 +24,28 @@ export default function GalleryWithThumbnails({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+    // Filter out images that match mainImage to avoid duplicates in thumbnails
+    const filteredGallery = gallery.filter(image => image.src !== mainImage);
+    
+    // Create full gallery array with mainImage first for modal
+    const fullGallery = [mainImage, ...filteredGallery.map(img => img.src)];
+    const fullGalleryAlt = [mainImageAlt, ...filteredGallery.map(img => img.alt)];
+
+    // Find the index of mainImage in original gallery for modal
+    const mainImageIndex = gallery.findIndex(image => image.src === mainImage);
+    const mainImageIndexInFull = mainImageIndex >= 0 ? mainImageIndex : 0;
+
     const openModal = (index: number) => {
-        setCurrentImageIndex(index);
+        // If clicking main image, show mainImage in modal
+        // If clicking thumbnail, show the corresponding image from full gallery
+        if (index === -1) {
+            setCurrentImageIndex(mainImageIndexInFull);
+        } else {
+            // Find the original index in gallery for the filtered thumbnail
+            const thumbnailSrc = filteredGallery[index].src;
+            const originalIndex = gallery.findIndex(img => img.src === thumbnailSrc);
+            setCurrentImageIndex(originalIndex >= 0 ? originalIndex : index + 1);
+        }
         setIsModalOpen(true);
     };
 
@@ -47,11 +67,15 @@ export default function GalleryWithThumbnails({
         if (e.key === "ArrowLeft") prevImage();
     };
 
+    // Get thumbnails to display (max 4, excluding mainImage)
+    const thumbnailsToShow = filteredGallery.slice(0, 4);
+    const remainingCount = filteredGallery.length - 4;
+
     return (
         <>
             <div className={`gallery-thumbnails ${className}`}>
                 {/* Main Image */}
-                <div className='gallery-thumbnails__main' onClick={() => openModal(0)}>
+                <div className='gallery-thumbnails__main' onClick={() => openModal(-1)}>
                     <Image
                         src={mainImage}
                         alt={mainImageAlt}
@@ -63,7 +87,7 @@ export default function GalleryWithThumbnails({
 
                 {/* Thumbnails */}
                 <div className='gallery-thumbnails__thumbnails'>
-                    {gallery.slice(0, 4).map((image, index) => (
+                    {thumbnailsToShow.map((image, index) => (
                         <div
                             key={index}
                             className='gallery-thumbnails__thumbnail'
@@ -75,10 +99,10 @@ export default function GalleryWithThumbnails({
                                 height={191}
                                 className='gallery-thumbnails__thumbnail-image'
                             />
-                            {index === 3 && gallery.length > 4 && (
+                            {index === 3 && remainingCount > 0 && (
                                 <div className='gallery-thumbnails__overlay'>
                                     <span className='gallery-thumbnails__count'>
-                                        {gallery.length - 4}+
+                                        {remainingCount}+
                                     </span>
                                 </div>
                             )}

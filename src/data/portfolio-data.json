@@ -6,8 +6,10 @@
             "model": "R7",
             "image": "/images/home/portfolio/Model-R7/01.png",
             "brandLogos": [
-                "/images/home/brands/volvo-penta.png",
-                "/images/home/brands/cobalt-boats.webp"
+                "/images/home/portfolio/Model-R7/logo-volvo.png",
+                "/images/home/portfolio/Model-R7/logo-cobalt.png",
+                "/images/home/portfolio/Model-R7/logo-electric.png",
+                "/images/home/portfolio/Model-R7/logo-piktronik.png"
             ],
             "href": "/portfolio/1"
         },
@@ -16,7 +18,10 @@
             "title": "Model 320 GTO",
             "model": "320 GTO",
             "image": "/images/home/portfolio/Model-320-GTO/01.png",
-            "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
+            "brandLogos": [
+                "/images/home/portfolio/Model-320-GTO/logo-mercury.png",
+                "/images/home/portfolio/Model-320-GTO/logo-saxdor.png"
+            ],
             "href": "/portfolio/2"
         },
         {
@@ -25,8 +30,8 @@
             "model": "245SS",
             "image": "/images/home/portfolio/Model-245SS/01.jpg",
             "brandLogos": [
-                "/images/home/brands/crownline.jpg",
-                "/images/home/brands/mercury-mercruiser.jpg"
+                "/images/home/portfolio/Model-245SS/logo-crownline.png",
+                "/images/home/portfolio/Model-245SS/logo-searay.png"
             ],
             "href": "/portfolio/3"
         },
@@ -43,7 +48,7 @@
             "title": "Model 25 Cross Top",
             "model": "25 Cross Top",
             "image": "/images/home/portfolio/Model-25-Cross-Top/01.png",
-            "brandLogos": ["/images/home/brands/chaparral.png"],
+            "brandLogos": ["/images/home/portfolio/Model-25-Cross-Top/logo-axopar.png"],
             "href": "/portfolio/5"
         },
         {
@@ -52,8 +57,8 @@
             "model": "215 SSi",
             "image": "/images/home/portfolio/Model-215-SSi/01.jpg",
             "brandLogos": [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png"
+                "/images/home/portfolio/Model-215-SSi/logo-chap.png",
+                "/images/home/portfolio/Model-215-SSi/logo-volvo.png"
             ],
             "href": "/portfolio/6"
         },
@@ -63,8 +68,8 @@
             "model": "18 Widebody",
             "image": "/images/home/portfolio/Model-18-Widebody/01.png",
             "brandLogos": [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png"
+                "/images/home/portfolio/Model-18-Widebody/logo-nautica.png",
+                "/images/home/portfolio/Model-18-Widebody/logo-yamaha.png"
             ],
             "href": "/portfolio/7"
         }
