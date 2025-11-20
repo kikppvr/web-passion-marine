@@ -22,7 +22,7 @@ interface PortfolioDetailData {
         src: string;
         alt: string;
     }>;
-    content: string[];
+    content: string | string[];
     servicesProvided: Array<{
         title: string;
         image: string;
@@ -134,13 +134,33 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section section--space-bottom portfolio-content'>
                     <div className='container'>
                         <div className='text-center lg:px-16 xl:px-28'>
-                            {portfolioDetailData.content.map((paragraph, index) => (
-                                <p
-                                    key={index}
-                                    className='text-body mb-4 text-[var(--grey-800)] last:mb-0'>
-                                    {paragraph}
-                                </p>
-                            ))}
+                            {typeof portfolioDetailData.content === "string" ? (
+                                <div
+                                    className='portfolio-content'
+                                    dangerouslySetInnerHTML={{
+                                        __html: portfolioDetailData.content,
+                                    }}
+                                />
+                            ) : (
+                                <div className='portfolio-content'>
+                                    {portfolioDetailData.content.map((item, index) => {
+                                        // Check if item contains HTML tags
+                                        const hasHTML = /<[^>]+>/.test(item);
+                                        return hasHTML ? (
+                                            <div
+                                                key={index}
+                                                dangerouslySetInnerHTML={{ __html: item }}
+                                            />
+                                        ) : (
+                                            <p
+                                                key={index}
+                                                className='text-body text-[var(--grey-800)]'>
+                                                {item}
+                                            </p>
+                                        );
+                                    })}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </section>

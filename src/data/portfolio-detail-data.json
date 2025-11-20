@@ -2,58 +2,51 @@
     "portfolioDetails": [
         {
             "id": "1",
-            "title": "Mooring and Anchoring systems for Floating Offshore Wind",
-            "description": "In partnership with First Marine Solutions, we delivered a study for the Offshore Renewable Energy Catapult (OREC) Floating Offshore Wind Centre of Excellence (FOW CoE). The work involved assessing and developing the requirements for floating offshore wind anchoring and mooring in UK waters.",
-            "model": "215 SSi",
+            "title": "Model R7",
+            "description": "Electric Boat Repairs including Electric Boat Motor Control Module Repair, Drive Shaft and Suspension Balancing, and Charger and Battery Recondition services.",
+            "model": "R7",
             "brandLogos": [
-                "/images/home/brands/chaparral.png",
-                "/images/home/brands/volvo-penta.png"
+                "/images/home/brands/volvo-penta.png",
+                "/images/home/brands/cobalt-boats.webp"
             ],
             "mainImage": "/images/home/portfolio/portfolio-01.webp",
             "gallery": [
                 {
                     "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Main portfolio image"
+                    "alt": "Model R7 Electric Boat"
                 },
                 {
                     "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Portfolio gallery image 1"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Portfolio gallery image 2"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Portfolio gallery image 3"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Portfolio gallery image 4"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Portfolio gallery image 5"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Portfolio gallery image 6"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-02.webp",
-                    "alt": "Portfolio gallery image 7"
-                },
-                {
-                    "src": "/images/home/portfolio/portfolio-01.webp",
-                    "alt": "Portfolio gallery image 8"
+                    "alt": "Model R7 Electric Boat Repair"
                 }
             ],
-            "content": [
-                "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper ac mollis.",
-                "Ultrices egestas est ornare elementum lacus aliquam in. Ullamcorper nulla suscipit consequat est nunc sem ac donec tortor. Arcu egestas cursus phasellus mauris cras faucibus faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec. Quam dui consequat feugiat orci quis. Eu lectus lectus justo interdum ut sed semper. Eget sit pellentesque feugiat ornare et arcu. Bibendum orci donec amet metus dolor sit ut ipsum. Placerat ac purus venenatis mauris volutpat at venenatis. Turpis libero ut amet accumsan. Gravida aliquet vitae fames tortor volutpat neque lacus. Id leo cursus risus eget consectetur volutpat congue id cras. Sed vulputate pellentesque cursus aliquet. Elementum tortor diam et turpis non nisl. Blandit faucibus pulvinar fermentum blandit.",
-                "Lorem ipsum dolor sit amet consectetur. Ac volutpat nisi praesent nisi pulvinar velit suspendisse orci magna. In aliquet gravida velit id amet ullamcorper massa lectus morbi. Ut habitasse ut blandit blandit id at mattis ipsum urna. Ipsum eget euismod in in dapibus. Enim commodo risus sed adipiscing nisi ullamcorper ac mollis.",
-                "Ultrices egestas est ornare elementum lacus aliquam in. Ullamcorper nulla suscipit consequat est nunc sem ac donec tortor. Arcu egestas cursus phasellus mauris cras faucibus faucibus. Pulvinar pellentesque sed sit sed magna eu leo nec. Quam dui consequat feugiat orci quis. Eu lectus lectus justo interdum ut sed semper. Eget sit pellentesque feugiat ornare et arcu. Bibendum orci donec amet metus dolor sit ut ipsum. Placerat ac purus venenatis mauris volutpat at venenatis. Turpis libero ut amet accumsan. Gravida aliquet vitae fames tortor volutpat neque lacus. Id leo cursus risus eget consectetur volutpat congue id cras. Sed vulputate pellentesque cursus aliquet. Elementum tortor diam et turpis non nisl. Blandit faucibus pulvinar fermentum blandit."
+            "content": "<p class='text-h5 font-semibold text-[var(--blue-500)] mb-4'>Electric Boat Repairs</p><ul><li>Electric Boat Motor Control Module Repair</li><li>Drive Shaft and Suspension Balancing</li><li>Charger and Battery Recondition</li></ul>",
+            "servicesProvided": [
+                {
+                    "title": "Electronics & Solar",
+                    "image": "/images/portfolio/services-provided/02.webp"
+                }
             ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "2",
+            "title": "Model 320 GTO",
+            "description": "Comprehensive services including Incoming Inspection Services (FAT, HAT, SAT), Cooling System Repair, and Onboard Electronic Navigation Verification and Calibration.",
+            "model": "320 GTO",
+            "brandLogos": ["/images/home/brands/mercury.webp", "/images/home/brands/saxdor.webp"],
+            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 320 GTO"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 320 GTO Services"
+                }
+            ],
+            "content": "<div class='mb-6'><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Incoming Inspection Services</h3><ul class='ml-6 mt-2 text-body'><li>Factory Acceptance Test (FAT)</li><li>Harbor Acceptance Test (HAT)</li><li>Sea Acceptance Test (SAT)</li></ul></div><div class='mb-6'><h3 class='text-h5 mb-2 font-semibold text-[var(--blue-500)]'>Cooling System Repair</h3></div><div class=''><h3 class='text-h5 mb-2 font-semibold text-[var(--blue-500)]'>Onboard Electronic Navigation Verification and Calibration</h3></div>",
             "servicesProvided": [
                 {
                     "title": "Engine Repair & Maintenance",
@@ -62,6 +55,189 @@
                 {
                     "title": "Electronics & Solar",
                     "image": "/images/portfolio/services-provided/02.webp"
+                },
+                {
+                    "title": "Boat Upgrades",
+                    "image": "/images/portfolio/services-provided/03.webp"
+                },
+                {
+                    "title": "Structure Repair",
+                    "image": "/images/portfolio/services-provided/04.webp"
+                }
+            ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "3",
+            "title": "Model 245SS",
+            "description": "Complete Refurbishment & Overhaul including Marine Grade Leatherwork Retrofitting, Customized EVA Floor Installation, Gelcoat Repair and Brightening, and Engine and Drive Overhaul.",
+            "model": "245SS",
+            "brandLogos": [
+                "/images/home/brands/crownline.jpg",
+                "/images/home/brands/mercury-mercruiser.jpg"
+            ],
+            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 245SS"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 245SS Refurbishment"
+                }
+            ],
+            "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment & Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Marine Grade Leatherwork Retrofitting</li><li>Customized EVA Floor Installation</li><li>Gelcoat Repair and Brightening</li><li>Engine and Drive Overhaul</li></ul></div>",
+            "servicesProvided": [
+                {
+                    "title": "Engine Repair & Maintenance",
+                    "image": "/images/portfolio/services-provided/01.webp"
+                },
+                {
+                    "title": "Custom Boat Design",
+                    "image": "/images/portfolio/services-provided/05.webp"
+                },
+                {
+                    "title": "Teak & EVA Flooring",
+                    "image": "/images/portfolio/services-provided/06.webp"
+                },
+                {
+                    "title": "Marine Upholstery",
+                    "image": "/images/portfolio/services-provided/07.webp"
+                },
+                {
+                    "title": "Gelcoat Repair & Finishing",
+                    "image": "/images/portfolio/services-provided/08.webp"
+                }
+            ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "4",
+            "title": "Model 220 Sundeck",
+            "description": "Leatherwork Retrofitting services for Model 220 Sundeck.",
+            "model": "220 Sundeck",
+            "brandLogos": ["/images/home/brands/chaparral.png"],
+            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 220 Sundeck"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 220 Sundeck Leatherwork"
+                }
+            ],
+            "content": ["Leatherwork Retrofitting"],
+            "servicesProvided": [
+                {
+                    "title": "Marine Upholstery",
+                    "image": "/images/portfolio/services-provided/07.webp"
+                }
+            ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "5",
+            "title": "Model 25 Cross Top",
+            "description": "Anchor windlass mounting design, stress and deflection analysis and manufacture, along with anchor system installation.",
+            "model": "25 Cross Top",
+            "brandLogos": ["/images/home/brands/chaparral.png"],
+            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 25 Cross Top"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 25 Cross Top Anchor System"
+                }
+            ],
+            "content": "<ul class='text-body'><li>Anchor windlass mounting design, stress and deflection analysis and manufacture</li><li>Anchor system installation</li></ul>",
+            "servicesProvided": [
+                {
+                    "title": "Boat Upgrades",
+                    "image": "/images/portfolio/services-provided/03.webp"
+                }
+            ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "6",
+            "title": "Model 215 SSi",
+            "description": "Complete Refurbishment and Overhaul including Personalized EVA floor and foldable table, Leatherwork upholstery, New external colors, and Engine and drive overhaul.",
+            "model": "215 SSi",
+            "brandLogos": [
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "mainImage": "/images/home/portfolio/portfolio-02.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 215 SSi"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 215 SSi Refurbishment"
+                }
+            ],
+            "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment and Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Personalized EVA floor and foldable table</li><li>Leatherwork upholstery</li><li>New external colors</li><li>Engine and drive overhaul</li></ul></div>",
+            "servicesProvided": [
+                {
+                    "title": "Engine Repair & Maintenance",
+                    "image": "/images/portfolio/services-provided/01.webp"
+                },
+                {
+                    "title": "Boat Upgrades",
+                    "image": "/images/portfolio/services-provided/03.webp"
+                },
+                {
+                    "title": "Custom Boat Design",
+                    "image": "/images/portfolio/services-provided/05.webp"
+                },
+                {
+                    "title": "Teak & EVA Flooring",
+                    "image": "/images/portfolio/services-provided/06.webp"
+                },
+                {
+                    "title": "Marine Upholstery",
+                    "image": "/images/portfolio/services-provided/07.webp"
+                },
+                {
+                    "title": "Gelcoat Repair & Finishing",
+                    "image": "/images/portfolio/services-provided/08.webp"
+                }
+            ],
+            "otherPortfolios": []
+        },
+        {
+            "id": "7",
+            "title": "Model 18 Widebody",
+            "description": "Complete Refurbishment & Overhaul including Marine Grade Leatherwork Retrofitting, Personalized EVA Floor and Inflatable, Gelcoat Repair and Brightening, Engine and Drive Overhaul, and Helm upgrades (Garmin, VHF, gauges, etc.).",
+            "model": "18 Widebody",
+            "brandLogos": [
+                "/images/home/brands/chaparral.png",
+                "/images/home/brands/volvo-penta.png"
+            ],
+            "mainImage": "/images/home/portfolio/portfolio-01.webp",
+            "gallery": [
+                {
+                    "src": "/images/home/portfolio/portfolio-01.webp",
+                    "alt": "Model 18 Widebody"
+                },
+                {
+                    "src": "/images/home/portfolio/portfolio-02.webp",
+                    "alt": "Model 18 Widebody Refurbishment"
+                }
+            ],
+            "content": "<div class=''><h3 class='text-h5 mb-4 font-semibold text-[var(--blue-500)]'>Complete Refurbishment & Overhaul</h3><ul class='ml-6 mt-2 text-body'><li>Marine Grade Leatherwork Retrofitting</li><li>Personalized EVA Floor and Inflatable</li><li>Gelcoat Repair and Brightening</li><li>Engine and Drive Overhaul</li><li>Helm upgrades: Garmin, VHF, gauges, etc.</li></ul></div>",
+            "servicesProvided": [
+                {
+                    "title": "Engine Repair & Maintenance",
+                    "image": "/images/portfolio/services-provided/01.webp"
                 },
                 {
                     "title": "Boat Upgrades",
@@ -86,51 +262,9 @@
                 {
                     "title": "Gelcoat Repair & Finishing",
                     "image": "/images/portfolio/services-provided/08.webp"
-                },
-                {
-                    "title": "Fiberglass Furniture",
-                    "image": "/images/portfolio/services-provided/09.webp"
-                },
-                {
-                    "title": "Interior Styling",
-                    "image": "/images/portfolio/services-provided/10.webp"
                 }
             ],
-            "otherPortfolios": [
-                {
-                    "id": "2",
-                    "title": "Mercury Saxdor 215",
-                    "model": "215 SSi",
-                    "image": "/images/home/portfolio/portfolio-02.webp",
-                    "brandLogos": [
-                        "/images/home/brands/mercury.webp",
-                        "/images/home/brands/saxdor.webp"
-                    ],
-                    "href": "/portfolio/2"
-                },
-                {
-                    "id": "3",
-                    "title": "Sea Ray 215 SPX",
-                    "model": "215 SPX",
-                    "image": "/images/home/portfolio/portfolio-01.webp",
-                    "brandLogos": [
-                        "/images/home/brands/searay.webp",
-                        "/images/home/brands/volvo-penta.png"
-                    ],
-                    "href": "/portfolio/3"
-                },
-                {
-                    "id": "4",
-                    "title": "Boston Whaler 215 Outrage",
-                    "model": "215 Outrage",
-                    "image": "/images/home/portfolio/portfolio-02.webp",
-                    "brandLogos": [
-                        "/images/home/brands/mercury.webp",
-                        "/images/home/brands/saxdor.webp"
-                    ],
-                    "href": "/portfolio/4"
-                }
-            ]
+            "otherPortfolios": []
         }
     ]
 }
