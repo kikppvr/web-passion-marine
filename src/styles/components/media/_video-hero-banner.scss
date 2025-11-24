@@ -88,11 +88,15 @@
         margin: 0;
         text-transform: uppercase;
         text-align: center;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: slideFadeUp 1s ease-out 0.5s forwards;
         position: relative;
         z-index: 10;
+        overflow: hidden;
+        display: block;
+
+        .text-reveal-line {
+            display: block;
+            text-align: center;
+        }
     }
 
     // Subtitle
@@ -104,11 +108,15 @@
         margin: 0;
         text-transform: uppercase;
         text-align: center;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: slideFadeUp 2s ease-out 0.8s forwards;
         position: relative;
         z-index: 10;
+        overflow: hidden;
+        display: block;
+
+        .text-reveal-line {
+            display: block;
+            text-align: center;
+        }
     }
 
     // Description
@@ -118,8 +126,13 @@
         color: var(--text-white);
         line-height: 1.6;
         margin: 0;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        overflow: hidden;
+        display: block;
+
+        .text-reveal-line {
+            display: block;
+            text-align: center;
+        }
     }
 
     // Play Button

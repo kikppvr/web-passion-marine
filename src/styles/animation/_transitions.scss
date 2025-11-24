@@ -418,6 +418,18 @@
     }
 }
 
+// Text Reveal Animation (like tanachira.co.th)
+@keyframes textRevealUp {
+    from {
+        transform: translateY(100%);
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
 // Animation Classes
 .animate-fadeIn {
     animation: fadeIn var(--duration-base) var(--ease-out);
@@ -485,6 +497,37 @@
 
 .animate-wiggle {
     animation: wiggle 1s ease-in-out infinite;
+}
+
+// Text Reveal Animation Classes
+.text-reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.text-reveal {
+    display: inline-block;
+    animation: textRevealUp 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    transform: translateY(100%);
+    clip-path: inset(100% 0 0 0);
+}
+
+// Line-by-line reveal
+.text-reveal-line {
+    display: block;
+    transform: translateY(100%);
+    clip-path: inset(100% 0 0 0);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    overflow: hidden;
+}
+
+.text-reveal-line--visible {
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
 }
 
 // Hover Animations

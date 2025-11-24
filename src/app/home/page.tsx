@@ -16,6 +16,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAOS } from "@/hooks/useAOS";
 import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
+import { TextReveal } from "@/components/ui/animation/TextReveal";
 import newsData from "@/data/news-data.json";
 import portfolioData from "@/data/portfolio-data.json";
 //styles
@@ -354,18 +355,22 @@ export default function HeaderPage() {
                 <section className='our-services'>
                     <div className='our-services__container'>
                         <h2 className='our-services__title'>Our Services</h2>
-                        <div
+                        <TextReveal
+                            text='General Boat Services,'
                             className='our-services__description-1'
-                            data-aos='fade-up'
-                            data-aos-delay='300'>
-                            General Boat Services,
-                        </div>
-                        <div
+                            delay={300}
+                            lineDelay={0.15}
+                            duration={1.5}
+                            as='div'
+                        />
+                        <TextReveal
+                            text='Engine Repair, Boat Restoration'
                             className='our-services__description-2'
-                            data-aos='fade-up'
-                            data-aos-delay='400'>
-                            Engine Repair, Boat Restoration
-                        </div>
+                            delay={500}
+                            lineDelay={0.15}
+                            duration={1.5}
+                            as='div'
+                        />
                     </div>
                 </section>
 

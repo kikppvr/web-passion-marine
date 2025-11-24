@@ -60,6 +60,8 @@
     line-height: 1.25;
     margin: 0 auto;
     text-transform: uppercase;
+    overflow: hidden;
+    display: block;
 
     // @include base.media-down(laptop) {
     //     font-size: var(--text-h1);
@@ -67,5 +69,10 @@
 
     @include base.media-down(mobile) {
         font-size: var(--text-h3);
+    }
+
+    .text-reveal-line {
+        display: block;
+        text-align: center;
     }
 }

@@ -278,6 +278,62 @@
     }
 }
 
+// LightGallery Overrides for smooth animation (no scale/resize)
+.lightgallery-container {
+    // Override LightGallery animations for smoother experience
+    :global {
+        .lg-backdrop {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        .lg-item {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        .lg-image {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+            transform: none !important;
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100vh !important;
+        }
+
+        .lg-current .lg-image {
+            transform: none !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .lg-outer {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        .lg-thumb-item {
+            transition: transform 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        .lg-content {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        .lg-inner {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        // Disable all scale/transform animations
+        * {
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+
+        // Prevent image resize/scale
+        img {
+            transform: none !important;
+            transition: opacity 0.2s cubic-bezier(0.25, 0, 0.25, 1) !important;
+        }
+    }
+}
+
 // Responsive adjustments
 // @include base.media-down(mobile) {
 //     .gallery-modal {
