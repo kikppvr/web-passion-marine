@@ -7,7 +7,7 @@ import "@/styles/page/news/news-detail.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { NewsCard } from "@/components/ui/cards";
 import SocialIcons from "@/components/ui/social/SocialIcons";
-import { GalleryWithThumbnails } from "@/components/ui/media";
+import { LightGallery } from "@/components/ui/media";
 import newsDetailDataJson from "@/data/news-detail-data.json";
 
 interface NewsDetailData {
@@ -84,7 +84,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                     <div className='container'>
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
-                                <GalleryWithThumbnails
+                                <LightGallery
                                     mainImage={newsDetail.mainImage}
                                     mainImageAlt={newsDetail.title}
                                     gallery={newsDetail.gallery}

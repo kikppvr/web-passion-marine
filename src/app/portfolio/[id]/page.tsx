@@ -8,7 +8,7 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
-import { GalleryWithThumbnails, SwiperSlider } from "@/components/ui/media";
+import { LightGallery, SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 import portfolioDataJson from "@/data/portfolio-data.json";
@@ -127,7 +127,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                     <div className='container'>
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 xl:col-span-10 xl:col-start-2'>
-                                <GalleryWithThumbnails
+                                <LightGallery
                                     mainImage={portfolioDetailData.mainImage}
                                     mainImageAlt={portfolioDetailData.title}
                                     gallery={portfolioDetailData.gallery}
