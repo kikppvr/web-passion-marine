@@ -80,16 +80,16 @@
     width: 100%;
     @include base.container;
 
-    @include base.media-down(large) {
-        align-items: stretch;
-        gap: 32px;
-    }
+    // @include base.media-down(large) {
+    //     align-items: stretch;
+    //     gap: 32px;
+    // }
 
-    @include base.media-down(tablet) {
-        gap: 32px;
-    }
+    // @include base.media-down(tablet) {
+    //     gap: 32px;
+    // }
 
-    @include base.media-down(mobile) {
+    @include base.media-down(laptop) {
         flex-direction: column;
         gap: 8px;
     }
@@ -104,15 +104,15 @@
         flex: 0 0 55%;
     }
 
+    // @include base.media-down(laptop) {
+    //     flex: 0 0 60%;
+    // }
+
+    // @include base.media-down(tablet) {
+    //     flex: 0 0 55%;
+    // }
+
     @include base.media-down(laptop) {
-        flex: 0 0 60%;
-    }
-
-    @include base.media-down(tablet) {
-        flex: 0 0 55%;
-    }
-
-    @include base.media-down(mobile) {
         flex: none;
         width: 100%;
     }
@@ -129,7 +129,7 @@
 .charter-specifications-slider__content {
     flex: 1;
 
-    @include base.media-down(mobile) {
+    @include base.media-down(laptop) {
         width: 100%;
     }
 }
@@ -140,7 +140,7 @@
     color: var(--blue-500);
     margin-bottom: 24px;
 
-    @include base.media-down(mobile) {
+    @include base.media-down(laptop) {
         font-size: var(--text-h5);
         margin-bottom: 12px;
     }
@@ -202,22 +202,19 @@
     @include base.container;
 
     &--mobile {
-        display: block;
+        display: none;
 
-        @include base.media-up(tablet) {
-            display: none;
-        }
-
-        @include base.media-down(mobile) {
+        @include base.media-down(laptop) {
+            display: block;
             padding: 0;
         }
     }
 
     &--desktop {
-        display: none;
+        display: block;
 
-        @include base.media-up(tablet) {
-            display: block;
+        @include base.media-down(laptop) {
+            display: none;
         }
     }
 }
