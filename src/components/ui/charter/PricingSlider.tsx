@@ -40,7 +40,12 @@ export default function PricingSlider({ pricing, onBookNow, className = "" }: Pr
                 details: [
                     { label: "Duration:", value: pricing.hourly.duration },
                     {
-                        label: "Boarding/Disembarkation Point:",
+                        label: (
+                            <>
+                                <div>Boarding/</div>
+                                <div>Disembarkation Point:</div>
+                            </>
+                        ),
                         value: pricing.hourly.boardingPoint,
                     },
                     { label: "Route:", value: pricing.hourly.route },
@@ -53,7 +58,12 @@ export default function PricingSlider({ pricing, onBookNow, className = "" }: Pr
                 details: [
                     { label: "Duration:", value: pricing.halfDay.duration },
                     {
-                        label: "Boarding/Disembarkation Point:",
+                        label: (
+                            <>
+                                <div>Boarding/</div>
+                                <div>Disembarkation Point:</div>
+                            </>
+                        ),
                         value: pricing.halfDay.boardingPoint,
                     },
                     { label: "Route:", value: pricing.halfDay.route },
@@ -66,7 +76,12 @@ export default function PricingSlider({ pricing, onBookNow, className = "" }: Pr
                 details: [
                     { label: "Duration:", value: pricing.fullDay.duration },
                     {
-                        label: "Boarding/Disembarkation Point:",
+                        label: (
+                            <>
+                                <div>Boarding/</div>
+                                <div>Disembarkation Point:</div>
+                            </>
+                        ),
                         value: pricing.fullDay.boardingPoint,
                     },
                     { label: "Route:", value: pricing.fullDay.route },

@@ -83,7 +83,11 @@ export default function ContactUsPage() {
                 {/* Contact Form Section */}
                 <section className='section section--space-y bg-blue-abstract'>
                     <div className='container'>
-                        <ContactForm />
+                        <div className='grid grid-cols-12'>
+                            <div className='col-span-12 lg:col-span-10 lg:col-start-2'>
+                                <ContactForm />
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>

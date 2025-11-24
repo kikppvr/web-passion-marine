@@ -212,6 +212,13 @@ body {
         font-weight: var(--font-bold);
     }
 
+    @media (max-width: 1366px) {
+        /* Desktop L / Tablet แนวนอน (รวม iPad Pro แนวนอน) ใช้ H1 */
+        .text-display-3 {
+            font-size: var(--text-h1);
+        }
+    }
+
     @media (max-width: 1024px) {
         .text-display-1 {
             font-size: var(--text-display-2);
@@ -222,7 +229,7 @@ body {
         }
 
         .text-display-3 {
-            font-size: var(--text-h1);
+            font-size: var(--text-display-3);
         }
 
         .text-h1 {

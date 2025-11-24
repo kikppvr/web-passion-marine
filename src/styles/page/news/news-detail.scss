@@ -25,6 +25,19 @@
     }
 }
 
+.news-detail__title {
+    @include fonts.text-h1;
+    margin-bottom: 16px;
+
+    @include base.media-down(desktop) {
+        font-size: var(--text-h2);
+    }
+
+    @include base.media-down(laptop) {
+        font-size: var(--text-h1);
+    }
+}
+
 // News Gallery Section
 .news-gallery {
     margin-bottom: 3rem;

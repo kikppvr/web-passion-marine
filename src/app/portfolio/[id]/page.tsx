@@ -56,9 +56,9 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         ) || portfolioDetailDataJson.portfolioDetails[0];
 
     // Get other portfolios (excluding current one)
-    const otherPortfolios = portfolioDataJson.portfolios.filter(
-        portfolio => portfolio.id !== resolvedParams.id
-    );
+    const otherPortfolios = portfolioDataJson.portfolios
+        .filter(portfolio => portfolio.id !== resolvedParams.id)
+        .slice(0, 3);
 
     return (
         <MainLayout headerTheme='white'>
