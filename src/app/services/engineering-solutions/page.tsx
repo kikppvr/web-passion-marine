@@ -80,6 +80,10 @@ export default function EngineeringSolutionsPage() {
             src: "/images/our-services/engineering-solutions/electronics-solar/02.webp",
             alt: "Electronics & Solar Service",
         },
+        {
+            src: "/images/our-services/engineering-solutions/electronics-solar/03.webp",
+            alt: "Electronics & Solar Service",
+        },
     ];
 
     const galleryStructureRepair = [
