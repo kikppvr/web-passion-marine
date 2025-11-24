@@ -70,6 +70,14 @@ export default function AestheticSolutionsPage() {
             src: "/images/our-services/aesthetic-solutions/marine-upholstery/02.webp",
             alt: "Marine Upholstery",
         },
+        {
+            src: "/images/our-services/aesthetic-solutions/marine-upholstery/03.webp",
+            alt: "Marine Upholstery",
+        },
+        {
+            src: "/images/our-services/aesthetic-solutions/marine-upholstery/04.webp",
+            alt: "Marine Upholstery",
+        },
     ];
 
     const galleryGelcoatRepairFinishing = [

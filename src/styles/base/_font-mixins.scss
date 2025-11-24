@@ -64,11 +64,11 @@
     font-weight: var(--font-bold);
     line-height: 1.25;
 
-    @include base.media-down(laptop) {
+    @include base.media-down(desktop) {
         font-size: var(--text-h1); // 48px
     }
 
-    @include base.media-down(tablet) {
+    @include base.media-down(laptop) {
         font-size: var(--text-display-3); // 57px
     }
 

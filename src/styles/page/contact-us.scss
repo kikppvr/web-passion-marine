@@ -34,7 +34,7 @@
     @include base.media-down(laptop) {
         flex: none;
         width: 100%;
-        order: 2;
+        order: 1;
     }
 }
 
@@ -114,7 +114,7 @@
         flex: none;
         width: 100%;
         height: 400px;
-        order: 1;
+        order: 2;
     }
 
     @include base.media-down(tablet) {
@@ -148,7 +148,7 @@
     padding: 48px;
 
     @include base.media-down(laptop) {
-        padding: 64px;
+        padding: 48px;
     }
     @include base.media-down(tablet) {
         padding: 48px;

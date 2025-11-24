@@ -78,6 +78,14 @@
         color: var(--blue-500);
         line-height: 1.3;
         @include text.ellipsis-3;
+
+        @include base.media-down(desktop) {
+            font-size: var(--text-h6);
+        }
+
+        @include base.media-down(laptop) {
+            font-size: var(--text-h5);
+        }
     }
 
     .card-news__description {

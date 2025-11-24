@@ -31,7 +31,7 @@
             "image": "/images/home/portfolio/Model-245SS/01.jpg",
             "brandLogos": [
                 "/images/home/portfolio/Model-245SS/logo-crownline.png",
-                "/images/home/portfolio/Model-245SS/logo-searay.png"
+                "/images/home/portfolio/Model-245SS/logo-mercury.png"
             ],
             "href": "/portfolio/3"
         },
@@ -40,7 +40,7 @@
             "title": "Model 220 Sundeck",
             "model": "220 Sundeck",
             "image": "/images/home/portfolio/Model-220-Sundeck/01.jpg",
-            "brandLogos": ["/images/home/brands/chaparral.png"],
+            "brandLogos": ["/images/home/portfolio/Model-220-Sundeck/logo-searay.png"],
             "href": "/portfolio/4"
         },
         {
@@ -48,7 +48,7 @@
             "title": "Model 25 Cross Top",
             "model": "25 Cross Top",
             "image": "/images/home/portfolio/Model-25-Cross-Top/01.png",
-            "brandLogos": ["/images/home/portfolio/Model-25-Cross-Top/logo-axopar.png"],
+            "brandLogos": ["/images/home/portfolio/Model-25-Cross-Top/logo-axopar.jpg"],
             "href": "/portfolio/5"
         },
         {

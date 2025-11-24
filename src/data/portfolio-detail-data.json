@@ -103,7 +103,7 @@
             "model": "245SS",
             "brandLogos": [
                 "/images/home/portfolio/Model-245SS/logo-crownline.png",
-                "/images/home/portfolio/Model-245SS/logo-searay.png"
+                "/images/home/portfolio/Model-245SS/logo-mercury.png"
             ],
             "mainImage": "/images/home/portfolio/Model-245SS/01.jpg",
             "gallery": [
@@ -182,7 +182,7 @@
             "title": "Model 220 Sundeck",
             "description": "Leatherwork Retrofitting services for Model 220 Sundeck.",
             "model": "220 Sundeck",
-            "brandLogos": ["/images/home/brands/chaparral.png"],
+            "brandLogos": ["/images/home/portfolio/Model-220-Sundeck/logo-searay.png"],
             "mainImage": "/images/home/portfolio/Model-220-Sundeck/01.jpg",
             "gallery": [
                 {
@@ -240,7 +240,7 @@
             "title": "Model 25 Cross Top",
             "description": "Anchor windlass mounting design, stress and deflection analysis and manufacture, along with anchor system installation.",
             "model": "25 Cross Top",
-            "brandLogos": ["/images/home/portfolio/Model-25-Cross-Top/logo-axopar.png"],
+            "brandLogos": ["/images/home/portfolio/Model-25-Cross-Top/logo-axopar.jpg"],
             "mainImage": "/images/home/portfolio/Model-25-Cross-Top/01.png",
             "gallery": [
                 {

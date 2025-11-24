@@ -8,7 +8,8 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
-import { GalleryWithThumbnails } from "@/components/ui/media";
+import { GalleryWithThumbnails, SwiperSlider } from "@/components/ui/media";
+import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 import portfolioDataJson from "@/data/portfolio-data.json";
 
@@ -56,9 +57,9 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         ) || portfolioDetailDataJson.portfolioDetails[0];
 
     // Get other portfolios (excluding current one)
-    const otherPortfolios = portfolioDataJson.portfolios.filter(
-        portfolio => portfolio.id !== resolvedParams.id
-    );
+    const otherPortfolios = portfolioDataJson.portfolios
+        .filter(portfolio => portfolio.id !== resolvedParams.id)
+        .slice(0, 3);
 
     return (
         <MainLayout headerTheme='white'>
@@ -241,21 +242,72 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 {otherPortfolios.length > 0 && (
                     <section className='section section--space-y bg-blue-abstract portfolio-related'>
                         <div className='container'>
-                            <div className=''>
-                                <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
-                                    Other portfolio
-                                </h2>
-                                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-                                    {otherPortfolios.map(portfolio => (
-                                        <PortfolioCard
-                                            key={portfolio.id}
-                                            title={portfolio.title}
-                                            model={portfolio.model}
-                                            image={portfolio.image}
-                                            brandLogos={portfolio.brandLogos}
-                                            href={portfolio.href}
+                            <div className='grid grid-cols-12'>
+                                <div className='col-span-12'>
+                                    <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
+                                        Other portfolio
+                                    </h2>
+
+                                    {/* Grid for Desktop (lg and above) */}
+                                    {/* <div className='hidden grid-cols-1 gap-6 md:grid-cols-2 lg:grid lg:grid-cols-3'>
+                                        {otherPortfolios.map(portfolio => (
+                                            <PortfolioCard
+                                                key={portfolio.id}
+                                                title={portfolio.title}
+                                                model={portfolio.model}
+                                                image={portfolio.image}
+                                                brandLogos={portfolio.brandLogos}
+                                                href={portfolio.href}
+                                            />
+                                        ))}
+                                    </div> */}
+
+                                    {/* Slider for Tablet and Mobile */}
+                                    <div className='portfolio-services__swiper'>
+                                        <SwiperSlider
+                                            data={otherPortfolios.map(
+                                                portfolio =>
+                                                    ({
+                                                        title: portfolio.title,
+                                                        model: portfolio.model,
+                                                        image: portfolio.image,
+                                                        brandLogos: portfolio.brandLogos,
+                                                        href: portfolio.href,
+                                                        video: "",
+                                                    }) as SwiperSlideData
+                                            )}
+                                            cardComponent={PortfolioCard}
+                                            className='portfolio-related-swiper'
+                                            autoplay={false}
+                                            showNavigation={true}
+                                            showPagination={true}
+                                            loop={false}
+                                            speed={500}
+                                            slidesPerView={{
+                                                mobile: 1.2,
+                                                tablet: 2,
+                                                laptop: 2,
+                                                desktop: 3,
+                                                large: 3,
+                                            }}
+                                            spaceBetween={{
+                                                mobile: 16,
+                                                tablet: 16,
+                                                laptop: 16,
+                                                desktop: 32,
+                                                large: 32,
+                                            }}
+                                            slidesPerGroup={{
+                                                mobile: 1,
+                                                tablet: 2,
+                                                laptop: 2,
+                                                desktop: 3,
+                                                large: 3,
+                                            }}
+                                            prevIcon={<i className='ph ph-arrow-left'></i>}
+                                            nextIcon={<i className='ph ph-arrow-right'></i>}
                                         />
-                                    ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

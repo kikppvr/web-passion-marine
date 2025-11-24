@@ -62,7 +62,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                     <div className='container'>
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 text-center xl:col-span-10 xl:col-start-2'>
-                                <h1 className='text-h1 mb-4 text-[var(--blue-500)] xl:mb-6'>
+                                <h1 className='news-detail__title mb-4 text-[var(--blue-500)] xl:mb-6'>
                                     {newsDetail.title}
                                 </h1>
                                 <p className='text-body lg:text-lead-2 text-[var(--grey-600)]'>

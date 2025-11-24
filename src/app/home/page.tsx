@@ -580,35 +580,35 @@ export default function HeaderPage() {
                             <div className='our-portfolio__reviews'>
                                 <div className='our-portfolio__customer-avatars'>
                                     <Image
-                                        src='/images/home/portfolio/review-01.webp'
+                                        src='/images/home/portfolio/review.jpg'
                                         alt='Customer 1'
                                         width={44}
                                         height={44}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
-                                        src='/images/home/portfolio/review-02.webp'
+                                        src='/images/home/portfolio/review.jpg'
                                         alt='Customer 2'
                                         width={44}
                                         height={44}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
-                                        src='/images/home/portfolio/review-03.webp'
+                                        src='/images/home/portfolio/review.jpg'
                                         alt='Customer 3'
                                         width={44}
                                         height={44}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
-                                        src='/images/home/portfolio/review-01.webp'
+                                        src='/images/home/portfolio/review.jpg'
                                         alt='Customer 4'
                                         width={44}
                                         height={44}
                                         className='our-portfolio__avatar'
                                     />
                                     <Image
-                                        src='/images/home/portfolio/review-02.webp'
+                                        src='/images/home/portfolio/review.jpg'
                                         alt='Customer 5'
                                         width={44}
                                         height={44}
