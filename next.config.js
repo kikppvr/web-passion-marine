@@ -110,7 +110,16 @@ const nextConfig = {
 
     // Webpack configuration
     webpack: (config, { dev, isServer }) => {
-        // Add custom webpack configuration here if needed
+        // ป้องกัน minification errors ใน production
+        if (!dev && !isServer) {
+            config.optimization = {
+                ...config.optimization,
+                minimize: true,
+                minimizer: [
+                    ...(config.optimization.minimizer || []),
+                ],
+            };
+        }
         return config;
     },
 

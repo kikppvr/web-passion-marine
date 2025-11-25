@@ -14,6 +14,7 @@
         "clean": "npx rimraf .next out build dist",
         "clean:plesk": "rm -rf .next out build dist",
         "rebuild": "npm run clean && npm run build",
+        "rebuild:plesk": "npm run clean:plesk && npm install && npm run build",
         "test": "echo \"No tests specified\" && exit 0",
         "test:watch": "echo \"No tests specified\" && exit 0",
         "build:development": "NODE_ENV=development next build",
