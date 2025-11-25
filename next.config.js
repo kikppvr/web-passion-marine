@@ -120,31 +120,12 @@ const nextConfig = {
     webpack: (config, { dev, isServer }) => {
         // ป้องกัน minification errors ใน production
         if (!dev && !isServer) {
+            // ใช้ SWC minify แทน Terser (Next.js default)
+            // SWC มีความเสถียรมากกว่าและป้องกัน syntax errors ได้ดีกว่า
             config.optimization = {
                 ...config.optimization,
                 minimize: true,
             };
-            // ใช้ terser options เพื่อป้องกัน syntax errors
-            if (config.optimization.minimizer) {
-                config.optimization.minimizer.forEach(plugin => {
-                    if (plugin.constructor.name === "TerserPlugin") {
-                        plugin.options = {
-                            ...plugin.options,
-                            terserOptions: {
-                                ...plugin.options?.terserOptions,
-                                compress: {
-                                    ...plugin.options?.terserOptions?.compress,
-                                    drop_console: false,
-                                },
-                                format: {
-                                    ...plugin.options?.terserOptions?.format,
-                                    comments: false,
-                                },
-                            },
-                        };
-                    }
-                });
-            }
         }
         return config;
     },
