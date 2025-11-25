@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
                     <tr>
                         <td style="background: linear-gradient(135deg, #0066cc 0%, #004499 100%); padding: 40px 30px; text-align: center;">
                             <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 600; letter-spacing: -0.5px;">
-                                📧 New Contact Form Submission
+                             New Contact Form Submission from ${safeFirstName} ${safeLastName}
                             </h1>
                             <p style="margin: 10px 0 0 0; color: #e0f0ff; font-size: 14px; opacity: 0.9;">
                                 Passion Marine Contact Form
@@ -218,7 +218,7 @@ export async function POST(request: NextRequest) {
                                 <tr>
                                     <td align="center" style="padding: 20px 0;">
                                         <a href="mailto:${safeEmail}?subject=Re: ${safeSubject}" style="display: inline-block; padding: 14px 32px; background-color: #0066cc; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; box-shadow: 0 2px 4px rgba(0,102,204,0.3);">
-                                            ✉️ Reply to ${safeFirstName}
+                                            Reply to ${safeFirstName}
                                         </a>
                                     </td>
                                 </tr>
