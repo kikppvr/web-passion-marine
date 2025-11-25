@@ -3,6 +3,17 @@ const nextConfig = {
     // External packages for server components
     serverExternalPackages: [],
 
+    // Ignore lockfiles in standalone output
+    experimental: {
+        outputFileTracingExcludes: {
+            "*": [
+                "**/package-lock.json",
+                "**/yarn.lock",
+                "**/pnpm-lock.yaml",
+            ],
+        },
+    },
+
     // Image optimization
     images: {
         remotePatterns: [
@@ -134,6 +145,20 @@ const nextConfig = {
 
     // React strict mode
     reactStrictMode: true,
+
+    // ESLint configuration
+    eslint: {
+        // Warning: This allows production builds to successfully complete even if
+        // your project has ESLint errors.
+        ignoreDuringBuilds: false,
+    },
+
+    // TypeScript configuration
+    typescript: {
+        // Warning: This allows production builds to successfully complete even if
+        // your project has type errors.
+        ignoreBuildErrors: false,
+    },
 };
 
 module.exports = nextConfig;
