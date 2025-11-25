@@ -4,11 +4,12 @@ const nextConfig = {
     serverExternalPackages: [],
 
     // Ignore lockfiles in standalone output
-    experimental: {
-        outputFileTracingExcludes: {
-            "*": ["**/package-lock.json", "**/yarn.lock", "**/pnpm-lock.yaml"],
-        },
+    outputFileTracingExcludes: {
+        "*": ["**/package-lock.json", "**/yarn.lock", "**/pnpm-lock.yaml"],
     },
+
+    // Set workspace root to prevent lockfile warnings
+    outputFileTracingRoot: process.cwd(),
 
     // Image optimization
     images: {
@@ -122,8 +123,28 @@ const nextConfig = {
             config.optimization = {
                 ...config.optimization,
                 minimize: true,
-                minimizer: [...(config.optimization.minimizer || [])],
             };
+            // ใช้ terser options เพื่อป้องกัน syntax errors
+            if (config.optimization.minimizer) {
+                config.optimization.minimizer.forEach(plugin => {
+                    if (plugin.constructor.name === "TerserPlugin") {
+                        plugin.options = {
+                            ...plugin.options,
+                            terserOptions: {
+                                ...plugin.options?.terserOptions,
+                                compress: {
+                                    ...plugin.options?.terserOptions?.compress,
+                                    drop_console: false,
+                                },
+                                format: {
+                                    ...plugin.options?.terserOptions?.format,
+                                    comments: false,
+                                },
+                            },
+                        };
+                    }
+                });
+            }
         }
         return config;
     },
