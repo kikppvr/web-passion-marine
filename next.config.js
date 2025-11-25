@@ -6,11 +6,7 @@ const nextConfig = {
     // Ignore lockfiles in standalone output
     experimental: {
         outputFileTracingExcludes: {
-            "*": [
-                "**/package-lock.json",
-                "**/yarn.lock",
-                "**/pnpm-lock.yaml",
-            ],
+            "*": ["**/package-lock.json", "**/yarn.lock", "**/pnpm-lock.yaml"],
         },
     },
 
@@ -126,9 +122,7 @@ const nextConfig = {
             config.optimization = {
                 ...config.optimization,
                 minimize: true,
-                minimizer: [
-                    ...(config.optimization.minimizer || []),
-                ],
+                minimizer: [...(config.optimization.minimizer || [])],
             };
         }
         return config;
