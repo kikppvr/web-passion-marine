@@ -216,7 +216,7 @@ const VideoHeroBanner = ({
                             delay={500}
                             lineDelay={0.15}
                             duration={1.5}
-                            as='p'
+                            as='div'
                         />
                     )}
                     {description && (
@@ -226,7 +226,7 @@ const VideoHeroBanner = ({
                             delay={800}
                             lineDelay={0.15}
                             duration={1.5}
-                            as='p'
+                            as='div'
                         />
                     )}
                 </div>
