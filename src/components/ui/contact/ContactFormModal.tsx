@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
-import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
+import { BookNowButton } from "@/components/ui/button/BookNowButton";
 
 interface ContactFormModalProps {
     open: boolean;
@@ -56,13 +56,12 @@ export default function ContactFormModal({
 
                     {/* Close Button */}
                     <div className='contact-form-modal__actions'>
-                        <PrimaryButton onClick={() => onOpenChange(false)}>
+                        <BookNowButton showIcon={false} onClick={() => onOpenChange(false)}>
                             {isSuccess ? "Close" : "Try Again"}
-                        </PrimaryButton>
+                        </BookNowButton>
                     </div>
                 </div>
             </DialogContent>
         </Dialog>
     );
 }
-

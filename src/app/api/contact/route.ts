@@ -59,11 +59,16 @@ export async function POST(request: NextRequest) {
 
         if (!hasValidConfig) {
             console.error("❌ Email configuration is missing");
+            const missingVars = [];
+            if (!emailConfig?.host) missingVars.push("SMTP_HOST");
+            if (!emailConfig?.auth?.user) missingVars.push("SMTP_USER");
+            if (!emailConfig?.auth?.pass) missingVars.push("SMTP_PASS");
+            if (!emailConfig?.from) missingVars.push("FROM_EMAIL");
+
             return NextResponse.json(
                 {
                     error: "Email service is not configured",
-                    details:
-                        "Please configure SMTP settings (SMTP_HOST, SMTP_USER, SMTP_PASS, FROM_EMAIL) in your environment variables.",
+                    details: `Missing environment variables: ${missingVars.join(", ")}. Please create a .env.local file with SMTP configuration. Example: SMTP_HOST=smtp.gmail.com, SMTP_PORT=587, SMTP_USER=your-email@gmail.com, SMTP_PASS=your-app-password, FROM_EMAIL=your-email@gmail.com`,
                 },
                 { status: 500 }
             );
@@ -282,13 +287,29 @@ This email was sent from the Passion Marine contact form.
         const errorDetails = error instanceof Error ? error.stack : String(error);
         console.error("Error details:", errorDetails);
 
+        // Check for authentication errors
+        const isAuthError =
+            errorMessage.includes("Invalid login") ||
+            errorMessage.includes("BadCredentials") ||
+            errorMessage.includes("Username and Password not accepted") ||
+            errorMessage.includes("535-5.7.8");
+
+        let userFriendlyError = "Failed to send email. Please try again later.";
+        let userFriendlyDetails = errorMessage;
+
+        if (isAuthError) {
+            userFriendlyError = "SMTP Authentication Failed";
+            userFriendlyDetails =
+                "Invalid email credentials. For Gmail, you must use an App Password (not your regular password). Please check your SMTP_USER and SMTP_PASS in .env.local file. See: https://support.google.com/accounts/answer/185833";
+        }
+
         // More detailed error response in development
         const isDevMode = process.env.NODE_ENV !== "production";
         if (isDevMode) {
             return NextResponse.json(
                 {
-                    error: "Failed to send email. Please try again later.",
-                    details: errorMessage,
+                    error: userFriendlyError,
+                    details: userFriendlyDetails,
                     stack: errorDetails,
                 },
                 { status: 500 }
@@ -297,7 +318,8 @@ This email was sent from the Passion Marine contact form.
 
         return NextResponse.json(
             {
-                error: "Failed to send email. Please try again later.",
+                error: userFriendlyError,
+                details: isAuthError ? userFriendlyDetails : undefined,
             },
             { status: 500 }
         );
