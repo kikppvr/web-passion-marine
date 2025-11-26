@@ -4,11 +4,14 @@ import { MainLayout } from "@/components/ui/layout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { MissionCard } from "@/components/ui/cards/MissionCard";
 import { useAOS } from "@/hooks/useAOS";
+import { useState } from "react";
 import "aos/dist/aos.css";
 
 export default function AboutUsPage() {
     // Initialize AOS
     useAOS();
+    const [openCardIndex, setOpenCardIndex] = useState<number | null>(null);
+
     const bannerProps = {
         title: "About Us",
         subtitle: "Learn more about Passion Marine and our commitment to excellence",
@@ -50,6 +53,10 @@ export default function AboutUsPage() {
             href: "#",
         },
     ];
+
+    const handleCardToggle = (index: number) => {
+        setOpenCardIndex(openCardIndex === index ? null : index);
+    };
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
@@ -125,6 +132,8 @@ export default function AboutUsPage() {
                                     title={item.title}
                                     description={item.description}
                                     image={item.image}
+                                    isOpen={openCardIndex === index}
+                                    onToggle={() => handleCardToggle(index)}
                                 />
                             </div>
                         ))}

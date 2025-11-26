@@ -50,18 +50,22 @@ export default function ContactFormModal({
                     </div>
 
                     {/* Title */}
-                    <h2 className='contact-form-modal__title'>{title}</h2>
+                    <h2
+                        className='contact-form-modal__title'
+                        dangerouslySetInnerHTML={{ __html: title }}></h2>
 
                     {/* Message */}
-                    <p className='contact-form-modal__message'>{message}</p>
+                    <p
+                        className='contact-form-modal__message'
+                        dangerouslySetInnerHTML={{ __html: message }}></p>
 
                     {/* Error Details */}
-                    {errorDetails && (
+                    {/* {errorDetails && (
                         <div className='contact-form-modal__error-details'>
                             <p className='contact-form-modal__error-label'>Error Details:</p>
                             <p className='contact-form-modal__error-text'>{errorDetails}</p>
                         </div>
-                    )}
+                    )} */}
 
                     {/* Close Button - Hide when loading */}
                     {!isLoading && (

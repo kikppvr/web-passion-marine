@@ -11,6 +11,12 @@ export default function MissionCardPage() {
     const [copiedCode, setCopiedCode] = useState<string | null>(null);
     const { language } = useLanguage();
 
+    const [openCardIndex, setOpenCardIndex] = useState<number | null>(null);
+
+    const handleCardToggle = (index: number) => {
+        setOpenCardIndex(openCardIndex === index ? null : index);
+    };
+
     const copyToClipboard = async (text: string, codeId: string) => {
         try {
             await navigator.clipboard.writeText(text);
@@ -92,6 +98,8 @@ export default function MissionCardPage() {
                                     title={item.title}
                                     description={item.description}
                                     image={item.image}
+                                    isOpen={openCardIndex === index}
+                                    onToggle={() => handleCardToggle(index)}
                                 />
                             </div>
                         ))}

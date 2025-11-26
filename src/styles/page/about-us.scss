@@ -74,10 +74,15 @@
     flex: 0 0 66.66%;
     display: flex;
     flex-direction: column;
-    padding-left: 60px;
+    // padding-left: 40px;
+
+    @include base.media-down(desktop) {
+        padding-left: 0;
+    }
 
     @include base.media-down(laptop) {
         flex: none;
+        padding-left: 60px;
     }
 
     @include base.media-down(mobile) {

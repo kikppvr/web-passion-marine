@@ -143,8 +143,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         // Show loading modal immediately
         setModalData({
             type: "loading",
-            title: "Sending...",
-            message: "Please wait while we send your message.",
+            title: "Sending Your Message",
+            message: "Please wait while we process your request. This may take a few seconds.",
         });
         setModalOpen(true);
 
@@ -216,7 +216,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 type: "success",
                 title: "Message Sent Successfully!",
                 message:
-                    "Thank you for contacting us. We have received your message and will get back to you as soon as possible.",
+                    "Thank you for contacting Passion Marine. We have received your message and will respond to you as soon as possible.",
             });
             setModalOpen(true);
         } catch (error) {
@@ -225,12 +225,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             const errorMessage =
                 error instanceof Error
                     ? error.message
-                    : "Failed to send message. Please try again later.";
+                    : "An error occurred. Please try again later.";
 
             setModalData({
                 type: "error",
                 title: "Failed to Send Message",
-                message: "We encountered an issue while sending your message. Please try again.",
+                message:
+                    "We encountered an issue while sending your message. Please try again or contact us directly.",
                 errorDetails: errorMessage,
             });
             setModalOpen(true);
