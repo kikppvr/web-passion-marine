@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useState } from "react";
 
 export interface MissionCardProps {
     className?: string;
@@ -11,10 +12,23 @@ export interface MissionCardProps {
 }
 
 const MissionCard = ({ className, title, description, image }: MissionCardProps) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const isActive = isHovered || isOpen;
+
     return (
-        <div className={cn("card-mission", className)}>
+        <div
+            className={cn("card-mission", className, { "card-mission--open": isOpen })}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={handleClick}>
             <div className='card-mission__content-icon'>
-                <i className='ph ph-plus'></i>
+                <i className={isActive ? "ph ph-minus" : "ph ph-plus"}></i>
             </div>
             <div className='card-mission__image-container'>
                 <Image
