@@ -359,16 +359,16 @@ export default function HeaderPage() {
                             text='General Boat Services,'
                             className='our-services__description-1'
                             delay={300}
-                            lineDelay={0.15}
-                            duration={1.5}
+                            lineDelay={0}
+                            duration={2}
                             as='div'
                         />
                         <TextReveal
                             text='Engine Repair, Boat Restoration'
                             className='our-services__description-2'
-                            delay={500}
-                            lineDelay={0.15}
-                            duration={1.5}
+                            delay={300}
+                            lineDelay={0}
+                            duration={2}
                             as='div'
                         />
                     </div>

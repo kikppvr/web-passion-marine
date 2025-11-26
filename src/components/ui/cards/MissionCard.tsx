@@ -13,6 +13,9 @@ export interface MissionCardProps {
 const MissionCard = ({ className, title, description, image }: MissionCardProps) => {
     return (
         <div className={cn("card-mission", className)}>
+            <div className='card-mission__content-icon'>
+                <i className='ph ph-plus'></i>
+            </div>
             <div className='card-mission__image-container'>
                 <Image
                     src={image}

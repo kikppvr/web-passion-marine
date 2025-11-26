@@ -16,6 +16,23 @@
     transition: all 0.5s ease-in-out;
     cursor: pointer;
 
+    .card-mission__content-icon {
+        display: none;
+
+        @include base.media-down(desktop) {
+            display: block;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1;
+
+            i {
+                font-size: 25px;
+                color: var(--text-white);
+            }
+        }
+    }
+
     // Image Container
     .card-mission__image-container {
         position: relative;
@@ -49,6 +66,7 @@
         right: 0;
         height: 100%;
         overflow: hidden;
+        z-index: 2;
 
         .card-mission__content-inner {
             position: absolute;
