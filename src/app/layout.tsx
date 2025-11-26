@@ -1,7 +1,9 @@
 import { LanguageProvider } from "@/contexts/LanguageContext";
-// Optimize: โหลดเฉพาะ icon styles ที่ใช้จริง (regular และ light)
+// Import icon styles ที่ใช้ในเว็บ: regular, light, fill, และ bold
 import "@phosphor-icons/web/regular/style.css";
 import "@phosphor-icons/web/light/style.css";
+import "@phosphor-icons/web/fill/style.css";
+import "@phosphor-icons/web/bold/style.css";
 import type { Metadata } from "next";
 import { Noto_Sans_Thai, Roboto } from "next/font/google";
 import "../styles/globals.css";
