@@ -22,12 +22,12 @@
         @include base.media-down(desktop) {
             display: block;
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             z-index: 1;
 
             i {
-                font-size: 25px;
+                font-size: 35px;
                 color: var(--text-white);
                 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 display: inline-block;
