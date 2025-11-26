@@ -27,7 +27,9 @@ export const metadata: Metadata = {
     title: "Passion Marine - บริการทางทะเลมืออาชีพ",
     description: "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย",
     icons: {
-        icon: [{ url: "/favicon.ico" }, { url: "/favicon.svg", type: "image/svg+xml" }],
+        icon: [{ url: "/favicon.png", sizes: "any", type: "image/png" }],
+        shortcut: "/favicon.png",
+        apple: "/favicon.png",
     },
 };
 
