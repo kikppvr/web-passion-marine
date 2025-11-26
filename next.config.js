@@ -116,7 +116,7 @@ const nextConfig = {
         ];
     },
 
-    // Webpack configuration
+    // Webpack configuration - Optimize for performance
     webpack: (config, { dev, isServer }) => {
         // ป้องกัน minification errors ใน production
         if (!dev && !isServer) {
@@ -125,9 +125,44 @@ const nextConfig = {
             config.optimization = {
                 ...config.optimization,
                 minimize: true,
+                // เพิ่ม code splitting เพื่อลด bundle size
+                splitChunks: {
+                    chunks: "all",
+                    cacheGroups: {
+                        default: false,
+                        vendors: false,
+                        framework: {
+                            name: "framework",
+                            chunks: "all",
+                            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+                            priority: 40,
+                            enforce: true,
+                        },
+                        lib: {
+                            test: /[\\/]node_modules[\\/]/,
+                            name(module) {
+                                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)?.[1];
+                                return packageName ? `npm.${packageName.replace("@", "")}` : null;
+                            },
+                            priority: 30,
+                            minChunks: 1,
+                            reuseExistingChunk: true,
+                        },
+                    },
+                },
             };
         }
         return config;
+    },
+
+    // Experimental features for better performance
+    experimental: {
+        optimizePackageImports: [
+            "@phosphor-icons/web",
+            "lucide-react",
+            "swiper",
+            "lightgallery",
+        ],
     },
 
     // Output configuration for deployment
