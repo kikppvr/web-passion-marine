@@ -349,7 +349,9 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                             I have read and accepted terms and conditions specified in the{" "}
                             <a href='#' className='contact-form__link'>
                                 PDPA Policy
-                            </a>
+                            </a>{" "}
+                            and do hereby consent to the collecting, processing and/or disclosing of
+                            the personal data provided by me to fulfil the above-said purposes.
                         </label>
                     </div>
                     {errors.acceptTerms && (
