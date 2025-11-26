@@ -141,7 +141,9 @@ const nextConfig = {
                         lib: {
                             test: /[\\/]node_modules[\\/]/,
                             name(module) {
-                                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)?.[1];
+                                const packageName = module.context.match(
+                                    /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                                )?.[1];
                                 return packageName ? `npm.${packageName.replace("@", "")}` : null;
                             },
                             priority: 30,
@@ -157,12 +159,7 @@ const nextConfig = {
 
     // Experimental features for better performance
     experimental: {
-        optimizePackageImports: [
-            "@phosphor-icons/web",
-            "lucide-react",
-            "swiper",
-            "lightgallery",
-        ],
+        optimizePackageImports: ["@phosphor-icons/web", "lucide-react", "swiper", "lightgallery"],
     },
 
     // Output configuration for deployment
