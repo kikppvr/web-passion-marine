@@ -402,6 +402,15 @@
         }
     }
 
+    &--loading {
+        background-color: rgba(28, 69, 131, 0.1);
+        color: var(--blue-500);
+
+        i {
+            animation: spin 1s linear infinite;
+        }
+    }
+
     @include base.media-down(tablet) {
         width: 100px;
         height: 100px;
@@ -512,5 +521,15 @@
     60%,
     80% {
         transform: translateX(4px);
+    }
+}
+
+// Add spin animation if not exists
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

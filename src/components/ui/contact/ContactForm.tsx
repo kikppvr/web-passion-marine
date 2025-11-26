@@ -33,7 +33,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalData, setModalData] = useState<{
-        type: "success" | "error";
+        type: "success" | "error" | "loading";
         title: string;
         message: string;
         errorDetails?: string;
@@ -139,6 +139,17 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         if (!validateForm()) return;
 
         setIsSubmitting(true);
+
+        // Show loading modal immediately
+        setModalData({
+            type: "loading",
+            title: "Sending...",
+            message: "Please wait while we send your message.",
+        });
+        setModalOpen(true);
+
+        // Use setTimeout to ensure modal renders before async operation
+        await new Promise(resolve => setTimeout(resolve, 0));
 
         try {
             if (onSubmit) {
@@ -373,7 +384,11 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             {modalData && (
                 <ContactFormModal
                     open={modalOpen}
-                    onOpenChange={setModalOpen}
+                    onOpenChange={open => {
+                        // Don't allow closing loading modal
+                        if (modalData.type === "loading") return;
+                        setModalOpen(open);
+                    }}
                     type={modalData.type}
                     title={modalData.title}
                     message={modalData.message}
