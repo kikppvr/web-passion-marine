@@ -12,6 +12,8 @@ interface ContactFormData {
 }
 
 export async function POST(request: NextRequest) {
+    const startedAt = Date.now();
+
     try {
         console.log("📨 Contact form submission received");
 
@@ -23,81 +25,61 @@ export async function POST(request: NextRequest) {
             subject: body.subject,
         });
 
-        // Validate required fields
+        // ---------- validate ----------
         if (!body.firstName || !body.lastName || !body.email || !body.subject || !body.message) {
             console.log("❌ Validation failed: Missing required fields");
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        // Validate email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(body.email)) {
             console.log("❌ Validation failed: Invalid email format");
             return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
         }
 
-        let transporter;
-        let emailConfig;
+        // ---------- email config ----------
+        const emailConfig = getEmailConfig();
+        console.log("📧 Email config:", emailConfig);
 
-        // Get email configuration (won't throw error)
-        try {
-            emailConfig = getEmailConfig();
-            console.log("📧 Email config retrieved:", {
-                hasHost: !!emailConfig?.host,
-                hasUser: !!emailConfig?.auth?.user,
-                hasPass: !!emailConfig?.auth?.pass,
-                host: emailConfig?.host || "none",
-            });
-        } catch (configError) {
-            console.error("⚠️ Error getting email config:", configError);
-            emailConfig = null;
-        }
-
-        // Check if email is configured
-        const hasValidConfig =
-            emailConfig && emailConfig.host && emailConfig.auth?.user && emailConfig.auth?.pass;
-
-        if (!hasValidConfig) {
-            console.error("❌ Email configuration is missing");
-            const missingVars = [];
-            if (!emailConfig?.host) missingVars.push("SMTP_HOST");
-            if (!emailConfig?.auth?.user) missingVars.push("SMTP_USER");
-            if (!emailConfig?.auth?.pass) missingVars.push("SMTP_PASS");
-            if (!emailConfig?.from) missingVars.push("FROM_EMAIL");
-
+        if (
+            !emailConfig ||
+            !emailConfig.host ||
+            !emailConfig.auth?.user ||
+            !emailConfig.auth?.pass ||
+            !emailConfig.from
+        ) {
+            console.error("❌ Email configuration is missing or incomplete");
             return NextResponse.json(
                 {
                     error: "Email service is not configured",
-                    details: `Missing environment variables: ${missingVars.join(", ")}. Please create a .env.local file with SMTP configuration. Example: SMTP_HOST=smtp.gmail.com, SMTP_PORT=587, SMTP_USER=your-email@gmail.com, SMTP_PASS=your-app-password, FROM_EMAIL=your-email@gmail.com`,
+                    details: "Missing SMTP_HOST / SMTP_USER / SMTP_PASS / FROM_EMAIL on server",
                 },
                 { status: 500 }
             );
         }
 
-        // Use configured SMTP for all environments (dev, stg, prd)
-        if (!emailConfig) {
-            throw new Error("Email config is null but hasValidConfig is true");
-        }
-
-        transporter = nodemailer.createTransport({
-            host: emailConfig.host,
-            port: emailConfig.port,
-            secure: emailConfig.secure, // true for 465, false for other ports
+        // ---------- transporter (ใส่ timeout กันค้าง + TLS แบบ Plesk) ----------
+        const transporter = nodemailer.createTransport({
+            host: emailConfig.host, // เช่น mail.passionmarine.co.th
+            port: emailConfig.port || 587,
+            secure: emailConfig.port === 465, // true เฉพาะ 465
             auth: {
                 user: emailConfig.auth.user,
                 pass: emailConfig.auth.pass,
             },
+            connectionTimeout: 10_000, // 10s ถ้าต่อไม่ได้ให้ error
+            socketTimeout: 10_000, // 10s ถ้าส่งไม่สำเร็จให้ error
+            tls: {
+                // Plesk ชอบใช้ cert แบบ self-signed / ชื่อ host ไม่ตรง
+                rejectUnauthorized: false,
+            },
         });
+
         console.log(`✅ Using SMTP: ${emailConfig.host}:${emailConfig.port}`);
 
-        // Email content
-        if (!emailConfig) {
-            throw new Error("Email config is required but not available");
-        }
-
-        // Escape HTML to prevent XSS
+        // ---------- mail content ----------
         const escapeHtml = (text: string) => {
-            const map: { [key: string]: string } = {
+            const map: Record<string, string> = {
                 "&": "&amp;",
                 "<": "&lt;",
                 ">": "&gt;",
@@ -116,178 +98,171 @@ export async function POST(request: NextRequest) {
 
         const mailOptions = {
             from: emailConfig.from || emailConfig.auth.user,
-            to: "prapavarine.c@gmail.com", // Send to company email
-            replyTo: body.email, // Allow reply to customer
+            to: emailConfig.from,
+            replyTo: body.email,
             subject: `New Contact Form: ${body.subject}`,
             html: `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact Form Submission</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f4; line-height: 1.6;">
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f4f4f4;">
-        <tr>
-            <td align="center" style="padding: 40px 20px;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden;">
-                    
-                    <!-- Header -->
-                    <tr>
-                        <td style="background: linear-gradient(135deg, #0066cc 0%, #004499 100%); padding: 40px 30px; text-align: center;">
-                            <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 600; letter-spacing: -0.5px;">
-                             New Contact Form Submission from ${safeFirstName} ${safeLastName}
-                            </h1>
-                            <p style="margin: 10px 0 0 0; color: #e0f0ff; font-size: 14px; opacity: 0.9;">
-                                Passion Marine Contact Form
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Content -->
-                    <tr>
-                        <td style="padding: 40px 30px;">
-                            
-                            <!-- Greeting -->
-                            <p style="margin: 0 0 30px 0; color: #333333; font-size: 16px; line-height: 1.6;">
-                                Hello,<br><br>
-                                You have received a new message from the Passion Marine contact form.
-                            </p>
-
-                            <!-- Contact Information Card -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa; border-radius: 8px; margin-bottom: 30px; overflow: hidden;">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h2 style="margin: 0 0 20px 0; color: #0066cc; font-size: 18px; font-weight: 600; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">
-                                            👤 Contact Information
-                                        </h2>
-                                        
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                            <tr>
-                                                <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
-                                                    <strong style="color: #666666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Full Name</strong>
-                                                    <span style="color: #333333; font-size: 16px; font-weight: 500;">${safeFirstName} ${safeLastName}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
-                                                    <strong style="color: #666666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Email Address</strong>
-                                                    <a href="mailto:${safeEmail}" style="color: #0066cc; font-size: 16px; text-decoration: none; font-weight: 500;">${safeEmail}</a>
-                                                </td>
-                                            </tr>
-                                            ${
-                                                safeTelephone
-                                                    ? `
-                                            <tr>
-                                                <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
-                                                    <strong style="color: #666666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Phone Number</strong>
-                                                    <a href="tel:${safeTelephone}" style="color: #333333; font-size: 16px; text-decoration: none; font-weight: 500;">${safeTelephone}</a>
-                                                </td>
-                                            </tr>
-                                            `
-                                                    : ""
-                                            }
-                                            <tr>
-                                                <td style="padding: 12px 0;">
-                                                    <strong style="color: #666666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Subject</strong>
-                                                    <span style="color: #333333; font-size: 16px; font-weight: 500;">${safeSubject}</span>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <!-- Message Card -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #ffffff; border-left: 4px solid #0066cc; border-radius: 4px; margin-bottom: 30px;">
-                                <tr>
-                                    <td style="padding: 25px;">
-                                        <h2 style="margin: 0 0 15px 0; color: #0066cc; font-size: 18px; font-weight: 600;">
-                                            💬 Message
-                                        </h2>
-                                        <div style="color: #333333; font-size: 15px; line-height: 1.8; white-space: pre-wrap;">
-                                            ${safeMessage}
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <!-- Action Button -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>New Contact Form Submission</title>
+        </head>
+        <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5; line-height: 1.6;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+            <tr>
+            <td align="center" style="padding: 60px 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); overflow: hidden;">
+        
+                <!-- Header -->
+                <tr>
+                    <td style="background: linear-gradient(135deg, #1c4583 0%, #14315d 100%); padding: 48px 40px; text-align: center;">
+                    <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600; letter-spacing: -0.3px; line-height: 1.3;">
+                        New Contact Form Submission
+                    </h1>
+                    <p style="margin: 12px 0 0 0; color: rgba(255, 255, 255, 0.85); font-size: 14px; font-weight: 400;">
+                        Passion Marine Contact Form
+                    </p>
+                    </td>
+                </tr>
+        
+                <!-- Content -->
+                <tr>
+                    <td style="padding: 48px 40px;">
+        
+                    <!-- Greeting -->
+                    <p style="margin: 0 0 32px 0; color: #2f2f2f; font-size: 16px; line-height: 1.6;">
+                        Hello,<br />
+                        You have received a new message from the Passion Marine contact form.
+                    </p>
+        
+                    <!-- Contact Information Card -->
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa; border-radius: 8px; margin-bottom: 32px; border: 1px solid #e9ecef;">
+                        <tr>
+                        <td style="padding: 32px;">
+                            <h2 style="margin: 0 0 24px 0; color: #1c4583; font-size: 16px; font-weight: 600; letter-spacing: 0.2px; text-transform: uppercase;">
+                            Contact Information
+                            </h2>
+        
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td align="center" style="padding: 20px 0;">
-                                        <a href="mailto:${safeEmail}?subject=Re: ${safeSubject}" style="display: inline-block; padding: 14px 32px; background-color: #0066cc; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; box-shadow: 0 2px 4px rgba(0,102,204,0.3);">
-                                            Reply to ${safeFirstName}
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td style="padding: 16px 0; border-bottom: 1px solid #e9ecef;">
+                                <div style="color: #6f6f71; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px;">Full Name</div>
+                                <div style="color: #2f2f2f; font-size: 16px; font-weight: 500; line-height: 1.5;">${safeFirstName} ${safeLastName}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 16px 0; border-bottom: 1px solid #e9ecef;">
+                                <div style="color: #6f6f71; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px;">Email Address</div>
+                                <a href="mailto:${safeEmail}" style="color: #1c4583; font-size: 16px; text-decoration: none; font-weight: 500; line-height: 1.5;">${safeEmail}</a>
+                                </td>
+                            </tr>
+                            ${
+                                safeTelephone
+                                    ? `
+                            <tr>
+                                <td style="padding: 16px 0; border-bottom: 1px solid #e9ecef;">
+                                <div style="color: #6f6f71; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px;">Phone Number</div>
+                                <a href="tel:${safeTelephone}" style="color: #2f2f2f; font-size: 16px; text-decoration: none; font-weight: 500; line-height: 1.5;">${safeTelephone}</a>
+                                </td>
+                            </tr>
+                            `
+                                    : ""
+                            }
+                            <tr>
+                                <td style="padding: 16px 0; border-bottom: 1px solid #e9ecef;">
+                                <div style="color: #6f6f71; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px;">Subject</div>
+                                <div style="color: #2f2f2f; font-size: 16px; font-weight: 500; line-height: 1.5;">${safeSubject}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 16px 0;">
+                                <div style="color: #6f6f71; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 6px;">Message</div>
+                                <div style="color: #2f2f2f; font-size: 15px; font-weight: 400; line-height: 1.8; white-space: pre-wrap;">${safeMessage}</div>
+                                </td>
+                            </tr>
                             </table>
-
                         </td>
-                    </tr>
-
-                    <!-- Footer -->
-                    <tr>
-                        <td style="background-color: #f8f9fa; padding: 25px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
-                            <p style="margin: 0 0 10px 0; color: #666666; font-size: 13px; line-height: 1.6;">
-                                This email was sent from the <strong style="color: #0066cc;">Passion Marine</strong> contact form.<br>
-                                You can reply directly to this email to respond to ${safeFirstName} ${safeLastName}.
-                            </p>
-                            <p style="margin: 15px 0 0 0; color: #999999; font-size: 12px;">
-                                © ${new Date().getFullYear()} Passion Marine Company Limited. All rights reserved.
-                            </p>
+                        </tr>
+                    </table>
+        
+                    <!-- Action Button -->
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                        <td align="center" style="padding: 8px 0 24px 0;">
+                            <a href="mailto:${safeEmail}?subject=Re: ${safeSubject}" style="display: inline-block; padding: 14px 36px; background-color: #1c4583; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; letter-spacing: 0.2px;">
+                            Reply to ${safeFirstName}
+                            </a>
                         </td>
-                    </tr>
-
+                        </tr>
+                    </table>
+        
+                    </td>
+                </tr>
+        
+                <!-- Footer -->
+                <tr>
+                    <td style="background-color: #f8f9fa; padding: 32px 40px; text-align: center; border-top: 1px solid #e9ecef;">
+                    <p style="margin: 0 0 12px 0; color: #6f6f71; font-size: 13px; line-height: 1.6;">
+                        This email was sent from the <strong style="color: #1c4583; font-weight: 600;">Passion Marine</strong> contact form.<br />
+                        You can reply directly to this email to respond to ${safeFirstName} ${safeLastName}.
+                    </p>
+                    <p style="margin: 16px 0 0 0; color: #9f9fa0; font-size: 12px; line-height: 1.5;">
+                        © ${new Date().getFullYear()} Passion Marine Company Limited. All rights reserved.
+                    </p>
+                    </td>
+                </tr>
+        
                 </table>
             </td>
-        </tr>
-    </table>
-</body>
-</html>
+            </tr>
+        </table>
+        </body>
+        </html>
             `,
             text: `
-═══════════════════════════════════════════════════════════
-    NEW CONTACT FORM SUBMISSION - PASSION MARINE
-═══════════════════════════════════════════════════════════
-
-You have received a new message from the Passion Marine contact form.
-
-CONTACT INFORMATION
-───────────────────────────────────────────────────────────
-Full Name:    ${body.firstName} ${body.lastName}
-Email:        ${body.email}
-${body.telephone ? `Phone:         ${body.telephone}\n` : ""}Subject:      ${body.subject}
-
-MESSAGE
-───────────────────────────────────────────────────────────
-${body.message}
-
-───────────────────────────────────────────────────────────
-
-You can reply directly to this email to respond to ${body.firstName} ${body.lastName}.
-
-This email was sent from the Passion Marine contact form.
-© ${new Date().getFullYear()} Passion Marine Company Limited.
-
-═══════════════════════════════════════════════════════════
+        ═══════════════════════════════════════════════════════════
+            NEW CONTACT FORM SUBMISSION - PASSION MARINE
+        ═══════════════════════════════════════════════════════════
+        
+        You have received a new message from the Passion Marine contact form.
+        
+        CONTACT INFORMATION
+        ───────────────────────────────────────────────────────────
+        Full Name:    ${body.firstName} ${body.lastName}
+        Email:        ${body.email}
+        ${body.telephone ? `Phone:         ${body.telephone}\n` : ""}Subject:      ${body.subject}
+        
+        MESSAGE
+        ───────────────────────────────────────────────────────────
+        ${body.message}
+        
+        ───────────────────────────────────────────────────────────
+        
+        You can reply directly to this email to respond to ${body.firstName} ${body.lastName}.
+        
+        This email was sent from the Passion Marine contact form.
+        © ${new Date().getFullYear()} Passion Marine Company Limited.
+        
+        ═══════════════════════════════════════════════════════════
             `,
         };
 
-        // Send email
+        // ---------- send mail ----------
+        console.log("📤 Sending email via SMTP...");
         const info = await transporter.sendMail(mailOptions);
-
         console.log("📧 Email sent successfully! Message ID:", info.messageId);
+        console.log("⏱ Total handler time:", Date.now() - startedAt, "ms");
 
         return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
     } catch (error) {
         console.error("❌ Error sending email:", error);
         const errorMessage = error instanceof Error ? error.message : "Unknown error";
         const errorDetails = error instanceof Error ? error.stack : String(error);
+
         console.error("Error details:", errorDetails);
 
-        // Check for authentication errors
         const isAuthError =
             errorMessage.includes("Invalid login") ||
             errorMessage.includes("BadCredentials") ||
@@ -300,10 +275,9 @@ This email was sent from the Passion Marine contact form.
         if (isAuthError) {
             userFriendlyError = "SMTP Authentication Failed";
             userFriendlyDetails =
-                "Invalid email credentials. For Gmail, you must use an App Password (not your regular password). Please check your SMTP_USER and SMTP_PASS in .env.local file. See: https://support.google.com/accounts/answer/185833";
+                "Invalid email credentials. Please check SMTP_USER / SMTP_PASS on the server.";
         }
 
-        // More detailed error response in development
         const isDevMode = process.env.NODE_ENV !== "production";
         if (isDevMode) {
             return NextResponse.json(

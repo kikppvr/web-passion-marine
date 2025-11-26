@@ -188,6 +188,13 @@ export function getEmailConfig() {
     try {
         const config = getEnvironmentConfig();
 
+        const hasEmailConfig =
+            config.SMTP_HOST && config.SMTP_USER && config.SMTP_PASS && config.FROM_EMAIL;
+
+        if (!hasEmailConfig) {
+            return null;
+        }
+
         return {
             host: config.SMTP_HOST,
             port: config.SMTP_PORT,
@@ -199,17 +206,23 @@ export function getEmailConfig() {
             from: config.FROM_EMAIL,
         };
     } catch (error) {
-        // If getEnvironmentConfig fails, try to get email config directly from env vars
-        // This allows email to work even if other required vars are missing
+        // fallback ถ้า getEnvironmentConfig มีปัญหา
+        const host = process.env.SMTP_HOST || "";
+        const user = process.env.SMTP_USER || "";
+        const pass = process.env.SMTP_PASS || "";
+        const from = process.env.FROM_EMAIL || user;
+        const port = parseInt(process.env.SMTP_PORT || "587", 10);
+
+        if (!host || !user || !pass || !from) {
+            return null;
+        }
+
         return {
-            host: process.env.SMTP_HOST || "",
-            port: parseInt(process.env.SMTP_PORT || "587", 10),
-            secure: parseInt(process.env.SMTP_PORT || "587", 10) === 465,
-            auth: {
-                user: process.env.SMTP_USER || "",
-                pass: process.env.SMTP_PASS || "",
-            },
-            from: process.env.FROM_EMAIL || "",
+            host,
+            port,
+            secure: port === 465,
+            auth: { user, pass },
+            from,
         };
     }
 }
