@@ -286,7 +286,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                             slidesPerView={{
                                                 mobile: 1.2,
                                                 tablet: 2,
-                                                laptop: 2,
+                                                laptop: 3,
                                                 desktop: 3,
                                                 large: 3,
                                             }}
@@ -300,7 +300,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                             slidesPerGroup={{
                                                 mobile: 1,
                                                 tablet: 2,
-                                                laptop: 2,
+                                                laptop: 3,
                                                 desktop: 3,
                                                 large: 3,
                                             }}

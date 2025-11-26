@@ -36,6 +36,10 @@
     @include base.media-down(laptop) {
         font-size: var(--text-h1);
     }
+
+    @include base.media-down(mobile) {
+        font-size: var(--text-h3);
+    }
 }
 
 // News Gallery Section

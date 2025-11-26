@@ -203,9 +203,9 @@ const VideoHeroBanner = ({
                         <TextReveal
                             text={title}
                             className='video-hero-banner__title'
-                            delay={200}
-                            lineDelay={0.15}
-                            duration={1.5}
+                            delay={300}
+                            lineDelay={0}
+                            duration={2}
                             as='h1'
                         />
                     )}
