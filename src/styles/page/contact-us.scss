@@ -365,13 +365,38 @@
             padding: 32px 24px;
         }
     }
+
+    &.dialog-content--md {
+        @include base.media-down(tablet) {
+            max-width: 380px;
+        }
+
+        @include base.media-down(mobile) {
+            max-width: 350px;
+        }
+
+        @include base.media-down(mini-mobile) {
+            max-width: 300px;
+        }
+    }
 }
+
+// // Override max-width สำหรับ contact form modal บน tablet
+// .contact-form-modal.dialog-content--md {
+//     @include base.media-down(tablet) {
+//         max-width: 380px;
+//     }
+// }
 
 .contact-form-modal__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
+
+    @include base.media-down(mobile) {
+        gap: 16px;
+    }
 }
 
 .contact-form-modal__icon {

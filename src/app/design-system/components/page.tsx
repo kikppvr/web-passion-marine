@@ -144,6 +144,20 @@ export default function ComponentsPage() {
                 { name: "Breadcrumb", status: "planned", path: "#" },
             ],
         },
+        {
+            id: "modals",
+            name: "Modals",
+            icon: "ph ph-window",
+            color: "from-indigo-500 to-purple-500",
+            description: "Modal dialogs และ popups",
+            components: [
+                {
+                    name: "Contact Form Modal",
+                    status: "ready",
+                    path: "/design-system/components/modal-test",
+                },
+            ],
+        },
     ];
 
     const getStatusColor = (status: string) => {
