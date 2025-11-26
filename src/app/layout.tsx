@@ -1,6 +1,5 @@
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import "@phosphor-icons/web/bold/style.css";
-import "@phosphor-icons/web/fill/style.css";
+// Optimize: โหลดเฉพาะ icon styles ที่ใช้จริง (regular และ light)
 import "@phosphor-icons/web/regular/style.css";
 import "@phosphor-icons/web/light/style.css";
 import type { Metadata } from "next";
@@ -8,16 +7,16 @@ import { Noto_Sans_Thai, Roboto } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/main.scss";
 
-// Font configurations
+// Font configurations - Optimize: ลด font weights เพื่อเพิ่มความเร็ว
 const roboto = Roboto({
-    weight: ["400", "500", "600", "700"],
+    weight: ["400", "600", "700"], // ลดจาก 4 weights เหลือ 3
     subsets: ["latin"],
     variable: "--font-roboto",
     display: "swap",
 });
 
 const notoSansThai = Noto_Sans_Thai({
-    weight: ["400", "500", "600", "700"],
+    weight: ["400", "600", "700"], // ลดจาก 4 weights เหลือ 3
     subsets: ["thai"],
     variable: "--font-noto-sans-thai",
     display: "swap",
