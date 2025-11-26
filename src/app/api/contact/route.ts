@@ -261,39 +261,12 @@ export async function POST(request: NextRequest) {
         const errorMessage = error instanceof Error ? error.message : "Unknown error";
         const errorDetails = error instanceof Error ? error.stack : String(error);
 
-        console.error("Error details:", errorDetails);
-
-        const isAuthError =
-            errorMessage.includes("Invalid login") ||
-            errorMessage.includes("BadCredentials") ||
-            errorMessage.includes("Username and Password not accepted") ||
-            errorMessage.includes("535-5.7.8");
-
-        let userFriendlyError = "Failed to send email. Please try again later.";
-        let userFriendlyDetails = errorMessage;
-
-        if (isAuthError) {
-            userFriendlyError = "SMTP Authentication Failed";
-            userFriendlyDetails =
-                "Invalid email credentials. Please check SMTP_USER / SMTP_PASS on the server.";
-        }
-
-        const isDevMode = process.env.NODE_ENV !== "production";
-        if (isDevMode) {
-            return NextResponse.json(
-                {
-                    error: userFriendlyError,
-                    details: userFriendlyDetails,
-                    stack: errorDetails,
-                },
-                { status: 500 }
-            );
-        }
-
+        // ---- DEBUG MODE: ส่งรายละเอียดจริงกลับไปให้ดูใน Network Response ----
         return NextResponse.json(
             {
-                error: userFriendlyError,
-                details: isAuthError ? userFriendlyDetails : undefined,
+                error: "Failed to send email",
+                message: errorMessage,
+                stack: errorDetails,
             },
             { status: 500 }
         );
