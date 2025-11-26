@@ -284,19 +284,10 @@
     border-radius: 2px;
     background: white;
     position: relative;
-    // transition: all 0.2s ease;
-
-    // Hover state
-    // &:hover {
-    //     border-color: var(--blue-500);
-    // }
-
     // Focus state
     &:focus {
+        box-shadow: none;
         outline: none;
-        border-color: var(--blue-500);
-        background-color: var(--blue-500) !important;
-        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
     }
 
     // Checked state
@@ -316,6 +307,20 @@
             border: solid white;
             border-width: 0 2px 2px 0;
         }
+
+        // Hover state when checked
+        &:hover {
+            background-color: var(--blue-600);
+            border-color: var(--blue-600);
+        }
+
+        // Focus state when checked
+        &:focus {
+            background-color: var(--blue-600);
+            border-color: var(--blue-600);
+            box-shadow: none;
+            outline: none;
+        }
     }
 }
 
@@ -328,7 +333,7 @@
 }
 
 .contact-form__link {
-    color: var(--blue-500);
+    color: var(--grey-600);
     text-decoration: underline;
     text-underline-position: from-font;
 
@@ -394,6 +399,15 @@
 
         i {
             animation: errorShake 0.6s ease-out;
+        }
+    }
+
+    &--loading {
+        background-color: rgba(28, 69, 131, 0.1);
+        color: var(--blue-500);
+
+        i {
+            animation: spin 1s linear infinite;
         }
     }
 
@@ -507,5 +521,15 @@
     60%,
     80% {
         transform: translateX(4px);
+    }
+}
+
+// Add spin animation if not exists
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

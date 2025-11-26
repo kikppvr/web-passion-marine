@@ -6,7 +6,7 @@ import { BookNowButton } from "@/components/ui/button/BookNowButton";
 interface ContactFormModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
-    type: "success" | "error";
+    type: "success" | "error" | "loading";
     title: string;
     message: string;
     errorDetails?: string;
@@ -21,19 +21,28 @@ export default function ContactFormModal({
     errorDetails,
 }: ContactFormModalProps) {
     const isSuccess = type === "success";
+    const isLoading = type === "loading";
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent size='md' className='contact-form-modal'>
+            <DialogContent
+                size='md'
+                className='contact-form-modal'
+                closeOnOverlayClick={!isLoading}
+                closeOnEscape={!isLoading}>
                 <div className='contact-form-modal__content'>
                     {/* Icon */}
                     <div
                         className={`contact-form-modal__icon ${
-                            isSuccess
-                                ? "contact-form-modal__icon--success"
-                                : "contact-form-modal__icon--error"
+                            isLoading
+                                ? "contact-form-modal__icon--loading"
+                                : isSuccess
+                                  ? "contact-form-modal__icon--success"
+                                  : "contact-form-modal__icon--error"
                         }`}>
-                        {isSuccess ? (
+                        {isLoading ? (
+                            <i className='ph ph-spinner' style={{ fontSize: "64px" }}></i>
+                        ) : isSuccess ? (
                             <i className='ph ph-check-circle' style={{ fontSize: "64px" }}></i>
                         ) : (
                             <i className='ph ph-x-circle' style={{ fontSize: "64px" }}></i>
@@ -54,12 +63,23 @@ export default function ContactFormModal({
                         </div>
                     )}
 
-                    {/* Close Button */}
-                    <div className='contact-form-modal__actions'>
-                        <BookNowButton showIcon={false} onClick={() => onOpenChange(false)}>
-                            {isSuccess ? "Close" : "Try Again"}
-                        </BookNowButton>
-                    </div>
+                    {/* Close Button - Hide when loading */}
+                    {!isLoading && (
+                        <div className='contact-form-modal__actions'>
+                            <BookNowButton
+                                showIcon={false}
+                                onClick={() => {
+                                    if (isSuccess) {
+                                        onOpenChange(false);
+                                    } else {
+                                        // Reload page on Try Again
+                                        window.location.reload();
+                                    }
+                                }}>
+                                {isSuccess ? "Close" : "Try Again"}
+                            </BookNowButton>
+                        </div>
+                    )}
                 </div>
             </DialogContent>
         </Dialog>

@@ -261,12 +261,24 @@ export async function POST(request: NextRequest) {
         const errorMessage = error instanceof Error ? error.message : "Unknown error";
         const errorDetails = error instanceof Error ? error.stack : String(error);
 
-        // ---- DEBUG MODE: ส่งรายละเอียดจริงกลับไปให้ดูใน Network Response ----
+        const isDevMode = process.env.NODE_ENV !== "production";
+
+        if (isDevMode) {
+            // dev/stg: send error details to the client for debugging
+            return NextResponse.json(
+                {
+                    error: "Failed to send email",
+                    message: errorMessage,
+                    stack: errorDetails,
+                },
+                { status: 500 }
+            );
+        }
+
+        // prod: hide error details from the client
         return NextResponse.json(
             {
-                error: "Failed to send email",
-                message: errorMessage,
-                stack: errorDetails,
+                error: "Failed to send email. Please try again later.",
             },
             { status: 500 }
         );
