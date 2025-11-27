@@ -3,6 +3,7 @@
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } from "./Dialog";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { cn } from "@/lib/utils";
+import { sanitizeHtml } from "@/lib/security";
 import Image from "next/image";
 
 interface DocumentModalProps {
@@ -85,7 +86,7 @@ export const DocumentModal = ({
                                 <h2
                                     className='modal-document__announcement-title'
                                     dangerouslySetInnerHTML={{
-                                        __html:
+                                        __html: sanitizeHtml(
                                             announcementHighlight.length > 0
                                                 ? announcementHighlight.reduce(
                                                       (text, highlight) => {
@@ -100,7 +101,8 @@ export const DocumentModal = ({
                                                       },
                                                       announcementText
                                                   )
-                                                : announcementText,
+                                                : announcementText
+                                        ),
                                     }}
                                 />
                             )}
