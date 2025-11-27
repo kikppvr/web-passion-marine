@@ -47,6 +47,9 @@
 // Social Components
 @use "components/social/_social-icons" as social-icons;
 
+// Toast Components
+@use "components/toast/_toast" as toast;
+
 // Card Components
 @use "components/cards/_card-charter" as card-charter;
 @use "components/cards/_card-news" as card-news;

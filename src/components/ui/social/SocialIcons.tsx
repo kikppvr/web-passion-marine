@@ -1,5 +1,6 @@
 "use client";
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useRef } from "react";
+import { Toast } from "@/components/ui/toast";
 interface SocialIconsProps {
     className?: string;
     showLabel?: boolean;
@@ -101,6 +102,8 @@ export default function SocialIcons({
     },
 }: SocialIconsProps) {
     const [copied, setCopied] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+    const linkIconRef = useRef<HTMLAnchorElement>(null);
 
     const handleInstagramClick = useCallback((e: React.MouseEvent) => {
         e.preventDefault();
@@ -125,7 +128,11 @@ export default function SocialIcons({
             try {
                 await navigator.clipboard.writeText(shareUrl);
                 setCopied(true);
-                setTimeout(() => setCopied(false), 2000);
+                setShowToast(true);
+                setTimeout(() => {
+                    setCopied(false);
+                    setShowToast(false);
+                }, 500);
             } catch (err) {
                 // Fallback for older browsers
                 const textArea = document.createElement("textarea");
@@ -137,7 +144,11 @@ export default function SocialIcons({
                 try {
                     document.execCommand("copy");
                     setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
+                    setShowToast(true);
+                    setTimeout(() => {
+                        setCopied(false);
+                        setShowToast(false);
+                    }, 2000);
                 } catch (fallbackErr) {
                     console.error("Failed to copy URL", fallbackErr);
                 }
@@ -200,20 +211,38 @@ export default function SocialIcons({
     }, [showIcons, handleInstagramClick, handleLineClick, handleLinkClick, copied]);
 
     return (
-        <div className={`social-icons ${className}`}>
-            {showLabel && <span className='social-icons__label'>{labelText}</span>}
-            <div className='social-icons__container'>
-                {socialLinks.map((social, index) => (
-                    <a
-                        key={index}
-                        href={social.href}
-                        className='social-icons__item'
-                        aria-label={social.alt}
-                        onClick={social.onClick}>
-                        {social.icon}
-                    </a>
-                ))}
+        <>
+            <div className={`social-icons ${className}`}>
+                {showLabel && <span className='social-icons__label'>{labelText}</span>}
+                <div className='social-icons__container'>
+                    {socialLinks.map((social, index) => (
+                        <div
+                            key={index}
+                            className={social.key === "link" ? "social-icons__item-wrapper" : ""}>
+                            <a
+                                ref={social.key === "link" ? linkIconRef : null}
+                                href={social.href}
+                                className='social-icons__item'
+                                aria-label={social.alt}
+                                onClick={social.onClick}>
+                                {social.icon}
+                            </a>
+                            {social.key === "link" && showToast && (
+                                <div className='social-icons__toast social-icons__toast--show'>
+                                    <div className='social-icons__toast-content'>
+                                        <div className='social-icons__toast-icon'>
+                                            <i className='ph ph-check-circle'></i>
+                                        </div>
+                                        <span className='social-icons__toast-message'>
+                                            Link copied!
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
