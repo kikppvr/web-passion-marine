@@ -5,6 +5,7 @@ import "@phosphor-icons/web/fill/style.css";
 import "@phosphor-icons/web/bold/style.css";
 import type { Metadata } from "next";
 import { Noto_Sans_Thai, Roboto } from "next/font/google";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 import "../styles/globals.css";
 import "../styles/main.scss";
 
@@ -22,15 +23,7 @@ const notoSansThai = Noto_Sans_Thai({
     display: "swap",
 });
 
-export const metadata: Metadata = {
-    title: "Passion Marine - บริการทางทะเลมืออาชีพ",
-    description: "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย",
-    icons: {
-        icon: [{ url: "/favicon.png", sizes: "any", type: "image/png" }],
-        shortcut: "/favicon.png",
-        apple: "/favicon.png",
-    },
-};
+export const metadata: Metadata = createMetadata();
 
 export default function RootLayout({
     children,
