@@ -1,0 +1,107 @@
+.toast {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &--show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    // Position variants
+    &--top-right {
+        top: 24px;
+        right: 24px;
+    }
+
+    &--top-center {
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+
+        &.toast--show {
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    &--top-left {
+        top: 24px;
+        left: 24px;
+    }
+
+    &--bottom-right {
+        bottom: 24px;
+        right: 24px;
+    }
+
+    &--bottom-center {
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+
+        &.toast--show {
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    &--bottom-left {
+        bottom: 24px;
+        left: 24px;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        min-width: 200px;
+        max-width: 400px;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        color: var(--blue-500);
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    &__message {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--grey-800);
+        line-height: 1.4;
+    }
+
+    // Mobile responsive
+    @media (max-width: 768px) {
+        &--top-right,
+        &--top-left,
+        &--bottom-right,
+        &--bottom-left {
+            left: 16px;
+            right: 16px;
+            transform: translateY(20px);
+
+            &.toast--show {
+                transform: translateY(0);
+            }
+        }
+
+        &__content {
+            min-width: auto;
+            width: 100%;
+        }
+    }
+}
+

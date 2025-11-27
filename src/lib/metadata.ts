@@ -1,6 +1,36 @@
 import type { Metadata } from "next";
+import { getEnvironment } from "./env";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://passionmarine.co.th";
+/**
+ * Get site URL based on environment
+ */
+function getSiteUrlFromEnv(): string {
+    // Priority: NEXT_PUBLIC_SITE_URL > environment-based URL > fallback
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+        return process.env.NEXT_PUBLIC_SITE_URL;
+    }
+
+    try {
+        const env = getEnvironment();
+
+        switch (env) {
+            case "development":
+                // For local development, use dev URL or localhost
+                return process.env.NEXT_PUBLIC_DEV_URL || "https://dev.passionmarine.co.th";
+            case "staging":
+                return "https://stg.passionmarine.co.th";
+            case "production":
+                return "https://passionmarine.co.th";
+            default:
+                return "https://passionmarine.co.th";
+        }
+    } catch {
+        // Fallback if environment detection fails
+        return process.env.NEXT_PUBLIC_SITE_URL || "https://passionmarine.co.th";
+    }
+}
+
+const siteUrl = getSiteUrlFromEnv();
 const siteName = "Passion Marine";
 const defaultTitle = "Passion Marine - บริการทางทะเลมืออาชีพ";
 const defaultDescription = "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย";
@@ -70,9 +100,16 @@ export function generateMetadata({
 
 /**
  * Get the base site URL
+ * Exported function to get site URL (can be called from other modules)
  */
 export function getSiteUrl(): string {
-    return siteUrl;
+    // If called from client-side, use the computed siteUrl
+    // If called from server-side, recompute to ensure correct environment
+    if (typeof window !== "undefined") {
+        return siteUrl;
+    }
+    // Server-side: recompute to ensure correct environment
+    return getSiteUrlFromEnv();
 }
 
 /**
