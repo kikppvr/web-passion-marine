@@ -27,7 +27,6 @@ const MIN_LENGTH = {
     firstName: 1,
     lastName: 1,
     subject: 1,
-    message: 10,
 };
 
 export async function POST(request: NextRequest) {
@@ -68,12 +67,20 @@ export async function POST(request: NextRequest) {
         }
 
         // Validate input lengths
-        const firstNameValidation = validateLength(body.firstName, MIN_LENGTH.firstName, MAX_LENGTH.firstName);
+        const firstNameValidation = validateLength(
+            body.firstName,
+            MIN_LENGTH.firstName,
+            MAX_LENGTH.firstName
+        );
         if (!firstNameValidation.valid) {
             return NextResponse.json({ error: firstNameValidation.error }, { status: 400 });
         }
 
-        const lastNameValidation = validateLength(body.lastName, MIN_LENGTH.lastName, MAX_LENGTH.lastName);
+        const lastNameValidation = validateLength(
+            body.lastName,
+            MIN_LENGTH.lastName,
+            MAX_LENGTH.lastName
+        );
         if (!lastNameValidation.valid) {
             return NextResponse.json({ error: lastNameValidation.error }, { status: 400 });
         }
@@ -86,14 +93,21 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Telephone number is too long" }, { status: 400 });
         }
 
-        const subjectValidation = validateLength(body.subject, MIN_LENGTH.subject, MAX_LENGTH.subject);
+        const subjectValidation = validateLength(
+            body.subject,
+            MIN_LENGTH.subject,
+            MAX_LENGTH.subject
+        );
         if (!subjectValidation.valid) {
             return NextResponse.json({ error: subjectValidation.error }, { status: 400 });
         }
 
-        const messageValidation = validateLength(body.message, MIN_LENGTH.message, MAX_LENGTH.message);
-        if (!messageValidation.valid) {
-            return NextResponse.json({ error: messageValidation.error }, { status: 400 });
+        // Validate message - only check max length (no min requirement)
+        if (body.message.length > MAX_LENGTH.message) {
+            return NextResponse.json(
+                { error: "Message must not exceed 5000 characters" },
+                { status: 400 }
+            );
         }
 
         // ---------- email config ----------
