@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import ContactFormModal from "./ContactFormModal";
+import PDPAModal from "./PDPAModal";
 
 export interface ContactFormData {
     firstName: string;
@@ -32,6 +33,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
     const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const [pdpaModalOpen, setPdpaModalOpen] = useState(false);
     const [modalData, setModalData] = useState<{
         type: "success" | "error" | "loading";
         title: string;
@@ -359,9 +361,15 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                         />
                         <label htmlFor='acceptTerms' className='contact-form__checkbox-label'>
                             I have read and accepted terms and conditions specified in the{" "}
-                            <a href='#' className='contact-form__link'>
+                            <button
+                                type='button'
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setPdpaModalOpen(true);
+                                }}
+                                className='contact-form__link contact-form__link--button'>
                                 PDPA Policy
-                            </a>{" "}
+                            </button>{" "}
                             and do hereby consent to the collecting, processing and/or disclosing of
                             the personal data provided by me to fulfil the above-said purposes.
                         </label>
@@ -396,6 +404,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                     errorDetails={modalData.errorDetails}
                 />
             )}
+
+            <PDPAModal open={pdpaModalOpen} onOpenChange={setPdpaModalOpen} />
         </div>
     );
 }

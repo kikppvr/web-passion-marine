@@ -340,6 +340,17 @@
     &:hover {
         color: var(--blue-600);
     }
+
+    &--button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-align: inherit;
+    }
 }
 
 .contact-form__error {
@@ -556,5 +567,222 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+// PDPA Modal Styles
+.dialog-content.pdpa-modal {
+    padding: 0 !important;
+    max-height: 90vh !important;
+    height: auto !important;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include base.media-down(tablet) {
+        max-height: 95vh !important;
+    }
+
+    @include base.media-down(mobile) {
+        max-height: 98vh !important;
+    }
+
+    &.dialog-content--xl {
+        max-width: 50vw !important;
+
+        @include base.media-down(laptop) {
+            max-width: 70vw !important;
+        }
+
+        @include base.media-down(tablet) {
+            max-width: 90vw !important;
+        }
+    }
+}
+
+.pdpa-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 40px;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    flex-shrink: 0;
+
+    @include base.media-down(tablet) {
+        padding: 24px;
+    }
+
+    @include base.media-down(mobile) {
+        padding: 20px;
+    }
+}
+
+.pdpa-modal__title {
+    @include fonts.text-h4;
+    @include fonts.font-bold;
+    color: var(--blue-500);
+    margin: 0;
+    flex: 1;
+    padding-right: 16px;
+
+    @include base.media-down(mobile) {
+        @include fonts.text-h5;
+    }
+}
+
+.pdpa-modal__close {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--grey-600);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: var(--grey-900);
+    }
+
+    @include base.media-down(tablet) {
+        top: 24px;
+        right: 24px;
+    }
+
+    @include base.media-down(mobile) {
+        top: 20px;
+        right: 20px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.pdpa-modal__content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include base.media-down(tablet) {
+        padding: 0 24px 24px 24px;
+        gap: 24px;
+    }
+
+    @include base.media-down(mobile) {
+        padding: 0 20px 20px 20px;
+        gap: 20px;
+    }
+
+    // Custom scrollbar
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+
+        &:hover {
+            background: #a8a8a8;
+        }
+    }
+
+    // Firefox scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+.pdpa-modal__section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pdpa-modal__section-title {
+    @include fonts.text-h6;
+    @include fonts.font-semibold;
+    color: var(--blue-500);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.pdpa-modal__subsection-title {
+    @include fonts.text-body;
+    @include fonts.font-semibold;
+    color: var(--grey-800);
+    margin: 16px 0 8px 0;
+    line-height: 1.4;
+}
+
+.pdpa-modal__text {
+    @include fonts.text-body;
+    @include fonts.font-normal;
+    color: var(--grey-700);
+    line-height: 1.7;
+    margin: 0;
+
+    @include base.media-down(mobile) {
+        @include fonts.text-small;
+    }
+}
+
+.pdpa-modal__list {
+    margin: 0;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include base.media-down(mobile) {
+        padding-left: 20px;
+    }
+
+    li {
+        @include fonts.text-body;
+        @include fonts.font-normal;
+        color: var(--grey-700);
+        line-height: 1.7;
+
+        @include base.media-down(mobile) {
+            @include fonts.text-small;
+        }
+    }
+}
+
+.pdpa-modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 40px;
+    border-top: 1px solid #e9ecef;
+    flex-shrink: 0;
+
+    @include base.media-down(tablet) {
+        padding: 20px 24px;
+    }
+
+    @include base.media-down(mobile) {
+        padding: 16px 20px;
+    }
+
+    button {
+        min-width: 120px;
     }
 }
