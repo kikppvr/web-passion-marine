@@ -1,38 +1,29 @@
 import { LanguageProvider } from "@/contexts/LanguageContext";
-// Import icon styles ที่ใช้ในเว็บ: regular, light, fill, และ bold
 import "@phosphor-icons/web/regular/style.css";
 import "@phosphor-icons/web/light/style.css";
 import "@phosphor-icons/web/fill/style.css";
 import "@phosphor-icons/web/bold/style.css";
 import type { Metadata } from "next";
 import { Noto_Sans_Thai, Roboto } from "next/font/google";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 import "../styles/globals.css";
 import "../styles/main.scss";
 
-// Font configurations - Optimize: ลด font weights เพื่อเพิ่มความเร็ว
 const roboto = Roboto({
-    weight: ["400", "600", "700"], // ลดจาก 4 weights เหลือ 3
+    weight: ["400", "600", "700"],
     subsets: ["latin"],
     variable: "--font-roboto",
     display: "swap",
 });
 
 const notoSansThai = Noto_Sans_Thai({
-    weight: ["400", "600", "700"], // ลดจาก 4 weights เหลือ 3
+    weight: ["400", "600", "700"],
     subsets: ["thai"],
     variable: "--font-noto-sans-thai",
     display: "swap",
 });
 
-export const metadata: Metadata = {
-    title: "Passion Marine - บริการทางทะเลมืออาชีพ",
-    description: "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย",
-    icons: {
-        icon: [{ url: "/favicon.png", sizes: "any", type: "image/png" }],
-        shortcut: "/favicon.png",
-        apple: "/favicon.png",
-    },
-};
+export const metadata: Metadata = createMetadata();
 
 export default function RootLayout({
     children,

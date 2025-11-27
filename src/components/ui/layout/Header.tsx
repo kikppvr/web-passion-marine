@@ -47,10 +47,10 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 { label: "Aesthetic Solutions", href: "/services/aesthetic-solutions" },
             ],
         },
-        {
-            label: "Charter",
-            href: "/charter",
-        },
+        // {
+        //     label: "Charter",
+        //     href: "/charter",
+        // },
         {
             label: "Portfolio",
             href: "/portfolio",

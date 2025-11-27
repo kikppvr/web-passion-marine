@@ -32,9 +32,28 @@ export const DocumentModal = ({
     locationText,
     className,
 }: DocumentModalProps) => {
+    const visuallyHiddenStyle = {
+        position: "absolute" as const,
+        width: "1px",
+        height: "1px",
+        padding: 0,
+        margin: "-1px",
+        overflow: "hidden" as const,
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap" as const,
+        borderWidth: 0,
+    };
+
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent size='xl' className={cn("modal-document", className)}>
+                <DialogTitle style={visuallyHiddenStyle} className='sr-only'>
+                    {title || announcementText || "Document Modal"}
+                </DialogTitle>
+                <DialogDescription style={visuallyHiddenStyle}>
+                    {description || subtitle || locationText || "View document details"}
+                </DialogDescription>
+
                 {/* Close Button */}
                 <DialogClose asChild>
                     <button className='modal-document__close' aria-label='Close dialog'>

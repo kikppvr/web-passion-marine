@@ -105,41 +105,47 @@ export default function SocialIcons({
     const handleInstagramClick = useCallback((e: React.MouseEvent) => {
         e.preventDefault();
         // Open Instagram in new tab (you can customize this to your Instagram account URL)
-        window.open("https://www.instagram.com/passionmarine/", "_blank", "noopener,noreferrer");
+        window.open("https://instagram.com/passion.marine", "_blank", "noopener,noreferrer");
     }, []);
 
-    const handleLineClick = useCallback((e: React.MouseEvent) => {
-        e.preventDefault();
-        const url = encodeURIComponent(shareUrl);
-        const text = shareText ? encodeURIComponent(shareText) : "";
-        const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${url}${text ? `&text=${text}` : ""}`;
-        window.open(lineShareUrl, "_blank", "width=600,height=600");
-    }, [shareUrl, shareText]);
+    const handleLineClick = useCallback(
+        (e: React.MouseEvent) => {
+            e.preventDefault();
+            const url = encodeURIComponent(shareUrl);
+            const text = shareText ? encodeURIComponent(shareText) : "";
+            const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${url}${text ? `&text=${text}` : ""}`;
+            window.open(lineShareUrl, "_blank", "width=600,height=600");
+        },
+        [shareUrl, shareText]
+    );
 
-    const handleLinkClick = useCallback(async (e: React.MouseEvent) => {
-        e.preventDefault();
-        try {
-            await navigator.clipboard.writeText(shareUrl);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
-            // Fallback for older browsers
-            const textArea = document.createElement("textarea");
-            textArea.value = shareUrl;
-            textArea.style.position = "fixed";
-            textArea.style.opacity = "0";
-            document.body.appendChild(textArea);
-            textArea.select();
+    const handleLinkClick = useCallback(
+        async (e: React.MouseEvent) => {
+            e.preventDefault();
             try {
-                document.execCommand("copy");
+                await navigator.clipboard.writeText(shareUrl);
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);
-            } catch (fallbackErr) {
-                console.error("Failed to copy URL", fallbackErr);
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = shareUrl;
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand("copy");
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                } catch (fallbackErr) {
+                    console.error("Failed to copy URL", fallbackErr);
+                }
+                document.body.removeChild(textArea);
             }
-            document.body.removeChild(textArea);
-        }
-    }, [shareUrl]);
+        },
+        [shareUrl]
+    );
 
     const socialLinks = useMemo(() => {
         const allSocialLinks = [
