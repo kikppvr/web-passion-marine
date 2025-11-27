@@ -30,7 +30,7 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                             methods and measures for managing and securing the personal data
                             entrusted to the Company. The collection, use, transfer, processing, and
                             disclosure of personal data are carried out in compliance with the
-                            Personal Data Protection Act B.E. 2562 (2019) ("PDPA").
+                            Personal Data Protection Act B.E. 2562 (2019) (&quot;PDPA&quot;).
                         </p>
                     </div>
 
@@ -42,9 +42,9 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                             The Company will collect personal data only for specific and lawful
                             purposes, within an appropriate scope, and through fair and legitimate
                             means. Data collection will be limited to what is necessary for the
-                            Company's operations under such purposes. The Company will notify and
-                            obtain consent from the data subject electronically or through the
-                            Company's designated methods.
+                            Company&apos;s operations under such purposes. The Company will notify
+                            and obtain consent from the data subject electronically or through the
+                            Company&apos;s designated methods.
                         </p>
                         <p className='pdpa-modal__text'>
                             For the collection of sensitive personal data, the Company will obtain
@@ -90,12 +90,12 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                         <h4 className='pdpa-modal__subsection-title'>Personal Data of Customers</h4>
                         <ul className='pdpa-modal__list'>
                             <li>
-                                To provide services and improve the Company's products and services,
-                                including future products or services, as well as to support
-                                maintenance and related operational activities.
+                                To provide services and improve the Company&apos;s products and
+                                services, including future products or services, as well as to
+                                support maintenance and related operational activities.
                             </li>
                             <li>
-                                To facilitate transactions related to the Company's products or
+                                To facilitate transactions related to the Company&apos;s products or
                                 services, such as product purchases, installment payments, service
                                 appointments, etc.
                             </li>
@@ -107,7 +107,9 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                                 accessing services through various channels or communicating with
                                 the Company.
                             </li>
-                            <li>To perform activities according to the data subject's request.</li>
+                            <li>
+                                To perform activities according to the data subject&apos;s request.
+                            </li>
                             <li>
                                 For business operations, including data analysis, auditing,
                                 development of new products or services, service improvement, usage
@@ -133,10 +135,10 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                                 documents.
                             </li>
                             <li>
-                                For the Company's legitimate interests, such as internal management,
-                                development, business operations, product/service development
-                                (including websites and applications), research or surveys, fraud
-                                and crime prevention, and IT system maintenance.
+                                For the Company&apos;s legitimate interests, such as internal
+                                management, development, business operations, product/service
+                                development (including websites and applications), research or
+                                surveys, fraud and crime prevention, and IT system maintenance.
                             </li>
                             <li>
                                 For security measures, including IT system security, Company
@@ -154,10 +156,10 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                         <ul className='pdpa-modal__list'>
                             <li>
                                 To comply with laws, including corporate management, director
-                                nomination and appointment, board meetings, shareholders' meetings,
-                                shareholder rights, dividend payments, bond interest payments,
-                                accounting and reporting, legal document verification, and document
-                                delivery as required for private limited companies, public
+                                nomination and appointment, board meetings, shareholders&apos;
+                                meetings, shareholder rights, dividend payments, bond interest
+                                payments, accounting and reporting, legal document verification, and
+                                document delivery as required for private limited companies, public
                                 companies, or listed companies (as applicable).
                             </li>
                             <li>
@@ -177,10 +179,10 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                                 To verify identity, educational background, and employment history.
                             </li>
                             <li>To provide employee benefits and life insurance arrangements.</li>
-                            <li>To support employees' tax deductions.</li>
+                            <li>To support employees&apos; tax deductions.</li>
                             <li>
-                                To contact, evaluate, and manage the Company's relationship with
-                                employees.
+                                To contact, evaluate, and manage the Company&apos;s relationship
+                                with employees.
                             </li>
                             <li>
                                 To disclose employee personal data within the Company group or to
@@ -206,10 +208,12 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                             </li>
                             <li>
                                 Where necessary for the performance of a contract to which the data
-                                subject is a party or to fulfill the data subject's request prior to
-                                entering into a contract.
+                                subject is a party or to fulfill the data subject&apos;s request
+                                prior to entering into a contract.
                             </li>
-                            <li>Where necessary to protect the Company's business operations.</li>
+                            <li>
+                                Where necessary to protect the Company&apos;s business operations.
+                            </li>
                             <li>
                                 Where necessary to protect the privacy, safety, or property of the
                                 Company, its personnel, the data subject, or others, including
@@ -230,10 +234,10 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                         </ul>
 
                         <p className='pdpa-modal__text'>
-                            The Company respects the data subject's freedom to provide consent. No
-                            conditions will be imposed that require consent for unnecessary personal
-                            data as part of entering into agreements or receiving services. The
-                            Company will not process personal data beyond the stated purposes
+                            The Company respects the data subject&apos;s freedom to provide consent.
+                            No conditions will be imposed that require consent for unnecessary
+                            personal data as part of entering into agreements or receiving services.
+                            The Company will not process personal data beyond the stated purposes
                             unless:
                         </p>
                         <ul className='pdpa-modal__list'>
@@ -268,9 +272,9 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                             The Company has established privacy protection measures, including
                             defining responsibilities and access restrictions so that only
                             authorized personnel may access personal data. Authorized personnel must
-                            strictly comply with the Company's data protection measures and maintain
-                            confidentiality. The Company also employs security measures aligned with
-                            regulatory standards to safeguard personal data.
+                            strictly comply with the Company&apos;s data protection measures and
+                            maintain confidentiality. The Company also employs security measures
+                            aligned with regulatory standards to safeguard personal data.
                         </p>
                     </div>
 
@@ -308,11 +312,11 @@ export default function PDPAModal({ open, onOpenChange }: PDPAModalProps) {
                             <li>The right to file complaints regarding violations of the PDPA.</li>
                         </ul>
                         <p className='pdpa-modal__text'>
-                            Requests must be submitted in writing or via email using the Company's
-                            designated forms through the "Contact Channels." The Company will
-                            consider and inform the data subject of the result within 30 days from
-                            receiving the request. The Company may refuse a request where permitted
-                            by law.
+                            Requests must be submitted in writing or via email using the
+                            Company&apos;s designated forms through the &quot;Contact
+                            Channels.&quot; The Company will consider and inform the data subject of
+                            the result within 30 days from receiving the request. The Company may
+                            refuse a request where permitted by law.
                         </p>
                     </div>
 
