@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://passionmarine.co.th';
-const siteName = 'Passion Marine';
-const defaultTitle = 'Passion Marine - บริการทางทะเลมืออาชีพ';
-const defaultDescription = 'บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย';
-const defaultImage = `${siteUrl}/images/og-image.jpg`;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://passionmarine.co.th";
+const siteName = "Passion Marine";
+const defaultTitle = "Passion Marine - บริการทางทะเลมืออาชีพ";
+const defaultDescription = "บริการทางทะเลครบวงจร รับรองคุณภาพและความปลอดภัย";
+const defaultImage = `${siteUrl}/og-image.jpg`;
 
 export interface MetadataProps {
     title?: string;
     description?: string;
     image?: string;
     url?: string;
-    type?: 'website' | 'article';
+    type?: "website" | "article";
     locale?: string;
 }
 
@@ -25,8 +25,8 @@ export function generateMetadata({
     description = defaultDescription,
     image = defaultImage,
     url = siteUrl,
-    type = 'website',
-    locale = 'th_TH',
+    type = "website",
+    locale = "th_TH",
 }: MetadataProps = {}): Metadata {
     // If title is not the default, append site name
     const fullTitle = title === defaultTitle ? title : `${title} | ${siteName}`;
@@ -55,7 +55,7 @@ export function generateMetadata({
             ],
         },
         twitter: {
-            card: 'summary_large_image',
+            card: "summary_large_image",
             title,
             description,
             images: [image],
@@ -87,4 +87,3 @@ export function getDefaultMetadata() {
         defaultImage,
     };
 }
-
