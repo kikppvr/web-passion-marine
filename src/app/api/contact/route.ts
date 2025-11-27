@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { getEmailConfig } from "@/lib/env";
+import { escapeHtml, isValidEmail, validateLength, sanitizeString } from "@/lib/security";
+import { isProduction } from "@/lib/env";
 
 interface ContactFormData {
     firstName: string;
@@ -10,6 +12,23 @@ interface ContactFormData {
     subject: string;
     message: string;
 }
+
+// Input length constraints
+const MAX_LENGTH = {
+    firstName: 50,
+    lastName: 50,
+    email: 100,
+    telephone: 20,
+    subject: 200,
+    message: 5000,
+};
+
+const MIN_LENGTH = {
+    firstName: 1,
+    lastName: 1,
+    subject: 1,
+    message: 10,
+};
 
 export async function POST(request: NextRequest) {
     const startedAt = Date.now();
@@ -26,15 +45,55 @@ export async function POST(request: NextRequest) {
         });
 
         // ---------- validate ----------
+        // Check required fields
         if (!body.firstName || !body.lastName || !body.email || !body.subject || !body.message) {
             console.log("❌ Validation failed: Missing required fields");
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(body.email)) {
+        // Sanitize inputs
+        body.firstName = sanitizeString(body.firstName);
+        body.lastName = sanitizeString(body.lastName);
+        body.email = sanitizeString(body.email);
+        body.subject = sanitizeString(body.subject);
+        body.message = sanitizeString(body.message);
+        if (body.telephone) {
+            body.telephone = sanitizeString(body.telephone);
+        }
+
+        // Validate email format
+        if (!isValidEmail(body.email)) {
             console.log("❌ Validation failed: Invalid email format");
             return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+        }
+
+        // Validate input lengths
+        const firstNameValidation = validateLength(body.firstName, MIN_LENGTH.firstName, MAX_LENGTH.firstName);
+        if (!firstNameValidation.valid) {
+            return NextResponse.json({ error: firstNameValidation.error }, { status: 400 });
+        }
+
+        const lastNameValidation = validateLength(body.lastName, MIN_LENGTH.lastName, MAX_LENGTH.lastName);
+        if (!lastNameValidation.valid) {
+            return NextResponse.json({ error: lastNameValidation.error }, { status: 400 });
+        }
+
+        if (body.email.length > MAX_LENGTH.email) {
+            return NextResponse.json({ error: "Email address is too long" }, { status: 400 });
+        }
+
+        if (body.telephone && body.telephone.length > MAX_LENGTH.telephone) {
+            return NextResponse.json({ error: "Telephone number is too long" }, { status: 400 });
+        }
+
+        const subjectValidation = validateLength(body.subject, MIN_LENGTH.subject, MAX_LENGTH.subject);
+        if (!subjectValidation.valid) {
+            return NextResponse.json({ error: subjectValidation.error }, { status: 400 });
+        }
+
+        const messageValidation = validateLength(body.message, MIN_LENGTH.message, MAX_LENGTH.message);
+        if (!messageValidation.valid) {
+            return NextResponse.json({ error: messageValidation.error }, { status: 400 });
         }
 
         // ---------- email config ----------
@@ -70,25 +129,16 @@ export async function POST(request: NextRequest) {
             connectionTimeout: 10_000, // 10s ถ้าต่อไม่ได้ให้ error
             socketTimeout: 10_000, // 10s ถ้าส่งไม่สำเร็จให้ error
             tls: {
-                // Plesk ชอบใช้ cert แบบ self-signed / ชื่อ host ไม่ตรง
-                rejectUnauthorized: false,
+                // In production, should verify certificates
+                // For Plesk with self-signed certs, set to false only in dev/staging
+                rejectUnauthorized: isProduction(),
             },
         });
 
         console.log(`✅ Using SMTP: ${emailConfig.host}:${emailConfig.port}`);
 
         // ---------- mail content ----------
-        const escapeHtml = (text: string) => {
-            const map: Record<string, string> = {
-                "&": "&amp;",
-                "<": "&lt;",
-                ">": "&gt;",
-                '"': "&quot;",
-                "'": "&#039;",
-            };
-            return text.replace(/[&<>"']/g, m => map[m]);
-        };
-
+        // Escape HTML for email content (already sanitized above)
         const safeFirstName = escapeHtml(body.firstName);
         const safeLastName = escapeHtml(body.lastName);
         const safeEmail = escapeHtml(body.email);

@@ -10,6 +10,7 @@ import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { LightGallery, SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
+import { sanitizeHtml } from "@/lib/security";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 import portfolioDataJson from "@/data/portfolio-data.json";
 
@@ -145,7 +146,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                 <div
                                     className='portfolio-content'
                                     dangerouslySetInnerHTML={{
-                                        __html: portfolioDetailData.content,
+                                        __html: sanitizeHtml(portfolioDetailData.content),
                                     }}
                                 />
                             ) : (
@@ -156,7 +157,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                         return hasHTML ? (
                                             <div
                                                 key={index}
-                                                dangerouslySetInnerHTML={{ __html: item }}
+                                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(item) }}
                                             />
                                         ) : (
                                             <p

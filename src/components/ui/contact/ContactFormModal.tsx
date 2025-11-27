@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import { sanitizeHtml } from "@/lib/security";
 
 interface ContactFormModalProps {
     open: boolean;
@@ -52,12 +53,12 @@ export default function ContactFormModal({
                     {/* Title */}
                     <h2
                         className='contact-form-modal__title'
-                        dangerouslySetInnerHTML={{ __html: title }}></h2>
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }}></h2>
 
                     {/* Message */}
                     <p
                         className='contact-form-modal__message'
-                        dangerouslySetInnerHTML={{ __html: message }}></p>
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(message) }}></p>
 
                     {/* Error Details */}
                     {/* {errorDetails && (
