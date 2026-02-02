@@ -186,14 +186,18 @@ export const SwiperSlider = ({
                 <div className='swiper-navigation-wrapper'>
                     <button
                         id={prevButtonId}
+                        type='button'
                         className={`swiper-button-prev-custom ${isBeginning ? "swiper-button-disabled" : ""}`}
-                        disabled={isBeginning}>
+                        disabled={isBeginning}
+                        aria-label='Previous slide'>
                         {prevIcon}
                     </button>
                     <button
                         id={nextButtonId}
+                        type='button'
                         className={`swiper-button-next-custom ${isEnd ? "swiper-button-disabled" : ""}`}
-                        disabled={isEnd}>
+                        disabled={isEnd}
+                        aria-label='Next slide'>
                         {nextIcon}
                     </button>
                 </div>

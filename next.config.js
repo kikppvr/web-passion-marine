@@ -36,7 +36,7 @@ const nextConfig = {
         unoptimized: true, // ปิด image optimization เพื่อแก้ปัญหา cache
     },
 
-    // Headers for security
+    // Headers for security + cache (static assets)
     async headers() {
         return [
             {
@@ -53,6 +53,24 @@ const nextConfig = {
                     {
                         key: "Referrer-Policy",
                         value: "origin-when-cross-origin",
+                    },
+                ],
+            },
+            {
+                source: "/_next/static/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            {
+                source: "/images/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
                     },
                 ],
             },
