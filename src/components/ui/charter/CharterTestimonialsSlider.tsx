@@ -64,7 +64,8 @@ export default function CharterTestimonialsSlider({
                                         ? testimonials.length - 1
                                         : currentTestimonial - 1
                                 )
-                            }>
+                            }
+                            aria-label='Previous testimonial'>
                             <i className='ph ph-arrow-left'></i>
                         </button>
                         <button
@@ -75,7 +76,8 @@ export default function CharterTestimonialsSlider({
                                         ? 0
                                         : currentTestimonial + 1
                                 )
-                            }>
+                            }
+                            aria-label='Next testimonial'>
                             <i className='ph ph-arrow-right'></i>
                         </button>
                     </div>

@@ -45,7 +45,9 @@ export default function Pagination({
                 <button
                     key={i}
                     className={`pagination__page ${currentPage === i ? "pagination__page--active" : ""}`}
-                    onClick={() => handlePageClick(i)}>
+                    onClick={() => handlePageClick(i)}
+                    aria-label={`Page ${i}`}
+                    aria-current={currentPage === i ? "page" : undefined}>
                     {i}
                 </button>
             );
@@ -59,16 +61,20 @@ export default function Pagination({
             <button
                 className='pagination__nav pagination__nav--prev'
                 onClick={handlePrevious}
-                disabled={currentPage === 1}>
+                disabled={currentPage === 1}
+                aria-label='Previous page'>
                 <i className='ph ph-arrow-left'></i>
             </button>
 
-            <div className='pagination__pages'>{renderPageNumbers()}</div>
+            <div className='pagination__pages' aria-label='Page numbers'>
+                {renderPageNumbers()}
+            </div>
 
             <button
                 className='pagination__nav pagination__nav--next'
                 onClick={handleNext}
-                disabled={currentPage === totalPages}>
+                disabled={currentPage === totalPages}
+                aria-label='Next page'>
                 <i className='ph ph-arrow-right'></i>
             </button>
         </div>

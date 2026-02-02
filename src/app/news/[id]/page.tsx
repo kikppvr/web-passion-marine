@@ -1,14 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/news/news-detail.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { NewsCard } from "@/components/ui/cards";
 import SocialIcons from "@/components/ui/social/SocialIcons";
-import { LightGallery } from "@/components/ui/media";
 import newsDetailDataJson from "@/data/news-detail-data.json";
+
+const LightGallery = dynamic(
+    () => import("@/components/ui/media").then(mod => ({ default: mod.LightGallery })),
+    { ssr: false }
+);
 
 interface NewsDetailData {
     id: string;

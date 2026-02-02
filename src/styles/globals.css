@@ -67,6 +67,15 @@ body {
     font-family: var(--font-th);
 }
 
+/* Critical: reserve space for Phosphor icons before full CSS loads (non-blocking load) */
+.ph {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+}
+
 /* ============================================
    TYPOGRAPHY UTILITIES
    ============================================ */
@@ -292,5 +301,18 @@ body {
         .text-display-3 {
             font-size: var(--text-h2);
         }
+    }
+}
+
+/* ============================================
+   REDUCED MOTION (Accessibility)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
