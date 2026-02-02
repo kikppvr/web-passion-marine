@@ -13,7 +13,8 @@ export function LanguageSwitcher() {
                     language === "th"
                         ? "bg-blue-500 text-white"
                         : "bg-grey-100 text-grey-700 hover:bg-grey-200"
-                }`}>
+                }`}
+                aria-label='ภาษาไทย'>
                 ไทย
             </button>
             <button
@@ -22,7 +23,8 @@ export function LanguageSwitcher() {
                     language === "en"
                         ? "bg-blue-500 text-white"
                         : "bg-grey-100 text-grey-700 hover:bg-grey-200"
-                }`}>
+                }`}
+                aria-label='English'>
                 EN
             </button>
         </div>
@@ -35,7 +37,8 @@ export function LanguageToggle() {
     return (
         <button
             onClick={toggleLanguage}
-            className='flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-600'>
+            className='flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-600'
+            aria-label='Switch language'>
             <span className='text-lg'>{language === "th" ? "🇹🇭" : "🇺🇸"}</span>
             <span>{language === "th" ? "ไทย" : "English"}</span>
         </button>

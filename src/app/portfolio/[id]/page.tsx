@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
@@ -8,10 +9,15 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
-import { LightGallery, SwiperSlider } from "@/components/ui/media";
+import { SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
 import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
 import portfolioDataJson from "@/data/portfolio-data.json";
+
+const LightGallery = dynamic(
+    () => import("@/components/ui/media").then(mod => ({ default: mod.LightGallery })),
+    { ssr: false }
+);
 
 interface PortfolioDetailData {
     id: string;
