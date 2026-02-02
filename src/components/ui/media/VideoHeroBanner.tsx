@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { TextReveal } from "@/components/ui/animation/TextReveal";
 
@@ -20,6 +20,8 @@ export interface VideoHeroBannerProps {
     overlayOpacity?: number;
     preload?: "none" | "metadata" | "auto";
     lazyLoad?: boolean;
+    /** Delay loading video (ms) so poster can be LCP. Use with posterSrc. */
+    deferVideoLoad?: number;
     priority?: boolean;
 }
 
@@ -38,19 +40,42 @@ const VideoHeroBanner = ({
     overlayOpacity = 0.4,
     preload = "metadata",
     lazyLoad = false,
+    deferVideoLoad,
     priority = false,
 }: VideoHeroBannerProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
-    const [shouldLoad, setShouldLoad] = useState(!lazyLoad);
+    const [shouldLoad, setShouldLoad] = useState(!lazyLoad && !deferVideoLoad);
     const [isVideoReady, setIsVideoReady] = useState(false);
+    const [hasMountedState, setHasMountedState] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
+
+    // Server always false, client false until after mount — avoids hydration mismatch
+    const hasMounted = useSyncExternalStore(
+        () => () => {},
+        () => hasMountedState,
+        () => false
+    );
+
+    useEffect(() => {
+        setHasMountedState(true);
+    }, []);
+
+    // Defer video load so poster can be LCP (e.g. 2s delay)
+    useEffect(() => {
+        if (!hasMounted || deferVideoLoad == null || deferVideoLoad <= 0) return;
+        const t = setTimeout(() => {
+            setShouldLoad(true);
+            setIsLoading(true);
+        }, deferVideoLoad);
+        return () => clearTimeout(t);
+    }, [deferVideoLoad, hasMounted]);
 
     // Intersection Observer for lazy loading
     useEffect(() => {
-        if (!lazyLoad) return;
+        if (!hasMounted || !lazyLoad || deferVideoLoad != null) return;
 
         const observer = new IntersectionObserver(
             entries => {
@@ -70,7 +95,7 @@ const VideoHeroBanner = ({
         }
 
         return () => observer.disconnect();
-    }, [lazyLoad]);
+    }, [hasMounted, lazyLoad, deferVideoLoad]);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -165,30 +190,41 @@ const VideoHeroBanner = ({
         setHasError(false);
     }, [videoSrc]);
 
+    // Before mount: render static placeholder (same on server and client) to avoid hydration mismatch.
+    // Do not use posterSrc here so output is identical even if props differ between server/client.
+    const videoBlock = !hasMounted ? (
+        <div
+            className='video-hero-banner__video video-hero-banner__video--placeholder'
+            aria-hidden
+        />
+    ) : (
+        <video
+            ref={videoRef}
+            className='video-hero-banner__video'
+            poster={posterSrc}
+            muted={muted}
+            loop={loop}
+            playsInline
+            autoPlay={autoPlay}
+            preload={shouldLoad ? preload : "none"}
+            onLoadedData={handleVideoLoad}
+            onLoadedMetadata={handleLoadedMetadata}
+            onCanPlay={handleCanPlay}
+            onCanPlayThrough={handleCanPlayThrough}
+            onPlay={handlePlay}
+            onPause={handlePause}
+            onError={handleVideoError}
+            onEnded={handleVideoEnd}>
+            {shouldLoad && <source src={videoSrc} type='video/mp4' />}
+            Your browser does not support the video tag.
+        </video>
+    );
+
     return (
         <div className={cn("video-hero-banner", className)}>
             {/* Video Container */}
             <div className='video-hero-banner__video-container'>
-                <video
-                    ref={videoRef}
-                    className='video-hero-banner__video'
-                    poster={posterSrc}
-                    muted={muted}
-                    loop={loop}
-                    playsInline
-                    autoPlay={autoPlay}
-                    preload={shouldLoad ? preload : "none"}
-                    onLoadedData={handleVideoLoad}
-                    onLoadedMetadata={handleLoadedMetadata}
-                    onCanPlay={handleCanPlay}
-                    onCanPlayThrough={handleCanPlayThrough}
-                    onPlay={handlePlay}
-                    onPause={handlePause}
-                    onError={handleVideoError}
-                    onEnded={handleVideoEnd}>
-                    {shouldLoad && <source src={videoSrc} type='video/mp4' />}
-                    Your browser does not support the video tag.
-                </video>
+                {videoBlock}
 
                 {/* Overlay */}
                 {/* {overlay && (

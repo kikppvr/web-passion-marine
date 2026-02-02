@@ -241,6 +241,7 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                         width={158}
                         height={44}
                         priority={true}
+                        fetchPriority='high'
                         className='header__logo-responsive'
                     />
                 </Link>

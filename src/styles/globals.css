@@ -67,6 +67,15 @@ body {
     font-family: var(--font-th);
 }
 
+/* Critical: reserve space for Phosphor icons before full CSS loads (non-blocking load) */
+.ph {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+}
+
 /* ============================================
    TYPOGRAPHY UTILITIES
    ============================================ */

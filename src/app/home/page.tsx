@@ -336,6 +336,7 @@ export default function HeaderPage() {
             {/* Video Hero Banner */}
             <VideoHeroBanner
                 videoSrc='/videos/banner/banner-home.mp4'
+                posterSrc='/images/banner/overview-services.webp'
                 title='Expert Boat Solutions,'
                 subtitle='Powered by Passion'
                 description=''
@@ -347,6 +348,7 @@ export default function HeaderPage() {
                 overlayOpacity={0}
                 preload='auto'
                 lazyLoad={false}
+                deferVideoLoad={2000}
                 priority={true}
                 className='video-hero-banner--fullscreen'
             />

@@ -69,6 +69,7 @@
     "eslint": "9.36.0",
     "eslint-config-next": "15.5.4",
     "postcss": "^8.5.6",
+    "postcss-font-display": "0.3.0",
     "sass": "^1.92.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.0"
