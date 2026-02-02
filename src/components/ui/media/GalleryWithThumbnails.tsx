@@ -26,7 +26,7 @@ export default function GalleryWithThumbnails({
 
     // Filter out images that match mainImage to avoid duplicates in thumbnails
     const filteredGallery = gallery.filter(image => image.src !== mainImage);
-    
+
     // Create full gallery array with mainImage first for modal
     const fullGallery = [mainImage, ...filteredGallery.map(img => img.src)];
     const fullGalleryAlt = [mainImageAlt, ...filteredGallery.map(img => img.alt)];
@@ -81,6 +81,7 @@ export default function GalleryWithThumbnails({
                         alt={mainImageAlt}
                         width={1110}
                         height={624}
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1110px'
                         className='gallery-thumbnails__main-image'
                     />
                 </div>
@@ -97,6 +98,7 @@ export default function GalleryWithThumbnails({
                                 alt={image.alt}
                                 width={254}
                                 height={191}
+                                sizes='254px'
                                 className='gallery-thumbnails__thumbnail-image'
                             />
                             {index === 3 && remainingCount > 0 && (
@@ -176,6 +178,7 @@ export default function GalleryWithThumbnails({
                                 alt={gallery[currentImageIndex].alt}
                                 width={1200}
                                 height={800}
+                                sizes='(max-width: 768px) 100vw, 1200px'
                                 className='gallery-modal__image'
                             />
                         </div>
@@ -204,6 +207,7 @@ export default function GalleryWithThumbnails({
                                             alt={image.alt}
                                             width={80}
                                             height={60}
+                                            sizes='80px'
                                             className='gallery-modal__thumbnail-image'
                                         />
                                     </div>

@@ -92,6 +92,7 @@ export default function LightGalleryComponent({
                             alt={mainImageAlt}
                             width={1110}
                             height={624}
+                            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1110px'
                             className='gallery-thumbnails__main-image'
                             unoptimized
                         />
@@ -115,6 +116,7 @@ export default function LightGalleryComponent({
                                 alt={image.alt}
                                 width={254}
                                 height={191}
+                                sizes='254px'
                                 className='gallery-thumbnails__thumbnail-image'
                                 unoptimized
                             />

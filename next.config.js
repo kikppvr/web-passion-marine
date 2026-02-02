@@ -33,10 +33,10 @@ const nextConfig = {
                 pathname: "/**",
             },
         ],
-        unoptimized: true, // ปิด image optimization เพื่อแก้ปัญหา cache
+        // เปิด image optimization เพื่อ WebP/resize ลด payload (~5.2 MB)
     },
 
-    // Headers for security
+    // Headers for security + cache
     async headers() {
         return [
             {
@@ -53,6 +53,44 @@ const nextConfig = {
                     {
                         key: "Referrer-Policy",
                         value: "origin-when-cross-origin",
+                    },
+                ],
+            },
+            // Cache static assets 1 year (immutable)
+            {
+                source: "/_next/static/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            // Cache images, fonts, media
+            {
+                source: "/images/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            {
+                source: "/:path*.webp",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            {
+                source: "/:path*.woff2",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
                     },
                 ],
             },

@@ -187,7 +187,12 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                 {/* Language Switcher & Action Buttons */}
                 <div className='header__actions'>
                     <div className='header__language-container'>
-                        <button className='header__language' onClick={toggleLanguageDropdown}>
+                        <button
+                            className='header__language'
+                            onClick={toggleLanguageDropdown}
+                            aria-label='Change language'
+                            aria-expanded={isLanguageDropdownOpen}
+                            aria-haspopup='listbox'>
                             <span className='header__language-text'>{currentLanguage}</span>
                             <i
                                 className={cn(
@@ -207,7 +212,8 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                                     "header__language-option",
                                     currentLanguage === "EN" && "header__language-option--active"
                                 )}
-                                onClick={() => handleLanguageChange("EN")}>
+                                onClick={() => handleLanguageChange("EN")}
+                                aria-label='English'>
                                 <span>EN</span>
                             </button>
                             <button
@@ -215,7 +221,8 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                                     "header__language-option",
                                     currentLanguage === "TH" && "header__language-option--active"
                                 )}
-                                onClick={() => handleLanguageChange("TH")}>
+                                onClick={() => handleLanguageChange("TH")}
+                                aria-label='ไทย'>
                                 <span>TH</span>
                             </button>
                         </div>
@@ -263,7 +270,10 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                                         <button
                                             className='header__nav-link'
                                             onClick={() => toggleDropdown(item.label)}
-                                            onMouseEnter={() => setActiveDropdown(item.label)}>
+                                            onMouseEnter={() => setActiveDropdown(item.label)}
+                                            aria-expanded={activeDropdown === item.label}
+                                            aria-haspopup='true'
+                                            aria-label={`${item.label} menu`}>
                                             {item.label}
                                             <i className='ph ph-caret-down header__nav-arrow'></i>
                                         </button>
@@ -315,7 +325,9 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
                                         <>
                                             <button
                                                 className='header__menu-nav-link'
-                                                onClick={() => toggleDropdown(item.label)}>
+                                                onClick={() => toggleDropdown(item.label)}
+                                                aria-expanded={activeDropdown === item.label}
+                                                aria-label={`${item.label} submenu`}>
                                                 <span className='header__menu-nav-text'>
                                                     {item.label}
                                                 </span>

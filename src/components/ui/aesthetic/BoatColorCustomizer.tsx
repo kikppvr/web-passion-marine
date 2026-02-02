@@ -219,7 +219,8 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                                         ? "1px solid #BDBDBE"
                                                         : undefined,
                                                 }}
-                                                title={color.name}></button>
+                                                title={color.name}
+                                                aria-label={`Hull side: ${color.name}`}></button>
                                         </div>
                                     );
                                 })}
@@ -247,7 +248,8 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                                         ? "1px solid #BDBDBE"
                                                         : undefined,
                                                 }}
-                                                title={color.name}></button>
+                                                title={color.name}
+                                                aria-label={`Boot stripe: ${color.name}`}></button>
                                         </div>
                                     );
                                 })}
@@ -275,7 +277,8 @@ export default function BoatColorCustomizer({ className = "" }: BoatColorCustomi
                                                         ? "1px solid #BDBDBE"
                                                         : undefined,
                                                 }}
-                                                title={color.name}></button>
+                                                title={color.name}
+                                                aria-label={`Hull bottom: ${color.name}`}></button>
                                         </div>
                                     );
                                 })}
