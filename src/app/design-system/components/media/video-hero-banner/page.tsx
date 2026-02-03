@@ -86,7 +86,6 @@ export default function VideoHeroBannerPage() {
                                 <div className='relative h-96 overflow-hidden rounded-xl'>
                                     <VideoHeroBanner
                                         videoSrc='/videos/banner/banner-home.mp4'
-                                        posterSrc='/images/sample-poster.jpg'
                                         title='Passion Marine'
                                         subtitle='Marine Services'
                                         description='Professional marine services with safety and quality guaranteed'
@@ -96,7 +95,6 @@ export default function VideoHeroBannerPage() {
                                         loop={true}
                                         overlay={true}
                                         overlayOpacity={0.4}
-                                        preload='metadata'
                                         className='video-hero-banner--halfscreen'
                                     />
                                 </div>
@@ -126,11 +124,9 @@ export default function VideoHeroBannerPage() {
                                             copyToClipboard(
                                                 `<VideoHeroBanner
     videoSrc="/videos/hero-video.mp4"
-    posterSrc="/images/poster.jpg"
     title="Your Title"
     subtitle="Your Subtitle"
     description="Your description here"
-    preload="metadata"
     autoPlay={true}
     muted={true}
     loop={true}
@@ -154,11 +150,9 @@ export default function VideoHeroBannerPage() {
                                 <pre className='text-small overflow-x-auto text-gray-300'>
                                     <code>{`<VideoHeroBanner
     videoSrc="/videos/hero-video.mp4"
-    posterSrc="/images/poster.jpg"
     title="Your Title"
     subtitle="Your Subtitle"
     description="Your description here"
-    preload="metadata"
     autoPlay={true}
     muted={true}
     loop={true}
@@ -203,16 +197,6 @@ export default function VideoHeroBannerPage() {
                                         <td className='px-4 py-3 text-sm text-gray-600'>-</td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
                                             Path to the video file
-                                        </td>
-                                    </tr>
-                                    <tr className='border-b border-gray-100'>
-                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
-                                            posterSrc
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>string</td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>-</td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            Path to the poster image
                                         </td>
                                     </tr>
                                     <tr className='border-b border-gray-100'>
@@ -273,21 +257,6 @@ export default function VideoHeroBannerPage() {
                                         <td className='px-4 py-3 text-sm text-gray-600'>true</td>
                                         <td className='px-4 py-3 text-sm text-gray-600'>
                                             Loop video playback
-                                        </td>
-                                    </tr>
-                                    <tr className='border-b border-gray-100'>
-                                        <td className='px-4 py-3 font-mono text-sm text-blue-600'>
-                                            preload
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;none&apos; | &apos;metadata&apos; |
-                                            &apos;auto&apos;
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            &apos;metadata&apos;
-                                        </td>
-                                        <td className='px-4 py-3 text-sm text-gray-600'>
-                                            How much video to preload
                                         </td>
                                     </tr>
                                 </tbody>

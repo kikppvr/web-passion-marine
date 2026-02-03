@@ -8,7 +8,6 @@ import { VideoHeroBanner } from "@/components/ui/media";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { DocumentModal } from "@/components/ui/dialog/DocumentModal";
 //contexts
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useDialog } from "@/components/ui/dialog";
@@ -20,9 +19,11 @@ import portfolioData from "@/data/portfolio-data.json";
 import "@/styles/components/home/index.scss";
 
 // โหลดส่วนล่างของหน้าแบบ lazy — ลด initial bundle
+const sectionFallback = <div className='min-h-[280px] animate-pulse rounded-lg bg-white/5' />;
+
 const SwiperSlider = dynamic(
     () => import("@/components/ui/media").then(m => ({ default: m.SwiperSlider })),
-    { ssr: false }
+    { ssr: false, loading: () => sectionFallback }
 );
 const BusinessCard = dynamic(
     () => import("@/components/ui/cards").then(m => ({ default: m.BusinessCard })),
@@ -42,20 +43,13 @@ const PortfolioCard = dynamic(
 );
 const Footer = dynamic(() => import("@/components/ui/layout").then(m => ({ default: m.Footer })), {
     ssr: true,
+    loading: () => <div className='min-h-[200px]' />,
 });
 
 export default function HeaderPage() {
     const router = useRouter();
-    const [copiedCode, setCopiedCode] = useState<string | null>(null);
-    const [selectedTheme, setSelectedTheme] = useState<"white" | "transparent">("transparent");
     const [isStatsVisible, setIsStatsVisible] = useState(false);
-    const { language } = useLanguage();
     const confirmDialog = useDialog();
-
-    const handleDelete = () => {
-        // Delete logic
-        console.log("Deleted!");
-    };
 
     // Intersection Observer for stats animation
     useEffect(() => {
@@ -354,7 +348,6 @@ export default function HeaderPage() {
             {/* Video Hero Banner */}
             <VideoHeroBanner
                 videoSrc='/videos/banner/banner-home.mp4'
-                posterSrc='/images/banner/overview-services.webp'
                 title='Expert Boat Solutions,'
                 subtitle='Powered by Passion'
                 description=''
@@ -364,7 +357,6 @@ export default function HeaderPage() {
                 loop={true}
                 overlay={false}
                 overlayOpacity={0}
-                preload='auto'
                 lazyLoad={false}
                 deferVideoLoad={0}
                 priority={true}

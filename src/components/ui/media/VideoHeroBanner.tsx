@@ -8,7 +8,6 @@ import { TextReveal } from "@/components/ui/animation/TextReveal";
 export interface VideoHeroBannerProps {
     className?: string;
     videoSrc: string;
-    posterSrc?: string;
     title?: string;
     subtitle?: string;
     description?: string;
@@ -18,9 +17,8 @@ export interface VideoHeroBannerProps {
     loop?: boolean;
     overlay?: boolean;
     overlayOpacity?: number;
-    preload?: "none" | "metadata" | "auto";
     lazyLoad?: boolean;
-    /** Delay loading video (ms) so poster can be LCP. Use with posterSrc. */
+    /** Delay loading video (ms). */
     deferVideoLoad?: number;
     priority?: boolean;
 }
@@ -37,7 +35,6 @@ const VideoHeroBanner = ({
     loop = true,
     overlay = true,
     overlayOpacity = 0.4,
-    preload = "metadata",
     lazyLoad = false,
     deferVideoLoad,
     priority = false,
@@ -200,7 +197,7 @@ const VideoHeroBanner = ({
                     loop={loop}
                     playsInline
                     autoPlay={autoPlay}
-                    preload={shouldLoad ? preload : "none"}
+                    preload='auto'
                     onLoadedData={handleVideoLoad}
                     onLoadedMetadata={handleLoadedMetadata}
                     onCanPlay={handleCanPlay}
