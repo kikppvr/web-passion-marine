@@ -14,6 +14,9 @@ const roboto = Roboto({
     subsets: ["latin"],
     variable: "--font-roboto",
     display: "swap",
+    adjustFontFallback: true,
+    preload: true,
+    fallback: ["system-ui", "arial"],
 });
 
 const notoSansThai = Noto_Sans_Thai({
@@ -21,6 +24,9 @@ const notoSansThai = Noto_Sans_Thai({
     subsets: ["thai"],
     variable: "--font-noto-sans-thai",
     display: "swap",
+    adjustFontFallback: true,
+    preload: true,
+    fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = createMetadata();
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className='font-en antialiased'>
+            <body className={`${roboto.variable} ${notoSansThai.variable} font-en antialiased`}>
                 <LanguageProvider>{children}</LanguageProvider>
             </body>
         </html>
