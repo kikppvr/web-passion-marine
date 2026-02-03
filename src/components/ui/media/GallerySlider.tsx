@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Thumbs } from "swiper/modules";
 import Image from "next/image";
-import { useId, useState } from "react";
+import { useId, useState, useEffect } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -53,6 +53,45 @@ export const GallerySlider = ({
     const prevButtonId = `gallery-button-prev-${uniqueId}`;
 
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Ensure component is mounted (client-side only) to prevent SSR/hydration issues
+    useEffect(() => {
+        try {
+            setIsMounted(true);
+        } catch (error) {
+            console.error("GallerySlider initialization error:", error);
+            setIsMounted(true);
+        }
+    }, []);
+
+    // Render placeholder while mounting (prevents SSR mismatch and cache issues)
+    if (!isMounted) {
+        return (
+            <div className={`gallery-slider ${className}`}>
+                <div className='gallery-slider__main'>
+                    {images.map((image, index) => (
+                        <div key={index} className={`gallery-slider__slide ${slideClassName}`}>
+                            <div className='gallery-slider__image-container'>
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    fill
+                                    className='gallery-slider__image'
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                />
+                                {image.title && (
+                                    <div className='gallery-slider__title'>
+                                        <h3>{image.title}</h3>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={`gallery-slider ${className}`}>

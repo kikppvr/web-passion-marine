@@ -105,12 +105,39 @@ export const SwiperSlider = ({
     // State for navigation disable
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Ensure component is mounted (client-side only) to prevent SSR/hydration issues
+    useEffect(() => {
+        try {
+            setIsMounted(true);
+        } catch (error) {
+            console.error("Swiper initialization error:", error);
+            // Fallback: still set mounted to show content
+            setIsMounted(true);
+        }
+    }, []);
 
     const defaultRenderSlide = (item: SwiperSlideData, index: number) => (
         <CardComponent
             {...item} // Pass all props to the card component
         />
     );
+
+    // Render placeholder while mounting (prevents SSR mismatch and cache issues)
+    if (!isMounted) {
+        return (
+            <div className={`swiper-slider-container ${className}`}>
+                <div className={`swiper-slider ${swiperClassName}`}>
+                    {data.map((item, index) => (
+                        <div key={index} className={slideClassName}>
+                            {renderSlide ? renderSlide(item, index) : defaultRenderSlide(item, index)}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={`swiper-slider-container ${className}`}>
