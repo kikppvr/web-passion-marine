@@ -197,7 +197,9 @@ const nextConfig = {
 
     // Experimental features for better performance
     experimental: {
-        optimizePackageImports: ["@phosphor-icons/web", "lucide-react", "swiper", "lightgallery"],
+        optimizePackageImports: ["@phosphor-icons/web", "lucide-react"],
+        // Removed "swiper" and "lightgallery" from optimizePackageImports
+        // to prevent SSR/hydration issues and cache-related problems in production
     },
 
     // Output configuration for deployment
