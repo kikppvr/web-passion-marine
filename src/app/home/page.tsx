@@ -1,27 +1,48 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 //components
 import { Header } from "@/components/ui/layout";
-import { VideoHeroBanner, SwiperSlider } from "@/components/ui/media";
-import { BusinessCard, CharterCard, NewsCard, PortfolioCard } from "@/components/ui/cards";
-import { LanguageToggle } from "@/components/LanguageSwitcher";
-import { Footer } from "@/components/ui/layout";
+import { VideoHeroBanner } from "@/components/ui/media";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { DocumentModal } from "@/components/ui/dialog/DocumentModal";
 //contexts
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
-import { useAOS } from "@/hooks/useAOS";
+import { useState, useEffect } from "react";
 import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
 import { TextReveal } from "@/components/ui/animation/TextReveal";
 import newsData from "@/data/news-data.json";
 import portfolioData from "@/data/portfolio-data.json";
 //styles
-import "aos/dist/aos.css";
 import "@/styles/components/home/index.scss";
+
+// โหลดส่วนล่างของหน้าแบบ lazy — ลด initial bundle
+const SwiperSlider = dynamic(
+    () => import("@/components/ui/media").then(m => ({ default: m.SwiperSlider })),
+    { ssr: false }
+);
+const BusinessCard = dynamic(
+    () => import("@/components/ui/cards").then(m => ({ default: m.BusinessCard })),
+    { ssr: false }
+);
+const CharterCard = dynamic(
+    () => import("@/components/ui/cards").then(m => ({ default: m.CharterCard })),
+    { ssr: false }
+);
+const NewsCard = dynamic(
+    () => import("@/components/ui/cards").then(m => ({ default: m.NewsCard })),
+    { ssr: false }
+);
+const PortfolioCard = dynamic(
+    () => import("@/components/ui/cards").then(m => ({ default: m.PortfolioCard })),
+    { ssr: false }
+);
+const Footer = dynamic(() => import("@/components/ui/layout").then(m => ({ default: m.Footer })), {
+    ssr: true,
+});
 
 export default function HeaderPage() {
     const router = useRouter();
@@ -35,9 +56,6 @@ export default function HeaderPage() {
         // Delete logic
         console.log("Deleted!");
     };
-
-    // Initialize AOS
-    useAOS();
 
     // Intersection Observer for stats animation
     useEffect(() => {
@@ -529,6 +547,7 @@ export default function HeaderPage() {
                                         src={item.image}
                                         alt={item.title}
                                         fill
+                                        sizes='(max-width: 768px) 100px, 140px'
                                         className='brand-item__image'
                                     />
                                 </div>
@@ -540,6 +559,7 @@ export default function HeaderPage() {
                                         src={item.image}
                                         alt={item.title}
                                         fill
+                                        sizes='(max-width: 768px) 100px, 140px'
                                         className='brand-item__image'
                                     />
                                 </div>
