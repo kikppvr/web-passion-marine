@@ -48,7 +48,6 @@ export default function HeaderPage() {
                 loop={true}
                 overlay={true}
                 overlayOpacity={0.4}
-                preload='auto'
                 lazyLoad={false}
                 priority={true}
                 className='video-hero-banner--fullscreen'
