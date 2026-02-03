@@ -348,7 +348,7 @@ export default function HeaderPage() {
                 overlayOpacity={0}
                 preload='auto'
                 lazyLoad={false}
-                deferVideoLoad={2000}
+                deferVideoLoad={0}
                 priority={true}
                 className='video-hero-banner--fullscreen'
             />

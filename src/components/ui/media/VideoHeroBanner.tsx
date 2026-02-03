@@ -28,7 +28,6 @@ export interface VideoHeroBannerProps {
 const VideoHeroBanner = ({
     className,
     videoSrc,
-    posterSrc,
     title,
     subtitle,
     description,
@@ -182,7 +181,7 @@ const VideoHeroBanner = ({
         }
     }, [autoPlay, shouldLoad, isVideoReady]);
 
-    // Reset states on component mount
+    // Reset states when video source changes
     useEffect(() => {
         setIsLoading(true);
         setIsLoaded(false);
@@ -190,41 +189,29 @@ const VideoHeroBanner = ({
         setHasError(false);
     }, [videoSrc]);
 
-    // Before mount: render static placeholder (same on server and client) to avoid hydration mismatch.
-    // Do not use posterSrc here so output is identical even if props differ between server/client.
-    const videoBlock = !hasMounted ? (
-        <div
-            className='video-hero-banner__video video-hero-banner__video--placeholder'
-            aria-hidden
-        />
-    ) : (
-        <video
-            ref={videoRef}
-            className='video-hero-banner__video'
-            poster={posterSrc}
-            muted={muted}
-            loop={loop}
-            playsInline
-            autoPlay={autoPlay}
-            preload={shouldLoad ? preload : "none"}
-            onLoadedData={handleVideoLoad}
-            onLoadedMetadata={handleLoadedMetadata}
-            onCanPlay={handleCanPlay}
-            onCanPlayThrough={handleCanPlayThrough}
-            onPlay={handlePlay}
-            onPause={handlePause}
-            onError={handleVideoError}
-            onEnded={handleVideoEnd}>
-            {shouldLoad && <source src={videoSrc} type='video/mp4' />}
-            Your browser does not support the video tag.
-        </video>
-    );
-
     return (
         <div className={cn("video-hero-banner", className)}>
             {/* Video Container */}
             <div className='video-hero-banner__video-container'>
-                {videoBlock}
+                <video
+                    ref={videoRef}
+                    className='video-hero-banner__video'
+                    muted={muted}
+                    loop={loop}
+                    playsInline
+                    autoPlay={autoPlay}
+                    preload={shouldLoad ? preload : "none"}
+                    onLoadedData={handleVideoLoad}
+                    onLoadedMetadata={handleLoadedMetadata}
+                    onCanPlay={handleCanPlay}
+                    onCanPlayThrough={handleCanPlayThrough}
+                    onPlay={handlePlay}
+                    onPause={handlePause}
+                    onError={handleVideoError}
+                    onEnded={handleVideoEnd}>
+                    {shouldLoad && <source src={videoSrc} type='video/mp4' />}
+                    Your browser does not support the video tag.
+                </video>
 
                 {/* Overlay */}
                 {/* {overlay && (
@@ -233,7 +220,7 @@ const VideoHeroBanner = ({
                         style={{ opacity: overlayOpacity }}></div>
                 )} */}
 
-                {/* Content */}
+                {/* Content — แสดงและเล่นแอนิเมชันเลย */}
                 <div className='video-hero-banner__content'>
                     {title && (
                         <TextReveal
