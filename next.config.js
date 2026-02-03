@@ -56,9 +56,19 @@ const nextConfig = {
                     },
                 ],
             },
-            // Cache static assets 1 year (immutable)
+            // Cache static assets 1 year (immutable) - Next.js already adds hash
             {
                 source: "/_next/static/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            // Cache Next.js chunks with immutable (they have hash)
+            {
+                source: "/_next/chunks/:path*",
                 headers: [
                     {
                         key: "Cache-Control",
@@ -94,6 +104,19 @@ const nextConfig = {
                     },
                 ],
             },
+            // Prevent caching of API routes (important for production updates)
+            {
+                source: "/api/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "no-store, no-cache, must-revalidate, proxy-revalidate",
+                    },
+                ],
+            },
+            // Note: HTML pages are not cached by default in Next.js
+            // Static assets above are explicitly cached with immutable headers
+            // This configuration ensures proper cache behavior for production
         ];
     },
 
