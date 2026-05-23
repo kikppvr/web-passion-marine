@@ -1,24 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/news/news.scss";
 import { NewsCard } from "@/components/ui/cards";
 import Pagination from "@/components/ui/navigation/Pagination";
-import newsData from "@/data/news-data.json";
-
-interface NewsData {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    date: string;
-    category: string;
-    href: string;
-}
+import { useLanguage } from "@/contexts/LanguageContext";
+import {
+    fetchRawArticles,
+    deriveNewsItem,
+    DEFAULT_NEWS,
+    type RawArticleItem,
+    type NewsItem,
+} from "@/lib/directus";
 
 export default function NewsPage() {
+    const { language } = useLanguage();
     const [currentPage, setCurrentPage] = useState(1);
+    const [rawArticles, setRawArticles] = useState<RawArticleItem[] | null>(null);
     const itemsPerPage = 9;
 
     const bannerProps = {
@@ -27,13 +26,18 @@ export default function NewsPage() {
         breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "News & Activity" }],
     };
 
-    // Get news data from JSON file
-    const news: NewsData[] = newsData.news;
+    useEffect(() => {
+        fetchRawArticles().then(setRawArticles);
+    }, []);
+
+    const news: NewsItem[] = useMemo(
+        () => (rawArticles ? rawArticles.map(item => deriveNewsItem(item, language)) : DEFAULT_NEWS),
+        [rawArticles, language]
+    );
 
     const totalPages = Math.ceil(news.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentNews = news.slice(startIndex, endIndex);
+    const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
@@ -45,15 +49,15 @@ export default function NewsPage() {
                 <section className='section section--space-y'>
                     <div className='container'>
                         <div className='news__grid'>
-                            {currentNews.map(news => (
+                            {currentNews.map(item => (
                                 <NewsCard
-                                    key={news.id}
-                                    title={news.title}
-                                    description={news.description}
-                                    image={news.image}
-                                    date={news.date}
-                                    category={news.category}
-                                    href={news.href}
+                                    key={item.id}
+                                    title={item.title}
+                                    description={item.description}
+                                    image={item.image}
+                                    date={item.date}
+                                    category={item.category}
+                                    href={item.href}
                                     variant='default'
                                 />
                             ))}
