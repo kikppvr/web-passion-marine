@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export interface HeaderProps {
     className?: string;
@@ -28,8 +28,9 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-    const [currentLanguage, setCurrentLanguage] = useState<"EN" | "TH">("EN");
     const [isHovered, setIsHovered] = useState(false);
+    const { language, setLanguage } = useLanguage();
+    const currentLanguage = language.toUpperCase() as "EN" | "TH";
 
     // Navigation items
     const navItems: NavItem[] = [
@@ -128,10 +129,9 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     };
 
     // Handle language change
-    const handleLanguageChange = (language: "EN" | "TH") => {
-        setCurrentLanguage(language);
+    const handleLanguageChange = (lang: "EN" | "TH") => {
+        setLanguage(lang.toLowerCase() as "en" | "th");
         setIsLanguageDropdownOpen(false);
-        // Here you can add logic to change the actual language
     };
 
     // Close language dropdown when clicking outside

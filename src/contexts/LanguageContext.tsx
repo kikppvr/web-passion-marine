@@ -17,12 +17,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     // Load language from localStorage on mount
     useEffect(() => {
-        // Clear localStorage to reset to default English
-        localStorage.removeItem("language");
-
-        // Set default to English
-        setLanguageState("en");
-        document.body.className = document.body.className.replace("font-th", "font-en");
+        const stored = localStorage.getItem("language") as Language | null;
+        const lang: Language = stored === "th" ? "th" : "en";
+        setLanguageState(lang);
+        document.documentElement.lang = lang;
+        if (lang === "th") {
+            document.body.className = document.body.className.replace("font-en", "font-th");
+        } else {
+            document.body.className = document.body.className.replace("font-th", "font-en");
+        }
     }, []);
 
     // Save language to localStorage when it changes
