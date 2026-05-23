@@ -34,15 +34,13 @@ export interface EnvironmentConfig {
 const APP_ENV_VALUES: Environment[] = ["development", "staging", "production"];
 
 function readAppEnv(): Environment | undefined {
-    const raw = process.env.APP_ENV ?? process.env.NEXT_PUBLIC_APP_ENV;
-    const appEnv = raw as Environment | undefined;
+    const appEnv = process.env.APP_ENV as Environment | undefined;
     return appEnv && APP_ENV_VALUES.includes(appEnv) ? appEnv : undefined;
 }
 
 /**
  * Application deploy environment (dev / staging / production).
- * Reads APP_ENV from .env files (same style as SMTP_HOST).
- * NEXT_PUBLIC_APP_ENV is supported as a legacy fallback.
+ * Reads APP_ENV from .env files (same style as SMTP_HOST, API_URL).
  */
 export function getEnvironment(): Environment {
     const appEnv = readAppEnv();
