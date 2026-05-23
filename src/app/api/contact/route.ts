@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { getEmailConfig } from "@/lib/env";
+import { getEmailConfig, isDevelopment } from "@/lib/env";
 
 interface ContactFormData {
     firstName: string;
@@ -261,7 +261,7 @@ export async function POST(request: NextRequest) {
         const errorMessage = error instanceof Error ? error.message : "Unknown error";
         const errorDetails = error instanceof Error ? error.stack : String(error);
 
-        const isDevMode = process.env.NODE_ENV !== "production";
+        const isDevMode = isDevelopment();
 
         if (isDevMode) {
             // dev/stg: send error details to the client for debugging

@@ -52,7 +52,8 @@ app.prepare().then(() => {
         })
         .listen(port, () => {
             console.log(`> Ready on http://${hostname}:${port}`);
-            console.log(`> Environment: ${process.env.NODE_ENV}`);
+            console.log(`> NODE_ENV: ${process.env.NODE_ENV}`);
+            console.log(`> App env: ${process.env.NEXT_PUBLIC_APP_ENV || "(not set)"}`);
             console.log(`> Port: ${port}`);
         });
 });

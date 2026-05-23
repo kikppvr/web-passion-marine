@@ -6,7 +6,8 @@
 export type Environment = "development" | "staging" | "production";
 
 export interface EnvironmentConfig {
-    NODE_ENV: Environment;
+    /** Logical deploy target (dev / stg / prd), not Node's NODE_ENV */
+    appEnv: Environment;
     NEXTAUTH_URL: string;
     NEXTAUTH_SECRET: string;
     DATABASE_URL: string;
@@ -30,28 +31,31 @@ export interface EnvironmentConfig {
     ENABLE_MAINTENANCE_MODE: boolean;
 }
 
+const APP_ENV_VALUES: Environment[] = ["development", "staging", "production"];
+
 /**
- * Get the current environment
+ * Application deploy environment (dev / staging / production).
+ * Uses NEXT_PUBLIC_APP_ENV so values are available at build time on Plesk.
+ * Falls back to Node's NODE_ENV only for local `next dev`.
  */
 export function getEnvironment(): Environment {
-    const env = process.env.NODE_ENV as Environment;
-    if (!env || !["development", "staging", "production"].includes(env)) {
-        throw new Error(`Invalid NODE_ENV: ${env}`);
+    const appEnv = process.env.NEXT_PUBLIC_APP_ENV as Environment | undefined;
+    if (appEnv && APP_ENV_VALUES.includes(appEnv)) {
+        return appEnv;
     }
-    return env;
+
+    if (process.env.NODE_ENV === "development") {
+        return "development";
+    }
+
+    return "production";
 }
 
 /**
  * Check if we're in development mode
- * Returns false if NODE_ENV is invalid (safe fallback)
  */
 export function isDevelopment(): boolean {
-    try {
-        return getEnvironment() === "development";
-    } catch {
-        // If NODE_ENV is not set or invalid, default to development for localhost
-        return process.env.NODE_ENV !== "production";
-    }
+    return getEnvironment() === "development";
 }
 
 /**
@@ -75,7 +79,7 @@ export function getEnvironmentConfig(): EnvironmentConfig {
     const env = getEnvironment();
 
     const config: EnvironmentConfig = {
-        NODE_ENV: env,
+        appEnv: env,
         NEXTAUTH_URL: process.env.NEXTAUTH_URL || "",
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || "",
         DATABASE_URL: process.env.DATABASE_URL || "",
