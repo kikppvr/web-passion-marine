@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { generateMetadata as createMetadata, getSiteUrl } from "@/lib/metadata";
-import newsDetailDataJson from "@/data/news-detail-data.json";
+import { fetchRawArticleById } from "@/lib/directus";
 
 export async function generateMetadata({
     params,
@@ -8,19 +8,24 @@ export async function generateMetadata({
     params: Promise<{ id: string }>;
 }): Promise<Metadata> {
     const resolvedParams = await params;
-    const newsItem = newsDetailDataJson.newsDetails.find(item => item.id === resolvedParams.id);
+    const article = await fetchRawArticleById(resolvedParams.id);
 
     const siteUrl = getSiteUrl();
 
-    if (!newsItem) {
+    if (!article) {
         return createMetadata();
     }
 
-    const image = newsItem.mainImage ? `${siteUrl}${newsItem.mainImage}` : undefined;
+    const enTr = article.translations.find(t => t.languages_code === "en") ?? article.translations[0];
+    const title = enTr?.title ?? undefined;
+    const description = enTr?.description ?? undefined;
+    const image = article.cover_image
+        ? `${process.env.NEXT_PUBLIC_CMS_URL}/assets/${article.cover_image}`
+        : undefined;
 
     return createMetadata({
-        title: newsItem.title,
-        description: newsItem.description,
+        title,
+        description,
         image,
         url: `${siteUrl}/news/${resolvedParams.id}`,
         type: "article",
