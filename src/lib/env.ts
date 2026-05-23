@@ -33,14 +33,20 @@ export interface EnvironmentConfig {
 
 const APP_ENV_VALUES: Environment[] = ["development", "staging", "production"];
 
+function readAppEnv(): Environment | undefined {
+    const raw = process.env.APP_ENV ?? process.env.NEXT_PUBLIC_APP_ENV;
+    const appEnv = raw as Environment | undefined;
+    return appEnv && APP_ENV_VALUES.includes(appEnv) ? appEnv : undefined;
+}
+
 /**
  * Application deploy environment (dev / staging / production).
- * Uses NEXT_PUBLIC_APP_ENV so values are available at build time on Plesk.
- * Falls back to Node's NODE_ENV only for local `next dev`.
+ * Reads APP_ENV from .env files (same style as SMTP_HOST).
+ * NEXT_PUBLIC_APP_ENV is supported as a legacy fallback.
  */
 export function getEnvironment(): Environment {
-    const appEnv = process.env.NEXT_PUBLIC_APP_ENV as Environment | undefined;
-    if (appEnv && APP_ENV_VALUES.includes(appEnv)) {
+    const appEnv = readAppEnv();
+    if (appEnv) {
         return appEnv;
     }
 
