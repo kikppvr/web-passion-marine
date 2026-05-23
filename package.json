@@ -16,8 +16,8 @@
     "rebuild": "npm run clean && npm run build",
     "rebuild:hard": "npm run clean:hard && npm run build",
     "rebuild:plesk": "npm run clean:hard && npm install && npm run build",
-    "deploy:dev": "npm run clean && npm ci && cp .env.development .env.local && npm run build",
-    "deploy:stg": "npm run clean && npm ci && cp .env.staging .env.local && npm run build",
+    "deploy:dev": "fuser -k 3000/tcp || true && npm run clean && npm ci && cp .env.development .env.local && npm run build",
+    "deploy:stg": "fuser -k 3000/tcp || true && npm run clean && npm ci && cp .env.staging .env.local && npm run build",
     "deploy:prd": "npm run clean:hard && npm ci && cp .env.production .env.local && npm run build",
     "postinstall": "next telemetry disable",
     "test": "echo \"No tests specified\" && exit 0"
