@@ -43,3 +43,22 @@ export {
     DEFAULT_NEWS,
     DEFAULT_NEWS_DETAIL,
 } from "./articles";
+export type {
+    RawAboutPage,
+    RawMissionCard,
+    RawMilestone,
+    AboutPageData,
+    MissionCardItem,
+    MilestoneItem,
+} from "./about";
+export {
+    fetchRawAboutPage,
+    fetchRawMissionCards,
+    fetchRawMilestones,
+    deriveAboutPage,
+    deriveMissionCards,
+    deriveMilestones,
+    DEFAULT_ABOUT_PAGE,
+    DEFAULT_MISSION_CARDS,
+    DEFAULT_MILESTONES,
+} from "./about";
