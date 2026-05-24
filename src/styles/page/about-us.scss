@@ -184,3 +184,29 @@
     @include fonts.font-normal;
     color: var(--grey-600);
 }
+
+// Rich text wrappers for Directus HTML content
+.about-vision-body {
+    p {
+        @include fonts.text-lead-2;
+        color: var(--grey-600);
+        margin-bottom: 1rem;
+
+        @include base.media-up(tablet) {
+            margin-bottom: 1.5rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.about-mission-body {
+    p {
+        @include fonts.text-h5;
+        @include fonts.font-semibold;
+        color: var(--blue-500);
+        margin-bottom: 0;
+    }
+}
