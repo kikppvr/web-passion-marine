@@ -9,12 +9,17 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { DocumentModal } from "@/components/ui/dialog/DocumentModal";
 //contexts
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
 import { TextReveal } from "@/components/ui/animation/TextReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import newsData from "@/data/news-data.json";
-import portfolioData from "@/data/portfolio-data.json";
+import {
+    fetchRawPortfolios,
+    derivePortfolioItem,
+    type RawPortfolioItem,
+} from "@/lib/directus";
 //styles
 import "@/styles/components/home/index.scss";
 
@@ -48,8 +53,14 @@ const Footer = dynamic(() => import("@/components/ui/layout").then(m => ({ defau
 
 export default function HeaderPage() {
     const router = useRouter();
+    const { language } = useLanguage();
     const [isStatsVisible, setIsStatsVisible] = useState(false);
     const confirmDialog = useDialog();
+    const [rawPortfolioData, setRawPortfolioData] = useState<RawPortfolioItem[] | null>(null);
+
+    useEffect(() => {
+        fetchRawPortfolios().then(setRawPortfolioData);
+    }, []);
 
     // Intersection Observer for stats animation
     useEffect(() => {
@@ -179,15 +190,14 @@ export default function HeaderPage() {
         },
     ];
 
-    // Our Portfolio data - ดึงจาก portfolio-data.json
-    const ourPortfolioData = portfolioData.portfolios.map(portfolio => ({
-        title: portfolio.title,
-        model: portfolio.model,
-        image: portfolio.image,
-        video: "",
-        brandLogos: portfolio.brandLogos,
-        href: portfolio.href,
-    }));
+    const ourPortfolioData = useMemo(
+        () =>
+            (rawPortfolioData ?? []).map(p => ({
+                ...derivePortfolioItem(p, language),
+                video: "",
+            })),
+        [rawPortfolioData, language]
+    );
 
     // Our Latest News data - ดึง 3 ข่าวล่าสุดจาก news-data.json
     const allNews = newsData.news;

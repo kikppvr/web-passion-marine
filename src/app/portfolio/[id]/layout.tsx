@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
 import { generateMetadata as createMetadata, getSiteUrl } from "@/lib/metadata";
-import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
+import { fetchRawPortfolios, pickTranslation } from "@/lib/directus";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
-    const portfolioItem = portfolioDetailDataJson.portfolioDetails.find(
-        item => item.id === resolvedParams.id
-    );
-    
+    const allPortfolios = await fetchRawPortfolios();
+    const portfolioItem = allPortfolios?.find(p => String(p.id) === resolvedParams.id);
+
     const siteUrl = getSiteUrl();
-    
+
     if (!portfolioItem) {
         return createMetadata();
     }
 
-    const image = portfolioItem.mainImage 
-        ? `${siteUrl}${portfolioItem.mainImage}` 
+    const tr = pickTranslation(portfolioItem.translations, "en");
+    const imageUuid = portfolioItem.main_image ?? portfolioItem.cover_image;
+    const image = imageUuid
+        ? `${process.env.NEXT_PUBLIC_CMS_URL}/assets/${imageUuid}`
         : undefined;
 
     return createMetadata({
-        title: portfolioItem.title,
-        description: portfolioItem.description,
+        title: tr?.title ?? undefined,
+        description: tr?.description ?? undefined,
         image,
         url: `${siteUrl}/portfolio/${resolvedParams.id}`,
-        type: 'website',
+        type: "website",
     });
 }
 
@@ -34,4 +35,3 @@ export default function PortfolioDetailLayout({
 }) {
     return <>{children}</>;
 }
-
