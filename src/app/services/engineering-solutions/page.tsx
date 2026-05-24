@@ -40,6 +40,7 @@ export default function EngineeringSolutionsPage() {
     }, [rawSections, language]);
 
     // Handle hash links with scroll offset for fixed header
+    // depends on `sections` so scroll re-runs after Directus data renders
     useEffect(() => {
         const getHeaderHeight = () => {
             if (window.innerWidth <= 768) return 60;
@@ -68,7 +69,7 @@ export default function EngineeringSolutionsPage() {
             clearTimeout(timeoutId);
             window.removeEventListener("hashchange", scrollToHash);
         };
-    }, []);
+    }, [sections]);
 
 
 
