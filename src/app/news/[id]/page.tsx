@@ -7,6 +7,7 @@ import "@/styles/page/news/news-detail.scss";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawArticleById,
     deriveNewsDetailItem,
@@ -38,12 +39,14 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
         [rawArticle, language]
     );
 
+    const t = useTranslation();
+
     if (rawArticle === undefined) {
-        return <div>Loading...</div>;
+        return <div>{t.common.loading}</div>;
     }
 
     if (!newsDetail) {
-        return <div>News not found</div>;
+        return <div>{t.pages.news.notFound}</div>;
     }
 
     return (
@@ -99,7 +102,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
                     <div className='container'>
                         <div className='flex items-center justify-between lg:px-16 xl:px-28'>
                             <PrimaryButton theme='revert' onClick={() => window.history.back()}>
-                                Back
+                                {t.common.back}
                             </PrimaryButton>
                             <SocialIcons
                                 showLabel={true}

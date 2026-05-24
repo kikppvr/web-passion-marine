@@ -11,6 +11,7 @@ import SocialIcons from "@/components/ui/social/SocialIcons";
 import { SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawPortfolios,
     derivePortfolioDetail,
@@ -40,8 +41,10 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
         return derivePortfolioDetail(rawItem, rawData, language);
     }, [resolvedParams, rawData, language]);
 
+    const t = useTranslation();
+
     if (!portfolioDetailData) {
-        return <div>Loading...</div>;
+        return <div>{t.common.loading}</div>;
     }
 
     return (
@@ -60,7 +63,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                 </p>
 
                                 <div className='text-h6 mb-4 font-semibold text-[var(--blue-500)] xl:mb-6'>
-                                    Model: {portfolioDetailData.model}
+                                    {t.pages.portfolio.model} {portfolioDetailData.model}
                                 </div>
                                 <div className='flex justify-center gap-4'>
                                     {portfolioDetailData.brandLogos.map((logo, index) => (
@@ -112,7 +115,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                     <div className='container'>
                         <div className='flex items-center justify-between lg:px-16 xl:px-28'>
                             <PrimaryButton theme='revert' onClick={() => window.history.back()}>
-                                Back
+                                {t.common.back}
                             </PrimaryButton>
                             <SocialIcons
                                 showLabel={true}
@@ -135,7 +138,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 xl:col-span-10 xl:col-start-2'>
                                 <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
-                                    Services provided
+                                    {t.pages.portfolio.servicesProvided}
                                 </h2>
                                 <div className='portfolio-services__swiper'>
                                     <ServicesSwiper
@@ -180,7 +183,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                             <div className='grid grid-cols-12'>
                                 <div className='col-span-12'>
                                     <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
-                                        Other portfolio
+                                        {t.pages.portfolio.otherPortfolio}
                                     </h2>
 
                                     <div className='portfolio-services__swiper'>

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/i18n";
 //components
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 
@@ -13,6 +14,7 @@ export interface FooterProps {
 
 const Footer = ({ className }: FooterProps) => {
     const router = useRouter();
+    const t = useTranslation();
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -43,14 +45,14 @@ const Footer = ({ className }: FooterProps) => {
                         </div>
                         <div className='footer__column-contact'>
                             <PrimaryButton theme='dark' onClick={() => router.push("/contact-us")}>
-                                Contact Us
+                                {t.footer.contactUsButton}
                             </PrimaryButton>
                         </div>
                     </div>
 
                     {/* Middle Column - Contact */}
                     <div className='footer__column'>
-                        <h3 className='footer__column-title'>Contact</h3>
+                        <h3 className='footer__column-title'>{t.footer.contact}</h3>
                         <div className='footer__contact'>
                             <div className='footer__contact-item'>
                                 <div className='footer__contact-item-title'>Phone:</div>
@@ -81,7 +83,7 @@ const Footer = ({ className }: FooterProps) => {
 
                     {/* Right Column - Social */}
                     <div className='footer__column'>
-                        <h3 className='footer__column-title'>Social</h3>
+                        <h3 className='footer__column-title'>{t.footer.social}</h3>
                         <div className='footer__social'>
                             {/* <Link
                                 href='https://facebook.com/passionmarine'

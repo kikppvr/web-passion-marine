@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/ui/cards";
 import { useRouter } from "next/navigation";
 import { useAOS } from "@/hooks/useAOS";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawServicesPage,
     fetchRawServicesPageStats,
@@ -54,13 +55,15 @@ export default function OverviewServicesPage() {
         if (rawFeatures) setFeatures(deriveServicesPageFeatures(rawFeatures, language));
     }, [rawFeatures, language]);
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "Overview Services",
+        title: t.pages.overviewServices.title,
         backgroundImage: "/images/banner/overview-services.webp",
         breadcrumbItems: [
-            { label: "Homepage", href: "/" },
-            { label: "Our Services" },
-            { label: "Overview Services" },
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.ourServices },
+            { label: t.nav.overviewServices },
         ],
     };
 
@@ -126,7 +129,7 @@ export default function OverviewServicesPage() {
                             data-aos-delay='200'
                             data-aos-duration='800'
                             data-aos-easing='ease-out-cubic'>
-                            Comprehensive Services
+                            {t.pages.overviewServices.comprehensiveServices}
                         </h2>
                         <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
                             {features.map((feature, index) => (
@@ -169,8 +172,8 @@ export default function OverviewServicesPage() {
                                 data-aos-duration='800'
                                 data-aos-easing='ease-out-cubic'>
                                 <ServiceCard
-                                    title='Engineering Solutions'
-                                    description='Your Trusted Partner in After-Sales & Maintenance'
+                                    title={t.pages.overviewServices.engineering.title}
+                                    description={t.pages.overviewServices.engineering.description}
                                     imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
                                     imageAlt='Engineering Solutions'
                                     icon={<i className='ph ph-arrow-up-right'></i>}
@@ -185,8 +188,8 @@ export default function OverviewServicesPage() {
                                 data-aos-duration='800'
                                 data-aos-easing='ease-out-cubic'>
                                 <ServiceCard
-                                    title='Aesthetic Solutions'
-                                    description="Elevate Your Boat's Style and Comfort"
+                                    title={t.pages.overviewServices.aesthetic.title}
+                                    description={t.pages.overviewServices.aesthetic.description}
                                     imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
                                     imageAlt='Aesthetic Solutions'
                                     icon={<i className='ph ph-arrow-up-right'></i>}

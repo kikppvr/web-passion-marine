@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import Pagination from "@/components/ui/navigation/Pagination";
@@ -19,10 +20,15 @@ export default function PortfolioPage() {
     const itemsPerPage = 9;
     const [rawData, setRawData] = useState<RawPortfolioItem[] | null>(null);
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "Portfolio",
+        title: t.pages.portfolio.title,
         backgroundImage: "/images/banner/portfolio.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Portfolio" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.pages.portfolio.title },
+        ],
     };
 
     useEffect(() => {

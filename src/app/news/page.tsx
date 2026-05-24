@@ -6,6 +6,7 @@ import "@/styles/page/news/news.scss";
 import { NewsCard } from "@/components/ui/cards";
 import Pagination from "@/components/ui/navigation/Pagination";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawArticles,
     deriveNewsItem,
@@ -20,10 +21,15 @@ export default function NewsPage() {
     const [rawArticles, setRawArticles] = useState<RawArticleItem[] | null>(null);
     const itemsPerPage = 9;
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "News & Activity",
+        title: t.pages.news.title,
         backgroundImage: "/images/banner/news.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "News & Activity" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.pages.news.title },
+        ],
     };
 
     useEffect(() => {

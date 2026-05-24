@@ -6,6 +6,7 @@ import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { ContactForm } from "@/components/ui/contact";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawContactInfo,
     deriveContactInfo,
@@ -28,10 +29,15 @@ export default function ContactUsPage() {
         [rawData, language]
     );
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "Contact Us",
+        title: t.pages.contactUs.title,
         backgroundImage: "/images/banner/contact-us.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Contact Us" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.contactUs },
+        ],
     };
 
     const handleGetDirections = () => {
@@ -47,7 +53,7 @@ export default function ContactUsPage() {
                         <div className='contact-info'>
                             <div className='contact-info__content'>
                                 <div className='contact-info__header'>
-                                    <h2 className='contact-info__subtitle'>Get In Touch With</h2>
+                                    <h2 className='contact-info__subtitle'>{t.pages.contactUs.getInTouchWith}</h2>
                                     <h1 className='contact-info__title'>
                                         {contactInfo.companyName}
                                     </h1>
@@ -79,7 +85,7 @@ export default function ContactUsPage() {
                                     />
                                 </div>
                                 <PrimaryButton onClick={handleGetDirections}>
-                                    Get Directions
+                                    {t.pages.contactUs.getDirections}
                                 </PrimaryButton>
                             </div>
                             <div className='contact-info__map'>

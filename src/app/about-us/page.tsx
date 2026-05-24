@@ -5,6 +5,7 @@ import { MissionCard } from "@/components/ui/cards/MissionCard";
 import { useAOS } from "@/hooks/useAOS";
 import { useState, useEffect, useMemo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawAboutPage,
     fetchRawMissionCards,
@@ -62,11 +63,16 @@ export default function AboutUsPage() {
         [rawMilestones, language]
     );
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "About Us",
-        subtitle: "Learn more about Passion Marine and our commitment to excellence",
+        title: t.pages.aboutUs.title,
+        subtitle: t.pages.aboutUs.subtitle,
         backgroundImage: pageData.bannerImage ?? "/images/banner/about-us.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "About Us" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.aboutUs },
+        ],
     };
 
     const handleCardToggle = (index: number) => {
