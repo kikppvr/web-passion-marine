@@ -62,3 +62,12 @@ export {
     DEFAULT_MISSION_CARDS,
     DEFAULT_MILESTONES,
 } from "./about";
+export type { RawHomePage, HomePageData, RawHomeServiceItem, HomeServiceItem } from "./home";
+export {
+    fetchRawHomePage,
+    deriveHomePage,
+    DEFAULT_HOME_PAGE,
+    fetchRawHomeServices,
+    deriveHomeServices,
+    DEFAULT_HOME_SERVICES,
+} from "./home";
