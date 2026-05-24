@@ -14,11 +14,21 @@ import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
 import { TextReveal } from "@/components/ui/animation/TextReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
-import newsData from "@/data/news-data.json";
 import {
     fetchRawPortfolios,
     derivePortfolioItem,
     type RawPortfolioItem,
+    fetchRawHomePage,
+    deriveHomePage,
+    DEFAULT_HOME_PAGE,
+    type RawHomePage,
+    fetchRawHomeServices,
+    deriveHomeServices,
+    DEFAULT_HOME_SERVICES,
+    type RawHomeServiceItem,
+    fetchRawArticles,
+    deriveNewsItem,
+    type RawArticleItem,
 } from "@/lib/directus";
 //styles
 import "@/styles/components/home/index.scss";
@@ -57,9 +67,15 @@ export default function HeaderPage() {
     const [isStatsVisible, setIsStatsVisible] = useState(false);
     const confirmDialog = useDialog();
     const [rawPortfolioData, setRawPortfolioData] = useState<RawPortfolioItem[] | null>(null);
+    const [rawHomeData, setRawHomeData] = useState<RawHomePage | null>(null);
+    const [rawHomeServices, setRawHomeServices] = useState<RawHomeServiceItem[] | null>(null);
+    const [rawArticles, setRawArticles] = useState<RawArticleItem[] | null>(null);
 
     useEffect(() => {
         fetchRawPortfolios().then(setRawPortfolioData);
+        fetchRawHomePage().then(setRawHomeData);
+        fetchRawHomeServices().then(setRawHomeServices);
+        fetchRawArticles().then(setRawArticles);
     }, []);
 
     // Intersection Observer for stats animation
@@ -87,68 +103,11 @@ export default function HeaderPage() {
         };
     }, []);
 
-    const boatSolutionsData = [
-        {
-            title: "Engine Repair & Maintenance",
-            image: "/images/home/business/business-01.webp",
-            video: "/videos/business/video-01.mp4",
-            href: "/services/engineering-solutions#engine-repair-maintenance",
-        },
-        {
-            title: "Boat Upgrades",
-            image: "/images/home/business/business-02.webp",
-            video: "/videos/business/video-02.mp4",
-            href: "/services/engineering-solutions#boat-upgrades",
-        },
-        {
-            title: "Electronics & Solar",
-            image: "/images/home/business/business-03.webp",
-            video: "/videos/business/video-03.mp4",
-            href: "/services/engineering-solutions#electronics-solar",
-        },
-        {
-            title: "Structure Repair",
-            image: "/images/home/business/business-04.webp",
-            video: "/videos/business/video-04.mp4",
-            href: "/services/engineering-solutions#structure-repair",
-        },
-        {
-            title: "Custom Boat Design",
-            image: "/images/home/business/business-05.webp",
-            video: "/videos/business/video-05.mp4",
-            href: "/services/aesthetic-solutions#custom-boat-design",
-        },
-        {
-            title: "Teak & EVA Flooring",
-            image: "/images/home/business/business-06.webp",
-            video: "/videos/business/video-06.mp4",
-            href: "/services/aesthetic-solutions#teak-eva-flooring",
-        },
-        {
-            title: "Marine Upholstery",
-            image: "/images/home/business/business-07.webp",
-            video: "/videos/business/video-07.mp4",
-            href: "/services/aesthetic-solutions#marine-upholstery",
-        },
-        {
-            title: "Gelcoat Repair & Finishing",
-            image: "/images/home/business/business-08.webp",
-            video: "/videos/business/video-08.mp4",
-            href: "/services/aesthetic-solutions#gelcoat-paint",
-        },
-        {
-            title: "Fiberglass Furniture",
-            image: "/images/home/business/business-09.webp",
-            video: "/videos/business/video-09.mp4",
-            href: "/services/aesthetic-solutions#fiberglass-furniture",
-        },
-        {
-            title: "Interior Styling",
-            image: "/images/home/business/business-10.webp",
-            video: "/videos/business/video-10.mp4",
-            href: "/services/aesthetic-solutions#interior-styling",
-        },
-    ];
+    const boatSolutionsData = useMemo(
+        () =>
+            rawHomeServices ? deriveHomeServices(rawHomeServices, language) : DEFAULT_HOME_SERVICES,
+        [rawHomeServices, language]
+    );
 
     // Easy Boat Rental for Every Trip
     const easyBoatRentalData = [
@@ -190,6 +149,8 @@ export default function HeaderPage() {
         },
     ];
 
+    const homePage = rawHomeData ? deriveHomePage(rawHomeData, language) : DEFAULT_HOME_PAGE;
+
     const ourPortfolioData = useMemo(
         () =>
             (rawPortfolioData ?? []).map(p => ({
@@ -199,19 +160,14 @@ export default function HeaderPage() {
         [rawPortfolioData, language]
     );
 
-    // Our Latest News data - ดึง 3 ข่าวล่าสุดจาก news-data.json
-    const allNews = newsData.news;
-    const ourLatestNewsData = allNews
-        .slice(0, 3) // เอา 3 ข่าวล่าสุด
-        .map(news => ({
-            title: news.title,
-            description: news.description,
-            image: news.image,
-            date: news.date,
-            category: news.category,
-            href: news.href,
-            video: "", // SwiperSlideData requires video property
-        }));
+    const ourLatestNewsData = useMemo(
+        () =>
+            (rawArticles ?? []).slice(0, 3).map(article => ({
+                ...deriveNewsItem(article, language),
+                video: "",
+            })),
+        [rawArticles, language]
+    );
 
     // Brands data for slider
     const brandsData = [
@@ -357,9 +313,9 @@ export default function HeaderPage() {
 
             {/* Video Hero Banner */}
             <VideoHeroBanner
-                videoSrc='/videos/banner/banner-home.mp4'
-                title='Expert Boat Solutions,'
-                subtitle='Powered by Passion'
+                videoSrc={homePage.heroVideoUrl ?? "/videos/banner/banner-home.mp4"}
+                title={homePage.heroTitle}
+                subtitle={homePage.heroSubtitle}
                 description=''
                 showPlayButton={false}
                 autoPlay={true}
@@ -590,7 +546,12 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp start={80} end={103} duration={2} suffix='+' />
+                                            <CountUp
+                                                start={80}
+                                                end={homePage.statsProjects}
+                                                duration={2}
+                                                suffix='+'
+                                            />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Project</div>
@@ -598,7 +559,12 @@ export default function HeaderPage() {
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
                                         {isStatsVisible && (
-                                            <CountUp start={20} end={47} duration={2} suffix='+' />
+                                            <CountUp
+                                                start={20}
+                                                end={homePage.statsCustomers}
+                                                duration={2}
+                                                suffix='+'
+                                            />
                                         )}
                                     </div>
                                     <div className='our-portfolio__stat-label'>Customer</div>
@@ -654,9 +620,13 @@ export default function HeaderPage() {
                                             <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--base'></i>
                                             <i className='ph-fill ph-star our-portfolio__star our-portfolio__star--fill'></i>
                                         </div>
-                                        <span className='our-portfolio__rating-text'>(4.5)</span>
+                                        <span className='our-portfolio__rating-text'>
+                                            ({homePage.reviewScore})
+                                        </span>
                                     </div>
-                                    <div className='our-portfolio__review-count'>32 Review</div>
+                                    <div className='our-portfolio__review-count'>
+                                        {homePage.reviewCount} Review
+                                    </div>
                                 </div>
                             </div>
                         </div>
