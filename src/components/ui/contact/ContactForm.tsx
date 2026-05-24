@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
 import ContactFormModal from "./ContactFormModal";
 import PDPAModal from "./PDPAModal";
+import { useTranslation } from "@/i18n";
 
 export interface ContactFormData {
     firstName: string;
@@ -20,6 +21,8 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
+    const t = useTranslation();
+
     const [formData, setFormData] = useState<ContactFormData>({
         firstName: "",
         lastName: "",
@@ -115,20 +118,20 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
     const validateForm = (): boolean => {
         const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
 
-        if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
-        if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+        if (!formData.firstName.trim()) newErrors.firstName = t.contactForm.errors.firstName;
+        if (!formData.lastName.trim()) newErrors.lastName = t.contactForm.errors.lastName;
 
         if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
+            newErrors.email = t.contactForm.errors.emailRequired;
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email";
+            newErrors.email = t.contactForm.errors.emailInvalid;
         }
 
-        if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-        if (!formData.message.trim()) newErrors.message = "Message is required";
+        if (!formData.subject.trim()) newErrors.subject = t.contactForm.errors.subject;
+        if (!formData.message.trim()) newErrors.message = t.contactForm.errors.message;
 
         if (!formData.acceptTerms) {
-            newErrors.acceptTerms = "You must accept the terms and conditions";
+            newErrors.acceptTerms = t.contactForm.errors.acceptTerms;
         }
 
         setErrors(newErrors);
@@ -145,8 +148,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         // Show loading modal immediately
         setModalData({
             type: "loading",
-            title: "Sending Your Message",
-            message: "Please wait while we process your request. This may take a few seconds.",
+            title: t.contactForm.toast.loadingTitle,
+            message: t.contactForm.toast.loadingMessage,
         });
         setModalOpen(true);
 
@@ -216,9 +219,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
             setModalData({
                 type: "success",
-                title: "Message Sent Successfully!",
-                message:
-                    "Thank you for contacting Passion Marine. We have received your message and will respond to you as soon as possible.",
+                title: t.contactForm.toast.successTitle,
+                message: t.contactForm.toast.successMessage,
             });
             setModalOpen(true);
         } catch (error) {
@@ -227,13 +229,12 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             const errorMessage =
                 error instanceof Error
                     ? error.message
-                    : "An error occurred. Please try again later.";
+                    : t.contactForm.toast.errorFallback;
 
             setModalData({
                 type: "error",
-                title: "Failed to Send Message",
-                message:
-                    "We encountered an issue while sending your message. Please try again or contact us directly.",
+                title: t.contactForm.toast.errorTitle,
+                message: t.contactForm.toast.errorMessage,
                 errorDetails: errorMessage,
             });
             setModalOpen(true);
@@ -245,18 +246,15 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
     return (
         <div className='contact-form'>
             <div className='contact-form__header'>
-                <h2 className='contact-form__title'>Contact Form</h2>
-                <p className='contact-form__description'>
-                    Your questions and comments are important to us. Please use the form below to
-                    contact and we will get back to you as soon as possible.
-                </p>
+                <h2 className='contact-form__title'>{t.contactForm.title}</h2>
+                <p className='contact-form__description'>{t.contactForm.description}</p>
             </div>
 
             <form onSubmit={handleSubmit} className='contact-form__form'>
                 <div className='contact-form__row'>
                     <div className='contact-form__field'>
                         <label className='contact-form__label'>
-                            First Name <span className='contact-form__required'>*</span>
+                            {t.contactForm.firstName} <span className='contact-form__required'>*</span>
                         </label>
                         <input
                             type='text'
@@ -272,7 +270,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
                     <div className='contact-form__field'>
                         <label className='contact-form__label'>
-                            Last Name <span className='contact-form__required'>*</span>
+                            {t.contactForm.lastName} <span className='contact-form__required'>*</span>
                         </label>
                         <input
                             type='text'
@@ -290,7 +288,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 <div className='contact-form__row'>
                     <div className='contact-form__field'>
                         <label className='contact-form__label'>
-                            Email <span className='contact-form__required'>*</span>
+                            {t.contactForm.email} <span className='contact-form__required'>*</span>
                         </label>
                         <input
                             type='email'
@@ -305,7 +303,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                     </div>
 
                     <div className='contact-form__field'>
-                        <label className='contact-form__label'>Telephone</label>
+                        <label className='contact-form__label'>{t.contactForm.telephone}</label>
                         <input
                             type='tel'
                             name='telephone'
@@ -320,7 +318,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
                 <div className='contact-form__field'>
                     <label className='contact-form__label'>
-                        Subject <span className='contact-form__required'>*</span>
+                        {t.contactForm.subject} <span className='contact-form__required'>*</span>
                     </label>
                     <input
                         type='text'
@@ -336,7 +334,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
                 <div className='contact-form__field'>
                     <label className='contact-form__label'>
-                        Message <span className='contact-form__required'>*</span>
+                        {t.contactForm.message} <span className='contact-form__required'>*</span>
                     </label>
                     <textarea
                         name='message'
@@ -360,7 +358,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                             className='contact-form__checkbox-input'
                         />
                         <label htmlFor='acceptTerms' className='contact-form__checkbox-label'>
-                            I have read and accepted terms and conditions specified in the{" "}
+                            {t.contactForm.pdpa.prefix}{" "}
                             <button
                                 type='button'
                                 onClick={e => {
@@ -368,10 +366,9 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                                     setPdpaModalOpen(true);
                                 }}
                                 className='contact-form__link contact-form__link--button'>
-                                PDPA Policy
+                                {t.contactForm.pdpa.policyLink}
                             </button>{" "}
-                            and do hereby consent to the collecting, processing and/or disclosing of
-                            the personal data provided by me to fulfil the above-said purposes.
+                            {t.contactForm.pdpa.suffix}
                         </label>
                     </div>
                     {errors.acceptTerms && (
@@ -385,7 +382,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                         variant='default'
                         showIcon={false}
                         disabled={isSubmitting}>
-                        {isSubmitting ? "Sending..." : "Submit"}
+                        {isSubmitting ? t.contactForm.submitting : t.contactForm.submit}
                     </BookNowButton>
                 </div>
             </form>

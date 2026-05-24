@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "@/i18n";
 //components
 import { ReadMoreButton } from "@/components/ui/button/ReadMoreButton";
 
@@ -27,6 +28,8 @@ const NewsCard = ({
     href = "#",
     variant = "default",
 }: NewsCardProps) => {
+    const t = useTranslation();
+
     return (
         <div className={cn("card-news", `card-news--${variant}`, className)}>
             <Link href={href} className='card-news__link'>
@@ -49,7 +52,7 @@ const NewsCard = ({
                     </div>
 
                     <div className='card-news__footer'>
-                        <ReadMoreButton>Read More</ReadMoreButton>
+                        <ReadMoreButton>{t.buttons.readMore}</ReadMoreButton>
                     </div>
                 </div>
             </Link>

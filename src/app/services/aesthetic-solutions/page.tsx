@@ -6,6 +6,7 @@ import "@/styles/page/aesthetic-solutions.scss";
 import { GallerySlider } from "@/components/ui/media";
 import { BoatColorCustomizer } from "@/components/ui/aesthetic";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawAestheticPage,
     fetchRawServices,
@@ -77,14 +78,16 @@ export default function AestheticSolutionsPage() {
     }, []);
 
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "Aesthetic Solutions",
+        title: t.nav.aestheticSolutions,
         backgroundImage: "/images/banner/aesthetic-solutions.webp",
         breadcrumbItems: [
-            { label: "Homepage", href: "/" },
-            { label: "Our Services" },
-            { label: "Overview Services", href: "/services/overview-services" },
-            { label: "Aesthetic Solutions" },
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.ourServices },
+            { label: t.nav.overviewServices, href: "/services/overview-services" },
+            { label: t.nav.aestheticSolutions },
         ],
     };
 

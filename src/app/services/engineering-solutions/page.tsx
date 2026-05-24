@@ -5,6 +5,7 @@ import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/engineering-solutions.scss";
 import { GallerySlider } from "@/components/ui/media";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawEngineeringPage,
     fetchRawServices,
@@ -71,14 +72,16 @@ export default function EngineeringSolutionsPage() {
 
 
 
+    const t = useTranslation();
+
     const bannerProps = {
-        title: "Engineering Solutions",
+        title: t.nav.engineeringSolutions,
         backgroundImage: "/images/banner/engineering-solutions.webp",
         breadcrumbItems: [
-            { label: "Homepage", href: "/" },
-            { label: "Our Services" },
-            { label: "Overview Services", href: "/services/overview-services" },
-            { label: "Engineering Solutions" },
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.ourServices },
+            { label: t.nav.overviewServices, href: "/services/overview-services" },
+            { label: t.nav.engineeringSolutions },
         ],
     };
 

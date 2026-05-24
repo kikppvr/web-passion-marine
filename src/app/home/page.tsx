@@ -14,6 +14,7 @@ import { useDialog } from "@/components/ui/dialog";
 import CountUp from "react-countup";
 import { TextReveal } from "@/components/ui/animation/TextReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import {
     fetchRawPortfolios,
     derivePortfolioItem,
@@ -64,6 +65,7 @@ const Footer = dynamic(() => import("@/components/ui/layout").then(m => ({ defau
 export default function HeaderPage() {
     const router = useRouter();
     const { language } = useLanguage();
+    const t = useTranslation();
     const [isStatsVisible, setIsStatsVisible] = useState(false);
     const confirmDialog = useDialog();
     const [rawPortfolioData, setRawPortfolioData] = useState<RawPortfolioItem[] | null>(null);
@@ -332,9 +334,9 @@ export default function HeaderPage() {
             <div className='our-services-bg'>
                 <section className='our-services'>
                     <div className='our-services__container'>
-                        <h2 className='our-services__title'>Our Services</h2>
+                        <h2 className='our-services__title'>{t.pages.home.ourServicesTitle}</h2>
                         <TextReveal
-                            text='General Boat Services,'
+                            text={t.pages.home.ourServicesDesc1}
                             className='our-services__description-1'
                             delay={300}
                             lineDelay={0}
@@ -342,7 +344,7 @@ export default function HeaderPage() {
                             as='div'
                         />
                         <TextReveal
-                            text='Engine Repair, Boat Restoration'
+                            text={t.pages.home.ourServicesDesc2}
                             className='our-services__description-2'
                             delay={300}
                             lineDelay={0}
@@ -355,11 +357,11 @@ export default function HeaderPage() {
                 <section className='boat-solutions'>
                     <div className='boat-solutions__container'>
                         <div className='boat-solutions__header'>
-                            <h2 className='boat-solutions__title'>Boat Solutions</h2>
+                            <h2 className='boat-solutions__title'>{t.pages.home.boatSolutionsTitle}</h2>
                             <div className='boat-solutions__button boat-solutions__button--desktop'>
                                 <PrimaryButton
                                     onClick={() => router.push("/services/overview-services")}>
-                                    Overview Services
+                                    {t.nav.overviewServices}
                                 </PrimaryButton>
                             </div>
                         </div>
@@ -391,7 +393,7 @@ export default function HeaderPage() {
                         <div className='boat-solutions__button boat-solutions__button--mobile'>
                             <PrimaryButton
                                 onClick={() => router.push("/services/overview-services")}>
-                                Overview Services
+                                {t.nav.overviewServices}
                             </PrimaryButton>
                         </div>
                     </div>
@@ -454,12 +456,12 @@ export default function HeaderPage() {
                                     <span className='volvo-penta__title--bold'>Passion Marine</span>
                                     <span className='volvo-penta__title--light'>
                                         {" "}
-                                        has been appointed as an authorized service dealer for{" "}
+                                        {t.pages.home.volvoPentaBody}{" "}
                                     </span>
                                     <span className='volvo-penta__title--bold'>Volvo Penta</span>
                                 </h2>
                                 <p className='volvo-penta__subtitle'>
-                                    Connect with us at Petra Marina Pathum Thani
+                                    {t.pages.home.volvoPentaLocation}
                                 </p>
                             </div>
                         </div>
@@ -469,7 +471,7 @@ export default function HeaderPage() {
                                 icon='ph-fill ph-file-text'
                                 noIconRotate={true}
                                 onClick={confirmDialog.open}>
-                                View Document
+                                {t.buttons.viewDocument}
                             </PrimaryButton>
 
                             {/* <PrimaryButton
@@ -484,9 +486,9 @@ export default function HeaderPage() {
                                 onOpenChange={confirmDialog.setIsOpen}
                                 documentImageSrc='/images/home/cer-volvo.png'
                                 documentImageAlt='Volvo Penta Appointment Letter - Letter of Appointment from Alpha Tech and Volvo Penta dated 1st August 2024'
-                                announcementText='Passion Marine has been appointed as an authorized service dealer for Volvo Penta'
+                                announcementText={t.pages.home.volvoPentaAnnouncement}
                                 announcementHighlight={["Passion Marine", "Volvo Penta"]}
-                                locationText='Connect with us at Petra Marina Pathum Thani'
+                                locationText={t.pages.home.volvoPentaLocation}
                                 className='modal-document'
                             />
                         </div>
@@ -496,7 +498,7 @@ export default function HeaderPage() {
 
             <section className='brands'>
                 <div className='brands__container'>
-                    <h2 className='brands__title'>Experienced in leading brands</h2>
+                    <h2 className='brands__title'>{t.pages.home.brandsTitle}</h2>
                     <div className='brands__slider'>
                         <div className='brands__track'>
                             {brandsData.map((item, index) => (
@@ -530,10 +532,10 @@ export default function HeaderPage() {
             <section className='our-portfolio'>
                 <div className='our-portfolio__container'>
                     <div className='our-portfolio__header'>
-                        <h2 className='our-portfolio__title'>Our Portfolio</h2>
+                        <h2 className='our-portfolio__title'>{t.pages.home.portfolioTitle}</h2>
                         <div className='our-portfolio__button'>
                             <PrimaryButton theme='dark' onClick={() => router.push("/portfolio")}>
-                                Explore More
+                                {t.buttons.exploreMore}
                             </PrimaryButton>
                         </div>
                     </div>
@@ -554,7 +556,7 @@ export default function HeaderPage() {
                                             />
                                         )}
                                     </div>
-                                    <div className='our-portfolio__stat-label'>Project</div>
+                                    <div className='our-portfolio__stat-label'>{t.pages.home.projectLabel}</div>
                                 </div>
                                 <div className='our-portfolio__stat-item'>
                                     <div className='our-portfolio__stat-number'>
@@ -567,7 +569,7 @@ export default function HeaderPage() {
                                             />
                                         )}
                                     </div>
-                                    <div className='our-portfolio__stat-label'>Customer</div>
+                                    <div className='our-portfolio__stat-label'>{t.pages.home.customerLabel}</div>
                                 </div>
                             </div>
 
@@ -625,7 +627,7 @@ export default function HeaderPage() {
                                         </span>
                                     </div>
                                     <div className='our-portfolio__review-count'>
-                                        {homePage.reviewCount} Review
+                                        {homePage.reviewCount} {t.pages.home.reviewLabel}
                                     </div>
                                 </div>
                             </div>
@@ -664,7 +666,7 @@ export default function HeaderPage() {
                     {/* Mobile Explore More Button */}
                     <div className='our-portfolio__mobile-button'>
                         <PrimaryButton theme='dark' onClick={() => router.push("/portfolio")}>
-                            Explore More
+                            {t.buttons.exploreMore}
                         </PrimaryButton>
                     </div>
                 </div>
@@ -673,10 +675,10 @@ export default function HeaderPage() {
             <section className='our-latest-news'>
                 <div className='our-latest-news__container'>
                     <div className='our-latest-news__header'>
-                        <h2 className='our-latest-news__title'>Our Latest News</h2>
+                        <h2 className='our-latest-news__title'>{t.pages.home.latestNewsTitle}</h2>
                         <div className='our-latest-news__button our-latest-news__button--desktop'>
                             <PrimaryButton onClick={() => router.push("/news")}>
-                                View All
+                                {t.buttons.viewAll}
                             </PrimaryButton>
                         </div>
                     </div>
@@ -706,7 +708,7 @@ export default function HeaderPage() {
                         />
                     </div>
                     <div className='our-latest-news__button our-latest-news__button--mobile'>
-                        <PrimaryButton onClick={() => router.push("/news")}>View All</PrimaryButton>
+                        <PrimaryButton onClick={() => router.push("/news")}>{t.buttons.viewAll}</PrimaryButton>
                     </div>
                 </div>
             </section>

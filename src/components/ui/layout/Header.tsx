@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 
 export interface HeaderProps {
     className?: string;
@@ -31,21 +32,22 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const { language, setLanguage } = useLanguage();
     const currentLanguage = language.toUpperCase() as "EN" | "TH";
+    const t = useTranslation();
 
     // Navigation items
     const navItems: NavItem[] = [
         {
-            label: "About Us",
+            label: t.nav.aboutUs,
             href: "/about-us",
         },
         {
-            label: "Our Services",
+            label: t.nav.ourServices,
             href: "/services",
             hasDropdown: true,
             dropdownItems: [
-                { label: "Overview Services", href: "/services/overview-services" },
-                { label: "Engineering Solutions", href: "/services/engineering-solutions" },
-                { label: "Aesthetic Solutions", href: "/services/aesthetic-solutions" },
+                { label: t.nav.overviewServices, href: "/services/overview-services" },
+                { label: t.nav.engineeringSolutions, href: "/services/engineering-solutions" },
+                { label: t.nav.aestheticSolutions, href: "/services/aesthetic-solutions" },
             ],
         },
         // {
@@ -53,15 +55,15 @@ const Header = ({ className, theme = "white" }: HeaderProps) => {
         //     href: "/charter",
         // },
         {
-            label: "Portfolio",
+            label: t.nav.portfolio,
             href: "/portfolio",
         },
         {
-            label: "News and Activities",
+            label: t.nav.newsAndActivities,
             href: "/news",
         },
         {
-            label: "Contact Us",
+            label: t.nav.contactUs,
             href: "/contact-us",
         },
     ];
