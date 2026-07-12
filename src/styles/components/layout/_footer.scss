@@ -136,6 +136,7 @@
         @include fonts.text-body;
         color: var(--text-white);
         display: flex;
+        flex-wrap: wrap;
         gap: var(--space-1);
 
         @include base.media-down(mobile) {

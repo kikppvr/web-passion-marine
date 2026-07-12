@@ -460,9 +460,6 @@ export default function HeaderPage() {
                                     </span>
                                     <span className='volvo-penta__title--bold'>Volvo Penta</span>
                                 </h2>
-                                <p className='volvo-penta__subtitle'>
-                                    {t.pages.home.volvoPentaLocation}
-                                </p>
                             </div>
                         </div>
                         <div className='volvo-penta__content-right'>
@@ -488,7 +485,6 @@ export default function HeaderPage() {
                                 documentImageAlt='Volvo Penta Appointment Letter - Letter of Appointment from Alpha Tech and Volvo Penta dated 1st August 2024'
                                 announcementText={t.pages.home.volvoPentaAnnouncement}
                                 announcementHighlight={["Passion Marine", "Volvo Penta"]}
-                                locationText={t.pages.home.volvoPentaLocation}
                                 className='modal-document'
                             />
                         </div>
