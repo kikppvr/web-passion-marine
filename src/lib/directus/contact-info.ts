@@ -81,10 +81,16 @@ export const DEFAULT_CONTACT_INFO: ContactInfo = {
     companyName: "Passion Marine Company Limited",
     address: "113/14, Moo 5, Chiang Rak Yai, Sam Khok, Pathum Thani 12160",
     phones: [
-        { number: "081 402 4741", label: "Phone" },
-        { number: "081 402 4741", label: "Fax" },
+        { number: "087-259-9158", label: "Phone" },
+        { number: "087-585-1656", label: "Phone" },
     ],
-    emails: [{ email: "info@passionmarine.co.th", label: "Email" }],
+    emails: [
+        { email: "info@passionmarine.co.th", label: "For General Inquiries" },
+        {
+            email: "athinee@passionmarine.co.th",
+            label: "For Corporate and Business Inquiries",
+        },
+    ],
     googleMapsUrl:
         "https://www.google.com/maps/place/Passion+Marine+Co.,Ltd./@14.0579515,100.5729664,17z",
     googleMapsEmbedUrl:
