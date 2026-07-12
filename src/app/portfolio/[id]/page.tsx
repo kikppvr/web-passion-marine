@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PrimaryButton } from "@/components/ui/button/PrimaryButton";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
@@ -11,61 +10,42 @@ import { ServicesSwiper } from "@/components/ui/portfolio/ServicesSwiper";
 import SocialIcons from "@/components/ui/social/SocialIcons";
 import { SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
-import portfolioDetailDataJson from "@/data/portfolio-detail-data.json";
-import portfolioDataJson from "@/data/portfolio-data.json";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
+import {
+    fetchRawPortfolios,
+    derivePortfolioDetail,
+    type RawPortfolioItem,
+    type PortfolioDetailItem,
+} from "@/lib/directus";
 
 const LightGallery = dynamic(
     () => import("@/components/ui/media").then(mod => ({ default: mod.LightGallery })),
     { ssr: false }
 );
 
-interface PortfolioDetailData {
-    id: string;
-    title: string;
-    description: string;
-    model: string;
-    brandLogos: string[];
-    mainImage: string;
-    gallery: Array<{
-        src: string;
-        alt: string;
-    }>;
-    content: string | string[];
-    servicesProvided: Array<{
-        title: string;
-        image: string;
-    }>;
-    otherPortfolios: Array<{
-        id: string;
-        title: string;
-        model: string;
-        image: string;
-        brandLogos: string[];
-        href: string;
-    }>;
-}
-
 export default function PortfolioDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const { language } = useLanguage();
     const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
+    const [rawData, setRawData] = useState<RawPortfolioItem[] | null>(null);
 
     useEffect(() => {
         params.then(setResolvedParams);
+        fetchRawPortfolios().then(setRawData);
     }, [params]);
 
-    if (!resolvedParams) {
-        return <div>Loading...</div>;
+    const portfolioDetailData: PortfolioDetailItem | null = useMemo(() => {
+        if (!resolvedParams || !rawData) return null;
+        const rawItem = rawData.find(p => String(p.id) === resolvedParams.id) ?? rawData[0];
+        if (!rawItem) return null;
+        return derivePortfolioDetail(rawItem, rawData, language);
+    }, [resolvedParams, rawData, language]);
+
+    const t = useTranslation();
+
+    if (!portfolioDetailData) {
+        return <div>{t.common.loading}</div>;
     }
-
-    // Get portfolio detail data from JSON file
-    const portfolioDetailData: PortfolioDetailData =
-        portfolioDetailDataJson.portfolioDetails.find(
-            portfolio => portfolio.id === resolvedParams.id
-        ) || portfolioDetailDataJson.portfolioDetails[0];
-
-    // Get other portfolios (excluding current one)
-    const otherPortfolios = portfolioDataJson.portfolios
-        .filter(portfolio => portfolio.id !== resolvedParams.id)
-        .slice(0, 3);
 
     return (
         <MainLayout headerTheme='white'>
@@ -83,7 +63,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                 </p>
 
                                 <div className='text-h6 mb-4 font-semibold text-[var(--blue-500)] xl:mb-6'>
-                                    Model: {portfolioDetailData.model}
+                                    {t.pages.portfolio.model} {portfolioDetailData.model}
                                 </div>
                                 <div className='flex justify-center gap-4'>
                                     {portfolioDetailData.brandLogos.map((logo, index) => (
@@ -100,31 +80,6 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                                 </div>
                             </div>
                         </div>
-                        {/* <div className='grid gap-4 text-center lg:gap-6 lg:px-16 xl:px-28'>
-                            <h1 className='text-h1 text-[var(--blue-500)]'>
-                                {portfolioDetailData.title}
-                            </h1>
-                            <p className='text-body lg:text-lead-2 text-[var(--grey-600)]'>
-                                {portfolioDetailData.description}
-                            </p>
-
-                            <div className='text-h6 font-semibold text-[var(--blue-500)]'>
-                                Model: {portfolioDetailData.model}
-                            </div>
-                            <div className='flex justify-center gap-4'>
-                                {portfolioDetailData.brandLogos.map((logo, index) => (
-                                    <div key={index} className=''>
-                                        <Image
-                                            src={logo}
-                                            alt={`Brand ${index + 1}`}
-                                            width={100}
-                                            height={37}
-                                            className='portfolio-hero__brand-logo'
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </div> */}
                     </div>
                 </section>
 
@@ -147,33 +102,10 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 <section className='section section--space-bottom portfolio-content'>
                     <div className='container'>
                         <div className='text-center lg:px-16 xl:px-28'>
-                            {typeof portfolioDetailData.content === "string" ? (
-                                <div
-                                    className='portfolio-content'
-                                    dangerouslySetInnerHTML={{
-                                        __html: portfolioDetailData.content,
-                                    }}
-                                />
-                            ) : (
-                                <div className='portfolio-content'>
-                                    {portfolioDetailData.content.map((item, index) => {
-                                        // Check if item contains HTML tags
-                                        const hasHTML = /<[^>]+>/.test(item);
-                                        return hasHTML ? (
-                                            <div
-                                                key={index}
-                                                dangerouslySetInnerHTML={{ __html: item }}
-                                            />
-                                        ) : (
-                                            <p
-                                                key={index}
-                                                className='text-body text-[var(--grey-800)]'>
-                                                {item}
-                                            </p>
-                                        );
-                                    })}
-                                </div>
-                            )}
+                            <div
+                                className='portfolio-content'
+                                dangerouslySetInnerHTML={{ __html: portfolioDetailData.content }}
+                            />
                         </div>
                     </div>
                 </section>
@@ -183,7 +115,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                     <div className='container'>
                         <div className='flex items-center justify-between lg:px-16 xl:px-28'>
                             <PrimaryButton theme='revert' onClick={() => window.history.back()}>
-                                Back
+                                {t.common.back}
                             </PrimaryButton>
                             <SocialIcons
                                 showLabel={true}
@@ -206,7 +138,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 xl:col-span-10 xl:col-start-2'>
                                 <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
-                                    Services provided
+                                    {t.pages.portfolio.servicesProvided}
                                 </h2>
                                 <div className='portfolio-services__swiper'>
                                     <ServicesSwiper
@@ -245,33 +177,18 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
                 </section>
 
                 {/* Other Portfolio Section */}
-                {otherPortfolios.length > 0 && (
+                {portfolioDetailData.otherPortfolios.length > 0 && (
                     <section className='section section--space-y bg-blue-abstract portfolio-related'>
                         <div className='container'>
                             <div className='grid grid-cols-12'>
                                 <div className='col-span-12'>
                                     <h2 className='text-h2 mb-8 text-[var(--blue-500)]'>
-                                        Other portfolio
+                                        {t.pages.portfolio.otherPortfolio}
                                     </h2>
 
-                                    {/* Grid for Desktop (lg and above) */}
-                                    {/* <div className='hidden grid-cols-1 gap-6 md:grid-cols-2 lg:grid lg:grid-cols-3'>
-                                        {otherPortfolios.map(portfolio => (
-                                            <PortfolioCard
-                                                key={portfolio.id}
-                                                title={portfolio.title}
-                                                model={portfolio.model}
-                                                image={portfolio.image}
-                                                brandLogos={portfolio.brandLogos}
-                                                href={portfolio.href}
-                                            />
-                                        ))}
-                                    </div> */}
-
-                                    {/* Slider for Tablet and Mobile */}
                                     <div className='portfolio-services__swiper'>
                                         <SwiperSlider
-                                            data={otherPortfolios.map(
+                                            data={portfolioDetailData.otherPortfolios.map(
                                                 portfolio =>
                                                     ({
                                                         title: portfolio.title,

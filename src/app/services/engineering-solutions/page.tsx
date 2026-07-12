@@ -1,12 +1,46 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/engineering-solutions.scss";
 import { GallerySlider } from "@/components/ui/media";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
+import {
+    fetchRawEngineeringPage,
+    fetchRawServices,
+    derivePageData,
+    deriveServiceSections,
+    DEFAULT_PAGE_DATA,
+    DEFAULT_SERVICE_SECTIONS,
+    type RawPageData,
+    type RawServiceItem,
+} from "@/lib/directus";
 
 export default function EngineeringSolutionsPage() {
+    const { language } = useLanguage();
+
+    const [rawPage, setRawPage] = useState<RawPageData | null>(null);
+    const [rawSections, setRawSections] = useState<RawServiceItem[] | null>(null);
+
+    const [page, setPage] = useState(DEFAULT_PAGE_DATA);
+    const [sections, setSections] = useState(DEFAULT_SERVICE_SECTIONS);
+
+    useEffect(() => {
+        fetchRawEngineeringPage().then(setRawPage);
+        fetchRawServices("engineering").then(setRawSections);
+    }, []);
+
+    useEffect(() => {
+        if (rawPage) setPage(derivePageData(rawPage, language));
+    }, [rawPage, language]);
+
+    useEffect(() => {
+        if (rawSections) setSections(deriveServiceSections(rawSections, language));
+    }, [rawSections, language]);
+
     // Handle hash links with scroll offset for fixed header
+    // depends on `sections` so scroll re-runs after Directus data renders
     useEffect(() => {
         const getHeaderHeight = () => {
             if (window.innerWidth <= 768) return 60;
@@ -28,7 +62,6 @@ export default function EngineeringSolutionsPage() {
             window.scrollTo({ top: targetPosition, behavior: "smooth" });
         };
 
-        // Wait for page to render, then scroll
         const timeoutId = setTimeout(scrollToHash, 100);
         window.addEventListener("hashchange", scrollToHash);
 
@@ -36,66 +69,22 @@ export default function EngineeringSolutionsPage() {
             clearTimeout(timeoutId);
             window.removeEventListener("hashchange", scrollToHash);
         };
-    }, []);
+    }, [sections]);
+
+
+
+    const t = useTranslation();
 
     const bannerProps = {
-        title: "Engineering Solutions",
+        title: t.nav.engineeringSolutions,
         backgroundImage: "/images/banner/engineering-solutions.webp",
         breadcrumbItems: [
-            { label: "Homepage", href: "/" },
-            { label: "Our Services" },
-            { label: "Overview Services", href: "/services/overview-services" },
-            { label: "Engineering Solutions" },
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.ourServices },
+            { label: t.nav.overviewServices, href: "/services/overview-services" },
+            { label: t.nav.engineeringSolutions },
         ],
     };
-
-    const galleryEngineeringSolutions = [
-        {
-            src: "/images/our-services/engineering-solutions/engine-repair/01.webp",
-            alt: "Engine Repair & Maintenance Service",
-        },
-        {
-            src: "/images/our-services/engineering-solutions/engine-repair/02.webp",
-            alt: "Engine Repair & Maintenance Service",
-        },
-    ];
-
-    const galleryBoatUpgrades = [
-        {
-            src: "/images/our-services/engineering-solutions/boat-upgrades/01.webp",
-            alt: "Boat Upgrades Service",
-        },
-        {
-            src: "/images/our-services/engineering-solutions/boat-upgrades/02.webp",
-            alt: "Boat Upgrades Service",
-        },
-    ];
-
-    const galleryElectronicsSolar = [
-        {
-            src: "/images/our-services/engineering-solutions/electronics-solar/01.webp",
-            alt: "Electronics & Solar Service",
-        },
-        {
-            src: "/images/our-services/engineering-solutions/electronics-solar/02.webp",
-            alt: "Electronics & Solar Service",
-        },
-        {
-            src: "/images/our-services/engineering-solutions/electronics-solar/03.webp",
-            alt: "Electronics & Solar Service",
-        },
-    ];
-
-    const galleryStructureRepair = [
-        {
-            src: "/images/our-services/engineering-solutions/structure-repair/01.webp",
-            alt: "Structure Repair Service",
-        },
-        {
-            src: "/images/our-services/engineering-solutions/structure-repair/02.webp",
-            alt: "Structure Repair Service",
-        },
-    ];
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
@@ -103,15 +92,12 @@ export default function EngineeringSolutionsPage() {
                 <section className='section section--space-y'>
                     <div className='container'>
                         <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
-                            <div>Your Trusted Partner in </div>
-                            <div>After-Sales & Maintenance</div>
+                            {page.heading}
                         </h2>
                         <div className='mt-4 flex justify-end'>
                             <div className='w-full lg:w-9/12'>
                                 <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
-                                    At Passion Marine, our commitment doesn&apos;t end at delivery.
-                                    With Boat Solution, we ensure your boat stays in top
-                                    condition—safe, powerful, and ready for every journey.
+                                    {page.description}
                                 </p>
                             </div>
                         </div>
@@ -119,110 +105,60 @@ export default function EngineeringSolutionsPage() {
                 </section>
                 <section className='section section--space-bottom'>
                     <div className='container'>
-                        <div
-                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
-                            id='engine-repair-maintenance'>
-                            <div>
-                                <GallerySlider
-                                    className='gallery-engineering-solutions'
-                                    images={galleryEngineeringSolutions}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={3000}
-                                    loop={true}
-                                />
-                            </div>
-                            <div className='lg:px-4 xl:px-6'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Engine Maintenance, Repair and Overhaul
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Passion Marine provides comprehensive maintenance and repair
-                                    services for marine engines and related components, including
-                                    stern drive systems, power generators, steering systems, and
-                                    cooling systems. The company offers full-cycle maintenance
-                                    services, covering both routine and preventive maintenance.
-                                    Using computer-based diagnostic tools, Passion Marine can
-                                    accurately identify malfunctions down to the sensor level.
+                        {sections.map((section, index) => {
+                            const isEven = index % 2 === 0;
+                            const isLast = index === sections.length - 1;
+                            return (
+                                <div
+                                    key={section.id}
+                                    className={`${isLast ? "" : "mb-10 md:mb-16 lg:mb-6"} grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8`}
+                                    id={section.slug}>
+                                    {isEven ? (
+                                        <>
+                                            <div>
+                                                <GallerySlider
+                                                    className='gallery-engineering-solutions'
+                                                    images={section.gallery}
+                                                    showPagination={true}
+                                                    autoplay={true}
+                                                    autoplayDelay={3000}
+                                                    loop={true}
+                                                />
+                                            </div>
+                                            <div className='lg:px-4 xl:px-6'>
+                                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                                    {section.title}
+                                                </h3>
+                                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                                    {section.description}
+                                                </div>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
+                                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
+                                                    {section.title}
+                                                </h3>
+                                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
+                                                    {section.description}
+                                                </div>
+                                            </div>
+                                            <div className='order-1 lg:order-2'>
+                                                <GallerySlider
+                                                    className='gallery-engineering-solutions'
+                                                    images={section.gallery}
+                                                    showPagination={true}
+                                                    autoplay={true}
+                                                    autoplayDelay={5000}
+                                                    loop={true}
+                                                />
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
-                            </div>
-                        </div>
-                        <div
-                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
-                            id='boat-upgrades'>
-                            <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Electrical System Integration
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Passion Marine offers design, installation, and maintenance
-                                    services for marine electrical systems, including electrical
-                                    equipment, switch systems, and overcurrent protection fuses. The
-                                    company also provides inspection, repair, and replacement of
-                                    wiring systems that have deteriorated over time.
-                                </div>
-                            </div>
-                            <div className='order-1 lg:order-2'>
-                                <GallerySlider
-                                    className='gallery-engineering-solutions'
-                                    images={galleryBoatUpgrades}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={5000}
-                                    loop={true}
-                                />
-                            </div>
-                        </div>
-                        <div
-                            className='mb-10 grid grid-cols-1 items-center gap-8 md:mb-16 lg:mb-6 lg:grid-cols-2 lg:gap-8'
-                            id='electronics-solar'>
-                            <div>
-                                <GallerySlider
-                                    className='gallery-engineering-solutions'
-                                    images={galleryElectronicsSolar}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={3000}
-                                    loop={true}
-                                />
-                            </div>
-                            <div className='lg:px-4 xl:px-6'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Electronic Device
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Passion Marine designs and installs various electronic systems,
-                                    such as console instrument systems, audio systems, communication
-                                    radios, and navigation aids including GPS and multi-function
-                                    display (MFD) systems for monitoring and control.
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-8'
-                            id='structure-repair'>
-                            <div className='order-2 lg:order-1 lg:px-4 xl:px-6'>
-                                <h3 className='text-h3 lg:text-h4 mb-4 font-semibold text-[var(--blue-500)] md:mb-6'>
-                                    Fiberglass Structure Repair
-                                </h3>
-                                <div className='text-body md:text-lead-2 font-normal text-[var(--grey-600)]'>
-                                    Passion Marine provides repair and fabrication services for boat
-                                    structures, including hull skins and reinforcement structures
-                                    made from composite materials such as fiberglass and carbon
-                                    fiber.
-                                </div>
-                            </div>
-                            <div className='order-1 lg:order-2'>
-                                <GallerySlider
-                                    className='gallery-engineering-solutions'
-                                    images={galleryStructureRepair}
-                                    showPagination={true}
-                                    autoplay={true}
-                                    autoplayDelay={5000}
-                                    loop={true}
-                                />
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </section>
             </div>

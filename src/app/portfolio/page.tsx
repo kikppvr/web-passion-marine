@@ -1,32 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import Pagination from "@/components/ui/navigation/Pagination";
-import portfolioData from "@/data/portfolio-data.json";
-
-interface PortfolioData {
-    id: string;
-    title: string;
-    model: string;
-    image: string;
-    brandLogos: string[];
-    href: string;
-}
+import {
+    fetchRawPortfolios,
+    derivePortfolioItem,
+    DEFAULT_PORTFOLIOS,
+    type RawPortfolioItem,
+    type PortfolioItem,
+} from "@/lib/directus";
 
 export default function PortfolioPage() {
+    const { language } = useLanguage();
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
+    const [rawData, setRawData] = useState<RawPortfolioItem[] | null>(null);
+
+    const t = useTranslation();
 
     const bannerProps = {
-        title: "Portfolio",
+        title: t.pages.portfolio.title,
         backgroundImage: "/images/banner/portfolio.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Portfolio" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.pages.portfolio.title },
+        ],
     };
 
-    // Get portfolio data from JSON file
-    const portfolios: PortfolioData[] = portfolioData.portfolios;
+    useEffect(() => {
+        fetchRawPortfolios().then(setRawData);
+    }, []);
+
+    const portfolios: PortfolioItem[] = useMemo(
+        () => (rawData ? rawData.map(p => derivePortfolioItem(p, language)) : DEFAULT_PORTFOLIOS),
+        [rawData, language]
+    );
 
     const totalPages = Math.ceil(portfolios.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
