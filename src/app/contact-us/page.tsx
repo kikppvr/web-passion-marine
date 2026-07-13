@@ -61,15 +61,40 @@ export default function ContactUsPage() {
                                 <div className='contact-info__details'>
                                     <p className='contact-info__address'>{contactInfo.address}</p>
                                     <div className='contact-info__contact-methods'>
-                                        {contactInfo.phones.map((phone, i) => (
-                                            <p key={i} className='contact-info__contact-item'>
-                                                {phone.label}: {phone.number}
-                                            </p>
-                                        ))}
+                                        {contactInfo.phones.length > 0 && (
+                                            <div className='contact-info__contact-item'>
+                                                {contactInfo.phones[0]?.label && (
+                                                    <span className='contact-info__contact-label'>
+                                                        {contactInfo.phones[0].label}:
+                                                    </span>
+                                                )}
+                                                <div className='contact-info__phone-list'>
+                                                    {contactInfo.phones.map((phone, i) => (
+                                                        <a
+                                                            key={`phone-${i}`}
+                                                            href={`tel:${phone.number.replace(/\D/g, "")}`}
+                                                            className='contact-info__contact-link'>
+                                                            {phone.number}
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
                                         {contactInfo.emails.map((email, i) => (
-                                            <p key={i} className='contact-info__contact-item'>
-                                                {email.label}: {email.email}
-                                            </p>
+                                            <div
+                                                key={`email-${i}`}
+                                                className='contact-info__contact-item contact-info__contact-item--stacked'>
+                                                {email.label && (
+                                                    <span className='contact-info__contact-label'>
+                                                        {email.label}:
+                                                    </span>
+                                                )}
+                                                <a
+                                                    href={`mailto:${email.email}`}
+                                                    className='contact-info__contact-link'>
+                                                    {email.email}
+                                                </a>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
@@ -77,7 +102,7 @@ export default function ContactUsPage() {
                                     <SocialIcons
                                         showLabel={false}
                                         showIcons={{
-                                            facebook: false,
+                                            facebook: true,
                                             instagram: true,
                                             line: true,
                                             link: false,

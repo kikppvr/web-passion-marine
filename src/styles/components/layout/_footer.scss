@@ -139,13 +139,19 @@
         flex-wrap: wrap;
         gap: var(--space-1);
 
+        &--stacked {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+        }
+
         @include base.media-down(mobile) {
             // @include fonts.text-small;
         }
 
         .footer__contact-item-title {
-            @include fonts.text-small;
-            @include fonts.font-medium;
+            @include fonts.text-body;
+            @include fonts.font-bold;
             color: var(--text-white);
             min-width: 50px;
         }
@@ -154,7 +160,30 @@
             @include fonts.text-body;
             color: var(--text-white);
             text-decoration: none;
-            transition: all 0.3s ease-in-out;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                opacity: 0;
+                background-color: var(--text-white);
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover {
+                color: rgba(255, 255, 255, 0.85);
+
+                &::after {
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
 
             @include base.media-down(mobile) {
                 // @include fonts.text-small;
