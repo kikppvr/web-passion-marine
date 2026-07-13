@@ -86,10 +86,14 @@ const Footer = ({ className }: FooterProps) => {
                                 </div>
                             ))}
                             {contactInfo.emails.map((email, index) => (
-                                <div key={`email-${index}`} className='footer__contact-item'>
-                                    <div className='footer__contact-item-title'>
-                                        {email.label ? `${email.label}:` : ""}
-                                    </div>
+                                <div
+                                    key={`email-${index}`}
+                                    className='footer__contact-item footer__contact-item--stacked'>
+                                    {email.label && (
+                                        <div className='footer__contact-item-title'>
+                                            {email.label}:
+                                        </div>
+                                    )}
                                     <Link
                                         href={`mailto:${email.email}`}
                                         className='footer__contact-item-content'>
