@@ -62,7 +62,7 @@ export default function ContactUsPage() {
                                     <p className='contact-info__address'>{contactInfo.address}</p>
                                     <div className='contact-info__contact-methods'>
                                         {contactInfo.phones.length > 0 && (
-                                            <div className='contact-info__contact-item'>
+                                            <div className='contact-info__contact-item contact-info__contact-item--phone'>
                                                 {contactInfo.phones[0]?.label && (
                                                     <span className='contact-info__contact-label'>
                                                         {contactInfo.phones[0].label}:
