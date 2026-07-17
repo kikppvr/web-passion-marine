@@ -31,11 +31,13 @@ import {
     deriveNewsItem,
     type RawArticleItem,
 } from "@/lib/directus";
-//styles
+import { SwiperSectionSkeleton } from "@/components/ui/skeleton";
 import "@/styles/components/home/index.scss";
 
 // โหลดส่วนล่างของหน้าแบบ lazy — ลด initial bundle
-const sectionFallback = <div className='min-h-[280px] animate-pulse rounded-lg bg-white/5' />;
+const sectionFallback = (
+    <div className='skeleton-shimmer skeleton-shimmer--dark min-h-[280px] rounded-lg' aria-hidden='true' />
+);
 
 const SwiperSlider = dynamic(
     () => import("@/components/ui/media").then(m => ({ default: m.SwiperSlider })),
@@ -366,29 +368,37 @@ export default function HeaderPage() {
                             </div>
                         </div>
                         <div className='boat-solutions__swiper'>
-                            <SwiperSlider
-                                data={boatSolutionsData}
-                                cardComponent={BusinessCard}
-                                className='boat-solutions-swiper'
-                                autoplay={false}
-                                autoplayDelay={4000}
-                                showNavigation={true}
-                                showPagination={true}
-                                slidesPerView={{
-                                    mobile: 1.2,
-                                    tablet: 2.5,
-                                    laptop: 3.5,
-                                    desktop: 3.5,
-                                    large: 3.5,
-                                }}
-                                spaceBetween={{
-                                    mobile: 8,
-                                    tablet: 8,
-                                    laptop: 8,
-                                    desktop: 8,
-                                    large: 8,
-                                }}
-                            />
+                            {rawHomeServices === null ? (
+                                <SwiperSectionSkeleton
+                                    variant='business'
+                                    count={3}
+                                    layout='boat-solutions'
+                                />
+                            ) : (
+                                <SwiperSlider
+                                    data={boatSolutionsData}
+                                    cardComponent={BusinessCard}
+                                    className='boat-solutions-swiper'
+                                    autoplay={false}
+                                    autoplayDelay={4000}
+                                    showNavigation={true}
+                                    showPagination={true}
+                                    slidesPerView={{
+                                        mobile: 1.2,
+                                        tablet: 2.5,
+                                        laptop: 3.5,
+                                        desktop: 3.5,
+                                        large: 3.5,
+                                    }}
+                                    spaceBetween={{
+                                        mobile: 8,
+                                        tablet: 8,
+                                        laptop: 8,
+                                        desktop: 8,
+                                        large: 8,
+                                    }}
+                                />
+                            )}
                         </div>
                         <div className='boat-solutions__button boat-solutions__button--mobile'>
                             <PrimaryButton
@@ -632,29 +642,37 @@ export default function HeaderPage() {
                         {/* Right Side - Swiper */}
                         <div className='our-portfolio__right'>
                             <div className='our-portfolio__swiper'>
-                                <SwiperSlider
-                                    data={ourPortfolioData}
-                                    cardComponent={PortfolioCard}
-                                    className='our-portfolio-swiper'
-                                    autoplay={false}
-                                    autoplayDelay={4000}
-                                    showNavigation={true}
-                                    showPagination={true}
-                                    slidesPerView={{
-                                        mobile: 1.1,
-                                        tablet: 1.6,
-                                        laptop: 1.6,
-                                        desktop: 2.2,
-                                        large: 2.2,
-                                    }}
-                                    spaceBetween={{
-                                        mobile: 16,
-                                        tablet: 24,
-                                        laptop: 24,
-                                        desktop: 32,
-                                        large: 32,
-                                    }}
-                                />
+                                {rawPortfolioData === null ? (
+                                    <SwiperSectionSkeleton
+                                        variant='portfolio'
+                                        count={2}
+                                        layout='home-portfolio'
+                                    />
+                                ) : (
+                                    <SwiperSlider
+                                        data={ourPortfolioData}
+                                        cardComponent={PortfolioCard}
+                                        className='our-portfolio-swiper'
+                                        autoplay={false}
+                                        autoplayDelay={4000}
+                                        showNavigation={true}
+                                        showPagination={true}
+                                        slidesPerView={{
+                                            mobile: 1.1,
+                                            tablet: 1.6,
+                                            laptop: 1.6,
+                                            desktop: 2.2,
+                                            large: 2.2,
+                                        }}
+                                        spaceBetween={{
+                                            mobile: 16,
+                                            tablet: 24,
+                                            laptop: 24,
+                                            desktop: 32,
+                                            large: 32,
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>
@@ -679,29 +697,33 @@ export default function HeaderPage() {
                         </div>
                     </div>
                     <div className='our-latest-news__swiper'>
-                        <SwiperSlider
-                            data={ourLatestNewsData}
-                            cardComponent={NewsCard}
-                            className='our-latest-news-swiper'
-                            autoplay={false}
-                            autoplayDelay={4000}
-                            showNavigation={true}
-                            showPagination={true}
-                            slidesPerView={{
-                                mobile: 1,
-                                tablet: 2,
-                                laptop: 3,
-                                desktop: 3,
-                                large: 3,
-                            }}
-                            spaceBetween={{
-                                mobile: 16,
-                                tablet: 24,
-                                laptop: 24,
-                                desktop: 32,
-                                large: 32,
-                            }}
-                        />
+                        {rawArticles === null ? (
+                            <SwiperSectionSkeleton variant='news' count={3} layout='home-news' />
+                        ) : (
+                            <SwiperSlider
+                                data={ourLatestNewsData}
+                                cardComponent={NewsCard}
+                                className='our-latest-news-swiper'
+                                autoplay={false}
+                                autoplayDelay={4000}
+                                showNavigation={true}
+                                showPagination={true}
+                                slidesPerView={{
+                                    mobile: 1,
+                                    tablet: 2,
+                                    laptop: 3,
+                                    desktop: 3,
+                                    large: 3,
+                                }}
+                                spaceBetween={{
+                                    mobile: 16,
+                                    tablet: 24,
+                                    laptop: 24,
+                                    desktop: 32,
+                                    large: 32,
+                                }}
+                            />
+                        )}
                     </div>
                     <div className='our-latest-news__button our-latest-news__button--mobile'>
                         <PrimaryButton onClick={() => router.push("/news")}>{t.buttons.viewAll}</PrimaryButton>

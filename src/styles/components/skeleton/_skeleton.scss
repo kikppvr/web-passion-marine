@@ -1,0 +1,59 @@
+// ========================================
+// SKELETON SHIMMER - Facebook-style loading
+// ========================================
+
+@keyframes skeleton-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton-shimmer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        animation: skeleton-shimmer 1.4s ease-in-out infinite;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--skeleton-highlight) 50%,
+            transparent 100%
+        );
+    }
+
+    &--light {
+        background-color: var(--grey-200);
+        --skeleton-highlight: rgba(255, 255, 255, 0.65);
+    }
+
+    &--dark {
+        background-color: rgba(255, 255, 255, 0.08);
+        --skeleton-highlight: rgba(255, 255, 255, 0.18);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton-shimmer::after {
+        animation: none;
+        transform: none;
+        background: var(--skeleton-highlight);
+        opacity: 0.35;
+    }
+}
+
+.gallery-thumbnails__main,
+.gallery-thumbnails__thumbnail {
+    .skeleton-shimmer {
+        border-radius: inherit;
+    }
+}

@@ -1,0 +1,22 @@
+// Skeleton blocks inside ratio-based card/gallery containers
+.card-news__image-container,
+.card-portfolio__image-container,
+.card-business__image-container,
+.card-mission__image-container,
+.gallery-slider__image-container {
+    .card-skeleton__ratio-image,
+    .skeleton-shimmer.card-skeleton__ratio-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+}
+
+.card-mission__content-inner {
+    .skeleton-shimmer {
+        position: relative;
+        z-index: 1;
+    }
+}

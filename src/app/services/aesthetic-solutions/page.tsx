@@ -17,6 +17,7 @@ import {
     type RawPageData,
     type RawServiceItem,
 } from "@/lib/directus";
+import { PageIntroSkeleton, ServiceSectionSkeleton } from "@/components/ui/skeleton";
 
 export default function AestheticSolutionsPage() {
     const { language } = useLanguage();
@@ -97,16 +98,22 @@ export default function AestheticSolutionsPage() {
             <div className='engineering-solutions bg-blue-abstract'>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
-                            {page.heading}
-                        </h2>
-                        <div className='mt-4 flex justify-end'>
-                            <div className='w-full lg:w-9/12'>
-                                <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
-                                    {page.description}
-                                </p>
-                            </div>
-                        </div>
+                        {rawPage === null ? (
+                            <PageIntroSkeleton />
+                        ) : (
+                            <>
+                                <h2 className='text-h1 font-semibold uppercase text-[var(--blue-500)]'>
+                                    {page.heading}
+                                </h2>
+                                <div className='mt-4 flex justify-end'>
+                                    <div className='w-full lg:w-9/12'>
+                                        <p className='text-h5 text-left font-normal text-[var(--grey-600)]'>
+                                            {page.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
 
@@ -116,7 +123,10 @@ export default function AestheticSolutionsPage() {
             </div>
             <section className='section section--space-bottom'>
                 <div className='container'>
-                    {sections.map((section, index) => {
+                    {rawSections === null ? (
+                            <ServiceSectionSkeleton count={2} galleryClassName='gallery-esthetic-solutions' />
+                    ) : (
+                        sections.map((section, index) => {
                         const isEven = index % 2 === 0;
                         const isLast = index === sections.length - 1;
                         return (
@@ -169,7 +179,8 @@ export default function AestheticSolutionsPage() {
                                 )}
                             </div>
                         );
-                    })}
+                    })
+                    )}
                 </div>
             </section>
         </MainLayout>
