@@ -50,3 +50,10 @@
         opacity: 0.35;
     }
 }
+
+.gallery-thumbnails__main,
+.gallery-thumbnails__thumbnail {
+    .skeleton-shimmer {
+        border-radius: inherit;
+    }
+}

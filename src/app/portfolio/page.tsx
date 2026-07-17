@@ -57,7 +57,13 @@ export default function PortfolioPage() {
                 <section className='section section--space-y'>
                     <div className='container'>
                         {isLoading ? (
-                            <CardGridSkeleton count={9} variant='portfolio' className='portfolio__grid' />
+                            <CardGridSkeleton
+                                count={9}
+                                variant='portfolio'
+                                className='portfolio__grid'
+                                showPagination
+                                paginationClassName='portfolio__pagination'
+                            />
                         ) : (
                             <>
                                 <div className='portfolio__grid'>

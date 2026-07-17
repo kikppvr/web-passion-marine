@@ -369,7 +369,11 @@ export default function HeaderPage() {
                         </div>
                         <div className='boat-solutions__swiper'>
                             {rawHomeServices === null ? (
-                                <SwiperSectionSkeleton variant='business' count={3} />
+                                <SwiperSectionSkeleton
+                                    variant='business'
+                                    count={3}
+                                    layout='boat-solutions'
+                                />
                             ) : (
                                 <SwiperSlider
                                     data={boatSolutionsData}
@@ -639,7 +643,11 @@ export default function HeaderPage() {
                         <div className='our-portfolio__right'>
                             <div className='our-portfolio__swiper'>
                                 {rawPortfolioData === null ? (
-                                    <SwiperSectionSkeleton variant='portfolio' count={2} />
+                                    <SwiperSectionSkeleton
+                                        variant='portfolio'
+                                        count={2}
+                                        layout='home-portfolio'
+                                    />
                                 ) : (
                                     <SwiperSlider
                                         data={ourPortfolioData}
@@ -690,7 +698,7 @@ export default function HeaderPage() {
                     </div>
                     <div className='our-latest-news__swiper'>
                         {rawArticles === null ? (
-                            <SwiperSectionSkeleton variant='news' count={3} />
+                            <SwiperSectionSkeleton variant='news' count={3} layout='home-news' />
                         ) : (
                             <SwiperSlider
                                 data={ourLatestNewsData}

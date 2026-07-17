@@ -11,11 +11,18 @@ export function MissionCardGridSkeleton({ count = 4 }: MissionCardGridSkeletonPr
             aria-busy='true'
             aria-label='Loading'>
             {Array.from({ length: count }).map((_, index) => (
-                <div key={index} className='h-full w-full overflow-hidden rounded-lg'>
-                    <SkeletonBlock className='aspect-[3/4] w-full' />
-                    <div className='space-y-2 p-4'>
-                        <SkeletonBlock className='h-6 w-3/4' />
-                        <SkeletonBlock className='h-4 w-full' />
+                <div key={index} className='h-full w-full'>
+                    <div className='card-mission h-full' aria-hidden='true'>
+                        <div className='card-mission__image-container'>
+                            <SkeletonBlock tone='light' className='card-skeleton__ratio-image' />
+                        </div>
+                        <div className='card-mission__content'>
+                            <div className='card-mission__content-inner'>
+                                <SkeletonBlock tone='light' className='card-mission__title mb-3 h-6 w-3/4' />
+                                <SkeletonBlock tone='light' className='h-4 w-full' />
+                                <SkeletonBlock tone='light' className='mt-2 h-4 w-5/6' />
+                            </div>
+                        </div>
                     </div>
                 </div>
             ))}

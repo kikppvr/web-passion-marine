@@ -1,0 +1,112 @@
+@use "../../base/_base" as base;
+
+.detail-page-skeleton {
+    min-height: 60vh;
+    padding-bottom: 96px;
+
+    @include base.media-down(laptop) {
+        padding-bottom: 64px;
+    }
+
+    @include base.media-down(tablet) {
+        padding-bottom: 48px;
+    }
+
+    > section:first-child {
+        padding-top: 192px !important;
+
+        @include base.media-down(laptop) {
+            padding-top: 168px !important;
+        }
+
+        @include base.media-down(tablet) {
+            padding-top: 128px !important;
+        }
+
+        @include base.media-down(mobile) {
+            padding-top: 96px !important;
+        }
+    }
+
+    .detail-gallery-skeleton {
+        &__main-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .gallery-thumbnails__main-link {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-thumbnails__thumbnail {
+            position: relative;
+        }
+
+        &__thumb-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        &__overlay {
+            pointer-events: none;
+
+            .skeleton-shimmer {
+                margin: auto;
+            }
+        }
+    }
+
+    .news-detail__content,
+    .portfolio-content {
+        .detail-content-skeleton__paragraph {
+            margin-bottom: 1rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .portfolio-content {
+        .detail-content-skeleton__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                position: relative;
+                padding-left: 24px;
+                margin-bottom: 12px;
+
+                @include base.media-down(mobile) {
+                    padding-left: 20px;
+                    margin-bottom: 8px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0.55em;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: var(--grey-300);
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -57,7 +57,12 @@ export default function NewsPage() {
                 <section className='section section--space-y'>
                     <div className='container'>
                         {isLoading ? (
-                            <CardGridSkeleton count={9} variant='news' className='news__grid' />
+                            <CardGridSkeleton
+                                count={9}
+                                variant='news'
+                                className='news__grid'
+                                showPagination
+                            />
                         ) : (
                             <>
                                 <div className='news__grid'>

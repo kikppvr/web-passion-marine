@@ -20,7 +20,7 @@ import {
     type RawMissionCard,
     type RawMilestone,
 } from "@/lib/directus";
-import { MissionCardGridSkeleton, MilestoneListSkeleton } from "@/components/ui/skeleton";
+import { MissionCardGridSkeleton, MilestoneListSkeleton, AboutVisionMissionSkeleton } from "@/components/ui/skeleton";
 import "aos/dist/aos.css";
 
 export default function AboutUsPage() {
@@ -82,42 +82,48 @@ export default function AboutUsPage() {
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
-            <section className='section section--space-top'>
-                <div className='container'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-                        <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
-                            <h2 className='text-h3 text-[var(--blue-500)]'>{pageData.visionLabel}</h2>
+            {rawAbout === null ? (
+                <AboutVisionMissionSkeleton />
+            ) : (
+                <>
+                    <section className='section section--space-top'>
+                        <div className='container'>
+                            <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
+                                <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
+                                    <h2 className='text-h3 text-[var(--blue-500)]'>{pageData.visionLabel}</h2>
+                                </div>
+                                <div className='lg:col-span-9'>
+                                    <h3
+                                        className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'
+                                        data-aos='fade-up'
+                                        data-aos-delay='200'>
+                                        {pageData.visionHeading}
+                                    </h3>
+                                    <div
+                                        className='about-vision-body'
+                                        dangerouslySetInnerHTML={{ __html: pageData.visionBody }}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div className='lg:col-span-9'>
-                            <h3
-                                className='text-display-3 mb-4 text-[var(--blue-500)] md:mb-6 lg:mb-8'
-                                data-aos='fade-up'
-                                data-aos-delay='200'>
-                                {pageData.visionHeading}
-                            </h3>
-                            <div
-                                className='about-vision-body'
-                                dangerouslySetInnerHTML={{ __html: pageData.visionBody }}
-                            />
+                    </section>
+                    <section className='section section--space-top'>
+                        <div className='container'>
+                            <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
+                                <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
+                                    <h2 className='text-h3 text-[var(--blue-500)]'>{pageData.missionLabel}</h2>
+                                </div>
+                                <div className='lg:col-span-9'>
+                                    <div
+                                        className='about-mission-body'
+                                        dangerouslySetInnerHTML={{ __html: pageData.missionBody }}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section className='section section--space-top'>
-                <div className='container'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-                        <div className='lg:col-span-3' data-aos='fade-up' data-aos-delay='100'>
-                            <h2 className='text-h3 text-[var(--blue-500)]'>{pageData.missionLabel}</h2>
-                        </div>
-                        <div className='lg:col-span-9'>
-                            <div
-                                className='about-mission-body'
-                                dangerouslySetInnerHTML={{ __html: pageData.missionBody }}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+                </>
+            )}
             <section className='section-card-mission pb-[96px] pt-[40px]'>
                 <div className='container'>
                     {rawMissions === null ? (

@@ -124,7 +124,7 @@ export default function AestheticSolutionsPage() {
             <section className='section section--space-bottom'>
                 <div className='container'>
                     {rawSections === null ? (
-                        <ServiceSectionSkeleton count={2} />
+                            <ServiceSectionSkeleton count={2} galleryClassName='gallery-esthetic-solutions' />
                     ) : (
                         sections.map((section, index) => {
                         const isEven = index % 2 === 0;

@@ -11,11 +11,11 @@ export function StatsGridSkeleton({ count = 5 }: StatsGridSkeletonProps) {
             aria-busy='true'
             aria-label='Loading'>
             {Array.from({ length: count }).map((_, index) => (
-                <div key={index} className='col-span-1 rounded-20 bg-white p-6 shadow-port-card'>
-                    <div className='space-y-3'>
-                        <SkeletonBlock tone='light' className='h-10 w-1/2' />
-                        <SkeletonBlock tone='light' className='h-6 w-3/4' />
-                        <SkeletonBlock tone='light' className='h-4 w-full' />
+                <div key={index} className='col-span-1'>
+                    <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
+                        <SkeletonBlock tone='light' className='text-h2 mx-auto mb-2 h-10 w-1/2 md:mx-0' />
+                        <SkeletonBlock tone='light' className='text-h6 mx-auto mb-1 h-6 w-3/4 md:mx-0' />
+                        <SkeletonBlock tone='light' className='text-body mx-auto h-4 w-full md:mx-0' />
                     </div>
                 </div>
             ))}

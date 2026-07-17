@@ -11,11 +11,16 @@ export function FeatureGridSkeleton({ count = 4 }: FeatureGridSkeletonProps) {
             aria-busy='true'
             aria-label='Loading'>
             {Array.from({ length: count }).map((_, index) => (
-                <div key={index} className='col-span-1 flex flex-col items-center gap-3 md:items-start'>
-                    <SkeletonBlock className='h-[50px] w-[50px] rounded-full' />
-                    <SkeletonBlock className='h-6 w-2/3' />
-                    <SkeletonBlock className='h-4 w-full' />
-                    <SkeletonBlock className='h-4 w-4/5' />
+                <div key={index} className='col-span-1'>
+                    <div className='flex flex-col gap-3'>
+                        <SkeletonBlock
+                            tone='light'
+                            className='mx-auto mb-2 h-[50px] w-[50px] min-h-[50px] rounded-full md:mx-0'
+                        />
+                        <SkeletonBlock tone='light' className='text-h5 mx-auto h-6 w-2/3 md:mx-0' />
+                        <SkeletonBlock tone='light' className='text-body mx-auto h-4 w-full md:mx-0' />
+                        <SkeletonBlock tone='light' className='text-body mx-auto h-4 w-4/5 md:mx-0' />
+                    </div>
                 </div>
             ))}
         </div>

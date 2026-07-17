@@ -45,7 +45,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
     if (rawArticle === undefined || !resolvedId) {
         return (
             <MainLayout headerTheme='white'>
-                <DetailPageSkeleton />
+                <DetailPageSkeleton variant='news' />
             </MainLayout>
         );
     }

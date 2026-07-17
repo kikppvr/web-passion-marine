@@ -49,7 +49,7 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
     if (isLoading) {
         return (
             <MainLayout headerTheme='white'>
-                <DetailPageSkeleton />
+                <DetailPageSkeleton variant='portfolio' />
             </MainLayout>
         );
     }

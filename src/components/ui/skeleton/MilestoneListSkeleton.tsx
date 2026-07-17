@@ -6,15 +6,15 @@ interface MilestoneListSkeletonProps {
 
 export function MilestoneListSkeleton({ count = 4 }: MilestoneListSkeletonProps) {
     return (
-        <div className='space-y-8' aria-busy='true' aria-label='Loading'>
+        <>
             {Array.from({ length: count }).map((_, index) => (
-                <div key={index} className='space-y-2 border-b border-white/10 pb-6'>
-                    <SkeletonBlock className='h-8 w-24' />
-                    <SkeletonBlock className='h-5 w-1/3' />
-                    <SkeletonBlock className='h-4 w-full' />
-                    <SkeletonBlock className='h-4 w-4/5' />
+                <div key={index} className='milestone__item' aria-hidden='true'>
+                    <SkeletonBlock tone='light' className='milestone__title mb-6 h-10 w-28' />
+                    <SkeletonBlock tone='light' className='milestone__subtitle mb-4 h-5 w-48 max-w-full' />
+                    <SkeletonBlock tone='light' className='milestone__description mb-2 h-4 w-full' />
+                    <SkeletonBlock tone='light' className='milestone__description h-4 w-4/5' />
                 </div>
             ))}
-        </div>
+        </>
     );
 }
