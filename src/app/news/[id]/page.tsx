@@ -14,6 +14,7 @@ import {
     type RawArticleItem,
     type NewsDetailItem,
 } from "@/lib/directus";
+import { DetailPageSkeleton } from "@/components/ui/skeleton";
 
 const LightGallery = dynamic(
     () => import("@/components/ui/media").then(mod => ({ default: mod.LightGallery })),
@@ -41,12 +42,20 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
 
     const t = useTranslation();
 
-    if (rawArticle === undefined) {
-        return <div>{t.common.loading}</div>;
+    if (rawArticle === undefined || !resolvedId) {
+        return (
+            <MainLayout headerTheme='white'>
+                <DetailPageSkeleton />
+            </MainLayout>
+        );
     }
 
     if (!newsDetail) {
-        return <div>{t.pages.news.notFound}</div>;
+        return (
+            <MainLayout headerTheme='white'>
+                <div className='container py-16 text-center'>{t.pages.news.notFound}</div>
+            </MainLayout>
+        );
     }
 
     return (

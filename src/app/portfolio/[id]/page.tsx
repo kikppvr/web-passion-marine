@@ -12,6 +12,7 @@ import { SwiperSlider } from "@/components/ui/media";
 import { SwiperSlideData } from "@/components/ui/media/SwiperSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n";
+import { DetailPageSkeleton } from "@/components/ui/skeleton";
 import {
     fetchRawPortfolios,
     derivePortfolioDetail,
@@ -43,8 +44,24 @@ export default function PortfolioDetailPage({ params }: { params: Promise<{ id: 
 
     const t = useTranslation();
 
+    const isLoading = !resolvedParams || rawData === null;
+
+    if (isLoading) {
+        return (
+            <MainLayout headerTheme='white'>
+                <DetailPageSkeleton />
+            </MainLayout>
+        );
+    }
+
     if (!portfolioDetailData) {
-        return <div>{t.common.loading}</div>;
+        return (
+            <MainLayout headerTheme='white'>
+                <div className='container py-16 text-center'>
+                    {language === "th" ? "ไม่พบผลงาน" : "Portfolio not found"}
+                </div>
+            </MainLayout>
+        );
     }
 
     return (

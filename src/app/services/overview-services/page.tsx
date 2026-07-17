@@ -22,6 +22,11 @@ import {
     type RawServicesPageStat,
     type RawServicesPageFeature,
 } from "@/lib/directus";
+import {
+    PageIntroSkeleton,
+    StatsGridSkeleton,
+    FeatureGridSkeleton,
+} from "@/components/ui/skeleton";
 import "aos/dist/aos.css";
 
 export default function OverviewServicesPage() {
@@ -72,32 +77,41 @@ export default function OverviewServicesPage() {
             <div className='overview-services bg-blue-abstract'>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h2
-                            className='text-h1 font-semibold uppercase text-[var(--blue-500)]'
-                            data-aos='fade-up'
-                            data-aos-delay='200'
-                            data-aos-duration='800'
-                            data-aos-easing='ease-out-cubic'>
-                            {page.heading}
-                        </h2>
-                        <div className='mt-4 flex justify-end'>
-                            <div className='w-full lg:w-9/12'>
-                                <p
-                                    className='text-h5 text-left font-normal text-[var(--grey-600)]'
+                        {rawPage === null ? (
+                            <PageIntroSkeleton />
+                        ) : (
+                            <>
+                                <h2
+                                    className='text-h1 font-semibold uppercase text-[var(--blue-500)]'
                                     data-aos='fade-up'
-                                    data-aos-delay='400'
+                                    data-aos-delay='200'
                                     data-aos-duration='800'
                                     data-aos-easing='ease-out-cubic'>
-                                    {page.description}
-                                </p>
-                            </div>
-                        </div>
+                                    {page.heading}
+                                </h2>
+                                <div className='mt-4 flex justify-end'>
+                                    <div className='w-full lg:w-9/12'>
+                                        <p
+                                            className='text-h5 text-left font-normal text-[var(--grey-600)]'
+                                            data-aos='fade-up'
+                                            data-aos-delay='400'
+                                            data-aos-duration='800'
+                                            data-aos-easing='ease-out-cubic'>
+                                            {page.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
                 <section className='our-achievements'>
                     <div className='container'>
-                        <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
-                            {stats.map((stat, index) => (
+                        {rawStats === null ? (
+                            <StatsGridSkeleton count={5} />
+                        ) : (
+                            <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
+                                {stats.map((stat, index) => (
                                 <div
                                     key={stat.id}
                                     className='col-span-1'
@@ -118,7 +132,8 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                            </div>
+                        )}
                     </div>
                 </section>
                 <section className='section section--space-top'>
@@ -131,8 +146,11 @@ export default function OverviewServicesPage() {
                             data-aos-easing='ease-out-cubic'>
                             {t.pages.overviewServices.comprehensiveServices}
                         </h2>
-                        <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
-                            {features.map((feature, index) => (
+                        {rawFeatures === null ? (
+                            <FeatureGridSkeleton count={4} />
+                        ) : (
+                            <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
+                                {features.map((feature, index) => (
                                 <div
                                     key={feature.id}
                                     className='col-span-1'
@@ -160,7 +178,8 @@ export default function OverviewServicesPage() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                            </div>
+                        )}
                     </div>
                 </section>
                 <section className='section section--space-y'>

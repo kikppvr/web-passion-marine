@@ -63,6 +63,7 @@
 
 // Import Animation Styles
 @use "animation/_transitions" as transitions;
+@use "components/skeleton/_skeleton" as skeleton;
 
 // Import Page Styles
 @use "page/about-us" as about-us;

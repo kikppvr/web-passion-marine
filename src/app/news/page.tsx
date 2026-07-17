@@ -7,10 +7,10 @@ import { NewsCard } from "@/components/ui/cards";
 import Pagination from "@/components/ui/navigation/Pagination";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n";
+import { CardGridSkeleton } from "@/components/ui/skeleton";
 import {
     fetchRawArticles,
     deriveNewsItem,
-    DEFAULT_NEWS,
     type RawArticleItem,
     type NewsItem,
 } from "@/lib/directus";
@@ -37,9 +37,11 @@ export default function NewsPage() {
     }, []);
 
     const news: NewsItem[] = useMemo(
-        () => (rawArticles ? rawArticles.map(item => deriveNewsItem(item, language)) : DEFAULT_NEWS),
+        () => (rawArticles ? rawArticles.map(item => deriveNewsItem(item, language)) : []),
         [rawArticles, language]
     );
+
+    const isLoading = rawArticles === null;
 
     const totalPages = Math.ceil(news.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -54,27 +56,33 @@ export default function NewsPage() {
             <div className='news'>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='news__grid'>
-                            {currentNews.map(item => (
-                                <NewsCard
-                                    key={item.id}
-                                    title={item.title}
-                                    description={item.description}
-                                    image={item.image}
-                                    date={item.date}
-                                    category={item.category}
-                                    href={item.href}
-                                    variant='default'
-                                />
-                            ))}
-                        </div>
-                        <div className='news__pagination'>
-                            <Pagination
-                                currentPage={currentPage}
-                                totalPages={totalPages}
-                                onPageChange={handlePageChange}
-                            />
-                        </div>
+                        {isLoading ? (
+                            <CardGridSkeleton count={9} variant='news' className='news__grid' />
+                        ) : (
+                            <>
+                                <div className='news__grid'>
+                                    {currentNews.map(item => (
+                                        <NewsCard
+                                            key={item.id}
+                                            title={item.title}
+                                            description={item.description}
+                                            image={item.image}
+                                            date={item.date}
+                                            category={item.category}
+                                            href={item.href}
+                                            variant='default'
+                                        />
+                                    ))}
+                                </div>
+                                <div className='news__pagination'>
+                                    <Pagination
+                                        currentPage={currentPage}
+                                        totalPages={totalPages}
+                                        onPageChange={handlePageChange}
+                                    />
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
             </div>
