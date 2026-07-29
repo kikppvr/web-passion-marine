@@ -16,6 +16,24 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
+                hostname: "cms-dev.passionmarine.co.th",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "cms-stg.passionmarine.co.th",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "cms.passionmarine.co.th",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
                 hostname: "dev.passionmarine.co.th",
                 port: "",
                 pathname: "/**",

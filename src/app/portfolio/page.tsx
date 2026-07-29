@@ -1,32 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import { PortfolioCard } from "@/components/ui/cards/PortfolioCard";
 import Pagination from "@/components/ui/navigation/Pagination";
-import portfolioData from "@/data/portfolio-data.json";
-
-interface PortfolioData {
-    id: string;
-    title: string;
-    model: string;
-    image: string;
-    brandLogos: string[];
-    href: string;
-}
+import { CardGridSkeleton } from "@/components/ui/skeleton";
+import {
+    fetchRawPortfolios,
+    derivePortfolioItem,
+    type RawPortfolioItem,
+    type PortfolioItem,
+} from "@/lib/directus";
 
 export default function PortfolioPage() {
+    const { language } = useLanguage();
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
+    const [rawData, setRawData] = useState<RawPortfolioItem[] | null>(null);
+
+    const t = useTranslation();
 
     const bannerProps = {
-        title: "Portfolio",
+        title: t.pages.portfolio.title,
         backgroundImage: "/images/banner/portfolio.webp",
-        breadcrumbItems: [{ label: "Homepage", href: "/" }, { label: "Portfolio" }],
+        breadcrumbItems: [
+            { label: t.common.homepage, href: "/" },
+            { label: t.pages.portfolio.title },
+        ],
     };
 
-    // Get portfolio data from JSON file
-    const portfolios: PortfolioData[] = portfolioData.portfolios;
+    useEffect(() => {
+        fetchRawPortfolios().then(setRawData);
+    }, []);
+
+    const portfolios: PortfolioItem[] = useMemo(
+        () => (rawData ? rawData.map(p => derivePortfolioItem(p, language)) : []),
+        [rawData, language]
+    );
+
+    const isLoading = rawData === null;
 
     const totalPages = Math.ceil(portfolios.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -42,25 +56,37 @@ export default function PortfolioPage() {
             <div className='portfolio'>
                 <section className='section section--space-y'>
                     <div className='container'>
-                        <div className='portfolio__grid'>
-                            {currentPortfolios.map(portfolio => (
-                                <PortfolioCard
-                                    key={portfolio.id}
-                                    title={portfolio.title}
-                                    model={portfolio.model}
-                                    image={portfolio.image}
-                                    brandLogos={portfolio.brandLogos}
-                                    href={portfolio.href}
-                                />
-                            ))}
-                        </div>
-                        <div className='portfolio__pagination'>
-                            <Pagination
-                                currentPage={currentPage}
-                                totalPages={totalPages}
-                                onPageChange={handlePageChange}
+                        {isLoading ? (
+                            <CardGridSkeleton
+                                count={9}
+                                variant='portfolio'
+                                className='portfolio__grid'
+                                showPagination
+                                paginationClassName='portfolio__pagination'
                             />
-                        </div>
+                        ) : (
+                            <>
+                                <div className='portfolio__grid'>
+                                    {currentPortfolios.map(portfolio => (
+                                        <PortfolioCard
+                                            key={portfolio.id}
+                                            title={portfolio.title}
+                                            model={portfolio.model}
+                                            image={portfolio.image}
+                                            brandLogos={portfolio.brandLogos}
+                                            href={portfolio.href}
+                                        />
+                                    ))}
+                                </div>
+                                <div className='portfolio__pagination'>
+                                    <Pagination
+                                        currentPage={currentPage}
+                                        totalPages={totalPages}
+                                        onPageChange={handlePageChange}
+                                    />
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
             </div>

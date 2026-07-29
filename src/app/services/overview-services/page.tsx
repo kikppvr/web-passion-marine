@@ -1,156 +1,139 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import MainLayout from "@/components/ui/layout/MainLayout";
 import "@/styles/page/overview-services.scss";
-import Image from "next/image";
 import { ServiceCard } from "@/components/ui/cards";
 import { useRouter } from "next/navigation";
 import { useAOS } from "@/hooks/useAOS";
-//styles
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n";
+import {
+    fetchRawServicesPage,
+    fetchRawServicesPageStats,
+    fetchRawServicesPageFeatures,
+    derivePageData,
+    deriveServicesPageStats,
+    deriveServicesPageFeatures,
+    DEFAULT_PAGE_DATA,
+    DEFAULT_SERVICES_PAGE_STATS,
+    DEFAULT_SERVICES_PAGE_FEATURES,
+    type RawPageData,
+    type RawServicesPageStat,
+    type RawServicesPageFeature,
+} from "@/lib/directus";
+import {
+    PageIntroSkeleton,
+    StatsGridSkeleton,
+    FeatureGridSkeleton,
+} from "@/components/ui/skeleton";
 import "aos/dist/aos.css";
 
 export default function OverviewServicesPage() {
     const router = useRouter();
+    const { language } = useLanguage();
+    useAOS();
+
+    const [rawPage, setRawPage] = useState<RawPageData | null>(null);
+    const [rawStats, setRawStats] = useState<RawServicesPageStat[] | null>(null);
+    const [rawFeatures, setRawFeatures] = useState<RawServicesPageFeature[] | null>(null);
+
+    const [page, setPage] = useState(DEFAULT_PAGE_DATA);
+    const [stats, setStats] = useState(DEFAULT_SERVICES_PAGE_STATS);
+    const [features, setFeatures] = useState(DEFAULT_SERVICES_PAGE_FEATURES);
+
+    useEffect(() => {
+        fetchRawServicesPage().then(setRawPage);
+        fetchRawServicesPageStats().then(setRawStats);
+        fetchRawServicesPageFeatures().then(setRawFeatures);
+    }, []);
+
+    useEffect(() => {
+        if (rawPage) setPage(derivePageData(rawPage, language));
+    }, [rawPage, language]);
+
+    useEffect(() => {
+        if (rawStats) setStats(deriveServicesPageStats(rawStats, language));
+    }, [rawStats, language]);
+
+    useEffect(() => {
+        if (rawFeatures) setFeatures(deriveServicesPageFeatures(rawFeatures, language));
+    }, [rawFeatures, language]);
+
+    const t = useTranslation();
 
     const bannerProps = {
-        title: "Overview Services",
+        title: t.pages.overviewServices.title,
         backgroundImage: "/images/banner/overview-services.webp",
         breadcrumbItems: [
-            { label: "Homepage", href: "/" },
-            { label: "Our Services" },
-            { label: "Overview Services" },
+            { label: t.common.homepage, href: "/" },
+            { label: t.nav.ourServices },
+            { label: t.nav.overviewServices },
         ],
     };
-
-    // Initialize AOS
-    useAOS();
 
     return (
         <MainLayout bannerType='large' bannerProps={bannerProps}>
             <div className='overview-services bg-blue-abstract'>
                 <section className='section section--space-top'>
                     <div className='container'>
-                        <h2
-                            className='text-h1 font-semibold uppercase text-[var(--blue-500)]'
-                            data-aos='fade-up'
-                            data-aos-delay='200'
-                            data-aos-duration='800'
-                            data-aos-easing='ease-out-cubic'>
-                            <div>Redefining Your Boating </div>
-                            <div>Experience with Passion Marine</div>
-                        </h2>
-                        <div className='mt-4 flex justify-end'>
-                            <div className='w-full lg:w-9/12'>
-                                <p
-                                    className='text-h5 text-left font-normal text-[var(--grey-600)]'
+                        {rawPage === null ? (
+                            <PageIntroSkeleton />
+                        ) : (
+                            <>
+                                <h2
+                                    className='text-h1 font-semibold uppercase text-[var(--blue-500)]'
                                     data-aos='fade-up'
-                                    data-aos-delay='400'
+                                    data-aos-delay='200'
                                     data-aos-duration='800'
                                     data-aos-easing='ease-out-cubic'>
-                                    At Passion Marine, we combine aerospace-level engineering with a
-                                    deep love for marine exploration. Founded by a team of aerospace
-                                    engineers who are passionate about boats, our mission is to
-                                    craft high-performance vessels tailored to your lifestyle.
-                                </p>
-                            </div>
-                        </div>
+                                    {page.heading}
+                                </h2>
+                                <div className='mt-4 flex justify-end'>
+                                    <div className='w-full lg:w-9/12'>
+                                        <p
+                                            className='text-h5 text-left font-normal text-[var(--grey-600)]'
+                                            data-aos='fade-up'
+                                            data-aos-delay='400'
+                                            data-aos-duration='800'
+                                            data-aos-easing='ease-out-cubic'>
+                                            {page.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
                 <section className='our-achievements'>
                     <div className='container'>
-                        <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='600'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
-                                    <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
-                                        98%
-                                    </div>
-                                    <div className='text-h6 mb-1 font-semibold text-[var(--grey-600)]'>
-                                        Customer Satisfaction
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        rate from post-delivery surveys.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='700'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
-                                    <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
-                                        120+
-                                    </div>
-                                    <div className='text-h6 mb-1 font-semibold text-[var(--grey-600)]'>
-                                        Customized Boats
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        delivered across Southeast Asia.
+                        {rawStats === null ? (
+                            <StatsGridSkeleton count={5} />
+                        ) : (
+                            <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5'>
+                                {stats.map((stat, index) => (
+                                <div
+                                    key={stat.id}
+                                    className='col-span-1'
+                                    data-aos='fade-up'
+                                    data-aos-delay={String(600 + index * 100)}
+                                    data-aos-duration='700'
+                                    data-aos-easing='ease-out-cubic'>
+                                    <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
+                                        <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
+                                            {stat.value}
+                                        </div>
+                                        <div className='text-h6 mb-1 font-semibold text-[var(--grey-600)]'>
+                                            {stat.title}
+                                        </div>
+                                        <div className='text-body font-normal text-[var(--grey-600)]'>
+                                            {stat.description}
+                                        </div>
                                     </div>
                                 </div>
+                            ))}
                             </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='800'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
-                                    <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
-                                        15+
-                                    </div>
-                                    <div className='text-h6 mb-1 font-semibold text-[var(--grey-600)]'>
-                                        Years of Engineering Experience
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        among core founders.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='900'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
-                                    <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
-                                        3x
-                                    </div>
-                                    <div className='text-h6 font-semibold text-[var(--grey-600)]'>
-                                        More Efficient
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        fuel consumption compared to average boats in the same
-                                        class.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='1000'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='h-full rounded-20 bg-white p-6 text-center shadow-port-card md:text-left'>
-                                    <div className='text-h2 mb-2 font-semibold text-[var(--blue-500)]'>
-                                        24/7
-                                    </div>
-                                    <div className='text-h6 font-semibold text-[var(--grey-600)]'>
-                                        Technical Support
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        for all clients.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </section>
                 <section className='section section--space-top'>
@@ -161,100 +144,42 @@ export default function OverviewServicesPage() {
                             data-aos-delay='200'
                             data-aos-duration='800'
                             data-aos-easing='ease-out-cubic'>
-                            Comprehensive Services
+                            {t.pages.overviewServices.comprehensiveServices}
                         </h2>
-                        <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='300'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='flex flex-col gap-3'>
-                                    <Image
-                                        src='/images/our-services/overview-services/comprehensive-01.svg'
-                                        alt='Custom Boat Design'
-                                        width={50}
-                                        height={50}
-                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
-                                    />
-                                    <div className='text-h5 font-semibold text-[var(--blue-500)]'>
-                                        Custom Boat Design
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        Personalize your color, seating, flooring, and equipment.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='400'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='flex flex-col gap-3'>
-                                    <Image
-                                        src='/images/our-services/overview-services/comprehensive-02.svg'
-                                        alt='High-Performance Builds'
-                                        width={50}
-                                        height={50}
-                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
-                                    />
-                                    <div className='text-h5 font-semibold text-[var(--blue-500)]'>
-                                        High-Performance Builds
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        Engineered for speed, safety, and durability using
-                                        aerospace-grade materials.
+                        {rawFeatures === null ? (
+                            <FeatureGridSkeleton count={4} />
+                        ) : (
+                            <div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:text-left lg:grid-cols-4'>
+                                {features.map((feature, index) => (
+                                <div
+                                    key={feature.id}
+                                    className='col-span-1'
+                                    data-aos='fade-up'
+                                    data-aos-delay={String(300 + index * 100)}
+                                    data-aos-duration='700'
+                                    data-aos-easing='ease-out-cubic'>
+                                    <div className='flex flex-col gap-3'>
+                                        {feature.iconUrl && (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img
+                                                src={feature.iconUrl}
+                                                alt={feature.title}
+                                                width={50}
+                                                height={50}
+                                                className='mx-auto mb-2 min-h-[50px] md:mx-0'
+                                            />
+                                        )}
+                                        <div className='text-h5 font-semibold text-[var(--blue-500)]'>
+                                            {feature.title}
+                                        </div>
+                                        <div className='text-body font-normal text-[var(--grey-600)]'>
+                                            {feature.description}
+                                        </div>
                                     </div>
                                 </div>
+                            ))}
                             </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='500'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='flex flex-col gap-3'>
-                                    <Image
-                                        src='/images/our-services/overview-services/comprehensive-03.svg'
-                                        alt='Marine Technology Integration'
-                                        width={50}
-                                        height={50}
-                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
-                                    />
-                                    <div className='text-h5 font-semibold text-[var(--blue-500)]'>
-                                        Marine Technology Integration
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        GPS, sonar, smart controls, and navigation systems designed
-                                        for seamless operation.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className='col-span-1'
-                                data-aos='fade-up'
-                                data-aos-delay='600'
-                                data-aos-duration='700'
-                                data-aos-easing='ease-out-cubic'>
-                                <div className='flex flex-col gap-3'>
-                                    <Image
-                                        src='/images/our-services/overview-services/comprehensive-04.svg'
-                                        alt='After-sales Service & Maintenance'
-                                        width={50}
-                                        height={50}
-                                        className='mx-auto mb-2 min-h-[50px] md:mx-0'
-                                    />
-                                    <div className='text-h5 font-semibold text-[var(--blue-500)]'>
-                                        After-sales Service & Maintenance
-                                    </div>
-                                    <div className='text-body font-normal text-[var(--grey-600)]'>
-                                        End-to-end care for long-term performance and reliability.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </section>
                 <section className='section section--space-y'>
@@ -266,8 +191,8 @@ export default function OverviewServicesPage() {
                                 data-aos-duration='800'
                                 data-aos-easing='ease-out-cubic'>
                                 <ServiceCard
-                                    title='Engineering Solutions'
-                                    description='Your Trusted Partner in After-Sales & Maintenance'
+                                    title={t.pages.overviewServices.engineering.title}
+                                    description={t.pages.overviewServices.engineering.description}
                                     imageSrc='/images/our-services/overview-services/engineering-solutions.webp'
                                     imageAlt='Engineering Solutions'
                                     icon={<i className='ph ph-arrow-up-right'></i>}
@@ -282,8 +207,8 @@ export default function OverviewServicesPage() {
                                 data-aos-duration='800'
                                 data-aos-easing='ease-out-cubic'>
                                 <ServiceCard
-                                    title='Aesthetic Solutions'
-                                    description="Elevate Your Boat's Style and Comfort"
+                                    title={t.pages.overviewServices.aesthetic.title}
+                                    description={t.pages.overviewServices.aesthetic.description}
                                     imageSrc='/images/our-services/overview-services/aesthetic-solutions.webp'
                                     imageAlt='Aesthetic Solutions'
                                     icon={<i className='ph ph-arrow-up-right'></i>}

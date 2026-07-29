@@ -16,6 +16,9 @@ export * from "./navigation";
 // Card Components
 export * from "./cards";
 
+// Skeleton Components
+export * from "./skeleton";
+
 // Social Components
 export { default as SocialIcons } from "./social/SocialIcons";
 

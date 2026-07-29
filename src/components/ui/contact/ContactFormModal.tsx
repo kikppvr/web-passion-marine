@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { BookNowButton } from "@/components/ui/button/BookNowButton";
+import { useTranslation } from "@/i18n";
 
 interface ContactFormModalProps {
     open: boolean;
@@ -20,6 +21,7 @@ export default function ContactFormModal({
     message,
     errorDetails,
 }: ContactFormModalProps) {
+    const t = useTranslation();
     const isSuccess = type === "success";
     const isLoading = type === "loading";
 
@@ -80,7 +82,7 @@ export default function ContactFormModal({
                                         window.location.reload();
                                     }
                                 }}>
-                                {isSuccess ? "Close" : "Try Again"}
+                                {isSuccess ? t.contactForm.modal.close : t.contactForm.modal.tryAgain}
                             </BookNowButton>
                         </div>
                     )}
